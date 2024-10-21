@@ -1,9 +1,9 @@
 package com.vti.entity;
 
 import com.vti.repository.ExamRepository;
+import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 
-import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 

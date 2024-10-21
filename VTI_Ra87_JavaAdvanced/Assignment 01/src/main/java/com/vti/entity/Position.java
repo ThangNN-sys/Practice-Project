@@ -2,8 +2,8 @@ package com.vti.entity;
 
 import com.vti.entity.enumerate.PositionName;
 import com.vti.entity.enumerate.PositionNameConvert;
+import jakarta.persistence.*;
 
-import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity

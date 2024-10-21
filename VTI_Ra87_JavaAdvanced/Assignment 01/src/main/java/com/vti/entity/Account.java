@@ -1,14 +1,14 @@
 package com.vti.entity;
 
+import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.Formula;
 
-import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-@Table(name = "`Account`", catalog = "testingsystem")
+@Table(name = "`Account`")
 public class Account implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -16,19 +16,19 @@ public class Account implements Serializable {
 	@Column(name = "AccountID")
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private short id;
+	private Integer id; // Maps to TINYINT UNSIGNED AUTO_INCREMENT
 
 	@Column(name = "Email", length = 50, nullable = false, unique = true, updatable = false)
-	private String email;
+	private String email; // Maps to VARCHAR(50) NOT NULL UNIQUE
 
 	@Column(name = "Username", length = 50, nullable = false, unique = true, updatable = false)
-	private String username;
+	private String username; // Maps to VARCHAR(50) NOT NULL UNIQUE
 
 	@Column(name = "FirstName", length = 50, nullable = false)
-	private String firstName;
+	private String firstName; // Maps to NVARCHAR(50)
 
 	@Column(name = "LastName", length = 50, nullable = false)
-	private String lastName;
+	private String lastName; // Maps to NVARCHAR(50)
 
 	@Formula(" concat(FirstName, ' ', LastName) ")
 	private String fullName;
@@ -41,11 +41,11 @@ public class Account implements Serializable {
 	public Account() {
 	}
 
-	public short getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(short id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -105,7 +105,6 @@ public class Account implements Serializable {
 				", username='" + username + '\'' +
 				", firstName='" + firstName + '\'' +
 				", lastName='" + lastName + '\'' +
-				", fullName='" + fullName + '\'' +
 				", createDate=" + createDate +
 				'}';
 	}

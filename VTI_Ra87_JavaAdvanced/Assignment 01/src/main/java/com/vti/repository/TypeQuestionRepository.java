@@ -1,29 +1,29 @@
 package com.vti.repository;
 
-import java.util.List;
-
+import com.vti.entity.Department;
+import com.vti.entity.TypeQuestion;
+import com.vti.utils.HibernateUtils;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
-import com.vti.entity.Department;
-import com.vti.utils.HibernateUtils;
+import java.util.List;
 
-public class DepartmentRepository {
+public class TypeQuestionRepository {
 
 	private HibernateUtils hibernateUtils;
 
-	public DepartmentRepository() {
+	public TypeQuestionRepository() {
 		hibernateUtils = HibernateUtils.getInstance();
 	}
 
-	// method để tạo mới 1 đối tượng vào bảng Department
-	public void createDepartment(Department department) {
+	// method để tạo mới 1 đối tượng vào bảng TypeQuestion
+	public void createTypeQuestion(TypeQuestion typeQuestion) {
 		Session session = null;
 		try {
 			// get session
 			session = hibernateUtils.openSession();
 			// create
-			session.save(department);
+			session.save(typeQuestion);
 		} finally {
 			if (session != null) {
 				session.close();

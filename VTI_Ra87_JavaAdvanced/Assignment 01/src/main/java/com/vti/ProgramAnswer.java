@@ -1,21 +1,21 @@
 package com.vti;
 
+import com.vti.entity.Answer;
+import com.vti.repository.AnswerRepository;
+
 import java.util.List;
 
-import com.vti.entity.Department;
-import com.vti.repository.DepartmentRepository;
-
-public class Program {
+public class ProgramAnswer {
 	public static void main(String[] args) {
-//		DepartmentRepository repository = new DepartmentRepository();
+		AnswerRepository repository = new AnswerRepository();
 
-//		System.out.println("***********GET ALL DEPARTMENTS***********");
-//
-//		List<Department> departments = repository.getAllDepartments();
-//
-//		for (Department department : departments) {
-//			System.out.println(department);
-//		}
+		System.out.println("***********GET ALL ANSWERS***********");
+
+		List<Answer> answers = repository.getAllAnswers();
+
+		for (Answer answer : answers) {
+			System.out.println(answer);
+		}
 
 //		System.out.println("\n\n***********GET DEPARTMENT BY ID***********");
 //

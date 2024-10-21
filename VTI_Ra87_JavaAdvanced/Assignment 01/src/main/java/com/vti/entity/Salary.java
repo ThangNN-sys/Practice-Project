@@ -2,8 +2,8 @@ package com.vti.entity;
 
 import com.vti.entity.enumerate.SalaryName;
 import com.vti.entity.enumerate.SalaryNameConvert;
+import jakarta.persistence.*;
 
-import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
