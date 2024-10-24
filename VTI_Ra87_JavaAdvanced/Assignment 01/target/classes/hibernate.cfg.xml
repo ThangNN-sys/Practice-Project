@@ -18,7 +18,6 @@
 
 		<!-- other -->
 		<property name="hibernate.connection.characterEncoding">utf8</property>
-
 	</session-factory>
 </hibernate-configuration>
 

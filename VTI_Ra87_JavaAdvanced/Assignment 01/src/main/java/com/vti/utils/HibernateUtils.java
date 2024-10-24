@@ -1,13 +1,11 @@
 package com.vti.utils;
 
-import com.vti.entity.Group;
+import com.vti.entity.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
-
-import com.vti.entity.Department;
 
 public class HibernateUtils {
 
@@ -34,9 +32,17 @@ public class HibernateUtils {
 		// khởi tạo configuration và tải configuration với nguồn từ file hibernate.cfg.xml
 		configuration = new Configuration();
 		configuration.configure("hibernate.cfg.xml");
-		// add entity
+		// add entity, phải thực hiện với toàn bộ các class
+		configuration.addAnnotatedClass(Account.class);
+		configuration.addAnnotatedClass(Answer.class);
+		configuration.addAnnotatedClass(CategoryQuestion.class);
 		configuration.addAnnotatedClass(Department.class);
+		configuration.addAnnotatedClass(Exam.class);
 		configuration.addAnnotatedClass(Group.class);
+		configuration.addAnnotatedClass(Position.class);
+		configuration.addAnnotatedClass(Question.class);
+		configuration.addAnnotatedClass(Salary.class);
+		configuration.addAnnotatedClass(TypeQuestion.class);
 	}
 
 	// phương thức buildSessionFactory

@@ -1,5 +1,6 @@
 package com.vti.repository;
 
+import com.vti.entity.Account;
 import com.vti.entity.Answer;
 import com.vti.entity.Department;
 import com.vti.utils.HibernateUtils;
@@ -16,7 +17,7 @@ public class AnswerRepository {
 		hibernateUtils = HibernateUtils.getInstance();
 	}
 
-	// method để tạo mới 1 đối tượng vào bảng Answer
+// 1 - Method để tạo mới 1 đối tượng vào bảng Answer
 	public void createAnswer(Answer answer) {
 		Session session = null;
 		try {
@@ -31,7 +32,7 @@ public class AnswerRepository {
 		}
 	}
 
-	// method để lấy thông tin toàn bộ đối tượng thuộc bảng Answer
+// 2 - Method để lấy thông tin toàn bộ đối tượng thuộc bảng Answer
 	public List<Answer> getAllAnswers() {
 		Session session = null;
 		try {
@@ -47,7 +48,7 @@ public class AnswerRepository {
 		}
 	}
 
-	// method để lấy thông tin đối tượng thuộc bảng Answer theo ID
+// 3 - Method để lấy thông tin đối tượng thuộc bảng Answer theo ID
 	public Answer getAnswerByID(short id) {
 		Session session = null;
 		try {
@@ -62,5 +63,41 @@ public class AnswerRepository {
 			}
 		}
 	}
-
+// 4 - Method để update thông tin đối tượng thuộc bảng Answer - Cách 1
+	public void updateAnswer(short id, String content, Boolean isCorrect) {
+		Session session = null;
+		try {
+			// get session
+			session = hibernateUtils.openSession();
+			session.beginTransaction();
+			// get answer
+			Answer answer = (Answer) session.load(Answer.class, id);
+			// update
+			answer.setContent(content);
+			answer.setCorrect(isCorrect);
+			session.getTransaction().commit();
+		} finally {
+			if (session != null) {
+				session.close();
+			}
+		}
+	}
+// 5 - Method để delete thông tin đối tượng thuộc bảng Answer, tìm theo ID
+	public void deleteAnswer(short id) {
+		Session session = null;
+		try {
+			// get session
+			session = hibernateUtils.openSession();
+			session.beginTransaction();
+			// get Answer
+			Answer answer = (Answer) session.load(Answer.class, id);
+			// delete
+			session.delete(answer);
+			session.getTransaction().commit();
+		} finally {
+			if (session != null) {
+				session.close();
+			}
+		}
+	}
 }

@@ -16,7 +16,7 @@ public class Account implements Serializable {
 	@Column(name = "AccountID")
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id; // Maps to TINYINT UNSIGNED AUTO_INCREMENT
+	private short id; // Maps to TINYINT UNSIGNED AUTO_INCREMENT
 
 	@Column(name = "Email", length = 50, nullable = false, unique = true, updatable = false)
 	private String email; // Maps to VARCHAR(50) NOT NULL UNIQUE
@@ -41,11 +41,11 @@ public class Account implements Serializable {
 	public Account() {
 	}
 
-	public Integer getId() {
+	public short getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(short id) {
 		this.id = id;
 	}
 

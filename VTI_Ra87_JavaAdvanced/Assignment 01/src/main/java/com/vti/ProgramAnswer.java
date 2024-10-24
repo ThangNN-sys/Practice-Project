@@ -9,33 +9,29 @@ public class ProgramAnswer {
 	public static void main(String[] args) {
 		AnswerRepository repository = new AnswerRepository();
 
-		System.out.println("***********GET ALL ANSWERS***********");
+//		System.out.println("***********GET ALL ANSWERS***********");
+//
+//		List<Answer> answers = repository.getAllAnswers();
+//
+//		for (Answer answer : answers) {
+//			System.out.println(answer);
+//		}
 
-		List<Answer> answers = repository.getAllAnswers();
-
-		for (Answer answer : answers) {
-			System.out.println(answer);
-		}
-
-//		System.out.println("\n\n***********GET DEPARTMENT BY ID***********");
+//		System.out.println("\n\n***********GET ANSWER BY ID***********");
 //
-//		Department departmentById = repository.getDepartmentByID((short) 3);
-//		System.out.println(departmentById);
+//		Answer answerById = repository.getAnswerByID((short) 3);
+//		System.out.println(answerById);
 //
-//		System.out.println("\n\n***********GET DEPARTMENT BY NAME***********");
+//		System.out.println("\n\n***********CREATE ANSWER***********");
 //
-//		Department departmentByName = repository.getDepartmentByName("Sale");
-//		System.out.println(departmentByName);
+//		Answer answerCreate = new Answer();
+//		answerCreate.setContent("Câu hỏi new 001");
+//		answerCreate.setCorrect(true);
+//		repository.createAnswer(answerCreate);
 //
-//		System.out.println("\n\n***********CREATE DEPARTMENT***********");
+//		System.out.println("\n\n***********UPDATE ANSWER 1***********");
 //
-//		Department departmentCreate = new Department();
-//		departmentCreate.setName("Marketing");
-//		repository.createDepartment(departmentCreate);
-//
-//		System.out.println("\n\n***********UPDATE DEPARTMENT 1***********");
-//
-//		repository.updateDepartment((short) 3, "Security2");
+//		repository.updateAnswer((short) 3, "Trả lời new 001", true);
 //
 //		System.out.println("\n\n***********UPDATE DEPARTMENT 2***********");
 //
@@ -44,14 +40,8 @@ public class ProgramAnswer {
 //		departmentUpdate.setName("Security2");
 //		repository.updateDepartment(departmentUpdate);
 //
-//		System.out.println("\n\n***********DELETE DEPARTMENTS***********");
-//		repository.deleteDepartment((short) 2);
-//
-//		System.out.println("***********CHECK DEPARTMENT EXISTS BY ID***********");
-//		System.out.println(repository.isDepartmentExistsByID((short) 1));
-//
-//		System.out.println("***********CHECK DEPARTMENT EXISTS BY NAME***********");
-//		System.out.println(repository.isDepartmentExistsByName("Security"));
+//		System.out.println("\n\n***********DELETE ANSWER***********");
+//		repository.deleteAnswer((short) 2);
 
 	}
 }
