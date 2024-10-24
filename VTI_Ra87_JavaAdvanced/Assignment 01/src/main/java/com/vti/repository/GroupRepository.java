@@ -118,7 +118,7 @@ public class GroupRepository {
 		}
 	}
 
-	// method để delete thông tin đối tượng thuộc bảng Department, tìm theo ID
+	// method để delete thông tin đối tượng thuộc bảng Group, tìm theo ID
 	public void deleteGroup(short id) {
 		Session session = null;
 		try {
@@ -148,7 +148,7 @@ public class GroupRepository {
 		return true;
 	}
 
-	// method để kiểm tra và lấy thông tin đối tượng thuộc bảng Department, tìm theo Name
+	// method để kiểm tra và lấy thông tin đối tượng thuộc bảng Group, tìm theo Name
 	public boolean isGroupExistsByName(String name) {
 		Group group = getGroupByName(name);
 		if (group == null) {
