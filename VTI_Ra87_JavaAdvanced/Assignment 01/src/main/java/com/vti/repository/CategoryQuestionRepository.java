@@ -1,7 +1,6 @@
 package com.vti.repository;
 
 import com.vti.entity.CategoryQuestion;
-import com.vti.entity.Department;
 import com.vti.utils.HibernateUtils;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
@@ -95,7 +94,7 @@ public class CategoryQuestionRepository {
 			// get department
 			CategoryQuestion categoryQuestion = (CategoryQuestion) session.load(CategoryQuestion.class, id);
 			// update
-			categoryQuestion.setCategoryName(newName);
+			categoryQuestion.setName(newName);
 			session.getTransaction().commit();
 		} finally {
 			if (session != null) {

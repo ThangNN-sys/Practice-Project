@@ -46,7 +46,7 @@ public class GroupRepository {
 		}
 	}
 
-	// method để lấy thông tin toàn đối tượng thuộc bảng Group theo ID
+	// method để lấy thông tin đối tượng thuộc bảng Group theo ID
 	public Group getGroupByID(short id) {
 		Session session = null;
 		try {

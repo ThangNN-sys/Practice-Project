@@ -4,9 +4,9 @@ import java.util.List;
 
 import com.vti.entity.Department;
 import com.vti.repository.DepartmentRepository;
-import com.vti.utils.ScannerUltis;
+import com.vti.utils.ScannerUtils;
 
-public class ProgramDepartment {
+public class DepartmentProgram {
 	public static void main(String[] args) {
 		DepartmentRepository repository = new DepartmentRepository();
 
@@ -25,14 +25,14 @@ public class ProgramDepartment {
 		System.out.format(leftAlignFormat, "9. EXIT");
 		System.out.format("+------------------------------------------------+%n");
 
-		int choose = ScannerUltis.inputInt();
+		int choose = ScannerUtils.getIntegerInput();
 
 		switch (choose) {
 			case 1:
 				System.out.println("\n***********CREATE NEW DEPARTMENT***********");
 				Department departmentCreate = new Department();
 				System.out.println("\nPLEASE ENTER DEPARTMENT NAME:");
-				String departmentName = ScannerUltis.inputString();
+				String departmentName = ScannerUtils.getStringInput();
 				departmentCreate.setName(departmentName);
 				repository.createDepartment(departmentCreate);
 				break;
@@ -45,22 +45,22 @@ public class ProgramDepartment {
 				break;
 			case 3:
 				System.out.println("\n***********GET DEPARTMENT BY ID***********");
-				short id = (short) ScannerUltis.inputId();
+				short id = (short) ScannerUtils.getPosIntegerInput();
 				Department departmentById = repository.getDepartmentByID(id);
 				System.out.println(departmentById);
 				break;
 			case 4:
 				System.out.println("\n***********GET DEPARTMENT BY NAME***********");
-				String departmentName1 = ScannerUltis.inputString();
+				String departmentName1 = ScannerUtils.getStringInput();
 				Department departmentByName = repository.getDepartmentByName(departmentName1);
 				System.out.println(departmentByName);
 				break;
 			case 5:
 				System.out.println("\n***********UPDATE DEPARTMENT 1***********");
 				System.out.println("\nPLEASE ENTER ID:");
-				short id5 = (short) ScannerUltis.inputId();
+				short id5 = (short) ScannerUtils.getPosIntegerInput();
 				System.out.println("\nPLEASE ENTER DEPARTMENT NAME:");
-				String departmentName5 = ScannerUltis.inputString();
+				String departmentName5 = ScannerUtils.getStringInput();
 				repository.updateDepartment(id5, departmentName5);
 //				System.out.println("\n\n***********UPDATE DEPARTMENT 2***********");
 //				Department departmentUpdate = new Department();
@@ -71,17 +71,17 @@ public class ProgramDepartment {
 			case 6:
 				System.out.println("\n***********DELETE DEPARTMENT BY ID***********");
 				System.out.println("\nPLEASE ENTER ID:");
-				short id6 = (short) ScannerUltis.inputId();
+				short id6 = (short) ScannerUtils.getPosIntegerInput();
 				repository.deleteDepartment(id6);
 				break;
 			case 7:
 				System.out.println("\n***********CHECK DEPARTMENT EXISTS BY ID***********");
-				short id7 = (short) ScannerUltis.inputId();
+				short id7 = (short) ScannerUtils.getPosIntegerInput();
 				System.out.println(repository.isDepartmentExistsByID(id7));
 				break;
 			case 8:
 				System.out.println("\n***********CHECK DEPARTMENT EXISTS BY NAME***********");
-				String departmentName8 = ScannerUltis.inputString();
+				String departmentName8 = ScannerUtils.getStringInput();
 				System.out.println(repository.isDepartmentExistsByName(departmentName8));
 				break;
 			case 9: // WORK

@@ -17,7 +17,7 @@ public class CategoryQuestion implements Serializable {
 	private short id;
 
 	@Column(name = "CategoryName", length = 50, nullable = false, unique = true, updatable = false)
-	private String categoryName;
+	private String name;
 
 	public CategoryQuestion() {
 	}
@@ -30,19 +30,19 @@ public class CategoryQuestion implements Serializable {
 		this.id = id;
 	}
 
-	public String getCategoryName() {
-		return categoryName;
+	public String getName() {
+		return name;
 	}
 
-	public void setCategoryName(String categoryName) {
-		this.categoryName = categoryName;
+	public void setName(String categoryName) {
+		this.name = categoryName;
 	}
 
 	@Override
 	public String toString() {
 		return "CategoryQuestion{" +
 				"id=" + id +
-				", categoryName='" + categoryName + '\'' +
+				", categoryName='" + name + '\'' +
 				'}';
 	}
 }
