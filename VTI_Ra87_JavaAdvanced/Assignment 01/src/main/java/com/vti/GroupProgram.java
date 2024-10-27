@@ -46,7 +46,7 @@ public class GroupProgram {
 			case 3:
 				System.out.println("\n***********GET GROUP BY ID***********");
 				System.out.println("\nPLEASE ENTER ID:");
-				short id3 = (short) ScannerUtils.getPosIntegerInput();
+				short id3 = (short) ScannerUtils.getPositiveIntInput();
 				Group groupById = repository.getGroupByID(id3);
 				System.out.println(groupById);
 				break;
@@ -60,7 +60,7 @@ public class GroupProgram {
 			case 5:
 				System.out.println("\n\n***********UPDATE GROUP 1***********");
 				System.out.println("\nPLEASE ENTER ID:");
-				short id5 = (short) ScannerUtils.getPosIntegerInput();
+				short id5 = (short) ScannerUtils.getPositiveIntInput();
 				System.out.println("\nPLEASE ENTER GROUPNAME:");
 				String groupName5 = ScannerUtils.getStringInput();
 				repository.updateGroup(id5, groupName5);
@@ -73,13 +73,13 @@ public class GroupProgram {
 			case 6:
 				System.out.println("\n***********DELETE GROUP BY ID***********");
 				System.out.println("\nPLEASE ENTER ID:");
-				short id6 = (short) ScannerUtils.getPosIntegerInput();
+				short id6 = (short) ScannerUtils.getPositiveIntInput();
 				repository.deleteGroup(id6);
 				break;
 			case 7:
 				System.out.println("\n***********CHECK GROUP EXISTS BY ID***********");
 				System.out.println("\nPLEASE ENTER ID:");
-				short id7 = (short) ScannerUtils.getPosIntegerInput();
+				short id7 = (short) ScannerUtils.getPositiveIntInput();
 				System.out.println(repository.isGroupExistsByID(id7));
 				Group groupById7 = repository.getGroupByID(id7);
 				System.out.println(groupById7);

@@ -45,7 +45,7 @@ public class AccountProgram {
 				repository.createAccount(accountCreate);
 				break;
 			case 2: // WORK
-				System.out.println("***********GET ALL ACCOUNTS***********");
+				System.out.println("\n***********GET ALL ACCOUNTS***********");
 				List<Account> accounts = repository.getAllAccounts();
 				for (Account account : accounts) {
 					System.out.println(account);
@@ -54,7 +54,7 @@ public class AccountProgram {
 			case 3: // WORK
 				System.out.println("\n***********GET ACCOUNT BY ID***********");
 				System.out.println("\nPLEASE ENTER ID:");
-				short id = (short) ScannerUtils.getPosIntegerInput();
+				short id = (short) ScannerUtils.getPositiveIntInput();
 				Account accountById = repository.getAccountByID(id);
 				System.out.println(accountById);
 				break;
@@ -66,23 +66,23 @@ public class AccountProgram {
 				System.out.println(accountByUserName);
 				break;
 			case 5: // Lỗi khi nhiều account trùng First name
-				System.out.println("\n\n***********GET ACCOUNT BY FIRSTNAME***********");
+				System.out.println("\n***********GET ACCOUNT BY FIRSTNAME***********");
 				System.out.println("\nPLEASE ENTER FIRSTNAME:");
 				String firstName1 = ScannerUtils.getStringInput();
 				Account accountByFirstName = repository.getAccountByFirstName(firstName1);
 				System.out.println(accountByFirstName);
 				break;
 			case 6: // Lỗi khi nhiều account trùng Last name
-				System.out.println("\n\n***********GET ACCOUNT BY LASTNAME***********");
+				System.out.println("\n***********GET ACCOUNT BY LASTNAME***********");
 				System.out.println("\nPLEASE ENTER LASTNAME:");
 				String lastName1 = ScannerUtils.getStringInput();
 				Account accountByLastName = repository.getAccountByLastName(lastName1);
 				System.out.println(accountByLastName);
 				break;
 			case 7: // WORK
-				System.out.println("\n\n***********UPDATE ACCOUNT 1***********");
+				System.out.println("\n***********UPDATE ACCOUNT 1***********");
 				System.out.println("\nPLEASE ENTER ID:");
-				short id2 = (short) ScannerUtils.getPosIntegerInput();
+				short id2 = (short) ScannerUtils.getPositiveIntInput();
 				System.out.println("\nPLEASE ENTER FIRSTNAME:");
 				String firstName2 = ScannerUtils.getStringInput();
 				System.out.println("\nPLEASE ENTER LASTNAME:");
@@ -96,9 +96,9 @@ public class AccountProgram {
 		//		repository.updateAccount(updateAccount);
 				break;
 			case 8: // WORK
-				System.out.println("\n\n***********DELETE ACCOUNT***********");
+				System.out.println("\n***********DELETE ACCOUNT***********");
 				System.out.println("\nPLEASE ENTER ID:");
-				short id8 = (short) ScannerUtils.getPosIntegerInput();
+				short id8 = (short) ScannerUtils.getPositiveIntInput();
 				repository.deleteAccount(id8);
 				break;
 			case 9: // WORK
@@ -107,21 +107,5 @@ public class AccountProgram {
 			default:
 				System.out.println("INVALID SELECTION, PLEASE SELECT AGAIN!");
 		}
-//
-
-//
-//
-//
-
-//
-
-//
-//
-//
-
-//
-//
-//
-
 	}
 }

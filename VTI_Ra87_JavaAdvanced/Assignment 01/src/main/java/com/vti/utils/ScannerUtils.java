@@ -9,7 +9,6 @@ public class ScannerUtils {
 	public static short getShortInput() {
 		Scanner scanner = new Scanner(System.in);
 		short result;
-
 		while (true) {
 			if (scanner.hasNextShort()) {
 				result = scanner.nextShort();
@@ -20,6 +19,28 @@ public class ScannerUtils {
 			}
 		}
 
+		return result;
+	}
+
+	// Phương thức kiểm tra giá trị được nhập có phải là kiểu short >0 không
+
+	public static short getPositiveShortInput() {
+		Scanner scanner = new Scanner(System.in);
+		short result;
+
+		while (true) {
+			if (scanner.hasNextShort()) {
+				result = scanner.nextShort();
+				if (result > 0) {
+					break;  // Thoát khỏi vòng lặp nếu là số dương
+				} else {
+					System.out.println("Vui lòng nhập một số kiểu short > 0.");
+				}
+			} else {
+				System.out.println("Vui lòng nhập một số kiểu short > 0 hợp lệ.");
+				scanner.nextShort(); // Xóa bỏ giá trị không hợp lệ khỏi bộ đệm
+			}
+		}
 		return result;
 	}
 
@@ -43,7 +64,7 @@ public class ScannerUtils {
 
 	// Phương thức kiểm tra giá trị được nhập có phải là kiểu số nguyên dương không
 
-	public static int getPosIntegerInput() {
+	public static int getPositiveIntInput() {
 		Scanner scanner = new Scanner(System.in);
 		int result;
 
@@ -56,7 +77,7 @@ public class ScannerUtils {
 					System.out.println("Vui lòng nhập một số nguyên dương.");
 				}
 			} else {
-				System.out.println("Vui lòng nhập một số nguyên hợp lệ.");
+				System.out.println("Vui lòng nhập một số nguyên dương hợp lệ.");
 				scanner.next(); // Xóa bỏ giá trị không hợp lệ khỏi bộ đệm
 			}
 		}
@@ -129,7 +150,7 @@ public class ScannerUtils {
 			if (email.contains("@")) {
 				break;  // Thoát khỏi vòng lặp nếu chuỗi có chứa '@'
 			} else {
-				System.out.println("Vui lòng nhập địa chỉ email đúng định dạng (có ký tự '@').");
+				System.out.println("Vui lòng nhập địa chỉ email đúng định dạng *@*.");
 			}
 		}
 		return email;

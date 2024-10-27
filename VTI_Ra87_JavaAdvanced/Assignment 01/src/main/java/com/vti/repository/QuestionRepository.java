@@ -1,6 +1,5 @@
 package com.vti.repository;
 
-import com.vti.entity.Department;
 import com.vti.entity.Question;
 import com.vti.utils.HibernateUtils;
 import org.hibernate.Session;
@@ -63,16 +62,16 @@ public class QuestionRepository {
 		}
 	}
 
-	// method để lấy thông tin toàn đối tượng thuộc bảng Question theo Name
-	public Question getQuestionByName(String name) {
+	// method để lấy thông tin toàn đối tượng thuộc bảng Question theo Content
+	public Question getQuestionByContet(String content) {
 		Session session = null;
 		try {
 			// get session
 			session = hibernateUtils.openSession();
 			// create hql query
-			Query<Question> query = session.createQuery("FROM Question WHERE name = :nameParameter");
+			Query<Question> query = session.createQuery("FROM Question WHERE content = :nameParameter");
 			// set parameter
-			query.setParameter("nameParameter", name);
+			query.setParameter("nameParameter", content);
 			// get result
 			Question question = query.uniqueResult();
 			return question;

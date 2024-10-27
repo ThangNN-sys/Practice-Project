@@ -31,14 +31,14 @@ public class TypeQuestionRepository {
 		}
 	}
 
-	// method để lấy thông tin toàn bộ đối tượng thuộc bảng Department
-	public List<Department> getAllDepartments() {
+	// method để lấy thông tin toàn bộ đối tượng thuộc bảng TypeQuestion
+	public List<TypeQuestion> getAllTypeQuestion() {
 		Session session = null;
 		try {
 			// get session
 			session = hibernateUtils.openSession();
 			// create hql query
-			Query<Department> query = session.createQuery("FROM Department");
+			Query<TypeQuestion> query = session.createQuery("FROM TypeQuestion");
 			return query.list();
 		} finally {
 			if (session != null) {
@@ -47,15 +47,15 @@ public class TypeQuestionRepository {
 		}
 	}
 
-	// method để lấy thông tin đối tượng thuộc bảng Department theo ID
-	public Department getDepartmentByID(short id) {
+	// method để lấy thông tin đối tượng thuộc bảng TypeQuestion theo ID
+	public TypeQuestion getTypeQuestionById(short id) {
 		Session session = null;
 		try {
 			// get session
 			session = hibernateUtils.openSession();
-			// get department by id
-			Department department = session.get(Department.class, id);
-			return department;
+			// get TypeQuestion by id
+			TypeQuestion typeQuestion = session.get(TypeQuestion.class, id);
+			return typeQuestion;
 		} finally {
 			if (session != null) {
 				session.close();
@@ -63,19 +63,19 @@ public class TypeQuestionRepository {
 		}
 	}
 
-	// method để lấy thông tin toàn đối tượng thuộc bảng Department theo Name
-	public Department getDepartmentByName(String name) {
+	// method để lấy thông tin đối tượng thuộc bảng TypeQuestion theo Name
+	public TypeQuestion getTypeQuestionByName(String name) {
 		Session session = null;
 		try {
 			// get session
 			session = hibernateUtils.openSession();
 			// create hql query
-			Query<Department> query = session.createQuery("FROM Department WHERE name = :nameParameter");
+			Query<TypeQuestion> query = session.createQuery("FROM TypeQuestion WHERE typeName = :nameParameter");
 			// set parameter
 			query.setParameter("nameParameter", name);
 			// get result
-			Department department = query.uniqueResult();
-			return department;
+			TypeQuestion typeQuestion = query.uniqueResult();
+			return typeQuestion;
 		} finally {
 			if (session != null) {
 				session.close();
@@ -83,17 +83,17 @@ public class TypeQuestionRepository {
 		}
 	}
 
-	// method để update thông tin đối tượng thuộc bảng Department - Cách 1
-	public void updateDepartment(short id, String newName) {
+	// method để update thông tin đối tượng thuộc bảng TypeQuestion - Cách 1
+	public void updateTypeQuestion(short id, String newName) {
 		Session session = null;
 		try {
 			// get session
 			session = hibernateUtils.openSession();
 			session.beginTransaction();
-			// get department
-			Department department = (Department) session.load(Department.class, id);
+			// get typeQuestion
+			TypeQuestion typeQuestion = (TypeQuestion) session.load(TypeQuestion.class, id);
 			// update
-			department.setName(newName);
+			typeQuestion.setTypeName(newName);
 			session.getTransaction().commit();
 		} finally {
 			if (session != null) {
@@ -102,34 +102,17 @@ public class TypeQuestionRepository {
 		}
 	}
 
-	// method để update thông tin đối tượng thuộc bảng Department - Cách 2
-	public void updateDepartment(Department department) {
+	// method để delete thông tin đối tượng thuộc bảng typeQuestion, tìm theo ID
+	public void deleteTypeQuestion(short id) {
 		Session session = null;
 		try {
 			// get session
 			session = hibernateUtils.openSession();
 			session.beginTransaction();
-			// update
-			session.update(department);
-			session.getTransaction().commit();
-		} finally {
-			if (session != null) {
-				session.close();
-			}
-		}
-	}
-
-	// method để delete thông tin đối tượng thuộc bảng Department, tìm theo ID
-	public void deleteDepartment(short id) {
-		Session session = null;
-		try {
-			// get session
-			session = hibernateUtils.openSession();
-			session.beginTransaction();
-			// get department
-			Department department = (Department) session.load(Department.class, id);
+			// get typeQuestion
+			TypeQuestion typeQuestion = (TypeQuestion) session.load(TypeQuestion.class, id);
 			// delete
-			session.delete(department);
+			session.delete(typeQuestion);
 			session.getTransaction().commit();
 		} finally {
 			if (session != null) {
@@ -137,25 +120,4 @@ public class TypeQuestionRepository {
 			}
 		}
 	}
-
-	// method để kiểm tra và lấy thông tin đối tượng thuộc bảng Department, tìm theo ID
-	public boolean isDepartmentExistsByID(short id) {
-		// get department
-		Department department = getDepartmentByID(id);
-		// return result
-		if (department == null) {
-			return false;
-		}
-		return true;
-	}
-
-	// method để kiểm tra và lấy thông tin đối tượng thuộc bảng Department, tìm theo Name
-	public boolean isDepartmentExistsByName(String name) {
-		Department department = getDepartmentByName(name);
-		if (department == null) {
-			return false;
-		}
-		return true;
-	}
-
 }

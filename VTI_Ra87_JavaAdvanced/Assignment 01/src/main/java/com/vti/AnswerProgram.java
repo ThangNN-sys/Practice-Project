@@ -43,16 +43,16 @@ public class AnswerProgram {
 				}
 				break;
 			case 3: // WORK
-				System.out.println("\n\n***********GET ANSWER BY ID***********");
+				System.out.println("\n***********GET ANSWER BY ID***********");
 				System.out.println("\nPLEASE ENTER ID:");
-				short id = ScannerUtils.getShortInput();
+				short id = ScannerUtils.getPositiveShortInput();
 				Answer answerById = repository.getAnswerByID(id);
 				System.out.println(answerById);
 				break;
 			case 4: // WORK
-				System.out.println("\n\n***********UPDATE ANSWER BY ID 1***********");
+				System.out.println("\n***********UPDATE ANSWER BY ID 1***********");
 				System.out.println("\nPLEASE ENTER ID:");
-				short id4 = (short) ScannerUtils.getPosIntegerInput();
+				short id4 = (short) ScannerUtils.getPositiveIntInput();
 				System.out.println("\nPLEASE ENTER CONTENT:");
 				String content4 = ScannerUtils.getStringInput();
 				System.out.println("\nPLEASE ENTER IS CORRECT:");
@@ -60,9 +60,9 @@ public class AnswerProgram {
 				repository.updateAnswer(id4, content4, correct4);
 				break;
 			case 5: // WORK
-				System.out.println("\n\n***********DELETE ANSWER BY ID***********");
+				System.out.println("\n***********DELETE ANSWER BY ID***********");
 				System.out.println("\nPLEASE ENTER ID:");
-				short id5 = (short) ScannerUtils.getPosIntegerInput();
+				short id5 = (short) ScannerUtils.getPositiveIntInput();
 				repository.deleteAnswer(id5);
 				break;
 			case 6: // WORK

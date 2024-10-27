@@ -45,7 +45,7 @@ public class DepartmentProgram {
 				break;
 			case 3:
 				System.out.println("\n***********GET DEPARTMENT BY ID***********");
-				short id = (short) ScannerUtils.getPosIntegerInput();
+				short id = (short) ScannerUtils.getPositiveIntInput();
 				Department departmentById = repository.getDepartmentByID(id);
 				System.out.println(departmentById);
 				break;
@@ -58,7 +58,7 @@ public class DepartmentProgram {
 			case 5:
 				System.out.println("\n***********UPDATE DEPARTMENT 1***********");
 				System.out.println("\nPLEASE ENTER ID:");
-				short id5 = (short) ScannerUtils.getPosIntegerInput();
+				short id5 = (short) ScannerUtils.getPositiveIntInput();
 				System.out.println("\nPLEASE ENTER DEPARTMENT NAME:");
 				String departmentName5 = ScannerUtils.getStringInput();
 				repository.updateDepartment(id5, departmentName5);
@@ -71,12 +71,12 @@ public class DepartmentProgram {
 			case 6:
 				System.out.println("\n***********DELETE DEPARTMENT BY ID***********");
 				System.out.println("\nPLEASE ENTER ID:");
-				short id6 = (short) ScannerUtils.getPosIntegerInput();
+				short id6 = (short) ScannerUtils.getPositiveIntInput();
 				repository.deleteDepartment(id6);
 				break;
 			case 7:
 				System.out.println("\n***********CHECK DEPARTMENT EXISTS BY ID***********");
-				short id7 = (short) ScannerUtils.getPosIntegerInput();
+				short id7 = (short) ScannerUtils.getPositiveIntInput();
 				System.out.println(repository.isDepartmentExistsByID(id7));
 				break;
 			case 8:

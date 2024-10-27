@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "Position", catalog = "TestingSystem")
+@Table(name = "Position")
 public class Position implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -40,12 +40,11 @@ public class Position implements Serializable {
 		this.name = name;
 	}
 
-	/*
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString() {
-		return "Department { " + "ID = " + id + ", Name = '" + name + '\'' + '}';
+		return "Position{" +
+				"id=" + id +
+				", name=" + name +
+				'}';
 	}
-
 }

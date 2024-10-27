@@ -28,7 +28,7 @@ public class ExamProgram {
 		System.out.format(leftAlignFormat, "11. EXIT");
 		System.out.format("+------------------------------------------------+%n");
 
-		int choose = ScannerUtils.getPosIntegerInput();
+		int choose = ScannerUtils.getPositiveIntInput();
 
 		switch (choose) {
 			case 1:
@@ -51,7 +51,7 @@ public class ExamProgram {
 				break;
 			case 3:
 				System.out.println("\n***********GET EXAM BY ID***********");
-				short id = (short) ScannerUtils.getPosIntegerInput();
+				short id = (short) ScannerUtils.getPositiveIntInput();
 				Exam examById = repository.getExamByID(id);
 				System.out.println(examById);
 				break;
@@ -75,14 +75,14 @@ public class ExamProgram {
 				break;
 			case 7:
 				System.out.println("\n***********GET EXAM BY DURATION***********");
-				short duration = (short) ScannerUtils.getPosIntegerInput();
+				short duration = (short) ScannerUtils.getPositiveIntInput();
 				Exam examByDuration = repository.getExamByID(duration);
 				System.out.println(examByDuration);
 				break;
 			case 8:
 				System.out.println("\n***********UPDATE EXAM BY ID 1***********");
 				System.out.println("\nPLEASE ENTER ID:");
-				short id8 = (short) ScannerUtils.getPosIntegerInput();
+				short id8 = (short) ScannerUtils.getPositiveIntInput();
 				System.out.println("\nPLEASE ENTER EXAM TITLE:");
 				String examTitle8 = ScannerUtils.getStringInput();
 				System.out.println("\nPLEASE ENTER EXAM DURATION:");
@@ -97,12 +97,12 @@ public class ExamProgram {
 			case 9:
 				System.out.println("\n***********DELETE EXAM BY ID***********");
 				System.out.println("\nPLEASE ENTER ID:");
-				short id9 = (short) ScannerUtils.getPosIntegerInput();
+				short id9 = (short) ScannerUtils.getPositiveIntInput();
 				repository.deleteExam(id9);
 				break;
 			case 10:
 				System.out.println("\n***********CHECK EXAM EXISTS BY ID***********");
-				short id10 = (short) ScannerUtils.getPosIntegerInput();
+				short id10 = (short) ScannerUtils.getPositiveIntInput();
 				System.out.println(repository.isExamExistsByID(id10));
 				break;
 			case 11: // WORK

@@ -46,7 +46,7 @@ public class CategoryQuestionProgram {
 				break;
 			case 3:
 				System.out.println("\n***********GET CATEGORY QUESTION BY ID***********");
-				short id = (short) ScannerUtils.getPosIntegerInput();
+				short id = (short) ScannerUtils.getPositiveIntInput();
 				CategoryQuestion departmentById = repository.getCategoryQuestionByID(id);
 				System.out.println(departmentById);
 				break;
@@ -59,7 +59,7 @@ public class CategoryQuestionProgram {
 			case 5:
 				System.out.println("\n***********UPDATE CATEGORY QUESTION 1***********");
 				System.out.println("\nPLEASE ENTER ID:");
-				short id5 = (short) ScannerUtils.getPosIntegerInput();
+				short id5 = (short) ScannerUtils.getPositiveIntInput();
 				System.out.println("\nPLEASE ENTER CATEGORY QUESTION NAME:");
 				String categoryQuestionName5 = ScannerUtils.getStringInput();
 				repository.updateCategoryQuestion(id5, categoryQuestionName5);
@@ -72,12 +72,12 @@ public class CategoryQuestionProgram {
 			case 6:
 				System.out.println("\n***********DELETE CATEGORY QUESTION BY ID***********");
 				System.out.println("\nPLEASE ENTER ID:");
-				short id6 = (short) ScannerUtils.getPosIntegerInput();
+				short id6 = (short) ScannerUtils.getPositiveIntInput();
 				repository.deleteCategoryQuestion(id6);
 				break;
 			case 7:
 				System.out.println("\n***********CHECK CATEGORY QUESTION EXISTS BY ID***********");
-				short id7 = (short) ScannerUtils.getPosIntegerInput();
+				short id7 = (short) ScannerUtils.getPositiveIntInput();
 				System.out.println(repository.isCategoryQuestionExistsByID(id7));
 				CategoryQuestion categoryQuestionById7 = repository.getCategoryQuestionByID(id7);
 				System.out.println(categoryQuestionById7);

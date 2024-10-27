@@ -65,7 +65,7 @@ public class AccountRepository {
 		}
 	}
 
-// 4 - method để lấy thông tin toàn đối tượng thuộc bảng Account theo username
+// 4 - method để lấy thông tin đối tượng thuộc bảng Account theo username
 	public Account getAccountByUserName(String name) {
 		Session session = null;
 		try {

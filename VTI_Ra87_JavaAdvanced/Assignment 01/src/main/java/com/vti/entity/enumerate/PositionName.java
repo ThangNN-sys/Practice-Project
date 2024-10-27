@@ -1,7 +1,7 @@
 package com.vti.entity.enumerate;
 
 public enum PositionName {
-	DEV("Dev"), TEST("Test"), ScrumMaster("ScrumMaster"), PM("PM");
+	DEV("Dev"), TEST("Test"), SCRUMMASTER("ScrumMaster"), PM("PM");
 
 	private String value;
 
