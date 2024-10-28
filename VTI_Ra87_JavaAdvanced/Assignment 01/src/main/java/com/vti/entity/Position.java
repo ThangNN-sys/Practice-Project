@@ -10,41 +10,47 @@ import java.io.Serializable;
 @Table(name = "Position")
 public class Position implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	@Column(name = "PositionID")
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private short id;
+    @Column(name = "PositionID")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private short id;
 
-	@Column(name = "PositionName", nullable = false, unique = true)
-	@Convert(converter = PositionNameConvert.class)
-	private PositionName name;
+    @Column(name = "PositionName", nullable = false, unique = true)
 
-	public Position() {
-	}
+    // @Convert: Annotation này được sử dụng để chỉ định một converter cho thuộc tính.
+    // Converter sẽ chuyển đổi giữa kiểu dữ liệu của thuộc tính trong Java
+    // và kiểu dữ liệu tương ứng trong cơ sở dữ liệu.
+    // converter = PositionNameConvert.class: Đây là lớp chuyển đổi (converter)
+    // được sử dụng để chuyển đổi giá trị của thuộc tính name.
+    @Convert(converter = PositionNameConvert.class)
+    private PositionName name;
 
-	public short getId() {
-		return id;
-	}
+    public Position() {
+    }
 
-	public void setId(short id) {
-		this.id = id;
-	}
+    public short getId() {
+        return id;
+    }
 
-	public PositionName getName() {
-		return name;
-	}
+    public void setId(short id) {
+        this.id = id;
+    }
 
-	public void setName(PositionName name) {
-		this.name = name;
-	}
+    public PositionName getName() {
+        return name;
+    }
 
-	@Override
-	public String toString() {
-		return "Position{" +
-				"id=" + id +
-				", name=" + name +
-				'}';
-	}
+    public void setName(PositionName name) {
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Position{" +
+                "id=" + id +
+                ", name=" + name +
+                '}';
+    }
 }

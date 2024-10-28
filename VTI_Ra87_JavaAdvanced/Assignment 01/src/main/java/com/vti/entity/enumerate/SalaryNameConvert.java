@@ -6,18 +6,18 @@ import jakarta.persistence.Converter;
 @Converter
 public class SalaryNameConvert implements AttributeConverter<SalaryName, String> {
 
-	@Override
-	public String convertToDatabaseColumn(SalaryName name) {
-		if (name == null) {
-			return null;
-		}
+    @Override
+    public String convertToDatabaseColumn(SalaryName name) {
+        if (name == null) {
+            return null;
+        }
 
-		return name.getValue();
-	}
+        return name.getValue();
+    }
 
-	@Override
-	public SalaryName convertToEntityAttribute(String value) {
-		return SalaryName.of(value);
-	}
+    @Override
+    public SalaryName convertToEntityAttribute(String value) {
+        return SalaryName.of(value);
+    }
 
 }
