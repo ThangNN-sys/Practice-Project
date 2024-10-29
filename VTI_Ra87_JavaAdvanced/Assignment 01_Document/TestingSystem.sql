@@ -1,7 +1,7 @@
 -- create database
-DROP DATABASE IF EXISTS TestingSystem;
-CREATE DATABASE TestingSystem;
-USE TestingSystem;
+DROP DATABASE IF EXISTS TestingSystem01;
+CREATE DATABASE TestingSystem01;
+USE TestingSystem01;
 
 -- create table 1: Department
 DROP TABLE IF EXISTS Department;
