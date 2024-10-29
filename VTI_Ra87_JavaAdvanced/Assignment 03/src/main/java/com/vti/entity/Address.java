@@ -5,20 +5,20 @@ import jakarta.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "Department")
-public class Department implements Serializable {
+@Table(name = "Address")
+public class Address implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @Column(name = "DepartmentID")
+    @Column(name = "AddressID")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private short id; // Maps to TINYINT UNSIGNED AUTO_INCREMENT
 
-    @Column(name = "DepartmentName", length = 30, nullable = false, unique = true)
-    private String name; // Maps to VARCHAR(30) NOT NULL UNIQUE
+    @Column(name = "AddressName", length = 100, nullable = false, unique = true)
+    private String name; // Maps to VARCHAR(100) NOT NULL UNIQUE
 
-    public Department() {
+    public Address() {
     }
 
     public short getId() {
@@ -39,7 +39,9 @@ public class Department implements Serializable {
 
     @Override
     public String toString() {
-        return "Department { " + "ID = " + id + ", Name = '" + name + '\'' + '}';
+        return "Address{" +
+                "id=" + id +
+                ", addressName='" + name + '\'' +
+                '}';
     }
-
 }

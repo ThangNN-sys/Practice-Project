@@ -34,6 +34,7 @@ public class HibernateUtils {
         configuration.configure("hibernate.cfg.xml");
         // add entity, phải thực hiện với toàn bộ các class
         configuration.addAnnotatedClass(Account.class);
+        configuration.addAnnotatedClass(Address.class);
         configuration.addAnnotatedClass(Answer.class);
         configuration.addAnnotatedClass(CategoryQuestion.class);
         configuration.addAnnotatedClass(Department.class);

@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.vti</groupId>
-	<artifactId>Assignment-01</artifactId>
+	<artifactId>Assignment-03</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>Assignment 01</name>
+	<name>Assignment-03</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
