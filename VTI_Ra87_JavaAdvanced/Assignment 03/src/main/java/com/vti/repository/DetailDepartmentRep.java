@@ -1,6 +1,5 @@
 package com.vti.repository;
 
-import com.vti.entity.Account;
 import com.vti.entity.DetailDepartment;
 import com.vti.utils.HibernateUtils;
 import org.hibernate.Session;
@@ -49,7 +48,7 @@ public class DetailDepartmentRep {
     }
 
     // 3 - method để lấy thông tin đối tượng thuộc bảng DetailDepartment theo DepartmentID
-    public List<DetailDepartment> getDetailByDepartmentId(short name) {
+    public List<DetailDepartment> getDetailByDepartmentId(short id) {
         Session session = null;
         try {
             // get session
@@ -57,7 +56,7 @@ public class DetailDepartmentRep {
             // create hql query
             Query<DetailDepartment> query = session.createQuery("FROM DetailDepartment WHERE department = :nameParameter");
             // set parameter
-            query.setParameter("nameParameter", name);
+            query.setParameter("nameParameter", id);
             // get result list
             List<DetailDepartment> detailDepartments = query.list();
             if (detailDepartments.isEmpty()) {
@@ -95,7 +94,8 @@ public class DetailDepartmentRep {
     }
 
     // 5 - method để update thông tin đối tượng thuộc bảng DetailDepartment - Cách 1
-    public void updateDetailDepartment(String department, String address, short emulationPoint) {
+    // Tìm theo DepartmentID và AddressID
+    public void updateDetailDepartment(short department, short address, short emulationPoint) {
         Session session = null;
         try {
             // get session
@@ -104,7 +104,7 @@ public class DetailDepartmentRep {
             // find DetailDepartment by DepartmentID and AddressID
             Query<DetailDepartment> query = session.createQuery("FROM DetailDepartment WHERE department = :depId AND address = :addId", DetailDepartment.class);
             query.setParameter("depId", department);
-            query.setParameter("address", address);
+            query.setParameter("addId", address);
 
             DetailDepartment detailDepartment = query.uniqueResult(); // dùng uniqueResult để lấy đối tượng duy nhất
 
@@ -123,35 +123,46 @@ public class DetailDepartmentRep {
         }
     }
 
-    // 8 - method để update thông tin đối tượng thuộc bảng Account - Cách 2
-    public void updateAccount(Account account) {
-        Session session = null;
-        try {
-            // get session
-            session = hibernateUtils.openSession();
-            session.beginTransaction();
-            // update
-            session.update(account);
-            session.getTransaction().commit();
-        } finally {
-            if (session != null) {
-                session.close();
-            }
-        }
-    }
+//    // 8 - method để update thông tin đối tượng thuộc bảng Account - Cách 2
+//    public void updateAccount(Account account) {
+//        Session session = null;
+//        try {
+//            // get session
+//            session = hibernateUtils.openSession();
+//            session.beginTransaction();
+//            // update
+//            session.update(account);
+//            session.getTransaction().commit();
+//        } finally {
+//            if (session != null) {
+//                session.close();
+//            }
+//        }
+//    }
 
-    // 9 - method để delete thông tin đối tượng thuộc bảng Account, tìm theo ID
-    public void deleteAccount(short id) {
+    // 9 - method để delete thông tin đối tượng thuộc bảng DetailDepartment
+    // Tìm theo DepartmentID và AddressID
+    public void deleteDetailDepartment(short department, short address) {
         Session session = null;
         try {
             // get session
             session = hibernateUtils.openSession();
             session.beginTransaction();
-            // get account
-            Account account = session.load(Account.class, id);
-            // delete
-            session.delete(account);
-            session.getTransaction().commit();
+            // find DetailDepartment by DepartmentID and AddressID
+            Query<DetailDepartment> query = session.createQuery("FROM DetailDepartment WHERE department = :depId AND address = :addId", DetailDepartment.class);
+            query.setParameter("depId", department);
+            query.setParameter("address", address);
+
+            DetailDepartment detailDepartment = query.uniqueResult(); // dùng uniqueResult để lấy đối tượng duy nhất
+
+            // check if DetailDepartment is found and delete
+            if (detailDepartment != null) {
+                // delete DetailDepartment
+                session.delete(detailDepartment);
+                session.getTransaction().commit();
+            } else {
+                System.out.println("Account not found with DepartmentID: " + department + " and AddressID: " + address);
+            }
         } finally {
             if (session != null) {
                 session.close();

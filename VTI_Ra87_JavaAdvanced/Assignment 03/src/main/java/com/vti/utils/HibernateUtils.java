@@ -38,6 +38,7 @@ public class HibernateUtils {
         configuration.addAnnotatedClass(Answer.class);
         configuration.addAnnotatedClass(CategoryQuestion.class);
         configuration.addAnnotatedClass(Department.class);
+        configuration.addAnnotatedClass(DetailDepartment.class);
         configuration.addAnnotatedClass(Exam.class);
         configuration.addAnnotatedClass(Group.class);
         configuration.addAnnotatedClass(Position.class);

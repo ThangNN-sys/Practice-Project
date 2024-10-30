@@ -11,12 +11,11 @@ public class DetailDepartment implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @OneToOne // 1-1 Relationship with Department.DepartmentID
-    @JoinColumn(name = "DepartmentID", referencedColumnName = "id")
-    @Id
+    @JoinColumn(name = "DepartmentID", referencedColumnName = "depId")
     private Department department;
 
     @OneToOne // 1-1 Relationship with Address.AddressID
-    @JoinColumn(name = "AddressID", referencedColumnName = "id")
+    @JoinColumn(name = "AddressID", referencedColumnName = "addId")
     private Address address;
 
     @Column(name = "EmulationPoint")
@@ -57,4 +56,5 @@ public class DetailDepartment implements Serializable {
                 ", emulationPoint=" + emulationPoint +
                 '}';
     }
+
 }
