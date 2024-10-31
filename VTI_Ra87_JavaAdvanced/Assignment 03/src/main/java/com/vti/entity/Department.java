@@ -6,6 +6,12 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "Department")
+// Annotation @Inheritance(strategy = InheritanceType.JOINED) trong Hibernate dùng để chỉ định chiến lược kế thừa
+// cho các lớp con của một entity trong cơ sở dữ liệu, theo chiến lược JOINED. Chiến lược này lưu trữ mỗi lớp con
+// trong một bảng riêng, liên kết với bảng của lớp cha thông qua khóa ngoại. Điều này phù hợp khi bạn muốn lưu trữ
+// các thuộc tính chung của lớp cha trong một bảng, còn các thuộc tính riêng của từng lớp con
+// trong các bảng con tương ứng.
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Department implements Serializable {
 
     private static final long serialVersionUID = 1L;

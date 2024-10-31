@@ -6,30 +6,19 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "DetailDepartment")
-public class DetailDepartment implements Serializable {
+@PrimaryKeyJoinColumn(name = "DepartmentID") // 1-1 Relationship with Department.DepartmentID
+public class DetailDepartment extends Department implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @OneToOne // 1-1 Relationship with Department.DepartmentID
-    @JoinColumn(name = "DepartmentID", referencedColumnName = "depId")
-    private Department department;
-
-    @OneToOne // 1-1 Relationship with Address.AddressID
-    @JoinColumn(name = "AddressID", referencedColumnName = "addId")
+    @OneToOne (cascade = CascadeType.ALL) // 1-1 Relationship with Address.AddressID
+    @JoinColumn(name = "AddressID", referencedColumnName = "AddressID")
     private Address address;
 
     @Column(name = "EmulationPoint")
     private short emulationPoint; // Maps to TINYINT UNSIGNED
 
     public DetailDepartment() {
-    }
-
-    public Department getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(Department department) {
-        this.department = department;
     }
 
     public Address getAddress() {
@@ -50,11 +39,10 @@ public class DetailDepartment implements Serializable {
 
     @Override
     public String toString() {
+        System.out.println(super.toString());
         return "DetailDepartment{" +
-                "department=" + department +
-                ", address=" + address +
+                "address=" + address +
                 ", emulationPoint=" + emulationPoint +
                 '}';
     }
-
 }

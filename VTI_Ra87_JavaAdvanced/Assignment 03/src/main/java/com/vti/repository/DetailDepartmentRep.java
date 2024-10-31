@@ -1,5 +1,6 @@
 package com.vti.repository;
 
+import com.vti.entity.Department;
 import com.vti.entity.DetailDepartment;
 import com.vti.utils.HibernateUtils;
 import org.hibernate.Session;
@@ -17,13 +18,15 @@ public class DetailDepartmentRep {
     }
 
     // 1 - Method để tạo mới 1 đối tượng vào bảng DetailDepartment
-    public void createDetailDepartment(DetailDepartment detailDepartment) {
+    public void createDepartment(DetailDepartment department) {
         Session session = null;
         try {
             // get session
             session = hibernateUtils.openSession();
+            session.beginTransaction();
             // create
-            session.save(detailDepartment);
+            session.save(department);
+            session.getTransaction().commit();
         } finally {
             if (session != null) {
                 session.close();
@@ -40,129 +43,6 @@ public class DetailDepartmentRep {
             // create hql query
             Query<DetailDepartment> query = session.createQuery("FROM DetailDepartment");
             return query.list();
-        } finally {
-            if (session != null) {
-                session.close();
-            }
-        }
-    }
-
-    // 3 - method để lấy thông tin đối tượng thuộc bảng DetailDepartment theo DepartmentID
-    public List<DetailDepartment> getDetailByDepartmentId(short id) {
-        Session session = null;
-        try {
-            // get session
-            session = hibernateUtils.openSession();
-            // create hql query
-            Query<DetailDepartment> query = session.createQuery("FROM DetailDepartment WHERE department = :nameParameter");
-            // set parameter
-            query.setParameter("nameParameter", id);
-            // get result list
-            List<DetailDepartment> detailDepartments = query.list();
-            if (detailDepartments.isEmpty()) {
-                return null;
-            }
-            return detailDepartments;
-        } finally {
-            if (session != null) {
-                session.close();
-            }
-        }
-    }
-
-    // 4 - method để lấy thông tin đối tượng thuộc bảng DetailDepartment theo AddressID
-    public List<DetailDepartment> getDetailByAddressId(short name) {
-        Session session = null;
-        try {
-            // get session
-            session = hibernateUtils.openSession();
-            // create hql query
-            Query<DetailDepartment> query = session.createQuery("FROM DetailDepartment WHERE address = :nameParameter");
-            // set parameter
-            query.setParameter("nameParameter", name);
-            // get result list
-            List<DetailDepartment> detailDepartments = query.list();
-            if (detailDepartments.isEmpty()) {
-                return null;
-            }
-            return detailDepartments;
-        } finally {
-            if (session != null) {
-                session.close();
-            }
-        }
-    }
-
-    // 5 - method để update thông tin đối tượng thuộc bảng DetailDepartment - Cách 1
-    // Tìm theo DepartmentID và AddressID
-    public void updateDetailDepartment(short department, short address, short emulationPoint) {
-        Session session = null;
-        try {
-            // get session
-            session = hibernateUtils.openSession();
-            session.beginTransaction();
-            // find DetailDepartment by DepartmentID and AddressID
-            Query<DetailDepartment> query = session.createQuery("FROM DetailDepartment WHERE department = :depId AND address = :addId", DetailDepartment.class);
-            query.setParameter("depId", department);
-            query.setParameter("addId", address);
-
-            DetailDepartment detailDepartment = query.uniqueResult(); // dùng uniqueResult để lấy đối tượng duy nhất
-
-            // check if DetailDepartment is found
-            if (detailDepartment != null) {
-                // update DetailDepartment details
-                detailDepartment.setEmulationPoint(emulationPoint);
-                session.getTransaction().commit();
-            } else {
-                System.out.println("Account not found with DepartmentID: " + department + " and AddressID: " + address);
-            }
-        } finally {
-            if (session != null) {
-                session.close();
-            }
-        }
-    }
-
-//    // 8 - method để update thông tin đối tượng thuộc bảng Account - Cách 2
-//    public void updateAccount(Account account) {
-//        Session session = null;
-//        try {
-//            // get session
-//            session = hibernateUtils.openSession();
-//            session.beginTransaction();
-//            // update
-//            session.update(account);
-//            session.getTransaction().commit();
-//        } finally {
-//            if (session != null) {
-//                session.close();
-//            }
-//        }
-//    }
-
-    // 9 - method để delete thông tin đối tượng thuộc bảng DetailDepartment
-    // Tìm theo DepartmentID và AddressID
-    public void deleteDetailDepartment(short department, short address) {
-        Session session = null;
-        try {
-            // get session
-            session = hibernateUtils.openSession();
-            session.beginTransaction();
-            // find DetailDepartment by DepartmentID and AddressID
-            Query<DetailDepartment> query = session.createQuery("FROM DetailDepartment WHERE department = :depId AND address = :addId", DetailDepartment.class);
-            query.setParameter("depId", department);
-            query.setParameter("address", address);
-
-            DetailDepartment detailDepartment = query.uniqueResult(); // dùng uniqueResult để lấy đối tượng duy nhất
-
-            // check if DetailDepartment is found and delete
-            if (detailDepartment != null) {
-                // delete DetailDepartment
-                session.delete(detailDepartment);
-                session.getTransaction().commit();
-            } else {
-                System.out.println("Account not found with DepartmentID: " + department + " and AddressID: " + address);
-            }
         } finally {
             if (session != null) {
                 session.close();
