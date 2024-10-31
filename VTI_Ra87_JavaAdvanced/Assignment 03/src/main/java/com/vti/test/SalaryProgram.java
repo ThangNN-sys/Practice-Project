@@ -1,4 +1,4 @@
-package com.vti;
+package com.vti.test;
 
 
 import com.vti.entity.Salary;

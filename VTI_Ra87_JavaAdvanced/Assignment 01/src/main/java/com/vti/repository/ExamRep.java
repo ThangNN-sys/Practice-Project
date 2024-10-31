@@ -56,11 +56,11 @@ public class ExamRep {
             session = hibernateUtils.openSession();
             String sql;
             if (duration >= 180) {
-                sql = "SELECT COUNT(1) FROM Exam WHERE Duration >= 180";
+                sql = "SELECT COUNT(1) FROM Exam WHERE duration >= 180";
             } else if (duration >= 90) {
-                sql = "SELECT COUNT(1) FROM Exam WHERE Duration >= 90 AND Duration < 180";
+                sql = "SELECT COUNT(1) FROM Exam WHERE duration >= 90 AND duration < 180";
             } else {
-                sql = "SELECT COUNT(1) FROM Exam WHERE Duration < 90";
+                sql = "SELECT COUNT(1) FROM Exam WHERE duration < 90";
             }
             // create hql query
             Query<Long> query = session.createQuery(sql);
