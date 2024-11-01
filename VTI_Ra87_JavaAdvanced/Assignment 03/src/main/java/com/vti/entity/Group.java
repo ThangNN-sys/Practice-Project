@@ -21,7 +21,7 @@ public class Group implements Serializable {
     @Column(name = "GroupName", length = 50, nullable = false, unique = true)
     private String name;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "CreatorID", nullable = false)
     private Account creator;
 

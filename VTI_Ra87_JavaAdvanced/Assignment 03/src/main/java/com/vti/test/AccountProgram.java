@@ -59,8 +59,8 @@ public class AccountProgram {
                     System.out.println("\n***********GET ALL ACCOUNTS***********");
                     List<Account> accounts = repository.getAllAccounts();
                     for (Account account : accounts) {
-                        Department department = account.getDepartment();
-                        System.out.println(department.getName());
+//                        Department department = account.getDepartment();
+//                        System.out.println(department.getName());
                         System.out.println(account.getFullName());
                     }
                     break;
@@ -87,14 +87,6 @@ public class AccountProgram {
                         System.out.println(account);
                     }
                     break;
-
-//                System.out.println("\n***********GET ACCOUNT BY FIRSTNAME***********");
-//                System.out.println("\nPLEASE ENTER FIRSTNAME:");
-//                String firstName1 = ScannerUtils.getStringInput();
-//                Account accountByFirstName = repository.getAccByFirstName(firstName1);
-//                System.out.println(accountByFirstName);
-//                break;
-
                 case 6: // WORK
                     System.out.println("\n***********GET ACCOUNT BY LASTNAME***********");
                     System.out.println("\nPLEASE ENTER LASTNAME:");
@@ -104,13 +96,6 @@ public class AccountProgram {
                         System.out.println(account);
                     }
                     break;
-
-//                System.out.println("\n***********GET ACCOUNT BY LASTNAME***********");
-//                System.out.println("\nPLEASE ENTER LASTNAME:");
-//                String lastName1 = ScannerUtils.getStringInput();
-//                Account accountByLastName = repository.getAccountByLastName(lastName1);
-//                System.out.println(accountByLastName);
-//                break;
                 case 7: // WORK
                     System.out.println("\n***********UPDATE ACCOUNT BY ID 1***********");
                     System.out.println("\nPLEASE ENTER ID:");
@@ -120,12 +105,6 @@ public class AccountProgram {
                     System.out.println("\nPLEASE ENTER LASTNAME:");
                     String lastName7 = ScannerUtils.getStringInput();
                     repository.updateAccount(id7, firstName7, lastName7);
-
-                    //		System.out.println("\n\n***********UPDATE ACCOUNT 2***********"); chưa hoàn thành
-                    //		Account updateAccount = new Account();
-                    //		updateAccount.setFirstName("update");
-                    //		updateAccount.setLastName("003");
-                    //		repository.updateAccount(updateAccount);
                     break;
                 case 8: // WORK
                     System.out.println("\n***********DELETE ACCOUNT BY ID***********");

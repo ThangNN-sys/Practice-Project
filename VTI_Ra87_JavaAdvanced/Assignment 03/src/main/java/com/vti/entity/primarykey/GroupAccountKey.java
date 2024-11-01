@@ -11,8 +11,8 @@ public class GroupAccountKey implements Serializable {
 	@Column(name = "GroupID")
 	private short groupId;
 
-	@Column(name = "AccountID")
-	private short accountId;
+//	@Column(name = "AccountID")
+//	private short accountId;
 
 	public GroupAccountKey() {
 	}
@@ -25,11 +25,11 @@ public class GroupAccountKey implements Serializable {
 		this.groupId = groupId;
 	}
 
-	public short getAccountId() {
-		return accountId;
-	}
-
-	public void setAccountId(short accountId) {
-		this.accountId = accountId;
-	}
+//	public short getAccountId() {
+//		return accountId;
+//	}
+//
+//	public void setAccountId(short accountId) {
+//		this.accountId = accountId;
+//	}
 }
