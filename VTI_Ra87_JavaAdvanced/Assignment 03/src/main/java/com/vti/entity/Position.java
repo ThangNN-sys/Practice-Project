@@ -5,6 +5,7 @@ import com.vti.entity.enumerate.PositionNameConvert;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "Position")
@@ -18,7 +19,6 @@ public class Position implements Serializable {
     private short id;
 
     @Column(name = "PositionName", nullable = false, unique = true)
-
     // @Convert: Annotation này được sử dụng để chỉ định một converter cho thuộc tính.
     // Converter sẽ chuyển đổi giữa kiểu dữ liệu của thuộc tính trong Java
     // và kiểu dữ liệu tương ứng trong cơ sở dữ liệu.
@@ -26,6 +26,9 @@ public class Position implements Serializable {
     // được sử dụng để chuyển đổi giá trị của thuộc tính name.
     @Convert(converter = PositionNameConvert.class)
     private PositionName name;
+
+    @OneToMany(mappedBy = "Position")
+    private List<Account> accounts;
 
     public Position() {
     }
@@ -46,11 +49,20 @@ public class Position implements Serializable {
         this.name = name;
     }
 
+    public List<Account> getAccounts() {
+        return accounts;
+    }
+
+    public void setAccounts(List<Account> accounts) {
+        this.accounts = accounts;
+    }
+
     @Override
     public String toString() {
         return "Position{" +
                 "id=" + id +
                 ", name=" + name +
+                ", accounts=" + accounts +
                 '}';
     }
 }

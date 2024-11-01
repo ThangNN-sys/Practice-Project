@@ -35,9 +35,6 @@ public class Exam implements Serializable {
     @CreationTimestamp
     private Date createDate;
 
-    public Exam() {
-    }
-
     @PrePersist
     public void beforeSaveToDatabase() {
 
@@ -56,13 +53,16 @@ public class Exam implements Serializable {
         }
     }
 
-    public short getId() {
-        return id;
+    public Exam() {
     }
 
-    public void setId(short id) {
-        this.id = id;
-    }
+//    public short getId() {
+//        return id;
+//    }
+//
+//    public void setId(short id) {
+//        this.id = id;
+//    }
 
     public String getCode1() {
         return code1;
@@ -107,7 +107,6 @@ public class Exam implements Serializable {
     @Override
     public String toString() {
         return "Exam{" +
-                "id=" + id +
                 ", code1='" + code1 + '\'' +
                 ", code2='" + code2 + '\'' +
                 ", title='" + title + '\'' +

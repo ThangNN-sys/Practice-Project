@@ -1,7 +1,5 @@
 package com.vti.test;
 
-import com.vti.entity.Account;
-import com.vti.entity.DetailDepartment;
 import com.vti.entity.Employee;
 import com.vti.repository.EmployeeRep;
 import com.vti.utils.ScannerUtils;
@@ -29,24 +27,24 @@ public class EmployeeProgram {
             choice = ScannerUtils.getPositiveIntInput();
 
             switch (choice) {
-                case 1: // WORK
+                case 1:
                     System.out.println("\n***********CREATE NEW EMPLOYEE***********");
-                    Employee employeeCreate = new Employee();
-                    // get account by id
-                    System.out.println("\nPLEASE ENTER NEW ACCOUNT NAME:");
-                    String newName = ScannerUtils.getStringInput();
-                    System.out.println("\nPLEASE ENTER EMULATION POINT:");
-                    short emulationPoint = ScannerUtils.getShortInput();
-                    employeeCreate.setName(newName);
-                    employeeCreate.setAddress(account);
-                    employeeCreate.setEmulationPoint(emulationPoint);
-                    repository.createDepartment(employeeCreate);
+//                    Employee employeeCreate = new Employee();
+//                    // get account by id
+//                    System.out.println("\nPLEASE ENTER NEW ACCOUNT NAME:");
+//                    String newName = ScannerUtils.getStringInput();
+//                    System.out.println("\nPLEASE ENTER EMULATION POINT:");
+//                    short emulationPoint = ScannerUtils.getShortInput();
+//                    employeeCreate.setName(newName);
+//                    employeeCreate.setAddress(account);
+//                    employeeCreate.setEmulationPoint(emulationPoint);
+//                    repository.createDepartment(employeeCreate);
                     break;
                 case 2: // WORK
-                    System.out.println("\n***********GET ALL DETAIL DEPARTMENTS***********");
-                    List<DetailDepartment> detailDepartments = repository.getAllDetailDepartment();
-                    for (DetailDepartment detailDepartment : detailDepartments) {
-                        System.out.println(detailDepartment);
+                    System.out.println("\n***********GET ALL EMPLOYEES***********");
+                    List<Employee> employees = repository.getAllEmployees();
+                    for (Employee employee : employees) {
+                        System.out.println(employee);
                     }
                     break;
                 case 3: // WORK

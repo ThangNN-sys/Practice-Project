@@ -14,17 +14,17 @@ public class HibernateUtils {
     private Configuration configuration;
     private SessionFactory sessionFactory;
 
-    // hàm contractor cho class HibernateUtils
-    private HibernateUtils() {
-        configure();
-    }
-
     // Tạo singleton pattern cho đối tượng HibernateUtils
     public static HibernateUtils getInstance() {
         if (null == instance) {
             instance = new HibernateUtils();
         }
         return instance;
+    }
+
+    // hàm contractor cho class HibernateUtils
+    private HibernateUtils() {
+        configure();
     }
 
     // Phương thức configure() để load các config ở file hibernate.cfg.xml
@@ -39,8 +39,11 @@ public class HibernateUtils {
         configuration.addAnnotatedClass(CategoryQuestion.class);
         configuration.addAnnotatedClass(Department.class);
         configuration.addAnnotatedClass(DetailDepartment.class);
+        configuration.addAnnotatedClass(Employee.class);
         configuration.addAnnotatedClass(Exam.class);
         configuration.addAnnotatedClass(Group.class);
+        configuration.addAnnotatedClass(GroupAccount.class);
+        configuration.addAnnotatedClass(Manager.class);
         configuration.addAnnotatedClass(Position.class);
         configuration.addAnnotatedClass(Question.class);
         configuration.addAnnotatedClass(Salary.class);

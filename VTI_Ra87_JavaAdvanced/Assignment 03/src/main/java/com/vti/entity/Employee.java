@@ -27,6 +27,7 @@ public class Employee extends Account implements Serializable {
 
     @Override
     public String toString() {
+        System.out.println(super.toString());
         return "Employee{" +
                 "workingNumberOfYear=" + workingNumberOfYear +
                 '}';

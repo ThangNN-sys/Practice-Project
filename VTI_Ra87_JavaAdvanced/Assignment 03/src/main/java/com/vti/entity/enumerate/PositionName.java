@@ -1,12 +1,16 @@
 package com.vti.entity.enumerate;
 
 public enum PositionName {
-    DEV("Dev"), TEST("Test"), SCRUMMASTER("ScrumMaster"), PM("PM");
+    DEV("Dev"), TEST("Test"), ScrumMaster("ScrumMaster"), PM("PM");
 
-    private final String value;
+    private String value;
 
-    PositionName(String value) {
+    private PositionName(String value) {
         this.value = value;
+    }
+
+    public String getValue() {
+        return value;
     }
 
     public static PositionName of(String value) {
@@ -21,10 +25,6 @@ public enum PositionName {
         }
 
         return null;
-    }
-
-    public String getValue() {
-        return value;
     }
 
 }

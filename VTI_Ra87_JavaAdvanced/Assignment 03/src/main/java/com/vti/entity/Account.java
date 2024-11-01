@@ -6,9 +6,11 @@ import org.hibernate.annotations.Formula;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "`Account`")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Account implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -18,11 +20,13 @@ public class Account implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private short id; // Maps to TINYINT UNSIGNED AUTO_INCREMENT
 
-    // Maps to VARCHAR(50) NOT NULL UNIQUE, UPDATEABLE quy định tại đây do MySQL không có từ khóa trực tiếp
+    // Maps to VARCHAR(50) NOT NULL UNIQUE, UPDATEABLE
+    // UPDATEABLE quy định tại đây do MySQL không có từ khóa trực tiếp
     @Column(name = "Email", length = 50, nullable = false, unique = true, updatable = false)
     private String email;
 
-    // Maps to VARCHAR(50) NOT NULL UNIQUE, UPDATEABLE quy định tại đây do MySQL không có từ khóa trực tiếp
+    // Maps to VARCHAR(50) NOT NULL UNIQUE, UPDATEABLE
+    // UPDATEABLE quy định tại đây do MySQL không có từ khóa trực tiếp
     @Column(name = "Username", length = 50, nullable = false, unique = true, updatable = false)
     private String username;
 
@@ -41,20 +45,35 @@ public class Account implements Serializable {
     @Formula(" concat(FirstName, ' ', LastName) ")
     private String fullName; // Make fake column fullName = firstName + lastName
 
-    // Xác định rằng thuộc tính createDate sẽ ánh xạ tới cột CreateDate trong bảng của cơ sở dữ liệu.
+    @ManyToOne
+    @JoinColumn(name = "DepartmentID", nullable = false)
+    private Department department;
+
+    @ManyToOne
+    @JoinColumn(name = "PositionID", nullable = false)
+    private Position position;
+
+    @ManyToOne
+    @JoinColumn(name = "SalaryID", nullable = false)
+    private Salary salary;
+
+    // @Column(name = "CreateDate"): Xác định rằng thuộc tính createDate sẽ ánh xạ tới cột CreateDate trong bảng của cơ sở dữ liệu.
     // Nếu không chỉ định name, tên của cột sẽ tự động khớp với tên của trường dữ liệu (ở đây là createDate).
-    @Column(name = "CreateDate")
-
-    // Chỉ định kiểu dữ liệu thời gian (temporal) của trường createDate.
+    // @Temporal(TemporalType.TIMESTAMP): Chỉ định kiểu dữ liệu thời gian (temporal) của trường createDate.
     // TemporalType.TIMESTAMP: Ánh xạ kiểu dữ liệu Java Date thành TIMESTAMP trong cơ sở dữ liệu, lưu trữ cả ngày và giờ.
-    @Temporal(TemporalType.TIMESTAMP)
-
-    // Được cung cấp bởi Hibernate, chú thích này tự động gán thời điểm tạo của bản ghi cho
+    // @CreationTimestamp: Được cung cấp bởi Hibernate, chú thích này tự động gán thời điểm tạo của bản ghi cho
     // trường createDate khi bản ghi được lưu vào cơ sở dữ liệu.
     // Giá trị sẽ được thiết lập một lần duy nhất khi bản ghi được tạo và không thay đổi trong các lần cập nhật sau.
+    @Column(name = "CreateDate")
+    @Temporal(TemporalType.TIMESTAMP)
     @CreationTimestamp
-
     private Date createDate;
+
+    @OneToMany(mappedBy = "Creator")
+    private List<Group> createGroup;
+
+    @OneToMany(mappedBy = "Account")
+    private List<GroupAccount> groups;
 
     public Account() {
     }
@@ -115,6 +134,46 @@ public class Account implements Serializable {
         this.createDate = createDate;
     }
 
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+
+    public Position getPosition() {
+        return position;
+    }
+
+    public void setPosition(Position position) {
+        this.position = position;
+    }
+
+    public Salary getSalary() {
+        return salary;
+    }
+
+    public void setSalary(Salary salary) {
+        this.salary = salary;
+    }
+
+    public List<Group> getCreateGroup() {
+        return createGroup;
+    }
+
+    public void setCreateGroup(List<Group> createGroup) {
+        this.createGroup = createGroup;
+    }
+
+    public List<GroupAccount> getGroupAccountList() {
+        return groups;
+    }
+
+    public void setGroupAccountList(List<GroupAccount> groups) {
+        this.groups = groups;
+    }
+
     @Override
     public String toString() {
         return "Account{" +
@@ -123,7 +182,13 @@ public class Account implements Serializable {
                 ", username='" + username + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", fullName='" + fullName + '\'' +
+                ", department=" + department +
+                ", position=" + position +
+                ", salary=" + salary +
                 ", createDate=" + createDate +
+                ", createGroup=" + createGroup +
+                ", groupAccountList=" + groups +
                 '}';
     }
 }

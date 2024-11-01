@@ -1,10 +1,16 @@
 package com.vti.test;
 
 import com.vti.entity.Account;
+import com.vti.entity.Department;
 import com.vti.repository.AccountRep;
 import com.vti.utils.ScannerUtils;
 
 import java.util.List;
+
+/**
+ * Class quản lý các chức năng CRUD
+ * Dùng để xử lý các thông tin đối với bảng Account
+ */
 
 public class AccountProgram {
     public static void main(String[] args) {
@@ -53,7 +59,9 @@ public class AccountProgram {
                     System.out.println("\n***********GET ALL ACCOUNTS***********");
                     List<Account> accounts = repository.getAllAccounts();
                     for (Account account : accounts) {
-                        System.out.println(account);
+                        Department department = account.getDepartment();
+                        System.out.println(department.getName());
+                        System.out.println(account.getFullName());
                     }
                     break;
                 case 3: // WORK

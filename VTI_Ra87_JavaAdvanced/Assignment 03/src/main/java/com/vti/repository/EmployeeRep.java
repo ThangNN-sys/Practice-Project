@@ -1,6 +1,5 @@
 package com.vti.repository;
 
-import com.vti.entity.DetailDepartment;
 import com.vti.entity.Employee;
 import com.vti.utils.HibernateUtils;
 import org.hibernate.Session;
@@ -11,21 +10,21 @@ import java.util.List;
 
 public class EmployeeRep {
 
-    private final HibernateUtils hibernateUtils;
+    private HibernateUtils hibernateUtils;
 
     public EmployeeRep() {
         hibernateUtils = HibernateUtils.getInstance();
     }
 
-    // 1 - Method để tạo mới 1 đối tượng vào bảng EmployeeRep
-    public void createEmployee(Employee account) {
+    // 1 - Method để tạo mới 1 đối tượng vào bảng Account
+    public void creatAccount(Employee employee) {
         Session session = null;
         try {
             // get session
             session = hibernateUtils.openSession();
             session.beginTransaction();
             // create
-            session.save(account);
+            session.save(employee);
             session.getTransaction().commit();
         } finally {
             if (session != null) {
