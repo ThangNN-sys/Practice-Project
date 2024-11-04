@@ -1,9 +1,9 @@
 package com.vti.entity;
 
-import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.Formula;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -174,45 +174,21 @@ public class Account implements Serializable {
         this.createDate = createDate;
     }
 
-//    public Department getDepartment() {
-//        return department;
-//    }
-//
-//    public void setDepartment(Department department) {
-//        this.department = department;
-//    }
+    public List<Group> getCreateGroup() {
+        return createGroup;
+    }
 
-//    public Position getPosition() {
-//        return position;
-//    }
-//
-//    public void setPosition(Position position) {
-//        this.position = position;
-//    }
-//
-//    public Salary getSalary() {
-//        return salary;
-//    }
-//
-//    public void setSalary(Salary salary) {
-//        this.salary = salary;
-//    }
-//
-//    public List<Group> getCreateGroup() {
-//        return createGroup;
-//    }
-//
-//    public void setCreateGroup(List<Group> createGroup) {
-//        this.createGroup = createGroup;
-//    }
-//
-//    public List<GroupAccount> getGroupAccountList() {
-//        return groups;
-//    }
-//
-//    public void setGroupAccountList(List<GroupAccount> groups) {
-//        this.groups = groups;
-//    }
+    public void setCreateGroup(List<Group> createGroup) {
+        this.createGroup = createGroup;
+    }
+
+    public List<GroupAccount> getGroups() {
+        return groups;
+    }
+
+    public void setGroups(List<GroupAccount> groups) {
+        this.groups = groups;
+    }
 
     @Override
     public String toString() {
@@ -223,12 +199,9 @@ public class Account implements Serializable {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", fullName='" + fullName + '\'' +
-//                ", department=" + department +
-//                ", position=" + position +
-//                ", salary=" + salary +
                 ", createDate=" + createDate +
-//                ", createGroup=" + createGroup +
-//                ", groupAccountList=" + groups +
+                ", createGroup=" + createGroup +
+                ", groups=" + groups +
                 '}';
     }
 }
