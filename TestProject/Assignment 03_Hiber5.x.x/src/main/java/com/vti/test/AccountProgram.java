@@ -59,8 +59,8 @@ public class AccountProgram {
                     System.out.println("\n***********GET ALL ACCOUNTS***********");
                     List<Account> accounts = repository.getAllAccounts();
                     for (Account account : accounts) {
-                        Department department = account.getDepartment();
-                        System.out.println(department.getName());
+//                        Department department = account.getUsername();
+//                        System.out.println(department.getName());
                         System.out.println(account.getFullName());
                     }
                     break;
