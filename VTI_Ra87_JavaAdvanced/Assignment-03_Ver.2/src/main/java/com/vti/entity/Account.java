@@ -61,6 +61,9 @@ public class Account implements Serializable {
 	public Account() {
 	}
 
+	public Account(String newUser, Department department) {
+	}
+
 	public short getId() {
 		return id;
 	}
@@ -159,9 +162,10 @@ public class Account implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Account [id=" + id + ", email=" + email + ", username=" + username + ", firstName=" + firstName
-				+ ", lastName=" + lastName + ", fullName=" + fullName + ", department=" + department + ", position="
-				+ position + ", salary=" + salary + ", createDate=" + createDate + "]";
+		return "Account [ id = " + id + ", email = " + email + ", username = " + username + ", fullName = " + fullName + ", department = " + department + ", position = "
+				+ position + ", salary = " + salary + ", createDate = " + createDate + "]";
 	}
 
+	public void setDepartment(short departmentId) {
+	}
 }

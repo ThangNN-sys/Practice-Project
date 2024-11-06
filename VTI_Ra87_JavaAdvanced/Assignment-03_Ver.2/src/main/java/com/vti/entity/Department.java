@@ -14,10 +14,10 @@ public class Department implements Serializable {
 	@Column(name = "DepartmentID")
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private short id;
+	private short depId;
 
 	@Column(name = "DepartmentName", length = 30, nullable = false, unique = true)
-	private String name;
+	private String depName;
 
 	@OneToMany(mappedBy = "department", fetch = FetchType.EAGER)
 	private List<Account> accounts;
@@ -25,20 +25,20 @@ public class Department implements Serializable {
 	public Department() {
 	}
 
-	public short getId() {
-		return id;
+	public short getDepId() {
+		return depId;
 	}
 
-	public void setId(short id) {
-		this.id = id;
+	public void setDepId(short id) {
+		this.depId = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getDepName() {
+		return depName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setDepName(String name) {
+		this.depName = name;
 	}
 
 	public List<Account> getAccounts() {
@@ -54,7 +54,7 @@ public class Department implements Serializable {
 	 */
 	@Override
 	public String toString() {
-		return "Department { " + "ID = " + id + ", Name = '" + name + '\'' + '}';
+		return "Department { " + "ID = " + depId + ", Name = '" + depName + '\'' + '}';
 	}
 
 }

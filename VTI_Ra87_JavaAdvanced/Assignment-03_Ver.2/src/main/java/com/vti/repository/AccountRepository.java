@@ -1,6 +1,7 @@
 package com.vti.repository;
 
 import com.vti.entity.Account;
+import com.vti.entity.Department;
 import com.vti.utils.HibernateUtils;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
@@ -201,7 +202,6 @@ public class AccountRepository {
 	 * 9 - Method để delete thông tin đối tượng thuộc bảng Account, tìm theo ID
 	 * @param id
 	 */
-
 	public void deleteAccount(short id) {
 		Session session = null;
 		try {
@@ -220,4 +220,40 @@ public class AccountRepository {
 		}
 	}
 
+	/**
+	 * 10 - Method để tạo mới 1 đối tượng vào bảng Account có kèm Department
+	 */
+	public void createAccountWithDep(Account Account) {
+
+		Session session = null;
+
+		try {
+
+			// get session
+			session = hibernateUtils.openSession();
+			session.beginTransaction();
+
+			// create
+			session.save(Account);
+
+			// Tìm Department đã có trong database với ID cụ thể
+			Long departmentId = 1L; // Giả sử department có ID là 1
+			Department department = session.get(Department.class, departmentId);
+
+			if (department != null) {
+				// Tạo mới một Account và gán Department đã tìm thấy
+				Account account = new Account("new_user", department);
+
+				session.save(account);
+				session.getTransaction().commit();
+				System.out.println("Account created successfully with department!");
+			} else {
+				System.out.println("Department not found!");
+			}
+		} finally {
+			if (session != null) {
+				session.close();
+			}
+		}
+	}
 }

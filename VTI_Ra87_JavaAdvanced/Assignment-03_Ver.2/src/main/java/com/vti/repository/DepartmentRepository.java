@@ -69,7 +69,7 @@ public class DepartmentRepository {
 			session = hibernateUtils.openSession();
 
 			// create hql query
-			Query<Department> query = session.createQuery("FROM Department WHERE name = :nameParameter");
+			Query<Department> query = session.createQuery("FROM Department WHERE depName = :nameParameter");
 
 			// set parameter
 			query.setParameter("nameParameter", name);
@@ -121,7 +121,7 @@ public class DepartmentRepository {
 			Department department = (Department) session.load(Department.class, id);
 
 			// update
-			department.setName(newName);
+			department.setDepName(newName);
 
 			session.getTransaction().commit();
 

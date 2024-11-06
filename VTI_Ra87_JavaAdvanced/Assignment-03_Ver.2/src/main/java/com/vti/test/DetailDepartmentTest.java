@@ -29,7 +29,7 @@ public class DetailDepartmentTest {
 		// Address address = new Address("P702");
 
 		detailDepartmentCreate.setAddress(address);
-		detailDepartmentCreate.setName("Phong Moi Tao");
+		detailDepartmentCreate.setDepName("Phong Moi Tao");
 		detailDepartmentCreate.setEmulationPoint((short) 7);
 
 		repository.createDepartment(detailDepartmentCreate);

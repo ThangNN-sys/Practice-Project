@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d1d5232d-2e0a-412a-9680-8d1054b3ef24" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../Assignment 03 - Fix bug/src/main/java/com/vti/entity/Group.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment 03 - Fix bug/src/main/java/com/vti/entity/GroupAccount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment 03 - Fix bug/src/main/java/com/vti/entity/primarykey/GroupAccountKey.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/vti/entity/Account.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/vti/entity/Group.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/vti/entity/GroupAccount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/vti/entity/primarykey/GroupAccountKey.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assignment 03 - Fix bug/src/main/java/com/vti/entity/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignment 03 - Fix bug/src/main/java/com/vti/entity/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assignment 03 - Fix bug/src/main/java/com/vti/test/AccountProgram.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignment 03 - Fix bug/src/main/java/com/vti/test/AccountProgram.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assignment 03 - Fix bug/src/main/java/com/vti/utils/HibernateUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignment 03 - Fix bug/src/main/java/com/vti/utils/HibernateUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assignment 03 - Fix bug/target/classes/com/vti/entity/Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignment 03 - Fix bug/target/classes/com/vti/entity/Account.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assignment 03 - Fix bug/target/classes/com/vti/test/AccountProgram.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignment 03 - Fix bug/target/classes/com/vti/test/AccountProgram.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assignment 03 - Fix bug/target/classes/com/vti/utils/HibernateUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignment 03 - Fix bug/target/classes/com/vti/utils/HibernateUtils.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2oD3DgDpUN5p5vq9bzlZztCuEDm" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.AccountProgram.executor": "Run",
+    "Application.AddressProgram.executor": "Run",
+    "Application.AnswerProgram.executor": "Run",
+    "Application.DetailDepartmentProgram.executor": "Run",
+    "Application.EmployeeProgram.executor": "Run",
+    "Application.ExamProgram.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/01_VTI Academy/Practice Project/VTI_Ra87_JavaAdvanced/Assignment 03 - Fix-2",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "reference.settings.ide.settings.spelling",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.vti.test" />
+      <recent name="com.vti.repository" />
+      <recent name="com.vti.entity" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.AccountProgram">
+    <configuration name="AccountProgram" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.vti.test.AccountProgram" />
+      <module name="Assignment-03" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.vti.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AnswerProgram" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.vti.test.AnswerProgram" />
+      <module name="Assignment-03" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.vti.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DetailDepartmentProgram" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.vti.test.DetailDepartmentProgram" />
+      <module name="Assignment-03" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.vti.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EmployeeProgram" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.vti.test.EmployeeProgram" />
+      <module name="Assignment-03" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.vti.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ExamProgram" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.vti.test.ExamProgram" />
+      <module name="Assignment-03" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.vti.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.AccountProgram" />
+        <item itemvalue="Application.ExamProgram" />
+        <item itemvalue="Application.EmployeeProgram" />
+        <item itemvalue="Application.DetailDepartmentProgram" />
+        <item itemvalue="Application.AnswerProgram" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23726.103" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23726.103" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="1" Folder0="G:\My Drive\VTI Academy" CustomDictionaries="1" CustomDictionary0="G:\My Drive\VTI Academy\vi_VN.dic" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d1d5232d-2e0a-412a-9680-8d1054b3ef24" name="Changes" comment="" />
+      <created>1730390202338</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1730390202338</updated>
+      <workItem from="1730390203363" duration="1633000" />
+      <workItem from="1730465238441" duration="144000" />
+      <workItem from="1730465392595" duration="7070000" />
+      <workItem from="1730479936349" duration="374000" />
+      <workItem from="1730480894268" duration="52000" />
+      <workItem from="1730481005959" duration="5000" />
+      <workItem from="1730567255030" duration="2242000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
