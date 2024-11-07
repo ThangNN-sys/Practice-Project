@@ -16,7 +16,7 @@ public class Salary implements Serializable {
 	@Column(name = "SalaryID")
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private short id;
+	private short salaryId;
 
 	@Column(name = "SalaryName", nullable = false, unique = true)
 	@Convert(converter = SalaryNameConvert.class)
@@ -28,12 +28,12 @@ public class Salary implements Serializable {
 	public Salary() {
 	}
 
-	public short getId() {
-		return id;
+	public short getSalaryId() {
+		return salaryId;
 	}
 
-	public void setId(short id) {
-		this.id = id;
+	public void setSalaryId(short id) {
+		this.salaryId = id;
 	}
 
 	public SalaryName getName() {
@@ -57,7 +57,7 @@ public class Salary implements Serializable {
 	 */
 	@Override
 	public String toString() {
-		return "Salary { " + "ID = " + id + ", Name = '" + name.getValue() + '\'' + '}';
+		return "Salary { " + "ID = " + salaryId + ", Name = '" + name.getValue() + '\'' + '}';
 	}
 
 }

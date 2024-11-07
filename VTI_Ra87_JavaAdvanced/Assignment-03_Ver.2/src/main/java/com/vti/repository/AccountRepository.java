@@ -2,6 +2,8 @@ package com.vti.repository;
 
 import com.vti.entity.Account;
 import com.vti.entity.Department;
+import com.vti.entity.Position;
+import com.vti.entity.Salary;
 import com.vti.utils.HibernateUtils;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
@@ -17,7 +19,7 @@ public class AccountRepository {
 	}
 
 	/**
-	 * 1 - Method để tạo mới 1 đối tượng vào bảng Account
+	 * 1a - Method để tạo mới 1 đối tượng vào bảng Account
 	 */
 	public void createAccount(Account Account) {
 
@@ -37,6 +39,54 @@ public class AccountRepository {
 			if (session != null) {
 				session.close();
 			}
+		}
+	}
+
+	// Phương thức để tìm Department theo ID
+	public Department findDepartmentById(short id) {
+		Session session = null;
+		try {
+			// get session
+			session = hibernateUtils.openSession();
+			session.beginTransaction();
+
+			Query<Department> query = session.createQuery("FROM Department WHERE depId = :id", Department.class);
+			query.setParameter("id", id);
+			return query.uniqueResult();
+		} finally {
+			session.close();
+		}
+	}
+
+	// Phương thức để tìm Position theo ID
+	public Position findPositionById(short id) {
+		Session session = null;
+		try {
+			// get session
+			session = hibernateUtils.openSession();
+			session.beginTransaction();
+
+			Query<Position> query = session.createQuery("FROM Position WHERE posId = :id", Position.class);
+			query.setParameter("id", id);
+			return query.uniqueResult();
+		} finally {
+			session.close();
+		}
+	}
+
+	// Phương thức để tìm Salary theo ID
+	public Salary findSalaryById(short id) {
+		Session session = null;
+		try {
+			// get session
+			session = hibernateUtils.openSession();
+			session.beginTransaction();
+
+			Query<Salary> query = session.createQuery("FROM Salary WHERE salaryId = :id", Salary.class);
+			query.setParameter("id", id);
+			return query.uniqueResult();
+		} finally {
+			session.close();
 		}
 	}
 
@@ -213,43 +263,6 @@ public class AccountRepository {
 			// delete
 			session.delete(account);
 			session.getTransaction().commit();
-		} finally {
-			if (session != null) {
-				session.close();
-			}
-		}
-	}
-
-	/**
-	 * 10 - Method để tạo mới 1 đối tượng vào bảng Account có kèm Department
-	 */
-	public void createAccountWithDep(Account Account) {
-
-		Session session = null;
-
-		try {
-
-			// get session
-			session = hibernateUtils.openSession();
-			session.beginTransaction();
-
-			// create
-			session.save(Account);
-
-			// Tìm Department đã có trong database với ID cụ thể
-			Long departmentId = 1L; // Giả sử department có ID là 1
-			Department department = session.get(Department.class, departmentId);
-
-			if (department != null) {
-				// Tạo mới một Account và gán Department đã tìm thấy
-				Account account = new Account("new_user", department);
-
-				session.save(account);
-				session.getTransaction().commit();
-				System.out.println("Account created successfully with department!");
-			} else {
-				System.out.println("Department not found!");
-			}
 		} finally {
 			if (session != null) {
 				session.close();

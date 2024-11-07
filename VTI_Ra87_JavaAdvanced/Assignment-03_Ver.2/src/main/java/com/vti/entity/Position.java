@@ -16,7 +16,7 @@ public class Position implements Serializable {
 	@Column(name = "PositionID")
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private short id;
+	private short posId;
 
 	@Column(name = "PositionName", nullable = false, unique = true)
 	@Convert(converter = PositionNameConvert.class)
@@ -28,12 +28,12 @@ public class Position implements Serializable {
 	public Position() {
 	}
 
-	public short getId() {
-		return id;
+	public short getPosId() {
+		return posId;
 	}
 
-	public void setId(short id) {
-		this.id = id;
+	public void setPosId(short id) {
+		this.posId = id;
 	}
 
 	public PositionName getName() {
@@ -57,7 +57,7 @@ public class Position implements Serializable {
 	 */
 	@Override
 	public String toString() {
-		return "Position { " + "ID = " + id + ", Name = '" + name + '\'' + '}';
+		return "Position { " + "ID = " + posId + ", Name = '" + name + '\'' + '}';
 	}
 
 }

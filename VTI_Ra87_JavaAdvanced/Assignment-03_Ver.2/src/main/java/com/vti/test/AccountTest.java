@@ -2,6 +2,8 @@ package com.vti.test;
 
 import com.vti.entity.Account;
 import com.vti.entity.Department;
+import com.vti.entity.Position;
+import com.vti.entity.Salary;
 import com.vti.repository.AccountRepository;
 import com.vti.utils.ScannerUtils;
 
@@ -16,6 +18,7 @@ public class AccountTest {
 	public static void main(String[] args) {
 		AccountRepository repository = new AccountRepository();
 		int choice;
+		
 		do {
 			// %: Bắt đầu một định dạng, -: Căn trái (left-aligned), 48: Độ rộng tối thiểu là 48 ký tự,
 			// s: Định dạng chuỗi (string), |: Ký tự này sẽ được thêm vào trước và sau chuỗi in ra, chiếm một ô trong bảng
@@ -24,7 +27,7 @@ public class AccountTest {
 			System.out.format("+------------------------------------------------+%n");
 			System.out.format("|              MỜI BẠN CHỌN CHỨC NĂNG            |%n");
 			System.out.format("+------------------------------------------------+%n");
-			System.out.format(leftAlignFormat, "1. CREATE NEW ACCOUNT - Closed");
+			System.out.format(leftAlignFormat, "1. CREATE NEW ACCOUNT");
 			System.out.format(leftAlignFormat, "2. GET ALL ACCOUNTS");
 			System.out.format(leftAlignFormat, "3. GET ACCOUNT BY ID");
 			System.out.format(leftAlignFormat, "4. GET ACCOUNT BY USERNAME - Closed");
@@ -38,25 +41,45 @@ public class AccountTest {
 			choice = ScannerUtils.getPositiveIntInput();
 
 			switch (choice) {
-				case 1: //TODO: viết code để gán tên department cho account mới tạo
+				case 1: // WORK
 					System.out.println("***********CREATE NEW ACCOUNT***********");
 					Account accCreate = new Account();
+
 					System.out.println("\nPLEASE ENTER EMAIL ADDRESS:");
 					String email = ScannerUtils.getEmailInput();
+					accCreate.setEmail(email);
+
 					System.out.println("\nPLEASE ENTER USERNAME:");
 					String userName = ScannerUtils.getStringInput();
+					accCreate.setUsername(userName);
+
 					System.out.println("\nPLEASE ENTER FIRSTNAME:");
 					String firstName = ScannerUtils.getStringInput();
+					accCreate.setFirstName(firstName);
+
 					System.out.println("\nPLEASE ENTER LASTNAME:");
 					String lastName = ScannerUtils.getStringInput();
-					System.out.println("\nPLEASE ENTER DEPARTMENT ID:");
-					short departmentId = ScannerUtils.getPositiveShortInput();
-					accCreate.setEmail(email);
-					accCreate.setUsername(userName);
-					accCreate.setFirstName(firstName);
 					accCreate.setLastName(lastName);
-					accCreate.setDepartment(departmentId);
-					repository.createAccountWithDep(accCreate);
+
+					System.out.println("\nPLEASE ENTER DEPARTMENT ID:");
+					short departmentId = ScannerUtils.getShortInput();
+					AccountRepository accountRepoDep = new AccountRepository();
+					Department department1 = accountRepoDep.findDepartmentById(departmentId);
+					accCreate.setDepartment(department1);
+
+					System.out.println("\nPLEASE ENTER POSITION ID:");
+					short positionId = ScannerUtils.getShortInput();
+					AccountRepository accountRepoPos = new AccountRepository();
+					Position position1 = accountRepoPos.findPositionById(positionId);
+					accCreate.setPosition(position1);
+
+					System.out.println("\nPLEASE ENTER SALARY ID:");
+					short salaryId = ScannerUtils.getShortInput();
+					AccountRepository accountRepoSal = new AccountRepository();
+					Salary salary1 = accountRepoSal.findSalaryById(salaryId);
+					accCreate.setSalary(salary1);
+
+					repository.createAccount(accCreate);
 					break;
 
 				case 2: // WORK
