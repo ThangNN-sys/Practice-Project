@@ -19,11 +19,14 @@ public class Department implements Serializable {
     @Column(name = "DepartmentID")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private short id; // Maps to TINYINT UNSIGNED AUTO_INCREMENT
+    private short id; // Maps to TINYINT UNSIGNED AUTO_INCREMENT PRIMARY KEY
 
     @Column(name = "DepartmentName", length = 30, nullable = false, unique = true)
-    private String name; // Maps to VARCHAR(30) NOT NULL UNIQUE
+    private String name; // Maps to VARCHAR(30) NOT NULL UNIQUE KEY
 
+    // mối quan hệ này đã được ánh xạ bởi trường Department trong class Account
+    // Department không sở hữu mối quan hệ này (không phải là "owning side"); thay vào đó, Account mới là phía sở hữu (owning side).
+    // fetch = FetchType.EAGER: Thiết lập chế độ tải dữ liệu EAGER, tức là các đối tượng Account liên quan sẽ được tải ngay lập tức khi một đối tượng Department được truy vấn
     @OneToMany(mappedBy = "Department", fetch = FetchType.EAGER)
     private List<Account> accounts;
 

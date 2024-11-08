@@ -6,6 +6,11 @@ import org.hibernate.annotations.CreationTimestamp;
 import javax.persistence.*;
 import java.util.Date;
 
+/**
+ * Class quản lý các Annotation
+ * Dùng để khai báo các ánh xạ tới bảng GroupAccount của DB
+ */
+
 @Entity
 @Table(name = "GroupAccount")
 public class GroupAccount {

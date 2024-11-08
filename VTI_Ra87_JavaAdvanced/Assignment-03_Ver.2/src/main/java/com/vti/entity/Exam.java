@@ -7,6 +7,11 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * Class quản lý các Annotation
+ * Dùng để khai báo các ánh xạ tới bảng Exam của DB
+ */
+
 @Entity
 @Table(name = "Exam", catalog = "TestingSystem")
 public class Exam implements Serializable {

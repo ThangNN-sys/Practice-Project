@@ -3,6 +3,11 @@ package com.vti.entity;
 import javax.persistence.*;
 import java.io.Serializable;
 
+/**
+ * Class quản lý các Annotation
+ * Dùng để khai báo các ánh xạ tới bảng DetailDepartment của DB
+ */
+
 @Entity
 @Table(name = "DetailDepartment", catalog = "TestingSystem")
 @PrimaryKeyJoinColumn(name = "DepartmentID")

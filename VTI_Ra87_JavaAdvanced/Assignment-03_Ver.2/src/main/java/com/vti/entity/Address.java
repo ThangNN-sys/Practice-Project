@@ -3,6 +3,11 @@ package com.vti.entity;
 import javax.persistence.*;
 import java.io.Serializable;
 
+/**
+ * Class quản lý các Annotation
+ * Dùng để khai báo các ánh xạ tới bảng Address của DB
+ */
+
 @Entity
 @Table(name = "Address", catalog = "TestingSystem")
 public class Address implements Serializable {
@@ -12,48 +17,40 @@ public class Address implements Serializable {
 	@Column(name = "AddressID")
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private short id;
+	private short addressId; // Maps to TINYINT UNSIGNED AUTO_INCREMENT PRIMARY KEY
 
 	@Column(name = "AddressName", length = 100, nullable = false, unique = true)
-	private String name;
+	private String addressName; // Maps to VARCHAR(100) NOT NULL UNIQUE KEY
 
-	@OneToOne(mappedBy = "address")
-	private DetailDepartment department;
+//	@OneToOne(mappedBy = "address")
+//	private DetailDepartment department;
 
 	public Address() {
 	}
 
 	public Address(String name) {
-		this.name = name;
+		this.addressName = name;
 	}
 
-	public short getId() {
-		return id;
+	public short getAddressId() {
+		return addressId;
 	}
 
-	public void setId(short id) {
-		this.id = id;
+	public void setAddressId(short id) {
+		this.addressId = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getAddressName() {
+		return addressName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public DetailDepartment getDepartment() {
-		return department;
-	}
-
-	public void setDepartment(DetailDepartment department) {
-		this.department = department;
+	public void setAddressName(String name) {
+		this.addressName = name;
 	}
 
 	@Override
 	public String toString() {
-		return "Address [id=" + id + ", name=" + name + ", department=" + department + "]";
+		return "Address [id=" + addressId + ", name=" + addressName + "]";
 	}
 
 }

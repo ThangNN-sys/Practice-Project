@@ -10,6 +10,11 @@ import org.hibernate.query.Query;
 
 import java.util.List;
 
+/**
+ * Class quản lý các phương thức
+ * Dùng để khai báo phương thức xử lý thông tin bảng Account trên DB
+ */
+
 public class AccountRepository {
 
 	private HibernateUtils hibernateUtils;
@@ -19,7 +24,7 @@ public class AccountRepository {
 	}
 
 	/**
-	 * 1a - Method để tạo mới 1 đối tượng vào bảng Account
+	 * 1. Phương thức để tạo mới 1 đối tượng vào bảng Account
 	 */
 	public void createAccount(Account Account) {
 
@@ -50,7 +55,7 @@ public class AccountRepository {
 			session = hibernateUtils.openSession();
 			session.beginTransaction();
 
-			Query<Department> query = session.createQuery("FROM Department WHERE depId = :id", Department.class);
+			Query<Department> query = session.createQuery("FROM Department WHERE departmentId = :id", Department.class);
 			query.setParameter("id", id);
 			return query.uniqueResult();
 		} finally {
@@ -66,7 +71,7 @@ public class AccountRepository {
 			session = hibernateUtils.openSession();
 			session.beginTransaction();
 
-			Query<Position> query = session.createQuery("FROM Position WHERE posId = :id", Position.class);
+			Query<Position> query = session.createQuery("FROM Position WHERE positionId = :id", Position.class);
 			query.setParameter("id", id);
 			return query.uniqueResult();
 		} finally {
@@ -181,7 +186,6 @@ public class AccountRepository {
 
 	/**
 	 * 6 - Method để lấy thông tin toàn đối tượng thuộc bảng Account theo lastname nhiều kết quả
-	 * @param name
 	 * @return accounts
 	 */
 	public List<Account> getAccByLastName(String name) {

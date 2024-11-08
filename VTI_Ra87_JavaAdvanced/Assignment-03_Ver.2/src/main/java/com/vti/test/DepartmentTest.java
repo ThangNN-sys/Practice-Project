@@ -14,11 +14,10 @@ import java.util.List;
 public class DepartmentTest {
 	public static void main(String[] args) {
 		DepartmentRepository repository = new DepartmentRepository();
+
 		int choice;
+
 		do {
-			// %: Bắt đầu một định dạng, -: Căn trái (left-aligned), 48: Độ rộng tối thiểu là 48 ký tự,
-			// s: Định dạng chuỗi (string), |: Ký tự này sẽ được thêm vào trước và sau chuỗi in ra, chiếm một ô trong bảng
-			// %n: Thay thế cho ký tự xuống dòng (newline) phù hợp với hệ điều hành đang chạy (Windows, Linux, v.v.)
 			String leftAlignFormat = "|%-48s|%n";
 			System.out.format("+------------------------------------------------+%n");
 			System.out.format("|              MỜI BẠN CHỌN CHỨC NĂNG            |%n");
@@ -39,7 +38,7 @@ public class DepartmentTest {
 					Department depCreate = new Department();
 					System.out.println("\nPLEASE ENTER DEPARTMENT NAME:");
 					String departmentName = ScannerUtils.getStringInput();
-					depCreate.setDepName(departmentName);
+					depCreate.setDepartmentName(departmentName);
 					repository.createDepartment(depCreate);
 					break;
 
@@ -47,7 +46,7 @@ public class DepartmentTest {
 					System.out.println("***********GET ALL DEPARTMENT***********");
 					List<Department> departments = repository.getAllDepartments();
 					for (Department department : departments) {
-                        System.out.println("Department: " + department.getDepName());
+                        System.out.println("Department: " + department.getDepartmentName());
 						System.out.println("----------------------------------");
 					}
 					break;
@@ -69,12 +68,12 @@ public class DepartmentTest {
 					repository.updateDepartment(id4, depName4);
 					break;
 
-				case 5: // Todo: viết lại code
+				case 5: // WORK
 					System.out.println("\n***********DELETE DEPARTMENT BY ID***********");
-//					System.out.println("\nPLEASE ENTER ID:");
-//					short id5 = (short) ScannerUtils.getPositiveIntInput();
-//					repository.deleteDepartment(id5);
-//					break;
+					System.out.println("\nPLEASE ENTER ID:");
+					short id5 = (short) ScannerUtils.getPositiveIntInput();
+					repository.deleteDepartment(id5);
+					break;
 
 				case 6: // WORK
 					System.out.println("QUIT PROGRAM SUCCESSFULLY");

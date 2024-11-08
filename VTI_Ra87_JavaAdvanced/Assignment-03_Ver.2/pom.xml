@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.vti</groupId>
+    <examID>com.vti</examID>
     <artifactId>Assignment-03.2.0</artifactId>
     <version>1.0-SNAPSHOT</version>
 
@@ -16,7 +16,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>junit</groupId>
+            <examID>junit</examID>
             <artifactId>junit</artifactId>
             <version>3.8.1</version>
             <scope>test</scope>
@@ -24,14 +24,14 @@
 
         <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
         <dependency>
-            <groupId>org.hibernate</groupId>
+            <examID>org.hibernate</examID>
             <artifactId>hibernate-core</artifactId>
             <version>5.4.17.Final</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
         <dependency>
-            <groupId>mysql</groupId>
+            <examID>mysql</examID>
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.20</version>
         </dependency>

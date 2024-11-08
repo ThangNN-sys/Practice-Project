@@ -7,6 +7,11 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
+/**
+ * Class quản lý các Annotation
+ * Dùng để khai báo các ánh xạ tới bảng Position của DB
+ */
+
 @Entity
 @Table(name = "Position", catalog = "TestingSystem")
 public class Position implements Serializable {
@@ -16,11 +21,11 @@ public class Position implements Serializable {
 	@Column(name = "PositionID")
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private short posId;
+	private short positionId;
 
 	@Column(name = "PositionName", nullable = false, unique = true)
 	@Convert(converter = PositionNameConvert.class)
-	private PositionName name;
+	private PositionName positionName;
 
 	@OneToMany(mappedBy = "position")
 	private List<Account> accounts;
@@ -28,20 +33,20 @@ public class Position implements Serializable {
 	public Position() {
 	}
 
-	public short getPosId() {
-		return posId;
+	public short getPositionId() {
+		return positionId;
 	}
 
-	public void setPosId(short id) {
-		this.posId = id;
+	public void setPositionId(short id) {
+		this.positionId = id;
 	}
 
-	public PositionName getName() {
-		return name;
+	public PositionName getPositionName() {
+		return positionName;
 	}
 
-	public void setName(PositionName name) {
-		this.name = name;
+	public void setPositionName(PositionName name) {
+		this.positionName = name;
 	}
 
 	public List<Account> getAccounts() {
@@ -52,12 +57,9 @@ public class Position implements Serializable {
 		this.accounts = accounts;
 	}
 
-	/*
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString() {
-		return "Position { " + "ID = " + posId + ", Name = '" + name + '\'' + '}';
+		return "Position { " + "ID = " + positionId + ", Name = '" + positionName + '\'' + '}';
 	}
 
 }

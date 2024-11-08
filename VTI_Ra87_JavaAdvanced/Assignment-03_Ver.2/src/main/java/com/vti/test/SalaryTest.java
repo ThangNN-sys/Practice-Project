@@ -21,7 +21,7 @@ public class SalaryTest {
 		System.out.println("\n\n***********CREATE SALARY***********");
 
 		Salary SalaryCreate = new Salary();
-		SalaryCreate.setName(SalaryName.PM);
+		SalaryCreate.setSalaryName(SalaryName.PM);
 		repository.createSalary(SalaryCreate);
 
 	}

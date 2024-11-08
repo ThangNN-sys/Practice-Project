@@ -7,6 +7,11 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Class quản lý các Annotation
+ * Dùng để khai báo các ánh xạ tới bảng Group của DB
+ */
+
 @Entity
 @Table(name = "`Group`", catalog = "TestingSystem")
 public class Group implements Serializable {
@@ -16,10 +21,10 @@ public class Group implements Serializable {
 	@Column(name = "GroupID")
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private short id;
+	private short groupId;
 
 	@Column(name = "GroupName", length = 50, nullable = false, unique = true)
-	private String name;
+	private String groupName;
 
 	@ManyToOne
 	@JoinColumn(name = "CreatorID", nullable = false)
@@ -36,20 +41,20 @@ public class Group implements Serializable {
 	public Group() {
 	}
 
-	public short getId() {
-		return id;
+	public short getGroupId() {
+		return groupId;
 	}
 
-	public void setId(short id) {
-		this.id = id;
+	public void setGroupId(short id) {
+		this.groupId = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getGroupName() {
+		return groupName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setGroupName(String name) {
+		this.groupName = name;
 	}
 
 	public Account getCreator() {
@@ -84,7 +89,7 @@ public class Group implements Serializable {
 			System.out.println(groupAccount.getJoinDate());
 		}
 
-		return "Group [id=" + id + ", name=" + name + ", creator=" + creator.getFullName() + ", createDate="
+		return "Group [id=" + groupId + ", name=" + groupName + ", creator=" + creator.getFullName() + ", createDate="
 				+ createDate + "]";
 	}
 

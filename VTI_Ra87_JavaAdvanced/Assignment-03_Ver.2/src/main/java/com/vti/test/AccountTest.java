@@ -33,7 +33,7 @@ public class AccountTest {
 			System.out.format(leftAlignFormat, "4. GET ACCOUNT BY USERNAME - Closed");
 			System.out.format(leftAlignFormat, "5. GET ACCOUNT BY FIRSTNAME - Closed");
 			System.out.format(leftAlignFormat, "6. GET ACCOUNT BY LASTNAME - Closed");
-			System.out.format(leftAlignFormat, "7. UPDATE ACCOUNT - Closed");
+			System.out.format(leftAlignFormat, "7. UPDATE ACCOUNT");
 			System.out.format(leftAlignFormat, "8. DELETE ACCOUNT - Closed");
 			System.out.format(leftAlignFormat, "9. EXIT");
 			System.out.format("+------------------------------------------------+%n");
@@ -87,7 +87,7 @@ public class AccountTest {
 					List<Account> accounts = repository.getAllAccounts();
 					for (Account account : accounts) {
                         Department department = account.getDepartment();
-                        System.out.println("Department: " + department.getDepName());
+                        System.out.println("Department: " + department.getDepartmentName());
 						System.out.println("Username: " + account.getUsername());
 						System.out.println("Full Name: " + account.getFullName());
 						System.out.println("----------------------------------");
@@ -130,19 +130,19 @@ public class AccountTest {
 //					}
 //					break;
 
-				case 7:
-					System.out.println("\n***********UPDATE ACCOUNT BY ID 1***********");
-//					System.out.println("\nPLEASE ENTER ID:");
-//					short id7 = (short) ScannerUtils.getPositiveIntInput();
-//					System.out.println("\nPLEASE ENTER FIRSTNAME:");
-//					String firstName7 = ScannerUtils.getStringInput();
-//					System.out.println("\nPLEASE ENTER LASTNAME:");
-//					String lastName7 = ScannerUtils.getStringInput();
-//					repository.updateAccount(id7, firstName7, lastName7);
-//					break;
+				case 7: // WORK
+					System.out.println("\n***********UPDATE ACCOUNT BY ID***********");
+					System.out.println("\nPLEASE ENTER ID:");
+					short id7 = (short) ScannerUtils.getPositiveIntInput();
+					System.out.println("\nPLEASE ENTER FIRSTNAME:");
+					String firstName7 = ScannerUtils.getStringInput();
+					System.out.println("\nPLEASE ENTER LASTNAME:");
+					String lastName7 = ScannerUtils.getStringInput();
+					repository.updateAccount(id7, firstName7, lastName7);
+					break;
 
 				case 8:
-					System.out.println("\n***********DELETE ACCOUNT BY ID***********");
+//					System.out.println("\n***********DELETE ACCOUNT BY ID***********");
 //					System.out.println("\nPLEASE ENTER ID:");
 //					short id8 = (short) ScannerUtils.getPositiveIntInput();
 //					repository.deleteAccount(id8);

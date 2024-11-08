@@ -7,6 +7,11 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
+/**
+ * Class quản lý các Annotation
+ * Dùng để khai báo các ánh xạ tới bảng Salary của DB
+ */
+
 @Entity
 @Table(name = "Salary", catalog = "TestingSystem")
 public class Salary implements Serializable {
@@ -20,7 +25,7 @@ public class Salary implements Serializable {
 
 	@Column(name = "SalaryName", nullable = false, unique = true)
 	@Convert(converter = SalaryNameConvert.class)
-	private SalaryName name;
+	private SalaryName salaryName;
 
 	@OneToMany(mappedBy = "salary")
 	private List<Account> accounts;
@@ -36,12 +41,12 @@ public class Salary implements Serializable {
 		this.salaryId = id;
 	}
 
-	public SalaryName getName() {
-		return name;
+	public SalaryName getSalaryName() {
+		return salaryName;
 	}
 
-	public void setName(SalaryName name) {
-		this.name = name;
+	public void setSalaryName(SalaryName name) {
+		this.salaryName = name;
 	}
 
 	public List<Account> getAccounts() {
@@ -57,7 +62,7 @@ public class Salary implements Serializable {
 	 */
 	@Override
 	public String toString() {
-		return "Salary { " + "ID = " + salaryId + ", Name = '" + name.getValue() + '\'' + '}';
+		return "Salary { " + "ID = " + salaryId + ", Name = '" + salaryName.getValue() + '\'' + '}';
 	}
 
 }

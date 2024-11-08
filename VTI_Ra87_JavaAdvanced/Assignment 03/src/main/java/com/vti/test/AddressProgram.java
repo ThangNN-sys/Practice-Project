@@ -36,7 +36,7 @@ public class AddressProgram {
                     Address addressCreate = new Address();
                     System.out.println("\nPLEASE ENTER ADDRESS NAME:");
                     String addressName = ScannerUtils.getStringInput();
-                    addressCreate.setName(addressName);
+                    addressCreate.setAddressName(addressName);
                     repository.createAddress(addressCreate);
                     break;
                 case 2: // WORK

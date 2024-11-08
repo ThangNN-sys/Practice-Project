@@ -70,7 +70,7 @@ public class AddressRep {
             // get session
             session = hibernateUtils.openSession();
             // create hql query
-            Query<Address> query = session.createQuery("FROM Address WHERE name = :nameParameter");
+            Query<Address> query = session.createQuery("FROM Address WHERE addressName = :nameParameter");
             // set parameter
             query.setParameter("nameParameter", name);
             // get result
@@ -93,7 +93,7 @@ public class AddressRep {
             // get Address
             Address address = session.load(Address.class, id);
             // update
-            address.setName(addressName);
+            address.setAddressName(addressName);
             session.getTransaction().commit();
         } finally {
             if (session != null) {

@@ -21,7 +21,7 @@ public class PositionTest {
 		System.out.println("\n\n***********CREATE POSITION***********");
 
 		Position positionCreate = new Position();
-		positionCreate.setName(PositionName.PM);
+		positionCreate.setPositionName(PositionName.PM);
 		repository.createPosition(positionCreate);
 
 	}

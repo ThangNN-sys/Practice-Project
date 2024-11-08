@@ -8,6 +8,11 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Class quản lý các Annotation
+ * Dùng để khai báo các ánh xạ tới bảng Account của DB
+ */
+
 @Entity
 @Table(name = "`Account`", catalog = "TestingSystem")
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -164,8 +169,5 @@ public class Account implements Serializable {
 	public String toString() {
 		return "Account [ id = " + id + ", email = " + email + ", username = " + username + ", fullName = " + fullName + ", department = " + department + ", position = "
 				+ position + ", salary = " + salary + ", createDate = " + createDate + "]";
-	}
-
-	public void setDepartment(short departmentId) {
 	}
 }
