@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SonarLintProjectSettings">
+    <option name="moduleMapping">
+      <map>
+        <entry key="Assignment-04.0.0" value="Assignment-03.2.0" />
+      </map>
+    </option>
+  </component>
+</project>
