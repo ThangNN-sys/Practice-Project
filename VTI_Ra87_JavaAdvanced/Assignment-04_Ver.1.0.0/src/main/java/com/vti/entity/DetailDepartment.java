@@ -15,7 +15,7 @@ public class DetailDepartment extends Department implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	@OneToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "AddressID", referencedColumnName = "AddressID")
 	private Address address;
 

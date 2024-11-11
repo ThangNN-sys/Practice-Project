@@ -1,13 +1,15 @@
 package com.vti.entity.primarykey;
 
 import javax.persistence.Column;
+import javax.persistence.Embeddable;
 import java.io.Serializable;
 
+@Embeddable
 public class GroupAccountKey implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	@Column(name = "GroupID")
+	@Column(name = "GroupID", nullable = false)
 	private short groupId;
 
 	@Column(name = "AccountID")

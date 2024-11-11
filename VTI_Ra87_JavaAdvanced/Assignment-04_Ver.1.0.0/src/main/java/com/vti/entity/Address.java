@@ -2,6 +2,7 @@ package com.vti.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * Class quản lý các Annotation
@@ -22,10 +23,15 @@ public class Address implements Serializable {
 	@Column(name = "AddressName", length = 100, nullable = false, unique = true)
 	private String addressName; // Maps to VARCHAR(100) NOT NULL UNIQUE KEY
 
-//	@OneToOne(mappedBy = "address")
-//	private DetailDepartment department;
+	@OneToMany(mappedBy = "address")
+	private List<DetailDepartment> detailDepartments;
 
 	public Address() {
+	}
+
+	public Address(short id, String name) {
+		this.addressId = id;
+		this.addressName = name;
 	}
 
 	public Address(String name) {
@@ -48,9 +54,20 @@ public class Address implements Serializable {
 		this.addressName = name;
 	}
 
-	@Override
-	public String toString() {
-		return "Address [id=" + addressId + ", name=" + addressName + "]";
+	public List<DetailDepartment> getDetailDepartments() {
+		return detailDepartments;
 	}
 
+	public void setDetailDepartments(List<DetailDepartment> detailDepartments) {
+		this.detailDepartments = detailDepartments;
+	}
+
+	@Override
+	public String toString() {
+		return "Address{" +
+				"addressId=" + addressId +
+				", addressName='" + addressName + '\'' +
+				", detailDepartments=" + detailDepartments +
+				'}';
+	}
 }

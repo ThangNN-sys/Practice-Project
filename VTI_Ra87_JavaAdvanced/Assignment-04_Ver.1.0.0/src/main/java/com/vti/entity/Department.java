@@ -34,7 +34,7 @@ public class Department implements Serializable {
 	// Department không sở hữu mối quan hệ này; Account mới là phía sở hữu (owning side).
 	// fetch = FetchType.EAGER: Thiết lập chế độ tải dữ liệu EAGER, tức là các đối tượng Account liên quan sẽ được tải
 	// ngay lập tức khi một đối tượng Department được truy vấn
-	@OneToMany(mappedBy = "department", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "department")
 	private List<Account> accounts;
 
 	public Department() {

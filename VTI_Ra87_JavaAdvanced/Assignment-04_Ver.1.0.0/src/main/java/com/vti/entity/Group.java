@@ -27,16 +27,16 @@ public class Group implements Serializable {
 	private String groupName;
 
 	@ManyToOne
-	@JoinColumn(name = "CreatorID", nullable = false)
+	@JoinColumn(name = "CreatorID", referencedColumnName = "AccountID", updatable = false)
 	private Account creator;
 
-	@Column(name = "CreateDate")
+	@Column(name = "CreateDate", updatable = false)
 	@Temporal(TemporalType.TIMESTAMP)
 	@CreationTimestamp
 	private Date createDate;
 
-	@OneToMany(mappedBy = "group", fetch = FetchType.EAGER)
-	private List<GroupAccount> accounts;
+	@OneToMany(mappedBy = "group")
+	private List<GroupAccount> groupAccounts;
 
 	public Group() {
 	}
@@ -73,18 +73,18 @@ public class Group implements Serializable {
 		this.createDate = createDate;
 	}
 
-	public List<GroupAccount> getAccounts() {
-		return accounts;
+	public List<GroupAccount> getGroupAccounts() {
+		return groupAccounts;
 	}
 
-	public void setAccounts(List<GroupAccount> accounts) {
-		this.accounts = accounts;
+	public void setGroupAccounts(List<GroupAccount> accounts) {
+		this.groupAccounts = accounts;
 	}
 
 	@Override
-	public String toString() {
+	public String toString() { // khác với project mẫu Ra87
 
-		for (GroupAccount groupAccount : accounts) {
+		for (GroupAccount groupAccount : groupAccounts) {
 			System.out.println(groupAccount.getAccount().getFullName());
 			System.out.println(groupAccount.getJoinDate());
 		}

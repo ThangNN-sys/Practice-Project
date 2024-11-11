@@ -19,24 +19,24 @@ public class Employee extends Account implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Column(name = "WorkingNumberOfYear", nullable = false)
-	private short WorkingNumberOfYear;
+	private short workingNumberOfYear;
 
 	public Employee() {
 	}
 
 	public short getWorkingNumberOfYear() {
-		return WorkingNumberOfYear;
+		return workingNumberOfYear;
 	}
 
 	public void setWorkingNumberOfYear(short workingNumberOfYear) {
-		WorkingNumberOfYear = workingNumberOfYear;
+		this.workingNumberOfYear = workingNumberOfYear;
 	}
 
 	@Override
 	public String toString() {
 		System.out.println("--------------------");
 		System.out.println(super.toString());
-		return "Employee [WorkingNumberOfYear=" + WorkingNumberOfYear + "]";
+		return "Employee [WorkingNumberOfYear=" + workingNumberOfYear + "]";
 	}
 
 }

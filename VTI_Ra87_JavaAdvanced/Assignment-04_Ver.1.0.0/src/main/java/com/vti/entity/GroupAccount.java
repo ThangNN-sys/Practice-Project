@@ -4,6 +4,7 @@ import com.vti.entity.primarykey.GroupAccountKey;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -13,10 +14,12 @@ import java.util.Date;
 
 @Entity
 @Table(name = "GroupAccount")
-public class GroupAccount {
+public class GroupAccount implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	@EmbeddedId
-	private GroupAccountKey id;
+	private GroupAccountKey groupAccountId;
 
 	@ManyToOne
 	@MapsId("AccountID")
@@ -28,7 +31,7 @@ public class GroupAccount {
 	@JoinColumn(name = "GroupID")
 	private Group group;
 
-	@Column(name = "JoinDate")
+	@Column(name = "JoinDate", updatable = false)
 	@Temporal(TemporalType.TIMESTAMP)
 	@CreationTimestamp
 	private Date joinDate;
@@ -36,12 +39,12 @@ public class GroupAccount {
 	public GroupAccount() {
 	}
 
-	public GroupAccountKey getId() {
-		return id;
+	public GroupAccountKey getGroupAccountId() {
+		return groupAccountId;
 	}
 
-	public void setId(GroupAccountKey id) {
-		this.id = id;
+	public void setGroupAccountId(GroupAccountKey id) {
+		this.groupAccountId = id;
 	}
 
 	public Account getAccount() {
@@ -68,4 +71,13 @@ public class GroupAccount {
 		this.joinDate = joinDate;
 	}
 
+	@Override
+	public String toString() {
+		return "GroupAccount{" +
+				"groupAccountId=" + groupAccountId +
+				", account=" + account +
+				", group=" + group +
+				", joinDate=" + joinDate +
+				'}';
+	}
 }
