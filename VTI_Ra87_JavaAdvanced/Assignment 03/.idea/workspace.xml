@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5c6eab03-f70b-4553-9bcc-bfdfc1e1d902" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../Assignment-03_Ver.2/src/main/java/com/vti/entity/Answer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment-03_Ver.2/src/main/java/com/vti/entity/CategoryQuestion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment-03_Ver.2/src/main/java/com/vti/entity/Question.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment-03_Ver.2/src/main/java/com/vti/entity/TypeQuestion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment-03_Ver.2/src/main/java/com/vti/entity/enumerate/TypeQuestionName.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment-03_Ver.2/src/main/java/com/vti/entity/enumerate/TypeQuestionNameConvert.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vti/entity/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vti/entity/Address.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vti/entity/Department.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vti/entity/Department.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vti/repository/AddressRep.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vti/repository/AddressRep.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vti/test/AddressProgram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vti/test/AddressProgram.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assignment-03_Ver.2/src/main/java/com/vti/entity/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignment-03_Ver.2/src/main/java/com/vti/entity/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assignment-03_Ver.2/src/main/java/com/vti/entity/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignment-03_Ver.2/src/main/java/com/vti/entity/Address.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assignment-03_Ver.2/src/main/java/com/vti/entity/Department.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignment-03_Ver.2/src/main/java/com/vti/entity/Department.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assignment-03_Ver.2/src/main/java/com/vti/entity/Group.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignment-03_Ver.2/src/main/java/com/vti/entity/Group.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assignment-03_Ver.2/src/main/java/com/vti/entity/Position.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignment-03_Ver.2/src/main/java/com/vti/entity/Position.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assignment-03_Ver.2/src/main/java/com/vti/entity/Salary.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignment-03_Ver.2/src/main/java/com/vti/entity/Salary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assignment-03_Ver.2/src/main/java/com/vti/repository/AccountRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignment-03_Ver.2/src/main/java/com/vti/repository/AccountRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assignment-03_Ver.2/src/main/java/com/vti/repository/DepartmentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignment-03_Ver.2/src/main/java/com/vti/repository/DepartmentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assignment-03_Ver.2/src/main/java/com/vti/test/AccountTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignment-03_Ver.2/src/main/java/com/vti/test/AccountTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assignment-03_Ver.2/src/main/java/com/vti/test/DepartmentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignment-03_Ver.2/src/main/java/com/vti/test/DepartmentTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assignment-03_Ver.2/src/main/java/com/vti/test/DetailDepartmentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignment-03_Ver.2/src/main/java/com/vti/test/DetailDepartmentTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assignment-03_Ver.2/src/main/java/com/vti/test/PositionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignment-03_Ver.2/src/main/java/com/vti/test/PositionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assignment-03_Ver.2/src/main/java/com/vti/test/SalaryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignment-03_Ver.2/src/main/java/com/vti/test/SalaryTest.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2nXyDDdusOUmQsAuGYcK1BVdUuG" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.AccountProgram (1).executor&quot;: &quot;Run&quot;,
+    &quot;Application.AccountProgram.executor&quot;: &quot;Run&quot;,
+    &quot;Application.AddressProgram.executor&quot;: &quot;Run&quot;,
+    &quot;Application.AnswerProgram.executor&quot;: &quot;Run&quot;,
+    &quot;Application.CategoryQuestionProgram.executor&quot;: &quot;Run&quot;,
+    &quot;Application.DepartmentProgram.executor&quot;: &quot;Run&quot;,
+    &quot;Application.DetailDepartmentProgram.executor&quot;: &quot;Run&quot;,
+    &quot;Application.EmployeeProgram.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ExamProgram.executor&quot;: &quot;Run&quot;,
+    &quot;Application.GroupProgram.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ProgramAnswer.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ProgramGroup.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;F:/01_VTI Academy/Practice-Project/VTI_Ra87_JavaAdvanced/Assignment-03_Ver.2&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;inlay.hints&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\01_VTI Academy\Practice-Project\VTI_Ra87_JavaAdvanced\Assignment 03\src\main\java\com\vti\entity" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.vti.entity" />
+      <recent name="com.vti.entity.primarykey" />
+      <recent name="com.vti" />
+      <recent name="com.vti.repository" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.AccountProgram">
+    <configuration name="AccountProgram" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.vti.test.AccountProgram" />
+      <module name="Assignment-01" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.vti.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AddressProgram" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.vti.AddressProgram" />
+      <module name="Assignment-01" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.vti.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DepartmentProgram" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="21" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="com.vti.DepartmentProgram" />
+      <module name="Assignment-01" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.vti.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DetailDepartmentProgram" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.vti.DetailDepartmentProgram" />
+      <module name="Assignment-01" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.vti.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EmployeeProgram" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.vti.test.EmployeeProgram" />
+      <module name="Assignment-01" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.vti.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.AccountProgram" />
+        <item itemvalue="Application.EmployeeProgram" />
+        <item itemvalue="Application.DetailDepartmentProgram" />
+        <item itemvalue="Application.AddressProgram" />
+        <item itemvalue="Application.DepartmentProgram" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23726.103" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23726.103" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5c6eab03-f70b-4553-9bcc-bfdfc1e1d902" name="Changes" comment="" />
+      <created>1729133597069</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1729133597069</updated>
+      <workItem from="1729133597999" duration="980000" />
+      <workItem from="1729147847555" duration="2369000" />
+      <workItem from="1729153642595" duration="830000" />
+      <workItem from="1729218802117" duration="82000" />
+      <workItem from="1729218926390" duration="10730000" />
+      <workItem from="1729748358429" duration="61000" />
+      <workItem from="1729748450951" duration="815000" />
+      <workItem from="1729820498309" duration="95000" />
+      <workItem from="1729821110331" duration="79000" />
+      <workItem from="1729824528321" duration="13542000" />
+      <workItem from="1730081609544" duration="48000" />
+      <workItem from="1730081679908" duration="2990000" />
+      <workItem from="1730087761433" duration="5171000" />
+      <workItem from="1730097587880" duration="5800000" />
+      <workItem from="1730167646645" duration="4205000" />
+      <workItem from="1730171860839" duration="568000" />
+      <workItem from="1730172436335" duration="1129000" />
+      <workItem from="1730185132096" duration="6973000" />
+      <workItem from="1730281012537" duration="2444000" />
+      <workItem from="1730347460523" duration="7545000" />
+      <workItem from="1730429868068" duration="3000" />
+      <workItem from="1730429917482" duration="6399000" />
+      <workItem from="1730451294811" duration="3192000" />
+      <workItem from="1730689228818" duration="5006000" />
+      <workItem from="1730705307916" duration="4000" />
+      <workItem from="1730709838451" duration="62000" />
+      <workItem from="1730779170548" duration="3513000" />
+      <workItem from="1730889137659" duration="272000" />
+      <workItem from="1731035391755" duration="4062000" />
+      <workItem from="1731058675647" duration="29000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

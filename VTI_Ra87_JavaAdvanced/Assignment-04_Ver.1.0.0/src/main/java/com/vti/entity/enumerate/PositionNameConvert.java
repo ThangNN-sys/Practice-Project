@@ -6,10 +6,6 @@ import javax.persistence.Converter;
 @Converter
 public class PositionNameConvert implements AttributeConverter<PositionName, String> {
 
-	/*
-	 * @see javax.persistence.AttributeConverter#convertToDatabaseColumn(java.lang.
-	 * Object)
-	 */
 	@Override
 	public String convertToDatabaseColumn(PositionName name) {
 		if (name == null) {
@@ -19,13 +15,12 @@ public class PositionNameConvert implements AttributeConverter<PositionName, Str
 		return name.getValue();
 	}
 
-	/*
-	 * @see javax.persistence.AttributeConverter#convertToEntityAttribute(java.lang.
-	 * Object)
-	 */
 	@Override
-	public PositionName convertToEntityAttribute(String value) {
-		return PositionName.of(value);
+	public PositionName convertToEntityAttribute(String databaseValue) {
+		if (databaseValue == null) {
+			return null;
+		}
+		return PositionName.of(databaseValue);
 	}
 
 }

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1e6d92bf-0501-48a7-82ae-c43fb00fb152" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2oPjbPvIGTs9Z7YiDH5lEHrqeV0" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Application.AccountTest.executor&quot;: &quot;Run&quot;,
+    &quot;Application.AddressTest.executor&quot;: &quot;Run&quot;,
+    &quot;Application.DepartmentTest.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;F:/01_VTI Academy/Practice-Project/VTI_Ra87_JavaAdvanced/Assignment-03_Ver.2&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.import&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\01_VTI Academy\Practice-Project\VTI_Ra87_JavaAdvanced\Assignment-03_Ver.2\src\main\resources" />
+      <recent name="F:\01_VTI Academy\Practice-Project\VTI_Ra87_JavaAdvanced\Assignment-03_Ver.2\src\main\java\com\vti\test" />
+      <recent name="F:\01_VTI Academy\Practice-Project\VTI_Ra87_JavaAdvanced\Assignment-03_Ver.2\src\main\java\com\vti\repository" />
+      <recent name="F:\01_VTI Academy\Practice-Project\VTI_Ra87_JavaAdvanced\Assignment-03_Ver.2\src\main\java\com\vti\entity\enumerate" />
+      <recent name="F:\01_VTI Academy\Practice-Project\VTI_Ra87_JavaAdvanced\Assignment-03_Ver.2\src\main\java\com\vti\entity" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.vti.entity" />
+      <recent name="com.vti.entity.primarykey" />
+      <recent name="com.vti.entity.enumerate" />
+      <recent name="com.vti.utils" />
+      <recent name="com.vti.entity.generator" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.AddressTest">
+    <configuration name="AccountTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.vti.test.AccountTest" />
+      <module name="Assignment-03.2.0" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.vti.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AddressTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.vti.test.AddressTest" />
+      <module name="Assignment-03.2.0" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.vti.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DepartmentTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.vti.test.DepartmentTest" />
+      <module name="Assignment-03.2.0" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.vti.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.AddressTest" />
+        <item itemvalue="Application.DepartmentTest" />
+        <item itemvalue="Application.AccountTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23726.103" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23726.103" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1e6d92bf-0501-48a7-82ae-c43fb00fb152" name="Changes" comment="" />
+      <created>1730778175601</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1730778175601</updated>
+      <workItem from="1730778176591" duration="802000" />
+      <workItem from="1730778995713" duration="4897000" />
+      <workItem from="1730889250598" duration="159000" />
+      <workItem from="1731035456436" duration="10188000" />
+      <workItem from="1731291116029" duration="11000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
