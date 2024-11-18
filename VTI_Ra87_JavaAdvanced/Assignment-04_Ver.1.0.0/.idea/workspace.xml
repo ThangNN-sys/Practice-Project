@@ -5,7 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d99e1a37-1536-4bb9-a7fc-93d9aa3cfada" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/vti/repository/ExamQuestionRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/vti/repository/QuestionRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/vti/test/ExamQuestionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assignment-03_Ver.2.0.0/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignment-03_Ver.2.0.0/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assignment-03_Ver.2.0.0/src/main/java/com/vti/entity/GroupAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignment-03_Ver.2.0.0/src/main/java/com/vti/entity/GroupAccount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assignment-03_Ver.2.0.0/src/main/java/com/vti/entity/primarykey/GroupAccountKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignment-03_Ver.2.0.0/src/main/java/com/vti/entity/primarykey/GroupAccountKey.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vti/entity/Exam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vti/entity/Exam.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vti/entity/ExamQuestion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vti/entity/ExamQuestion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vti/entity/primarykey/ExamQuestionKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vti/entity/primarykey/ExamQuestionKey.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vti/test/AccountTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vti/test/AccountTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vti/test/DetailDepartmentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vti/test/DetailDepartmentTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vti/test/EmployeeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vti/test/EmployeeTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vti/test/ExamTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vti/test/ExamTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,15 +45,19 @@
     "Application.AccountTest.executor": "Run",
     "Application.CategoryQuestionTest.executor": "Run",
     "Application.DepartmentTest.executor": "Run",
+    "Application.DetailDepartmentTest.executor": "Run",
     "Application.EmployeeTest.executor": "Run",
+    "Application.ExamQuestionTest.executor": "Run",
+    "Application.ExamTest.executor": "Run",
     "Application.PositionTest.executor": "Run",
     "Application.SalaryTest.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "F:/01_VTI Academy/Class Template/4. Advanced_Java_Document/4. Answers/Assignment7/TestingSystem_Assignment_7",
+    "last_opened_file_path": "F:/01_VTI Academy/Practice-Project/VTI_Ra87_JavaAdvanced/Assignment-03_Ver.2.0.0",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -54,12 +72,12 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.vti.dto" />
-      <recent name="com.vti.test" />
       <recent name="com.vti.repository" />
+      <recent name="com.vti.test" />
+      <recent name="com.vti.dto" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.AccountTest">
+  <component name="RunManager" selected="Application.ExamQuestionTest">
     <configuration name="AccountTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.vti.test.AccountTest" />
       <module name="Assignment-04.0.0" />
@@ -73,8 +91,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CategoryQuestionTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.vti.test.CategoryQuestionTest" />
+    <configuration name="DetailDepartmentTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.vti.test.DetailDepartmentTest" />
       <module name="Assignment-04.0.0" />
       <extension name="coverage">
         <pattern>
@@ -99,8 +117,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PositionTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.vti.test.PositionTest" />
+    <configuration name="ExamQuestionTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.vti.test.ExamQuestionTest" />
       <module name="Assignment-04.0.0" />
       <extension name="coverage">
         <pattern>
@@ -112,8 +130,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SalaryTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.vti.test.SalaryTest" />
+    <configuration name="ExamTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.vti.test.ExamTest" />
       <module name="Assignment-04.0.0" />
       <extension name="coverage">
         <pattern>
@@ -127,19 +145,19 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.AccountTest" />
-        <item itemvalue="Application.PositionTest" />
+        <item itemvalue="Application.ExamQuestionTest" />
+        <item itemvalue="Application.ExamTest" />
         <item itemvalue="Application.EmployeeTest" />
-        <item itemvalue="Application.CategoryQuestionTest" />
-        <item itemvalue="Application.SalaryTest" />
+        <item itemvalue="Application.DetailDepartmentTest" />
+        <item itemvalue="Application.AccountTest" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23726.103" />
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23726.103" />
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.21565.193" />
+        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-IU-243.21565.193" />
       </set>
     </attachedChunks>
   </component>
@@ -168,6 +186,10 @@
       <workItem from="1731308536307" duration="4666000" />
       <workItem from="1731397688464" duration="490000" />
       <workItem from="1731401824597" duration="1377000" />
+      <workItem from="1731656381153" duration="17000" />
+      <workItem from="1731656432039" duration="115000" />
+      <workItem from="1731657168527" duration="475000" />
+      <workItem from="1731657667757" duration="5071000" />
     </task>
     <servers />
   </component>

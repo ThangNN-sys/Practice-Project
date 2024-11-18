@@ -1,6 +1,5 @@
 package com.vti.test;
 
-import com.vti.entity.Account;
 import com.vti.entity.Employee;
 import com.vti.repository.EmployeeRepository;
 import com.vti.utils.ScannerUtils;
@@ -37,22 +36,22 @@ public class EmployeeTest {
 
 				case 1: // TODO: viết lại code để tạo employee mới kèm account trống
 					System.out.println("***********CREATE NEW EMPLOYEE***********");
-					Employee employeeCreate = new Employee();
-
-					System.out.println("\nPLEASE ENTER ACCOUNT ID:");
-					short accountId = ScannerUtils.getShortInput();
-					EmployeeRepository employeeRepository = new EmployeeRepository();
-					Account account1 = employeeRepository.findAccountById(accountId);
-					employeeCreate.setAccountId(account1.getAccountId());
-
-					System.out.println("\nPLEASE ENTER WORKING NUMBER OF YEAR:");
-					short workingNumberOfYear = ScannerUtils.getPositiveShortInput();
-					employeeCreate.setWorkingNumberOfYear(workingNumberOfYear);
-
-					repository.createEmployee(employeeCreate);
+//					Employee employeeCreate = new Employee();
+//
+//					System.out.println("\nPLEASE ENTER ACCOUNT ID:");
+//					short accountId = ScannerUtils.getShortInput();
+//					EmployeeRepository employeeRepository = new EmployeeRepository();
+//					Account account1 = employeeRepository.findAccountById(accountId);
+//					employeeCreate.setAccountId(account1.getAccountId());
+//
+//					System.out.println("\nPLEASE ENTER WORKING NUMBER OF YEAR:");
+//					short workingNumberOfYear = ScannerUtils.getPositiveShortInput();
+//					employeeCreate.setWorkingNumberOfYear(workingNumberOfYear);
+//
+//					repository.createEmployee(employeeCreate);
 					break;
 
-				case 2:
+				case 2: // WORK
 					System.out.println("***********GET ALL EMPLOYEES***********");
 					List<Employee> employees = repository.getAllEmployees();
 					for (Employee employee : employees) {

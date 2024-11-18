@@ -23,14 +23,8 @@ public class Exam implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private short id;
 
-	@Column(name = "`Code1`", length = 10, nullable = false)
-//	@GeneratedValue(generator = "exam-code-generator")
-//	@GenericGenerator(name = "exam-code-generator", strategy = "com.vti.entity.generator.ExamCodeGenerator")
-//	@Id
-	private String code1;
-
-	@Column(name = "`Code2`", length = 10)
-	private String code2;
+	@Column(name = "`Code`", length = 10)
+	private String code; // Maps to CHAR(10) NOT NULL
 
 	@Column(name = "Title", length = 50, nullable = false)
 	private String title;
@@ -46,7 +40,7 @@ public class Exam implements Serializable {
 	@PrePersist
 	public void beforeSaveToDatabase() {
 
-		if (code1 == null) {
+		if (code == null) {
 			ExamRepository repository = new ExamRepository();
 
 			String prefix;
@@ -61,7 +55,7 @@ public class Exam implements Serializable {
 
 			int count = repository.getCountOfExamCode(duration);
 
-			code1 = prefix + "-" + (count + 1);
+			code = prefix + "-" + (count + 1);
 		}
 	}
 
@@ -76,20 +70,21 @@ public class Exam implements Serializable {
 //		this.id = id;
 //	}
 
-	public String getCode1() {
-		return code1;
+
+	public short getId() {
+		return id;
 	}
 
-	public void setCode1(String code1) {
-		this.code1 = code1;
+	public void setId(short id) {
+		this.id = id;
 	}
 
-	public String getCode2() {
-		return code2;
+	public String getCode() {
+		return code;
 	}
 
-	public void setCode2(String code2) {
-		this.code2 = code2;
+	public void setCode(String code) {
+		this.code = code;
 	}
 
 	public String getTitle() {
@@ -118,8 +113,12 @@ public class Exam implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Exam [" + "code1=" + code1 + ", code2=" + code2 + ", title=" + title + ", duration=" + duration
-				+ ", createDate=" + createDate + "]";
+		return "Exam{" +
+				"id=" + id +
+				", code='" + code + '\'' +
+				", title='" + title + '\'' +
+				", duration=" + duration +
+				", createDate=" + createDate +
+				'}';
 	}
-
 }

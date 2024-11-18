@@ -19,12 +19,12 @@ public class GroupAccount {
 	private GroupAccountKey id;
 
 	@ManyToOne
-	@MapsId("AccountID")
+	@MapsId("accountId")
 	@JoinColumn(name = "AccountID")
 	private Account account;
 
 	@ManyToOne
-	@MapsId("GroupID")
+	@MapsId("groupId")
 	@JoinColumn(name = "GroupID")
 	private Group group;
 

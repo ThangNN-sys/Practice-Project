@@ -17,6 +17,7 @@ import java.util.List;
 public class AccountTest {
 	public static void main(String[] args) {
 		AccountRepository repository = new AccountRepository();
+
 		int choice;
 		
 		do {
@@ -30,12 +31,12 @@ public class AccountTest {
 			System.out.format(leftAlignFormat, "1. CREATE NEW ACCOUNT");
 			System.out.format(leftAlignFormat, "2. GET ALL ACCOUNTS");
 			System.out.format(leftAlignFormat, "3. GET ACCOUNT BY ID");
-			System.out.format(leftAlignFormat, "4. GET ACCOUNT BY USERNAME - Closed");
-			System.out.format(leftAlignFormat, "5. GET ACCOUNT BY FIRSTNAME - Closed");
-			System.out.format(leftAlignFormat, "6. GET ACCOUNT BY LASTNAME - Closed");
-			System.out.format(leftAlignFormat, "7. UPDATE ACCOUNT");
-			System.out.format(leftAlignFormat, "8. DELETE ACCOUNT - Closed");
-			System.out.format(leftAlignFormat, "9. EXIT");
+//			System.out.format(leftAlignFormat, "4. GET ACCOUNT BY USERNAME - Closed");
+//			System.out.format(leftAlignFormat, "5. GET ACCOUNT BY FIRSTNAME - Closed");
+//			System.out.format(leftAlignFormat, "6. GET ACCOUNT BY LASTNAME - Closed");
+			System.out.format(leftAlignFormat, "4. UPDATE ACCOUNT");
+			System.out.format(leftAlignFormat, "5. DELETE ACCOUNT - Closed");
+			System.out.format(leftAlignFormat, "6. EXIT");
 			System.out.format("+------------------------------------------------+%n");
 
 			choice = ScannerUtils.getPositiveIntInput();
@@ -102,16 +103,16 @@ public class AccountTest {
 					System.out.println(accById);
 					break;
 
-				case 4:
-					System.out.println("\n***********GET ACCOUNT BY USERNAME***********");
+//				case 4:
+//					System.out.println("\n***********GET ACCOUNT BY USERNAME***********");
 //					System.out.println("\nPLEASE ENTER USERNAME:");
 //					String userName4 = ScannerUtils.getStringInput();
 //					Account accByUserName = repository.getAccByUserName(userName4);
 //					System.out.println(accByUserName);
 //					break;
 
-				case 5:
-					System.out.println("\n***********GET ACCOUNT BY FIRSTNAME***********");
+//				case 5:
+//					System.out.println("\n***********GET ACCOUNT BY FIRSTNAME***********");
 //					System.out.println("\nPLEASE ENTER FIRSTNAME:");
 //					String firstName5 = ScannerUtils.getStringInput();
 //					List accByFirstName = repository.getAccByFirstName(firstName5);
@@ -120,8 +121,8 @@ public class AccountTest {
 //					}
 //					break;
 
-				case 6:
-					System.out.println("\n***********GET ACCOUNT BY LASTNAME***********");
+//				case 6:
+//					System.out.println("\n***********GET ACCOUNT BY LASTNAME***********");
 //					System.out.println("\nPLEASE ENTER LASTNAME:");
 //					String lastName6 = ScannerUtils.getStringInput();
 //					List accByLastName = repository.getAccByLastName(lastName6);
@@ -130,7 +131,7 @@ public class AccountTest {
 //					}
 //					break;
 
-				case 7: // WORK
+				case 4: // WORK
 					System.out.println("\n***********UPDATE ACCOUNT BY ID***********");
 					System.out.println("\nPLEASE ENTER ID:");
 					short id7 = (short) ScannerUtils.getPositiveIntInput();
@@ -141,21 +142,21 @@ public class AccountTest {
 					repository.updateAccount(id7, firstName7, lastName7);
 					break;
 
-				case 8:
-//					System.out.println("\n***********DELETE ACCOUNT BY ID***********");
+				case 5:
+					System.out.println("\n***********DELETE ACCOUNT BY ID***********");
 //					System.out.println("\nPLEASE ENTER ID:");
 //					short id8 = (short) ScannerUtils.getPositiveIntInput();
 //					repository.deleteAccount(id8);
-//					break;
+					break;
 
-				case 9: // WORK
+				case 6: // WORK
 					System.out.println("QUIT PROGRAM SUCCESSFULLY");
 					break;
 
 				default: // WORK
 					System.out.println("INVALID SELECTION, PLEASE SELECT AGAIN!");
 			}
-		} while (choice != 9);
+		} while (choice != 6);
 	}
 }
 

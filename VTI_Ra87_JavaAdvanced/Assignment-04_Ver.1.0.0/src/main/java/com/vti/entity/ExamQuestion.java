@@ -17,13 +17,13 @@ public class ExamQuestion {
 	private ExamQuestionKey id;
 
 	@ManyToOne
-	@MapsId("ExamID")
-	@JoinColumn(name = "ExamID")
+	@MapsId("examID")
+	@JoinColumn(name = "examID")
 	private Exam exam;
 
 	@ManyToOne
-	@MapsId("QuestionID")
-	@JoinColumn(name = "QuestionID")
+	@MapsId("questionID")
+	@JoinColumn(name = "questionID")
 	private Question question;
 
 	public ExamQuestion() {

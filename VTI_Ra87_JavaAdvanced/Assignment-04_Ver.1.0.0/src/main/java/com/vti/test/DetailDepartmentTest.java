@@ -1,5 +1,13 @@
 package com.vti.test;
 
+import com.vti.entity.Address;
+import com.vti.entity.Department;
+import com.vti.entity.DetailDepartment;
+import com.vti.repository.DetailDepartmentRepository;
+import com.vti.utils.ScannerUtils;
+
+import java.util.List;
+
 /**
  * Class quản lý các chức năng CRUD
  * Dùng để test các chức năng quản lý thông tin đối với bảng DetailDepartment
@@ -7,30 +15,29 @@ package com.vti.test;
 
 public class DetailDepartmentTest {
 	public static void main(String[] args) {
-//		DetailDepartmentRepository repository = new DetailDepartmentRepository();
-//		AddressRepository addressRepository = new AddressRepository();
-//
-//		int choice;
-//
-//		do {
-//			String leftAlignFormat = "|%-48s|%n";
-//			System.out.format("+------------------------------------------------+%n");
-//			System.out.format("|              MỜI BẠN CHỌN CHỨC NĂNG            |%n");
-//			System.out.format("+------------------------------------------------+%n");
-//			System.out.format(leftAlignFormat, "1. CREATE NEW DETAIL DEPARTMENT");
-//			System.out.format(leftAlignFormat, "2. GET ALL DETAIL DEPARTMENTS");
-//			System.out.format(leftAlignFormat, "3. GET DETAIL DEPARTMENT BY ID");
-//			System.out.format(leftAlignFormat, "4. UPDATE DETAIL DEPARTMENT");
-//			System.out.format(leftAlignFormat, "5. DELETE DETAIL DEPARTMENT - Closed");
-//			System.out.format(leftAlignFormat, "6. EXIT");
-//			System.out.format("+------------------------------------------------+%n");
-//
-//			choice = ScannerUtils.getPositiveIntInput();
-//
-//			switch (choice) {
-//				case 1:
-//					System.out.println("***********CREATE NEW DETAIL DEPARTMENT***********");
-//					Account accCreate = new Account();
+		DetailDepartmentRepository repository = new DetailDepartmentRepository();
+
+		int choice;
+
+		do {
+			String leftAlignFormat = "|%-48s|%n";
+			System.out.format("+------------------------------------------------+%n");
+			System.out.format("|              MỜI BẠN CHỌN CHỨC NĂNG            |%n");
+			System.out.format("+------------------------------------------------+%n");
+			System.out.format(leftAlignFormat, "1. CREATE NEW DETAIL DEPARTMENT");
+			System.out.format(leftAlignFormat, "2. GET ALL DETAIL DEPARTMENTS");
+			System.out.format(leftAlignFormat, "3. GET DETAIL DEPARTMENT BY ID");
+			System.out.format(leftAlignFormat, "4. UPDATE DETAIL DEPARTMENT");
+			System.out.format(leftAlignFormat, "5. DELETE DETAIL DEPARTMENT");
+			System.out.format(leftAlignFormat, "6. EXIT");
+			System.out.format("+------------------------------------------------+%n");
+
+			choice = ScannerUtils.getPositiveIntInput();
+
+			switch (choice) {
+				case 1:
+					System.out.println("***********CREATE NEW DETAIL DEPARTMENT***********");
+//					DetailDepartment accCreate = new DetailDepartment();
 //
 //					System.out.println("\nPLEASE ENTER EMAIL ADDRESS:");
 //					String email = ScannerUtils.getEmailInput();
@@ -67,58 +74,31 @@ public class DetailDepartmentTest {
 //					accCreate.setSalary(salary1);
 //
 //					repository.createAccount(accCreate);
-//					break;
-//
-//				case 2: // WORK
-//					System.out.println("***********GET ALL DETAIL DEPARTMENTS***********");
-//					List<Account> accounts = repository.getAllAccounts();
-//					for (Account account : accounts) {
-//						Department department = account.getDepartment();
-//						System.out.println("Department: " + department.getDepartmentName());
-//						System.out.println("Username: " + account.getUsername());
-//						System.out.println("Full Name: " + account.getFullName());
-//						System.out.println("----------------------------------");
-//					}
-//					break;
-//
-//				case 3: // WORK
-//					System.out.println("\n***********GET DETAIL DEPARTMENT BY ID***********");
+					break;
+
+				case 2: // WORK
+					System.out.println("***********GET ALL DETAIL DEPARTMENTS***********");
+					List<DetailDepartment> detailDepartmentList = repository.getAllDetailDepartments();
+					for (DetailDepartment detailDepartment : detailDepartmentList) {
+						Department department = detailDepartment;
+						Address address = detailDepartment.getAddress();
+						System.out.println("Department: " + department.getDepartmentName());
+						System.out.println("Address: " + address.getAddressName());
+						System.out.println("Emulation Point: " + detailDepartment.getEmulationPoint());
+						System.out.println("----------------------------------");
+					}
+					break;
+
+				case 3:
+					System.out.println("\n***********GET DETAIL DEPARTMENT BY ID***********");
 //					System.out.println("\nPLEASE ENTER ID:");
 //					short id3 = (short) ScannerUtils.getPositiveIntInput();
 //					Account accById = repository.getAccByID(id3);
 //					System.out.println(accById);
-//					break;
-//
-//				case 4:
-//					System.out.println("\n***********GET DETAIL DEPARTMENT BY USERNAME***********");
-////					System.out.println("\nPLEASE ENTER USERNAME:");
-////					String userName4 = ScannerUtils.getStringInput();
-////					Account accByUserName = repository.getAccByUserName(userName4);
-////					System.out.println(accByUserName);
-////					break;
-//
-//				case 5:
-//					System.out.println("\n***********GET DETAIL DEPARTMENT BY FIRSTNAME***********");
-////					System.out.println("\nPLEASE ENTER FIRSTNAME:");
-////					String firstName5 = ScannerUtils.getStringInput();
-////					List accByFirstName = repository.getAccByFirstName(firstName5);
-////					for (Object account : accByFirstName) {
-////						System.out.println(account);
-////					}
-////					break;
-//
-//				case 6:
-//					System.out.println("\n***********GET DETAIL DEPARTMENT BY LASTNAME***********");
-////					System.out.println("\nPLEASE ENTER LASTNAME:");
-////					String lastName6 = ScannerUtils.getStringInput();
-////					List accByLastName = repository.getAccByLastName(lastName6);
-////					for (Object account : accByLastName) {
-////						System.out.println(account);
-////					}
-////					break;
-//
-//				case 7: // WORK
-//					System.out.println("\n***********UPDATE DETAIL DEPARTMENT BY ID***********");
+					break;
+
+				case 4:
+					System.out.println("\n***********UPDATE DETAIL DEPARTMENT BY ID***********");
 //					System.out.println("\nPLEASE ENTER ID:");
 //					short id7 = (short) ScannerUtils.getPositiveIntInput();
 //					System.out.println("\nPLEASE ENTER FIRSTNAME:");
@@ -126,23 +106,23 @@ public class DetailDepartmentTest {
 //					System.out.println("\nPLEASE ENTER LASTNAME:");
 //					String lastName7 = ScannerUtils.getStringInput();
 //					repository.updateAccount(id7, firstName7, lastName7);
-//					break;
-//
-//				case 8:
-////					System.out.println("\n***********DELETE DETAIL DEPARTMENT BY ID***********");
-////					System.out.println("\nPLEASE ENTER ID:");
-////					short id8 = (short) ScannerUtils.getPositiveIntInput();
-////					repository.deleteAccount(id8);
-////					break;
-//
-//				case 9: // WORK
-//					System.out.println("QUIT PROGRAM SUCCESSFULLY");
-//					break;
-//
-//				default: // WORK
-//					System.out.println("INVALID SELECTION, PLEASE SELECT AGAIN!");
-//			}
-//		} while (choice != 9);
+					break;
+
+				case 5:
+					System.out.println("\n***********DELETE DETAIL DEPARTMENT BY ID***********");
+//					System.out.println("\nPLEASE ENTER ID:");
+//					short id8 = (short) ScannerUtils.getPositiveIntInput();
+//					repository.deleteAccount(id8);
+					break;
+
+				case 6: // WORK
+					System.out.println("QUIT PROGRAM SUCCESSFULLY");
+					break;
+
+				default: // WORK
+					System.out.println("INVALID SELECTION, PLEASE SELECT AGAIN!");
+			}
+		} while (choice != 6);
 
 
 
