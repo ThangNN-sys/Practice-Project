@@ -1,42 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/reset.css"> 
-
-    <link rel="stylesheet" href="fontawesome/css/all.min.css"> 
-    
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" /> <!--tương thích với IE-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!--tương thích hiển thị cellphone-->
+    <link rel="stylesheet" href="css/reset.css" /> <!--link to reset.css-->
 
+    <!-- Liên kết tới thư viện biểu tượng Font Awesome, 
+     cho phép sử dụng các biểu tượng vector -->
+    <link rel="stylesheet" href="fontawesome/css/all.min.css" />
 
+    <!-- Liên kết tới Google Fonts, cho phép sử dụng 
+     các phông chữ tùy chỉnh Roboto, Varela Round, và Open Sans -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans"
+    />
 
-    <link rel="stylesheet" href="css/style.css">
-        <title>Trang chủ</title>
-    </head>
-    <body>
-        <div class="header">
-            
+    <!-- Liên kết tới thư viện Bootstrap phiên bản 4.5.0, 
+     cung cấp các lớp CSS cho việc tạo bố cục và kiểu dáng -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    />
+
+    <!-- Liên kết tới Google Material Icons, 
+     cho phép sử dụng các biểu tượng theo phong cách Material Design -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+
+    <!-- Liên kết tới Font Awesome phiên bản 4.7.0.
+     Lưu ý rằng điều này có thể gây ra xung đột nếu sử dụng hai phiên bản Font Awesome khác nhau -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <!-- Liên kết tới tệp CSS tùy chỉnh (style.css) để định kiểu cho trang web -->
+    <link rel="stylesheet" href="css/style.css" />
+  
+  <body>
+    <!-- Tạo một div có lớp Bootstrap container-fluid, 
+     cho phép bố cục có thể chiếm toàn bộ chiều rộng màn hình -->
+    <div class="container-fluid">
+
+      <!-- Header -->
+      <!-- Tạo một hàng (row) với nền màu sáng (bg-light) và đường viền dưới (border-bottom) -->
+      <div class="row bg-light border-bottom">
+
+        <!-- Sử dụng các lớp của Bootstrap để xác định chiều rộng của cột 
+         trên màn hình trung bình (md). 
+         Tổng cộng là 12 cột (2+8+2) theo hệ thống Bootstrap Grid -->
+        <div class="col-md-2 text-center">
+          <img src="/Image/Logo VTI.jpg" style="width: 100%;">
         </div>
-        <div class="main"> 
-        
+        <div class="col-md-8 text-left">
+          <i class="material-icons" style="font-size: 40px;">home</i>
+          <i class="material-icons" style="font-size: 40px;">notifications</i>
+          <i class="material-icons" style="font-size: 40px;">mail</i>
+          <i class="material-icons" style="font-size: 40px;">translate</i>
         </div>
-        <div class="footer"> 
-        
-        </div> 
-		
-        <script src="js/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-        
-        <script src="js/custom.js"></script>
-        <script src="js/department.js"></script>
-        <script src="js/account.js"></script>
-</body>
+        <div class="col-md-2 d-flex align-items-center justify-content-end">
+          <span class="mr-2">Thang Nguyen</span>
+          <i class="fas fa-user-circle" style="font-size: 20px;"></i>
+        </div>
+      </div>
+
+      <!-- Sidebar & Main Content -->
+      <div class="row">
+        <!-- Sidebar : chiếm 2 cột, có nền tối (bg-dark), văn bản màu trắng (text-white)
+         chiều cao 100% của màn hình (vh-100) -->
+        <div class="col-md-2 bg-dark text-white vh-100">
+          <div class="sidebar">
+            <div class="sidebar-header mt-3 mb-4 text-center">
+              <p>Hello Thang!</p>
+            </div>
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link text-white active" href="#">
+                  <i class="fas fa-user"></i> Account
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="#">
+                  <i class="fas fa-building"></i> Department
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Main Content : nội dung chính chiếm 10 cột, có padding là 4 (p-4) -->
+        <div class="col-md-10 p-4">
+          <h3>Account List</h3>
+          <!-- Filters -->
+          <div class="filters mb-3">
+            <select class="custom-select w-auto">
+              <option selected>Role</option>
+              <option value="1">Admin</option>
+              <option value="2">Employee</option>
+              <option value="3">Manager</option>
+            </select>
+            <select class="custom-select w-auto ml-2">
+              <option selected>Department</option>
+              <option value="1">Academy</option>
+              <option value="2">HR</option>
+              <option value="3">Sales</option>
+            </select>
+            <button class="btn btn-primary ml-2">
+              <i class="fas fa-filter"></i>
+            </button>
+            <input
+              type="text"
+              class="form-control d-inline-block w-25 ml-3"
+              placeholder="Search by name"
+            />
+          </div>
+
+          <!-- Account Table -->
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Username</th>
+                <th>Full Name</th>
+                <th>Role</th>
+                <th>Department</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>...</td>
+                <td>...</td>
+                <td>...</td>
+                <td>...</td>
+                <td>
+                  <button class="btn btn-sm btn-warning">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn btn-sm btn-danger">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </td>
+              </tr>
+              <!-- More rows here -->
+            </tbody>
+          </table>
+
+          <!-- Pagination -->
+          <div
+            class="pagination-controls d-flex justify-content-between align-items-center"
+          >
+            <p>Showing 7 records, page 1 of 3</p>
+            <nav>
+              <ul class="pagination">
+                <li class="page-item">
+                  <a class="page-link" href="#">Prev</a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="#">Next</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- jQuery: Thư viện JavaScript cho phép thao tác DOM dễ dàng -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <!-- Popper.js: Được sử dụng cho các tooltip và popover trong Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <!-- Bootstrap.js: Thêm chức năng JavaScript cho các thành phần Bootstrap -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <!-- custom.js: Tệp JavaScript tùy chỉnh của project -->
+    <script src="js/custom.js"></script>
+  </body>
 </html>

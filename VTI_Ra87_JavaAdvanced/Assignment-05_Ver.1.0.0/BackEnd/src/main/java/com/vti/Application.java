@@ -17,8 +17,7 @@ public class Application {
 	@Bean
 	public WebMvcConfigurer corsConfigurer() {
 		return new WebMvcConfigurerAdapter() {
-			@Override
-			public void addCorsMappings(CorsRegistry registry) {
+			@Override			public void addCorsMappings(CorsRegistry registry) {
 				registry.addMapping("/products").allowedOrigins("http://localhost:8080");
 			}
 		};

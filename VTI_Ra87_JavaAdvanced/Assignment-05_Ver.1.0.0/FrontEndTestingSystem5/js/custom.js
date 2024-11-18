@@ -29,19 +29,3 @@ function showAlertSuccess(){
       $("#alert-success").slideUp(3000);
   });
 }
-
-$(document).ready(function () {
-  // Example of handling filter button click
-  $('.btn-primary').on('click', function () {
-      alert('Filtering results...');
-  });
-
-  // Handling edit and delete actions
-  $('.btn-warning').on('click', function () {
-      alert('Edit action triggered');
-  });
-
-  $('.btn-danger').on('click', function () {
-      alert('Delete action triggered');
-  });
-});
