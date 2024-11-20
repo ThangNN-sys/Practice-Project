@@ -3,7 +3,7 @@ body {
 }
 
 .modal-content.animate {
-    width: 500px;
+    width: 300px;
 }
 
 #incorrect-mess {
@@ -73,8 +73,8 @@ button:hover {
 }
 
 img.avatar {
-    width: 40%;
-    border-radius: 50%;
+    width: 60%;
+    border-radius: 10%;
 }
 
 .container {

@@ -1,5 +1,5 @@
 function viewAccountPage() {
-    $(".main").load("./account/accountPage.html", function() {
+    $(".main").load("accountPage.html", function() {
         setupSearchEvent();
         setupFilter();
         buildAccountTable();

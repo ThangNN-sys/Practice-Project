@@ -2,7 +2,7 @@ $(function () {
 
     if (!isLogin()) {
         // redirect to login page
-        window.location.replace("http://127.0.0.1:5500/html/login/loginform.html");
+        window.location.replace("http://127.0.0.1:5500/html/loginform.html");
         return;
     }
 
@@ -35,7 +35,7 @@ function logout() {
     storage.removeItem("PASSWORD");
 
     // redirect to login page
-    window.location.replace("http://127.0.0.1:5500/html/login/loginform.html");
+    window.location.replace("http://127.0.0.1:5500/html/loginform.html");
 
 }
 
