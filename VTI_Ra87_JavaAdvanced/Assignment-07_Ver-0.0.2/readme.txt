@@ -5,6 +5,6 @@ Assignment-07_Ver-0.0.2
 
 Thực hiện:
 
-Excercise 1
+Exercise 1
 
 Question 2-3
