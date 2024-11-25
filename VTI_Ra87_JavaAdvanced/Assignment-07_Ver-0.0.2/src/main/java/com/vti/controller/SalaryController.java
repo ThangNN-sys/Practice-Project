@@ -11,6 +11,11 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping(value = "api/v1/salaries")
 public class SalaryController {
+    /**
+     * Presentation Layer
+     * Nhận yêu cầu từ người dùng, điều phối và trả về kết quả phù hợp
+     * Đối tượng: Salary
+     */
 
     @Autowired
     private ISalaryService service;

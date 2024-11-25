@@ -10,18 +10,20 @@ import java.util.List;
 
 public interface IAddressRepository extends JpaRepository<Address, Short> {
 
-    Address findById(short id);
-
-    Address findByName(String name);
+    /**
+     * Data Access Layer - Interface
+     * Tương tác với cơ sở dữ liệu, thực hiện các truy vấn CRUD
+     * Đối tượng: Address
+     */
 
     @Query("SELECT a FROM Address a")
     List<Address> findAll();
 
     @Query("SELECT a FROM Address a WHERE a.id = :idParam")
-    Address findAddressById(@Param("idParam") short id);
+    Address findById(@Param("idParam") short id);
 
     @Query("SELECT a FROM Address a WHERE a.name = :nameParam")
-    Address findAddressByName(@Param("nameParam") String name);
+    Address findByName(@Param("nameParam") String name);
 
     @Modifying
     @Query("UPDATE Address a SET a.name = :nameParam WHERE a.id = :idParam")

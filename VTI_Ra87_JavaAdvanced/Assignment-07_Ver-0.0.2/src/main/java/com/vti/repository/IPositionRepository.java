@@ -10,6 +10,12 @@ import java.util.List;
 
 public interface IPositionRepository extends JpaRepository<Position, Short> {
 
+    /**
+     * Data Access Layer - Interface
+     * Tương tác với cơ sở dữ liệu, thực hiện các truy vấn CRUD
+     * Đối tượng: Position
+     */
+
     Position findById(short id);
 
     Position findByName(String name);

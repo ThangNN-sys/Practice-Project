@@ -9,6 +9,11 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class PositionService implements IPositionService {
+    /**
+     * Business Logic Layer
+     * Xử lý logic nghiệp vụ, giao tiếp giữa tầng repository và controller
+     * Đối tượng: Position
+     */
 
     @Autowired
     private IPositionRepository repository;

@@ -7,56 +7,77 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class AddressService implements IAddressService {
+    /**
+     * Business Logic Layer
+     * Xử lý logic nghiệp vụ, giao tiếp giữa tầng repository và controller
+     * Đối tượng: Address
+     */
 
     @Autowired
     private IAddressRepository repository;
 
+    // get all
+    @Override
+    public List<Address> getAllAddresses() {
+        return repository.findAll();
+    }
+    
+    // get all paging
     @Override
     public Page<Address> getAllAddresses(Pageable pageable) {
         return repository.findAll(pageable);
     }
 
+    // get by id
     @Override
     public Address getAddressById(short id) {
-        return repository.findAddressById(id);
+        return repository.findById(id);
     }
 
+    // get by name
     @Override
     public Address getAddressByName(String name) {
-        return repository.findAddressByName(name);
+        return repository.findByName(name);
     }
 
+    // create new
     @Override
     public void createAddress(Address address) {
         repository.save(address);
     }
 
+    // update name find by id
     @Override
     public void updateAddress(short id, String newName) {
-        Address address = new Address(id, newName);
-        repository.save(address);
+        repository.updateAddress(id, newName);
     }
 
+    // update by object
     @Override
     public void updateAddress(Address address) {
         repository.save(address);
     }
 
+    // delete by id
     @Override
     public void deleteAddress(short id) {
-        repository.deleteById(id);
+        repository.deleteAddress(id);
     }
 
+    // exists by id
     @Override
     public boolean isAddressExistId(short id) {
         return repository.existsById(id);
     }
 
+    // exists by name
     @Override
     public boolean isAddressExistName(String name) {
-        Address address = repository.findAddressByName(name);
+        Address address = repository.findByName(name);
         return address != null;
         // return repository.findAddressByName(name) != null; // cách viết ngắn gọn
     }

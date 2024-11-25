@@ -11,6 +11,11 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping(value = "api/v1/positions")
 public class PositionController {
+    /**
+     * Presentation Layer
+     * Nhận yêu cầu từ người dùng, điều phối và trả về kết quả phù hợp
+     * Đối tượng: Position
+     */
 
     @Autowired
     private IPositionService service;

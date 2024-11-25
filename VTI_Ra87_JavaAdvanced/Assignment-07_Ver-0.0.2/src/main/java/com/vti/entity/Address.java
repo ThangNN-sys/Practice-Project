@@ -25,9 +25,6 @@ public class Address implements Serializable {
 	@Column(name = "AddressName", length = 100, nullable = false, unique = true)
 	private String name; // maps to VARCHAR(100) NOT NULL UNIQUE KEY
 
-//	@OneToMany(mappedBy = "address")
-//	private List<DetailDepartment> detailDepartments;
-
 	public Address() {
 	}
 
@@ -56,20 +53,11 @@ public class Address implements Serializable {
 		this.name = name;
 	}
 
-//	public List<DetailDepartment> getDetailDepartments() {
-//		return detailDepartments;
-//	}
-//
-//	public void setDetailDepartments(List<DetailDepartment> detailDepartments) {
-//		this.detailDepartments = detailDepartments;
-//	}
-
 	@Override
 	public String toString() {
 		return "Address{" +
 				"addressId=" + id +
 				", addressName='" + name + '\'' +
-//				", detailDepartments=" + detailDepartments +
 				'}';
 	}
 }

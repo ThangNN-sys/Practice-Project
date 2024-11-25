@@ -11,6 +11,11 @@ import java.util.List;
 
 @Service
 public class TypeQuestionService implements ITypeQuestionService {
+    /**
+     * Business Logic Layer
+     * Xử lý logic nghiệp vụ, giao tiếp giữa tầng repository và controller
+     * Đối tượng: TypeQuestion
+     */
 
     @Autowired
     private ITypeQuestionRepository repository;

@@ -11,6 +11,11 @@ import java.util.List;
 
 @Service
 public class SalaryService implements ISalaryService {
+    /**
+     * Business Logic Layer
+     * Xử lý logic nghiệp vụ, giao tiếp giữa tầng repository và controller
+     * Đối tượng: Salary
+     */
 
     @Autowired
     private ISalaryRepository repository;

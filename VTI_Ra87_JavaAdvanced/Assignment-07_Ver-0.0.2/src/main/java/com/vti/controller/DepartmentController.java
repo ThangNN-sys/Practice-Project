@@ -11,6 +11,11 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping(value = "api/v1/departments")
 public class DepartmentController {
+    /**
+     * Presentation Layer
+     * Nhận yêu cầu từ người dùng, điều phối và trả về kết quả phù hợp
+     * Đối tượng: Department
+     */
 
     @Autowired
     private IDepartmentService service;
@@ -36,13 +41,13 @@ public class DepartmentController {
     // create new
     @PostMapping()
     public void createDepartment(@RequestBody Department create) {
-        service.createDepartment(create.toString());
+        service.createDepartment(create);
     }
 
     // update name find by id
     @PutMapping(value = "/{id}")
     public void updateDepartment(@RequestBody Department updated) {
-        service.updateDepartment(updated.toString());
+        service.updateDepartment(updated);
     }
 
     // update by object
@@ -59,7 +64,7 @@ public class DepartmentController {
     // delete by id
     @DeleteMapping(value = "/{id}")
     public void deleteDepartment(@PathVariable(name = "id") short id) {
-        service.deleteDepartment(String.valueOf(id));
+        service.deleteDepartment(id);
     }
 
     // exists by id

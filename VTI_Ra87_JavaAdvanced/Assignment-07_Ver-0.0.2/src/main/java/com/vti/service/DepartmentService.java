@@ -11,50 +11,75 @@ import java.util.List;
 
 @Service
 public class DepartmentService implements IDepartmentService {
+    /**
+     * Business Logic Layer
+     * Xử lý logic nghiệp vụ, giao tiếp giữa tầng repository và controller
+     * Đối tượng: Department
+     */
 
     @Autowired
     private IDepartmentRepository repository;
 
+    // get all
     @Override
     public List<Department> getAllDepartments() {
-        return List.of();
+        return repository.findAll();
     }
 
+    // get all paging
     @Override
     public Page<Department> getAllDepartments(Pageable pageable) {
         return repository.findAll(pageable);
     }
 
+    // get by id
+    @Override
     public Department getDepartmentById(short id) {
-        return repository.findById(id);
+        return repository.findDepartmentById(id);
     }
 
+    // get by name
+    @Override
     public Department getDepartmentByName(String name) {
-        return repository.findByName(name);
+        return repository.findDepartmentByName(name);
     }
 
+    // create new
     @Override
-    public void createDepartment(String name) {
-
+    public void createDepartment(Department department) {
+        repository.save(department);
     }
 
+    // update name find by id
     @Override
-    public void updateDepartment(String name) {
-
+    public void updateDepartment(short id, String newName) {
+        Department department = repository.findDepartmentById(id);
+        department.setName(newName);
     }
 
+    // update by object
     @Override
-    public void deleteDepartment(String name) {
-
+    public void updateDepartment(Department department) {
+repository.save(department);
     }
 
+    // delete by id
+    @Override
+    public void deleteDepartment(short id) {
+repository.deleteById(id);
+    }
+
+    // exists by id
+    @Override
     public boolean isDepartmentExistId(short id) {
-        return false;
+        return repository.existsById(id);
     }
 
+    // exists by name
+    @Override
     public boolean isDepartmentExistName(String name) {
-
-        return false;
+        Department department = repository.findDepartmentByName(name);
+        return department != null;
+        // return repository.findDepartmentByName(name) != null; // cách viết ngắn gọn
     }
-
 }

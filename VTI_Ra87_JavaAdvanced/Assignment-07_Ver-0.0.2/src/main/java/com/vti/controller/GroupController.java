@@ -11,6 +11,11 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping(value = "api/v1/groups")
 public class GroupController {
+    /**
+     * Presentation Layer
+     * Nhận yêu cầu từ người dùng, điều phối và trả về kết quả phù hợp
+     * Đối tượng: Group
+     */
 
     @Autowired
     private IGroupService service;

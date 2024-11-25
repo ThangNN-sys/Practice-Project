@@ -16,11 +16,13 @@ public interface IDepartmentService {
 
     Department getDepartmentByName(String name);
 
-    void createDepartment(String name);
+    void createDepartment(Department department);
 
-    void updateDepartment(String name);
+    void updateDepartment(short id, String newName);
 
-    void deleteDepartment(String name);
+    void updateDepartment(Department department);
+
+    void deleteDepartment(short id);
 
     boolean isDepartmentExistId(short id);
 

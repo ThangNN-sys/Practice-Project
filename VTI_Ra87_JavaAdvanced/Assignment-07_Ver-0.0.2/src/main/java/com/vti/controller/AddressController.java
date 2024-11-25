@@ -11,6 +11,11 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping(value = "api/v1/addresses")
 public class AddressController {
+    /**
+     * Presentation Layer
+     * Nhận yêu cầu từ người dùng, điều phối và trả về kết quả phù hợp
+     * Đối tượng: Address
+     */
 
     @Autowired
     private IAddressService service;
@@ -35,15 +40,15 @@ public class AddressController {
 
     // create new
     @PostMapping()
-    public void createAddress(@RequestBody Address address) {
-        service.createAddress(address);
+    public void createAddress(@RequestBody Address create) {
+        service.createAddress(create);
     }
 
     // update name find by id
     @PutMapping(value = "/{id}")
-    public void updateAddress(@PathVariable(name = "id") short id, @RequestBody Address address) {
-        address.setId(id);
-        service.updateAddress(address);
+    public void updateAddress(@PathVariable(name = "id") short id, @RequestBody Address updated) {
+        updated.setId(id);
+        service.updateAddress(updated);
     }
 
     // update by object

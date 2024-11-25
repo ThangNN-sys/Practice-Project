@@ -11,6 +11,11 @@ import java.util.List;
 
 @Service
 public class GroupService implements IGroupService {
+    /**
+     * Business Logic Layer
+     * Xử lý logic nghiệp vụ, giao tiếp giữa tầng repository và controller
+     * Đối tượng: Group
+     */
 
     @Autowired
     private IGroupRepository repository;
