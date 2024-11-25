@@ -4,26 +4,24 @@ import com.vti.entity.Address;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import java.util.List;
-
 public interface IAddressService {
-
-    public List<Address> getAllAddresses();
 
     Page<Address> getAllAddresses(Pageable pageable);
 
-    public Address getAddressById(short id);
+    Address getAddressById(short id);
 
-    public Address getAddressByName(String name);
+    Address getAddressByName(String name);
 
-    public void createAddress(String name);
+    void createAddress(Address address);
 
-    public void updateAddress(String name);
+    void updateAddress(short id, String newName);
 
-    public void deleteAddress(String name);
+    void updateAddress(Address address);
 
-    public boolean isAddressExistId(short id);
+    void deleteAddress(short id);
 
-    public boolean isAddressExistName(String name);
+    boolean isAddressExistId(short id);
+
+    boolean isAddressExistName(String name);
 
 }

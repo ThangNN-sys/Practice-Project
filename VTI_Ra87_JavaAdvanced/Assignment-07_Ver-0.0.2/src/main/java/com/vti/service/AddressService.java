@@ -7,57 +7,58 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 public class AddressService implements IAddressService {
 
     @Autowired
     private IAddressRepository repository;
 
-
-    @Override
-    public List<Address> getAllAddresses() {
-        return List.of();
-    }
-
     @Override
     public Page<Address> getAllAddresses(Pageable pageable) {
-        return null;
+        return repository.findAll(pageable);
     }
 
     @Override
     public Address getAddressById(short id) {
-        return null;
+        return repository.findAddressById(id);
     }
 
     @Override
     public Address getAddressByName(String name) {
-        return null;
+        return repository.findAddressByName(name);
     }
 
     @Override
-    public void createAddress(String name) {
-
+    public void createAddress(Address address) {
+        repository.save(address);
     }
 
     @Override
-    public void updateAddress(String name) {
-
+    public void updateAddress(short id, String newName) {
+        Address address = new Address(id, newName);
+        repository.save(address);
     }
 
     @Override
-    public void deleteAddress(String name) {
+    public void updateAddress(Address address) {
+        repository.save(address);
+    }
 
+    @Override
+    public void deleteAddress(short id) {
+        repository.deleteById(id);
     }
 
     @Override
     public boolean isAddressExistId(short id) {
-        return false;
+        return repository.existsById(id);
     }
 
     @Override
     public boolean isAddressExistName(String name) {
-        return false;
+        Address address = repository.findAddressByName(name);
+        return address != null;
+        // return repository.findAddressByName(name) != null; // cách viết ngắn gọn
     }
+
 }

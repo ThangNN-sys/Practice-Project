@@ -1,29 +1,24 @@
 package com.vti.entity;
 
-import java.io.Serializable;
-import java.util.Date;
-import java.util.List;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-import lombok.Getter;
-import lombok.Setter;
+import java.io.Serializable;
 
 @Embeddable
 @Setter
 @Getter
 public class GroupAccountKey implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	@Column(name = "GroupID", nullable = false)
-	private short groupId;
-	
-	@Column(name = "AccountID")
-	private short accountId;
+    @Column(name = "GroupID", nullable = false)
+    private short groupId;
+
+    @Column(name = "AccountID")
+    private short accountId;
 
 //	/**
 //	 * @return the groupId

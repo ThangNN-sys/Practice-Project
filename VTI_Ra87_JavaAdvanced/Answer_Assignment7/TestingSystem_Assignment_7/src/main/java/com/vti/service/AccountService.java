@@ -1,71 +1,69 @@
 package com.vti.service;
 
-import java.util.List;
-
+import com.vti.entity.Account;
+import com.vti.respository.IAccountRespository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import com.vti.entity.Account;
-import com.vti.respository.IAccountRespository;
-
 @Service
 public class AccountService implements IAccountService {
-	
-	@Autowired
-	private IAccountRespository accountRepository;
 
-	@Override
-	public Page<Account> getAllAccounts(Pageable pageable) {
-		
-		return accountRepository.findAll(pageable);
-	}
+    @Autowired
+    private IAccountRespository accountRepository;
 
-	@Override
-	public Account getAccountByID(short id) {
-		
-		return accountRepository.findById(id).get();
-	}
+    @Override
+    public Page<Account> getAllAccounts(Pageable pageable) {
 
-	@Override
-	public Account getAccountByName(String name) {
+        return accountRepository.findAll(pageable);
+    }
 
-		return accountRepository.findByUsername(name);
-	}
+    @Override
+    public Account getAccountByID(short id) {
 
-	@Override
-	public void createAccount(Account account) {
-		
-		accountRepository.save(account);		
-	}
+        return accountRepository.findById(id).get();
+    }
 
-	@Override
-	public void updateAccount(Account account) {
-		accountRepository.save(account);
-	}
+    @Override
+    public Account getAccountByName(String name) {
 
-	@Override
-	public void deleteAccount(short id) {
-		
-		accountRepository.deleteById(id);;
-	}
+        return accountRepository.findByUsername(name);
+    }
 
-	@Override
-	public boolean isAccountExistsByID(short id) {
-		
-		return accountRepository.existsById(id);
-	}
+    @Override
+    public void createAccount(Account account) {
 
-	@Override
-	public boolean isAccountExistsByName(String name) {
-		Account account = getAccountByName(name);
+        accountRepository.save(account);
+    }
 
-		if (account == null) {
-			return false;
-		}
-		return true;
-	}
-	
-	
+    @Override
+    public void updateAccount(Account account) {
+        accountRepository.save(account);
+    }
+
+    @Override
+    public void deleteAccount(short id) {
+
+        accountRepository.deleteById(id);
+        ;
+    }
+
+    @Override
+    public boolean isAccountExistsByID(short id) {
+
+        return accountRepository.existsById(id);
+    }
+
+    @Override
+    public boolean isAccountExistsByName(String name) {
+        Account account = getAccountByName(name);
+
+        if (account == null) {
+            return false;
+        }
+        return true;
+    }
+
+
 }

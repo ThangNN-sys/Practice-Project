@@ -1,71 +1,69 @@
 package com.vti.service;
 
-import java.util.List;
-
+import com.vti.entity.Salary;
+import com.vti.respository.ISalaryRespository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import com.vti.entity.Salary;
-import com.vti.respository.ISalaryRespository;
-
 @Service
 public class SalaryService implements ISalaryService {
-	
-	@Autowired
-	private ISalaryRespository salaryRepository;
 
-	@Override
-	public Page<Salary> getAllSalarys(Pageable pageable) {
-		
-		return salaryRepository.findAll(pageable);
-	}
+    @Autowired
+    private ISalaryRespository salaryRepository;
 
-	@Override
-	public Salary getSalaryByID(short id) {
-		
-		return salaryRepository.findById(id).get();
-	}
+    @Override
+    public Page<Salary> getAllSalarys(Pageable pageable) {
 
-	@Override
-	public Salary getSalaryByName(String name) {
+        return salaryRepository.findAll(pageable);
+    }
 
-		return salaryRepository.findBySalaryName(name);
-	}
+    @Override
+    public Salary getSalaryByID(short id) {
 
-	@Override
-	public void createSalary(Salary salary) {
-		
-		salaryRepository.save(salary);		
-	}
+        return salaryRepository.findById(id).get();
+    }
 
-	@Override
-	public void updateSalary(Salary salary) {
-		salaryRepository.save(salary);
-	}
+    @Override
+    public Salary getSalaryByName(String name) {
 
-	@Override
-	public void deleteSalary(short id) {
-		
-		salaryRepository.deleteById(id);;
-	}
+        return salaryRepository.findBySalaryName(name);
+    }
 
-	@Override
-	public boolean isSalaryExistsByID(short id) {
-		
-		return salaryRepository.existsById(id);
-	}
+    @Override
+    public void createSalary(Salary salary) {
 
-	@Override
-	public boolean isSalaryExistsByName(String name) {
-		Salary salary = getSalaryByName(name);
+        salaryRepository.save(salary);
+    }
 
-		if (salary == null) {
-			return false;
-		}
-		return true;
-	}
-	
-	
+    @Override
+    public void updateSalary(Salary salary) {
+        salaryRepository.save(salary);
+    }
+
+    @Override
+    public void deleteSalary(short id) {
+
+        salaryRepository.deleteById(id);
+        ;
+    }
+
+    @Override
+    public boolean isSalaryExistsByID(short id) {
+
+        return salaryRepository.existsById(id);
+    }
+
+    @Override
+    public boolean isSalaryExistsByName(String name) {
+        Salary salary = getSalaryByName(name);
+
+        if (salary == null) {
+            return false;
+        }
+        return true;
+    }
+
+
 }

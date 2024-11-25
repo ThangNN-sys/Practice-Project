@@ -35,21 +35,22 @@ public class AddressController {
 
     // create new
     @PostMapping()
-    public void createAddress(@RequestBody Address create) {
-        service.createAddress(create.toString());
+    public void createAddress(@RequestBody Address address) {
+        service.createAddress(address);
     }
 
     // update name find by id
     @PutMapping(value = "/{id}")
-    public void updateAddress(@RequestBody Address updated) {
-        service.updateAddress(updated.toString());
+    public void updateAddress(@PathVariable(name = "id") short id, @RequestBody Address address) {
+        address.setId(id);
+        service.updateAddress(address);
     }
 
     // update by object
     @PutMapping
     public ResponseEntity<String> updateAddress1(@RequestBody Address address) {
         try {
-            updateAddress(address);
+            updateAddress1(address);
             return ResponseEntity.ok("Address updated successfully");
         } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body("Failed to update address: " + e.getMessage());
@@ -59,7 +60,7 @@ public class AddressController {
     // delete by id
     @DeleteMapping(value = "/{id}")
     public void deleteAddress(@PathVariable(name = "id") short id) {
-        service.deleteAddress(String.valueOf(id));
+        service.deleteAddress(id);
     }
 
     // exists by id

@@ -1,18 +1,13 @@
 package com.vti.entity;
 
-import java.io.Serializable;
-import java.util.Date;
-import java.util.List;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-import lombok.Getter;
-import lombok.Setter;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "Manager")
@@ -21,13 +16,13 @@ import lombok.Setter;
 @Getter
 public class Manager extends Account implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	@Column(name = "ManagementNumberOfYear", nullable = false)
-	private short managementNumberOfYear;
+    @Column(name = "ManagementNumberOfYear", nullable = false)
+    private short managementNumberOfYear;
 
-	public Manager() {
-	}
+    public Manager() {
+    }
 
 //	/**
 //	 * @return the managementNumberOfYear
@@ -43,13 +38,13 @@ public class Manager extends Account implements Serializable {
 //		this.managementNumberOfYear = managementNumberOfYear;
 //	}
 
-	@Override
-	public String toString() {
-		return "Manager [managementNumberOfYear=" + managementNumberOfYear
-				+ ", getAccountId()=" + getAccountId() + ", getEmail()=" + getEmail() + ", getUsername()="
-				+ getUsername() + ", getFirstName()=" + getFirstName() + ", getLastName()=" + getLastName()
-				+ ", getFullName()=" + getFullName() + ", getCreateDate()=" + getCreateDate() + ", getDepartment()="
-				+ getDepartment() + ", getPosition()=" + getPosition() + ", getSalary()=" + getSalary() + "]";
-	}
-		
+    @Override
+    public String toString() {
+        return "Manager [managementNumberOfYear=" + managementNumberOfYear
+                + ", getAccountId()=" + getAccountId() + ", getEmail()=" + getEmail() + ", getUsername()="
+                + getUsername() + ", getFirstName()=" + getFirstName() + ", getLastName()=" + getLastName()
+                + ", getFullName()=" + getFullName() + ", getCreateDate()=" + getCreateDate() + ", getDepartment()="
+                + getDepartment() + ", getPosition()=" + getPosition() + ", getSalary()=" + getSalary() + "]";
+    }
+
 }

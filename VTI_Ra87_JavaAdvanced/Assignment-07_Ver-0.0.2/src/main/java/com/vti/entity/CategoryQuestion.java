@@ -2,11 +2,12 @@ package com.vti.entity;
 
 import jakarta.persistence.*;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 /**
  * Class quản lý các Annotation
- * Dùng để khai báo các ánh xạ tới bảng CategoryQuestion của DB
+ * Khai báo các ánh xạ tới bảng CategoryQuestion của DB
  */
 
 @Entity
@@ -14,6 +15,7 @@ import java.io.Serializable;
 
 public class CategoryQuestion implements Serializable {
 
+    @Serial
 	private static final long serialVersionUID = 1L;
 
 	@Column(name = "CategoryID")

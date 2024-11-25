@@ -15,37 +15,37 @@ public class DepartmentController {
     @Autowired
     private IDepartmentService service;
 
-    // get all departments paging
+    // get all paging
     @GetMapping()
     public Page<Department> getAllDepartments(Pageable pageable) {
         return service.getAllDepartments(pageable);
     }
 
-    // get department by id
+    // get by id
     @GetMapping(value = "/{id}")
     public Department getDepartmentById(@PathVariable(name = "id") short id) {
         return service.getDepartmentById(id);
     }
 
-    // get department by name
+    // get by name
     @GetMapping(value = "/name/{name}")
     public Department getDepartmentByName(@PathVariable(name = "name") String name) {
         return service.getDepartmentByName(name);
     }
 
-    // create new department
+    // create new
     @PostMapping()
     public void createDepartment(@RequestBody Department create) {
         service.createDepartment(create.toString());
     }
 
-    // update department name find by id
+    // update name find by id
     @PutMapping(value = "/{id}")
     public void updateDepartment(@RequestBody Department updated) {
         service.updateDepartment(updated.toString());
     }
 
-    // update department by department object
+    // update by object
     @PutMapping
     public ResponseEntity<String> updateDepartment1(@RequestBody Department department) {
         try {
@@ -56,19 +56,19 @@ public class DepartmentController {
         }
     }
 
-    // delete department by id
+    // delete by id
     @DeleteMapping(value = "/{id}")
     public void deleteDepartment(@PathVariable(name = "id") short id) {
         service.deleteDepartment(String.valueOf(id));
     }
 
-    // is department exists by id
+    // exists by id
     @GetMapping(value = "/is-exist-id/{id}")
     public boolean isDepartmentExistId(@PathVariable(name = "id") short id) {
         return service.isDepartmentExistId(id);
     }
 
-    // is department exists by name
+    // exists by name
     @GetMapping(value = "/is-exist-name/{name}")
     public boolean isDepartmentExistName(@PathVariable(name = "name") String name) {
         return service.isDepartmentExistName(name);

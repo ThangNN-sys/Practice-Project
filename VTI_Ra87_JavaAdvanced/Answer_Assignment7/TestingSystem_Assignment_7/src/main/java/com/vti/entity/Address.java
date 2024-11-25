@@ -1,21 +1,12 @@
 package com.vti.entity;
 
-import java.io.Serializable;
-import java.util.Date;
-import java.util.List;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import lombok.Getter;
 import lombok.Setter;
+
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "Address")
@@ -23,27 +14,27 @@ import lombok.Setter;
 @Getter
 public class Address implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	@Column(name = "AddressID")
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private short addressId;
+    @Column(name = "AddressID")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private short addressId;
 
-	@Column(name = "AddressName", length = 100, nullable = false, unique = true)
-	private String addressName;
-	
-	@OneToMany(mappedBy = "address")
-	@JsonIgnoreProperties("address")
-	private List<DetailDepartment> detailDepartment;
+    @Column(name = "AddressName", length = 100, nullable = false, unique = true)
+    private String addressName;
 
-	public Address() {
-	}
-	
-	public Address(short id, String name) {
-		this.addressId = id;
-		this.addressName = name;
-	}
+    @OneToMany(mappedBy = "address")
+    @JsonIgnoreProperties("address")
+    private List<DetailDepartment> detailDepartment;
+
+    public Address() {
+    }
+
+    public Address(short id, String name) {
+        this.addressId = id;
+        this.addressName = name;
+    }
 
 //	/**
 //	 * @return the addressId
@@ -87,10 +78,10 @@ public class Address implements Serializable {
 //		this.detailDepartment = detailDepartment;
 //	}
 
-	@Override
-	public String toString() {
-		return "Address [addressId=" + addressId + ", addressName=" + addressName + ", detailDepartment="
-				+ detailDepartment + "]";
-	}
-		
+    @Override
+    public String toString() {
+        return "Address [addressId=" + addressId + ", addressName=" + addressName + ", detailDepartment="
+                + detailDepartment + "]";
+    }
+
 }

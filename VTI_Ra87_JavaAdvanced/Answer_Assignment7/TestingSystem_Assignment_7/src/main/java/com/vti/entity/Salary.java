@@ -1,22 +1,12 @@
 package com.vti.entity;
 
-import java.io.Serializable;
-import java.util.Date;
-import java.util.List;
-
-import javax.persistence.Column;
-import javax.persistence.Convert;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import lombok.Getter;
 import lombok.Setter;
+
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "`Salary`")
@@ -24,23 +14,23 @@ import lombok.Setter;
 @Getter
 public class Salary implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	@Column(name = "SalaryID")
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private short salaryId;
+    @Column(name = "SalaryID")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private short salaryId;
 
-	@Column(name = "SalaryName", nullable = false, unique = true)
-	@Convert(converter = SalaryNameConverter.class)
-	private SalaryName salaryName;
-	
-	@OneToMany(mappedBy = "salary")
-	@JsonIgnoreProperties("salary")
-	private List<Account> accounts;
+    @Column(name = "SalaryName", nullable = false, unique = true)
+    @Convert(converter = SalaryNameConverter.class)
+    private SalaryName salaryName;
 
-	public Salary() {
-	}
+    @OneToMany(mappedBy = "salary")
+    @JsonIgnoreProperties("salary")
+    private List<Account> accounts;
+
+    public Salary() {
+    }
 
 //	/**
 //	 * @return the salaryId
@@ -69,12 +59,12 @@ public class Salary implements Serializable {
 //	public void setSalaryName(SalaryName salaryName) {
 //		this.salaryName = salaryName;
 //	}
-	
 
-	@Override
-	public String toString() {
-		return "Salary [salaryId=" + salaryId + ", salaryName=" + salaryName + ", accounts=" + accounts + "]";
-	}
+
+    @Override
+    public String toString() {
+        return "Salary [salaryId=" + salaryId + ", salaryName=" + salaryName + ", accounts=" + accounts + "]";
+    }
 
 //	/**
 //	 * @return the accounts
@@ -91,26 +81,26 @@ public class Salary implements Serializable {
 //	}
 
 
-	public enum SalaryName {
-		DEV("600"), TEST("700"), SCRUM_MASTER("1500"), PM("2000");
+    public enum SalaryName {
+        DEV("600"), TEST("700"), SCRUM_MASTER("1500"), PM("2000");
 
-		private String salaryName;
+        private String salaryName;
 
-		private SalaryName(String salaryName) {
-			this.salaryName = salaryName;
-		}
+        private SalaryName(String salaryName) {
+            this.salaryName = salaryName;
+        }
 
-		public String getSalaryName() {
-			return salaryName;
-		}
+        public static SalaryName toEnum(String sqlSalaryName) {
+            for (SalaryName item : SalaryName.values()) {
+                if (item.getSalaryName().equals(sqlSalaryName)) {
+                    return item;
+                }
+            }
+            return null;
+        }
 
-		public static SalaryName toEnum(String sqlSalaryName) {
-			for (SalaryName item : SalaryName.values()) {
-				if (item.getSalaryName().equals(sqlSalaryName)) {
-					return item;
-				}
-			}
-			return null;
-		}
-	}
+        public String getSalaryName() {
+            return salaryName;
+        }
+    }
 }

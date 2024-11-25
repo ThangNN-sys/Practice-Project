@@ -1,36 +1,17 @@
 package com.vti.entity;
 
-import java.io.Serializable;
-import java.util.Date;
-import java.util.List;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.Formula;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-
-import lombok.Getter;
-import lombok.Setter;
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "`Account`")
@@ -40,58 +21,47 @@ import lombok.Setter;
 @Getter
 public class Account implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
+    @OneToMany(mappedBy = "createdAcc")
+    @JsonIgnoreProperties("createdAcc")
+    List<Group> createdGroups;
+    @Column(name = "AccountID")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private short accountId;
+    @Column(name = "Email", length = 50, nullable = false, unique = true, updatable = false)
+    private String email;
+    @Column(name = "Username", length = 50, nullable = false, unique = true, updatable = false)
+    private String username;
+    @Column(name = "FirstName", length = 50, nullable = false, updatable = false)
+    private String firstName;
+    @Column(name = "LastName", length = 50, nullable = false, updatable = false)
+    private String lastName;
+    @Formula(" concat(LastName, ' ', FirstName) ")
+    private String fullName;
+    @ManyToOne(cascade = CascadeType.REMOVE)
+    @JoinColumn(name = "DepartmentID", referencedColumnName = "DepartmentID")
+    @JsonIgnoreProperties("accounts")
+    private Department department;
+    @ManyToOne
+    @JoinColumn(name = "PositionID", referencedColumnName = "PositionID")
+    @JsonIgnoreProperties("accounts")
+    private Position position;
+    @ManyToOne
+    @JoinColumn(name = "SalaryID", referencedColumnName = "SalaryID")
+    @JsonIgnoreProperties("accounts")
+    private Salary salary;
+    @OneToMany(mappedBy = "account")
+    @JsonIgnoreProperties("account")
+    private List<GroupAccount> groupAccounts;
 
-	@Column(name = "AccountID")
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private short accountId;
+    @Column(name = "CreateDate", updatable = false)
+    @Temporal(TemporalType.TIMESTAMP)
+    @CreationTimestamp
+    private Date createDate;
 
-	@Column(name = "Email", length = 50, nullable = false, unique = true, updatable = false)
-	private String email;
-
-	@Column(name = "Username", length = 50, nullable = false, unique = true, updatable = false)
-	private String username;
-
-	@Column(name = "FirstName", length = 50, nullable = false, updatable = false)
-	private String firstName;
-
-	@Column(name = "LastName", length = 50, nullable = false, updatable = false)
-	private String lastName;
-
-	@Formula(" concat(LastName, ' ', FirstName) ")
-	private String fullName;
-
-	@ManyToOne(cascade = CascadeType.REMOVE)
-	@JoinColumn(name = "DepartmentID", referencedColumnName = "DepartmentID")
-	@JsonIgnoreProperties("accounts")
-	private Department department;
-
-	@ManyToOne
-	@JoinColumn(name = "PositionID", referencedColumnName = "PositionID")
-	@JsonIgnoreProperties("accounts")
-	private Position position;
-
-	@ManyToOne
-	@JoinColumn(name = "SalaryID", referencedColumnName = "SalaryID")
-	@JsonIgnoreProperties("accounts")
-	private Salary salary;
-
-	@OneToMany(mappedBy = "createdAcc")
-	@JsonIgnoreProperties("createdAcc")
-	List<Group> createdGroups;
-
-	@OneToMany(mappedBy = "account")
-	@JsonIgnoreProperties("account")
-	private List<GroupAccount> groupAccounts;
-
-	@Column(name = "CreateDate", updatable = false)
-	@Temporal(TemporalType.TIMESTAMP)
-	@CreationTimestamp
-	private Date createDate;
-
-	public Account() {
-	}
+    public Account() {
+    }
 
 //	/**
 //	 * @return the accountId
@@ -261,14 +231,14 @@ public class Account implements Serializable {
 //		this.groupAccounts = groupAccounts;
 //	}
 
-	@Override
-	public String toString() {
-		return "Account [accountId=" + accountId + ", email=" + email + ", username=" + username + ", firstName="
-				+ firstName + ", lastName=" + lastName + ", fullName=" + fullName + ", department=" + department
-				+ ", position=" + position + ", salary=" + salary 
-				+ ", createdGroups=" + createdGroups 
-				+ ", createDate="
-				+ createDate + ", groupAccounts=" + groupAccounts + "]";
-	}
+    @Override
+    public String toString() {
+        return "Account [accountId=" + accountId + ", email=" + email + ", username=" + username + ", firstName="
+                + firstName + ", lastName=" + lastName + ", fullName=" + fullName + ", department=" + department
+                + ", position=" + position + ", salary=" + salary
+                + ", createdGroups=" + createdGroups
+                + ", createDate="
+                + createDate + ", groupAccounts=" + groupAccounts + "]";
+    }
 
 }

@@ -1,77 +1,75 @@
 package com.vti.service;
 
-import java.util.List;
-
+import com.vti.entity.Department;
+import com.vti.respository.IDepartmentRespository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import com.vti.entity.Department;
-import com.vti.respository.IDepartmentRespository;
-
 @Service
 public class DepartmentService implements IDepartmentService {
-	
-	@Autowired
-	private IDepartmentRespository departmentRepository;
 
-	@Override
-	public Page<Department> getAllDepartments(Pageable pageable) {
-		
-		return departmentRepository.findAll(pageable);
-	}
+    @Autowired
+    private IDepartmentRespository departmentRepository;
 
-	@Override
-	public Department getDepartmentByID(short id) {
-		
-		return departmentRepository.findById(id).get();
-	}
+    @Override
+    public Page<Department> getAllDepartments(Pageable pageable) {
 
-	@Override
-	public Department getDepartmentByName(String name) {
+        return departmentRepository.findAll(pageable);
+    }
 
-		return departmentRepository.findByName(name);
-	}
+    @Override
+    public Department getDepartmentByID(short id) {
 
-	@Override
-	public void createDepartment(Department department) {
-		
-		departmentRepository.save(department);		
-	}
+        return departmentRepository.findById(id).get();
+    }
 
-	@Override
-	public void updateDepartment(short id, String newName) {
-		Department department = new Department(id, newName);
-		departmentRepository.save(department);	
-	}
+    @Override
+    public Department getDepartmentByName(String name) {
 
-	@Override
-	public void updateDepartment(Department department) {
-		departmentRepository.save(department);
-	}
+        return departmentRepository.findByName(name);
+    }
 
-	@Override
-	public void deleteDepartment(short id) {
-		
-		departmentRepository.deleteById(id);;
-	}
+    @Override
+    public void createDepartment(Department department) {
 
-	@Override
-	public boolean isDepartmentExistsByID(short id) {
-		
-		return departmentRepository.existsById(id);
-	}
+        departmentRepository.save(department);
+    }
 
-	@Override
-	public boolean isDepartmentExistsByName(String name) {
-		Department department = getDepartmentByName(name);
+    @Override
+    public void updateDepartment(short id, String newName) {
+        Department department = new Department(id, newName);
+        departmentRepository.save(department);
+    }
 
-		if (department == null) {
-			return false;
-		}
-		return true;
-	}
-	
-	
+    @Override
+    public void updateDepartment(Department department) {
+        departmentRepository.save(department);
+    }
+
+    @Override
+    public void deleteDepartment(short id) {
+
+        departmentRepository.deleteById(id);
+        ;
+    }
+
+    @Override
+    public boolean isDepartmentExistsByID(short id) {
+
+        return departmentRepository.existsById(id);
+    }
+
+    @Override
+    public boolean isDepartmentExistsByName(String name) {
+        Department department = getDepartmentByName(name);
+
+        if (department == null) {
+            return false;
+        }
+        return true;
+    }
+
+
 }

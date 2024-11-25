@@ -1,30 +1,16 @@
 package com.vti.entity;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import lombok.Getter;
+import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
+
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-
-import org.hibernate.annotations.CreationTimestamp;
-
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.ObjectIdGenerator;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-
-import lombok.Getter;
-import lombok.Setter;
 
 @Entity
 @Table(name = "`Group`")
@@ -33,32 +19,32 @@ import lombok.Setter;
 @Getter
 public class Group implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	@Column(name = "GroupID")
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private short groupId;
+    @Column(name = "GroupID")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private short groupId;
 
-	@Column(name = "GroupName", length = 50, nullable = false, unique = true)
-	private String groupName;
-	
-	@ManyToOne()
-	@JoinColumn(name = "CreatorID", referencedColumnName = "AccountID", updatable = false) 
-	@JsonIgnoreProperties("createdGroups")
-	private Account createdAcc;
+    @Column(name = "GroupName", length = 50, nullable = false, unique = true)
+    private String groupName;
 
-	@Column(name = "CreateDate", updatable = false)
-	@Temporal(TemporalType.TIMESTAMP)
-	@CreationTimestamp
-	private Date createDate;
-	
-	@OneToMany(mappedBy = "group")
-	@JsonIgnoreProperties("group")
-	private List<GroupAccount> groupAccounts;
+    @ManyToOne()
+    @JoinColumn(name = "CreatorID", referencedColumnName = "AccountID", updatable = false)
+    @JsonIgnoreProperties("createdGroups")
+    private Account createdAcc;
 
-	public Group() {
-	}
+    @Column(name = "CreateDate", updatable = false)
+    @Temporal(TemporalType.TIMESTAMP)
+    @CreationTimestamp
+    private Date createDate;
+
+    @OneToMany(mappedBy = "group")
+    @JsonIgnoreProperties("group")
+    private List<GroupAccount> groupAccounts;
+
+    public Group() {
+    }
 
 //	/**
 //	 * @return the groupId
@@ -124,12 +110,12 @@ public class Group implements Serializable {
 //		this.groupAccounts = groupAccounts;
 //	}
 
-	@Override
-	public String toString() {
-		return "Group [groupId=" + groupId + ", groupName=" + groupName 
-				+ ", createdAcc=" + createdAcc 
-				+ ", createDate="
-				+ createDate + ", groupAccounts=" + groupAccounts + "]";
-	}
-	
+    @Override
+    public String toString() {
+        return "Group [groupId=" + groupId + ", groupName=" + groupName
+                + ", createdAcc=" + createdAcc
+                + ", createDate="
+                + createDate + ", groupAccounts=" + groupAccounts + "]";
+    }
+
 }

@@ -1,23 +1,12 @@
 package com.vti.entity;
 
-import java.io.Serializable;
-import java.util.Date;
-import java.util.List;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import lombok.Getter;
 import lombok.Setter;
+
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "Department")
@@ -26,42 +15,42 @@ import lombok.Setter;
 @Getter
 public class Department implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	@Column(name = "DepartmentID")
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Short id;
+    @Column(name = "DepartmentID")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Short id;
 
-	@Column(name = "DepartmentName", length = 30, nullable = false, unique = true)
-	private String name;
+    @Column(name = "DepartmentName", length = 30, nullable = false, unique = true)
+    private String name;
 
-	@Column(name = "TotalMember")
-	private Short totalMember;
-	
-	@OneToMany(mappedBy = "department")
-	@JsonIgnoreProperties("department")
-	private List<Account> accounts;
+    @Column(name = "TotalMember")
+    private Short totalMember;
 
-	public Department() {
-	}
+    @OneToMany(mappedBy = "department")
+    @JsonIgnoreProperties("department")
+    private List<Account> accounts;
 
-	public Department(String name) {
-		this.name = name;
-	}
+    public Department() {
+    }
 
-	public Department(Short id, String name) {
-		super();
-		this.id = id;
-		this.name = name;
-	}
+    public Department(String name) {
+        this.name = name;
+    }
 
-	public Department(Short id, String name, Short totalMember) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.totalMember = totalMember;
-	}
+    public Department(Short id, String name) {
+        super();
+        this.id = id;
+        this.name = name;
+    }
+
+    public Department(Short id, String name, Short totalMember) {
+        super();
+        this.id = id;
+        this.name = name;
+        this.totalMember = totalMember;
+    }
 
 //	public Short getId() {
 //		return id;
@@ -95,9 +84,9 @@ public class Department implements Serializable {
 //		this.accounts = accounts;
 //	}
 
-	@Override
-	public String toString() {
-		return "Department [id=" + id + ", name=" + name + ", totalMember=" + totalMember + ", accounts=" + accounts + "]";
-	}
-	
+    @Override
+    public String toString() {
+        return "Department [id=" + id + ", name=" + name + ", totalMember=" + totalMember + ", accounts=" + accounts + "]";
+    }
+
 }

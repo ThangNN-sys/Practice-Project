@@ -4,52 +4,54 @@ import com.vti.entity.enumerate.TypeQuestionName;
 import com.vti.entity.enumerate.TypeQuestionNameConvert;
 import jakarta.persistence.*;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 /**
  * Class quản lý các Annotation
- * Dùng để khai báo các ánh xạ tới bảng TypeQuestion của DB
+ * Khai báo các ánh xạ tới bảng TypeQuestion của DB
  */
 
 @Entity
 @Table(name = "TypeQuestion")
 public class TypeQuestion implements Serializable {
 
+    @Serial
 	private static final long serialVersionUID = 1L;
 
 	@Column(name = "TypeID")
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private short typeId; // maps to TINYINT UNSIGNED AUTO_INCREMENT PRIMARY KEY
+    private short id; // maps to TINYINT UNSIGNED AUTO_INCREMENT PRIMARY KEY
 
 	@Column(name = "TypeName", nullable = false, unique = true)
 	@Convert(converter = TypeQuestionNameConvert.class)
-	private TypeQuestionName typeName; // maps to ENUM('0','1') NOT NULL UNIQUE KEY
+    private TypeQuestionName name; // maps to ENUM('0','1') NOT NULL UNIQUE KEY
 
 	public TypeQuestion() {
 	}
 
-	public short getTypeId() {
-		return typeId;
+    public short getId() {
+        return id;
 	}
 
-	public void setTypeId(short typeId) {
-		this.typeId = typeId;
+    public void setId(short typeId) {
+        this.id = typeId;
 	}
 
-	public TypeQuestionName getTypeName() {
-		return typeName;
+    public TypeQuestionName getName() {
+        return name;
 	}
 
-	public void setTypeName(TypeQuestionName typeName) {
-		this.typeName = typeName;
+    public void setName(TypeQuestionName typeName) {
+        this.name = typeName;
 	}
 
 	@Override
 	public String toString() {
 		return "TypeQuestion{" +
-				"typeId=" + typeId +
-				", typeName=" + typeName +
+                "typeId=" + id +
+                ", typeName=" + name +
 				'}';
 	}
 }

@@ -2,12 +2,19 @@ package com.vti.entity;
 
 import jakarta.persistence.*;
 
+import java.io.Serial;
 import java.io.Serializable;
+
+/**
+ * Class quản lý các Annotation
+ * Khai báo các ánh xạ tới bảng Department của DB
+ */
 
 @Entity
 @Table(name = "Department")
 public class Department implements Serializable {
 
+    @Serial
     static final long serialVersionUID = 1L;
 
     @Column(name = "DepartmentID")

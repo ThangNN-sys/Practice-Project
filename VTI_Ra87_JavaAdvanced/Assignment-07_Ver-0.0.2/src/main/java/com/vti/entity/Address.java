@@ -2,17 +2,19 @@ package com.vti.entity;
 
 import jakarta.persistence.*;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 /**
  * Class quản lý các Annotation
- * Dùng để khai báo các ánh xạ tới bảng Address của DB
+ * Khai báo các ánh xạ tới bảng Address của DB
  */
 
 @Entity
 @Table(name = "Address")
 public class Address implements Serializable {
 
+	@Serial
 	private static final long serialVersionUID = 1L;
 
 	@Column(name = "AddressID")

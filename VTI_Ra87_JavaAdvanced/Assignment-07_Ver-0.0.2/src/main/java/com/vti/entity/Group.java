@@ -3,27 +3,29 @@ package com.vti.entity;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Class quản lý các Annotation
- * Dùng để khai báo các ánh xạ tới bảng Group của DB
+ * Khai báo các ánh xạ tới bảng Group của DB
  */
 
 @Entity
 @Table(name = "`Group`")
 public class Group implements Serializable {
 
+    @Serial
 	private static final long serialVersionUID = 1L;
 
 	@Column(name = "GroupID")
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private short groupId; // maps to TINYINT UNSIGNED AUTO_INCREMENT PRIMARY KEY
+    private short id; // maps to TINYINT UNSIGNED AUTO_INCREMENT PRIMARY KEY
 
 	@Column(name = "GroupName", length = 50, nullable = false, unique = true)
-	private String groupName; // maps to NVARCHAR(50) NOT NULL UNIQUE KEY
+    private String name; // maps to NVARCHAR(50) NOT NULL UNIQUE KEY
 
 //	@ManyToOne
 //	@JoinColumn(name = "CreatorID", referencedColumnName = "AccountID", updatable = false)
@@ -40,20 +42,20 @@ public class Group implements Serializable {
 	public Group() {
 	}
 
-	public short getGroupId() {
-		return groupId;
+    public short getId() {
+        return id;
 	}
 
-	public void setGroupId(short id) {
-		this.groupId = id;
+    public void setId(short id) {
+        this.id = id;
 	}
 
-	public String getGroupName() {
-		return groupName;
+    public String getName() {
+        return name;
 	}
 
-	public void setGroupName(String name) {
-		this.groupName = name;
+    public void setName(String name) {
+        this.name = name;
 	}
 
 //	public Account getCreator() {
