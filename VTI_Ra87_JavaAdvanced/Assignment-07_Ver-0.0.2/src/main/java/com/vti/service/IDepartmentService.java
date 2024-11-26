@@ -8,9 +8,9 @@ import java.util.List;
 
 public interface IDepartmentService {
 
-    List<Department> getAllDepartments();
+    List<Department> getListDepartments();
 
-    Page<Department> getAllDepartments(Pageable pageable);
+    Page<Department> getPageDepartments(Pageable pageable);
 
     Department getDepartmentById(short id);
 

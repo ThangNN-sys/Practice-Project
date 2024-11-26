@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface IGroupService {
 
-    List<Group> getAllGroups();
+    List<Group> getListGroups();
 
     Page<Group> getAllGroups(Pageable pageable);
 
@@ -16,11 +16,11 @@ public interface IGroupService {
 
     Group getGroupByName(String name);
 
-    void createGroup(String name);
+    void createGroup(Group group);
 
-    void updateGroup(short id, String newName);
+    void updateGroup1(short id, String newName);
 
-    void updateGroup(Group group);
+    void updateGroup2(Group group);
 
     void deleteGroup(short id);
 

@@ -9,7 +9,6 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface IAddressRepository extends JpaRepository<Address, Short> {
-
     /**
      * Data Access Layer - Interface
      * Tương tác với cơ sở dữ liệu, thực hiện các truy vấn CRUD

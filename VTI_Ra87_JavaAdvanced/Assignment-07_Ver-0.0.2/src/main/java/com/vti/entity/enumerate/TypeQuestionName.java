@@ -1,30 +1,30 @@
 package com.vti.entity.enumerate;
 
 public enum TypeQuestionName {
-	Esay("0"), MultipleChoice("1");
+    Esay("0"), MultipleChoice("1");
 
-	private String value;
+    private String value;
 
-	private TypeQuestionName(String value) {
-		this.value = value;
-	}
+    private TypeQuestionName(String value) {
+        this.value = value;
+    }
 
-	public String getValue() {
-		return value;
-	}
+    public static TypeQuestionName of(String value) {
+        if (value == null) {
+            return null;
+        }
 
-	public static TypeQuestionName of(String value) {
-		if (value == null) {
-			return null;
-		}
+        for (TypeQuestionName name : TypeQuestionName.values()) {
+            if (name.getValue().equals(value)) {
+                return name;
+            }
+        }
 
-		for (TypeQuestionName name : TypeQuestionName.values()) {
-			if (name.getValue().equals(value)) {
-				return name;
-			}
-		}
+        return null;
+    }
 
-		return null;
-	}
+    public String getValue() {
+        return value;
+    }
 
 }

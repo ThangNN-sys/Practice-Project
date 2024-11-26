@@ -20,49 +20,65 @@ public class TypeQuestionService implements ITypeQuestionService {
     @Autowired
     private ITypeQuestionRepository repository;
 
-
+    // get all
     @Override
-    public List<TypeQuestion> getAllTypes() {
-        return List.of();
+    public List<TypeQuestion> getListTypes() {
+        return repository.findAll();
     }
 
+    // get all paging
     @Override
     public Page<TypeQuestion> getAllTypes(Pageable pageable) {
         return repository.findAll(pageable);
     }
 
+    // get by id with @Query
     @Override
     public TypeQuestion getTypeById(short id) {
-        return repository.findById(id);
+        return repository.findTypeQuestionById(id);
     }
 
+    // get by name with @Query
     @Override
     public TypeQuestion getTypeByName(String name) {
-        return repository.findByName(name);
+        return repository.findTypeQuestionByName(name);
     }
 
+    // create new
     @Override
-    public void createType(String name) {
-
+    public void createType(TypeQuestion typeQuestion) {
+        repository.save(typeQuestion);
     }
 
+    // update name find by id
     @Override
-    public void updateType(String name) {
-
+    public void updateType1(short id, String newName) {
+        repository.updateTypeQuestion1(id, newName);
     }
 
+    // update by object
     @Override
-    public void deleteType(String name) {
-
+    public void updateType2(TypeQuestion typeQuestion) {
+        repository.save(typeQuestion);
     }
 
+    // delete by id
+    @Override
+    public void deleteType(short id) {
+        repository.deleteById(id);
+    }
+
+    // exists by id
     @Override
     public boolean isTypeExistId(short id) {
-        return false;
+        return repository.existsById(id);
     }
 
+    // exists by name
     @Override
     public boolean isTypeExistName(String name) {
-        return false;
+        TypeQuestion typeQuestion = repository.findTypeQuestionByName(name);
+        return typeQuestion != null;
+        // return repository.findTypeQuestionByName(name) != null; // cách viết ngắn gọn
     }
 }

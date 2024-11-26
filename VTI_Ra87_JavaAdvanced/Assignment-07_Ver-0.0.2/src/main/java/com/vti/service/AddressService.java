@@ -8,7 +8,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class AddressService implements IAddressService {
@@ -23,23 +22,23 @@ public class AddressService implements IAddressService {
 
     // get all
     @Override
-    public List<Address> getAllAddresses() {
+    public List<Address> getListAddresses() {
         return repository.findAll();
     }
-    
+
     // get all paging
     @Override
     public Page<Address> getAllAddresses(Pageable pageable) {
         return repository.findAll(pageable);
     }
 
-    // get by id
+    // get by id with @Query
     @Override
-    public Optional<Address> getAddressById(short id) {
-        return repository.findById(id);
+    public Address getAddressById(short id) {
+        return repository.findAddressById(id);
     }
 
-    // get by name
+    // get by name with @Query
     @Override
     public Address getAddressByName(String name) {
         return repository.findAddressByName(name);
@@ -54,8 +53,7 @@ public class AddressService implements IAddressService {
     // update name find by id
     @Override
     public void updateAddress1(short id, String newName) {
-        Address address = repository.findAddressById(id);
-        address.setName(newName);
+        repository.updateAddress1(id, newName);
     }
 
     // update by object

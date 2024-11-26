@@ -41,25 +41,17 @@ public class SalaryController {
     // create new
     @PostMapping()
     public void createSalary(@RequestBody Salary create) {
-        service.createSalary(create.toString());
+        service.createSalary(create);
     }
 
     // update name find by id
-    @PutMapping(value = "/{id}")
-    public void updateSalary(@RequestBody Salary updated) {
-        service.updateSalary(updated.toString());
+    @PutMapping(value = "/u1/{id}")
+    public void updateSalary1(@RequestBody Salary updated) {
+        service.updateSalary1();
     }
 
     // update by object
-    @PutMapping
-    public ResponseEntity<String> updateSalary1(@RequestBody Salary salary) {
-        try {
-            updateSalary(salary);
-            return ResponseEntity.ok("Salary updated successfully");
-        } catch (RuntimeException e) {
-            return ResponseEntity.badRequest().body("Failed to update salary: " + e.getMessage());
-        }
-    }
+
 
     // delete by id
     @DeleteMapping(value = "/{id}")

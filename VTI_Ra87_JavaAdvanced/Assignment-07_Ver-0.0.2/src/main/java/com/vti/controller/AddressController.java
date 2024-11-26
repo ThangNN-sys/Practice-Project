@@ -1,13 +1,13 @@
 package com.vti.controller;
 
 import com.vti.entity.Address;
-import com.vti.entity.Department;
 import com.vti.service.IAddressService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "api/v1/addresses")
@@ -21,6 +21,11 @@ public class AddressController {
     @Autowired
     private IAddressService service;
 
+    // get all list
+    @GetMapping()
+    public List<Address> getListAddress() {
+        return service.getListAddresses();
+    }
     // get all paging
     @GetMapping()
     public Page<Address> getAllAddresses(Pageable pageable) {
@@ -65,13 +70,13 @@ public class AddressController {
     }
 
     // exists by id
-    @GetMapping(value = "/is-exist-id/{id}")
+    @GetMapping(value = "/exists-id/{id}")
     public boolean isAddressExistId(@PathVariable(name = "id") short id) {
         return service.isAddressExistId(id);
     }
 
     // exists by name
-    @GetMapping(value = "/is-exist-name/{name}")
+    @GetMapping(value = "/exists-name/{name}")
     public boolean isAddressExistName(@PathVariable(name = "name") String name) {
         return service.isAddressExistName(name);
     }

@@ -17,41 +17,41 @@ import java.io.Serializable;
 public class TypeQuestion implements Serializable {
 
     @Serial
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	@Column(name = "TypeID")
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "TypeID")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private short id; // maps to TINYINT UNSIGNED AUTO_INCREMENT PRIMARY KEY
 
-	@Column(name = "TypeName", nullable = false, unique = true)
-	@Convert(converter = TypeQuestionNameConvert.class)
+    @Column(name = "TypeName", nullable = false, unique = true)
+    @Convert(converter = TypeQuestionNameConvert.class)
     private TypeQuestionName name; // maps to ENUM('0','1') NOT NULL UNIQUE KEY
 
-	public TypeQuestion() {
-	}
+    public TypeQuestion() {
+    }
 
     public short getId() {
         return id;
-	}
+    }
 
     public void setId(short typeId) {
         this.id = typeId;
-	}
+    }
 
     public TypeQuestionName getName() {
         return name;
-	}
+    }
 
     public void setName(TypeQuestionName typeName) {
         this.name = typeName;
-	}
+    }
 
-	@Override
-	public String toString() {
-		return "TypeQuestion{" +
+    @Override
+    public String toString() {
+        return "TypeQuestion{" +
                 "typeId=" + id +
                 ", typeName=" + name +
-				'}';
-	}
+                '}';
+    }
 }

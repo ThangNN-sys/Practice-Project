@@ -20,55 +20,65 @@ public class GroupService implements IGroupService {
     @Autowired
     private IGroupRepository repository;
 
+    // get all
     @Override
-    public List<Group> getAllGroups() {
-        return List.of();
+    public List<Group> getListGroups() {
+        return repository.findAll();
     }
 
+    // get all paging
     @Override
     public Page<Group> getAllGroups(Pageable pageable) {
         return repository.findAll(pageable);
     }
 
+    // get by id with @Query
     @Override
     public Group getGroupById(short id) {
-        return repository.findById(id);
+        return repository.findGroupById(id);
     }
 
+    // get by name with @Query
     @Override
     public Group getGroupByName(String name) {
-        return repository.findByName(name);
+        return repository.findGroupByName(name);
     }
 
+    // create new
     @Override
-    public void createGroup(String name) {
-
+    public void createGroup(Group group) {
+        repository.save(group);
     }
 
+    // update name find by id
     @Override
-    public void updateGroup(short id, String newName) {
-
+    public void updateGroup1(short id, String newName) {
+        repository.updateGroup1(id, newName);
     }
 
+    // update by object
     @Override
-    public void updateGroup(Group group) {
-
+    public void updateGroup2(Group group) {
+        repository.save(group);
     }
 
+    // delete by id
     @Override
     public void deleteGroup(short id) {
-
+        repository.deleteById(id);
     }
 
-
-
+    // exists by id
     @Override
     public boolean isGroupExistId(short id) {
-        return false;
+        return repository.existsById(id);
     }
 
+    // exists by name
     @Override
     public boolean isGroupExistName(String name) {
-        return false;
+        Group group = repository.findGroupByName(name);
+        return group != null;
+        // return repository.findGroupByName(name) != null; // cách viết ngắn gọn
     }
 }

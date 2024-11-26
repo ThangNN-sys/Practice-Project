@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface ITypeQuestionService {
 
-    List<TypeQuestion> getAllTypes();
+    List<TypeQuestion> getListTypes();
 
     Page<TypeQuestion> getAllTypes(Pageable pageable);
 
@@ -16,11 +16,13 @@ public interface ITypeQuestionService {
 
     TypeQuestion getTypeByName(String name);
 
-    void createType(String name);
+    void createType(TypeQuestion typeQuestion);
 
-    void updateType(String name);
+    void updateType1(short id, String newName);
 
-    void deleteType(String name);
+    void updateType2(TypeQuestion typeQuestion);
+
+    void deleteType(short id);
 
     boolean isTypeExistId(short id);
 

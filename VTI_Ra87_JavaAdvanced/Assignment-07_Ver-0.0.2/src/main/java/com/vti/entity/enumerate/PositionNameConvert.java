@@ -6,21 +6,21 @@ import jakarta.persistence.Converter;
 @Converter
 public class PositionNameConvert implements AttributeConverter<PositionName, String> {
 
-	@Override
-	public String convertToDatabaseColumn(PositionName name) {
-		if (name == null) {
-			return null;
-		}
+    @Override
+    public String convertToDatabaseColumn(PositionName name) {
+        if (name == null) {
+            return null;
+        }
 
-		return name.getValue();
-	}
+        return name.getValue();
+    }
 
-	@Override
-	public PositionName convertToEntityAttribute(String databaseValue) {
-		if (databaseValue == null) {
-			return null;
-		}
-		return PositionName.of(databaseValue);
-	}
+    @Override
+    public PositionName convertToEntityAttribute(String databaseValue) {
+        if (databaseValue == null) {
+            return null;
+        }
+        return PositionName.of(databaseValue);
+    }
 
 }

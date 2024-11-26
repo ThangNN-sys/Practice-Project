@@ -7,6 +7,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(value = "api/v1/departments")
 public class DepartmentController {
@@ -19,10 +21,16 @@ public class DepartmentController {
     @Autowired
     private IDepartmentService service;
 
+    // get all list
+    @GetMapping()
+    public List<Department> getListDepartments() {
+        return service.getListDepartments();
+    }
+
     // get all paging
     @GetMapping()
     public Page<Department> getAllDepartments(Pageable pageable) {
-        return service.getAllDepartments(pageable);
+        return service.getPageDepartments(pageable);
     }
 
     // get by id
@@ -45,15 +53,15 @@ public class DepartmentController {
 
     // update name find by id
     @PutMapping(value = "/u1/{id}")
-    public void updateDepartment1(@PathVariable(name = "id") short id, @RequestBody Department department) {
-        department.setId(id);
-        service.updateDepartment1(id, department.getName());
+    public void updateDepartment1(@PathVariable(name = "id") short id, @RequestBody Department update1) {
+        update1.setId(id);
+        service.updateDepartment1(id, update1.getName());
     }
 
     // update by object
     @PutMapping(value = "/u2/{id}")
-    public void updateDepartment2(@PathVariable(name = "id") short id, @RequestBody Department department) {
-        service.updateDepartment2(department);
+    public void updateDepartment2(@PathVariable(name = "id") short id, @RequestBody Department update2) {
+        service.updateDepartment2(update2);
     }
 
     // delete by id
@@ -63,13 +71,13 @@ public class DepartmentController {
     }
 
     // exists by id
-    @GetMapping(value = "/is-exist-id/{id}")
+    @GetMapping(value = "/exists-id/{id}")
     public boolean isDepartmentExistId(@PathVariable(name = "id") short id) {
         return service.isDepartmentExistId(id);
     }
 
     // exists by name
-    @GetMapping(value = "/is-exist-name/{name}")
+    @GetMapping(value = "/exists-name/{name}")
     public boolean isDepartmentExistName(@PathVariable(name = "name") String name) {
         return service.isDepartmentExistName(name);
     }

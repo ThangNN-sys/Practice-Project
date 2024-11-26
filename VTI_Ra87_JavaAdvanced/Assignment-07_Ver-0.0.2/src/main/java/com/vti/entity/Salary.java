@@ -17,38 +17,38 @@ import java.io.Serializable;
 public class Salary implements Serializable {
 
     @Serial
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	@Column(name = "SalaryID")
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "SalaryID")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private short id; // maps to TINYINT UNSIGNED AUTO_INCREMENT PRIMARY KEY
 
-	@Column(name = "SalaryName", nullable = false, unique = true)
-	@Convert(converter = SalaryNameConvert.class)
+    @Column(name = "SalaryName", nullable = false, unique = true)
+    @Convert(converter = SalaryNameConvert.class)
     private SalaryName name; // maps to ENUM('600','700','1500','2000') NOT NULL UNIQUE KEY
 
 //	@OneToMany(mappedBy = "salary")
 //	private List<Account> accounts;
 
-	public Salary() {
-	}
+    public Salary() {
+    }
 
     public short getId() {
         return id;
-	}
+    }
 
     public void setId(short id) {
         this.id = id;
-	}
+    }
 
     public SalaryName getName() {
         return name;
-	}
+    }
 
     public void setName(SalaryName name) {
         this.name = name;
-	}
+    }
 
 //	public List<Account> getAccounts() {
 //		return accounts;
@@ -58,12 +58,12 @@ public class Salary implements Serializable {
 //		this.accounts = accounts;
 //	}
 
-	/*
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
+    /*
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public String toString() {
         return "Salary { " + "ID = " + id + ", Name = '" + name.getValue() + '\'' + '}';
-	}
+    }
 
 }
