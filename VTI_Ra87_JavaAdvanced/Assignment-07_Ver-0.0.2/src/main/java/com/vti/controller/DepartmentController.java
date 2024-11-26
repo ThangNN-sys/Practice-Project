@@ -5,7 +5,6 @@ import com.vti.service.IDepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -45,20 +44,16 @@ public class DepartmentController {
     }
 
     // update name find by id
-    @PutMapping(value = "/{id}")
-    public void updateDepartment(@RequestBody Department updated) {
-        service.updateDepartment(updated);
+    @PutMapping(value = "/u1/{id}")
+    public void updateDepartment1(@PathVariable(name = "id") short id, @RequestBody Department department) {
+        department.setId(id);
+        service.updateDepartment1(id, department.getName());
     }
 
     // update by object
-    @PutMapping
-    public ResponseEntity<String> updateDepartment1(@RequestBody Department department) {
-        try {
-            updateDepartment(department);
-            return ResponseEntity.ok("Department updated successfully");
-        } catch (RuntimeException e) {
-            return ResponseEntity.badRequest().body("Failed to update department: " + e.getMessage());
-        }
+    @PutMapping(value = "/u2/{id}")
+    public void updateDepartment2(@PathVariable(name = "id") short id, @RequestBody Department department) {
+        service.updateDepartment2(department);
     }
 
     // delete by id

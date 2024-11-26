@@ -8,6 +8,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class AddressService implements IAddressService {
@@ -34,14 +35,14 @@ public class AddressService implements IAddressService {
 
     // get by id
     @Override
-    public Address getAddressById(short id) {
+    public Optional<Address> getAddressById(short id) {
         return repository.findById(id);
     }
 
     // get by name
     @Override
     public Address getAddressByName(String name) {
-        return repository.findByName(name);
+        return repository.findAddressByName(name);
     }
 
     // create new
@@ -52,20 +53,21 @@ public class AddressService implements IAddressService {
 
     // update name find by id
     @Override
-    public void updateAddress(short id, String newName) {
-        repository.updateAddress(id, newName);
+    public void updateAddress1(short id, String newName) {
+        Address address = repository.findAddressById(id);
+        address.setName(newName);
     }
 
     // update by object
     @Override
-    public void updateAddress(Address address) {
+    public void updateAddress2(Address address) {
         repository.save(address);
     }
 
     // delete by id
     @Override
     public void deleteAddress(short id) {
-        repository.deleteAddress(id);
+        repository.deleteById(id);
     }
 
     // exists by id
@@ -77,7 +79,7 @@ public class AddressService implements IAddressService {
     // exists by name
     @Override
     public boolean isAddressExistName(String name) {
-        Address address = repository.findByName(name);
+        Address address = repository.findAddressByName(name);
         return address != null;
         // return repository.findAddressByName(name) != null; // cách viết ngắn gọn
     }

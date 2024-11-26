@@ -47,7 +47,7 @@ public class GroupController {
     // update name find by id
     @PutMapping(value = "/{id}")
     public void updateGroup(@RequestBody Group updated) {
-        service.updateGroup(updated.toString());
+        service.updateGroup(updated);
     }
 
     // update by object
@@ -64,7 +64,7 @@ public class GroupController {
     // delete by id
     @DeleteMapping(value = "/{id}")
     public void deleteGroup(@PathVariable(name = "id") short id) {
-        service.deleteGroup(String.valueOf(id));
+        service.deleteGroup(id);
     }
 
     // exists by id

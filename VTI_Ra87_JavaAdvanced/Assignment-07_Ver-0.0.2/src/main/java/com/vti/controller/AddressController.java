@@ -1,6 +1,7 @@
 package com.vti.controller;
 
 import com.vti.entity.Address;
+import com.vti.entity.Department;
 import com.vti.service.IAddressService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -45,21 +46,16 @@ public class AddressController {
     }
 
     // update name find by id
-    @PutMapping(value = "/{id}")
-    public void updateAddress(@PathVariable(name = "id") short id, @RequestBody Address updated) {
-        updated.setId(id);
-        service.updateAddress(updated);
+    @PutMapping(value = "/u1/{id}")
+    public void updateAddress1(@PathVariable(name = "id") short id, @RequestBody Address address) {
+        address.setId(id);
+        service.updateAddress1(id, address.getName());
     }
 
     // update by object
-    @PutMapping
-    public ResponseEntity<String> updateAddress1(@RequestBody Address address) {
-        try {
-            updateAddress1(address);
-            return ResponseEntity.ok("Address updated successfully");
-        } catch (RuntimeException e) {
-            return ResponseEntity.badRequest().body("Failed to update address: " + e.getMessage());
-        }
+    @PutMapping(value = "/u2/{id}")
+    public void updateAddress2(@PathVariable(name = "id") short id, @RequestBody Address address) {
+        service.updateAddress2(address);
     }
 
     // delete by id

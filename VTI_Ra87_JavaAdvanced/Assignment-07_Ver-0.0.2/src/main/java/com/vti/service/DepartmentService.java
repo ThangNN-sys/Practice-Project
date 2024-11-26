@@ -8,6 +8,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class DepartmentService implements IDepartmentService {
@@ -32,13 +33,13 @@ public class DepartmentService implements IDepartmentService {
         return repository.findAll(pageable);
     }
 
-    // get by id
+    // get by id with @Query
     @Override
     public Department getDepartmentById(short id) {
         return repository.findDepartmentById(id);
     }
 
-    // get by name
+    // get by name with @Query
     @Override
     public Department getDepartmentByName(String name) {
         return repository.findDepartmentByName(name);
@@ -52,14 +53,14 @@ public class DepartmentService implements IDepartmentService {
 
     // update name find by id
     @Override
-    public void updateDepartment(short id, String newName) {
-        Department department = repository.findDepartmentById(id);
-        department.setName(newName);
+    public void updateDepartment1(short id, String newName) {
+        Optional<Department> department = repository.findById(id);
+        department.get().setName(newName);
     }
 
     // update by object
     @Override
-    public void updateDepartment(Department department) {
+    public void updateDepartment2(Department department) {
 repository.save(department);
     }
 

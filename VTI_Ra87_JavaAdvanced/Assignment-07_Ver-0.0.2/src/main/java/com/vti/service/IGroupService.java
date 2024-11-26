@@ -18,9 +18,11 @@ public interface IGroupService {
 
     void createGroup(String name);
 
-    void updateGroup(String name);
+    void updateGroup(short id, String newName);
 
-    void deleteGroup(String name);
+    void updateGroup(Group group);
+
+    void deleteGroup(short id);
 
     boolean isGroupExistId(short id);
 

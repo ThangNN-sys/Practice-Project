@@ -20,16 +20,13 @@ public interface IAddressRepository extends JpaRepository<Address, Short> {
     List<Address> findAll();
 
     @Query("SELECT a FROM Address a WHERE a.id = :idParam")
-    Address findById(@Param("idParam") short id);
+    Address findAddressById(@Param("idParam") short id);
 
     @Query("SELECT a FROM Address a WHERE a.name = :nameParam")
-    Address findByName(@Param("nameParam") String name);
+    Address findAddressByName(@Param("nameParam") String name);
 
     @Modifying
     @Query("UPDATE Address a SET a.name = :nameParam WHERE a.id = :idParam")
-    void updateAddress(@Param("idParam") short id, @Param("nameParam") String name);
+    void updateAddress1(@Param("idParam") short id, @Param("nameParam") String name);
 
-    @Modifying
-    @Query("DELETE FROM Address a WHERE a.id = :idParam")
-    void deleteAddress(@Param("idParam") short id);
 }

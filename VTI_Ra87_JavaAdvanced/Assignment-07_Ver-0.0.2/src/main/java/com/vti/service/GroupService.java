@@ -46,14 +46,21 @@ public class GroupService implements IGroupService {
     }
 
     @Override
-    public void updateGroup(String name) {
+    public void updateGroup(short id, String newName) {
 
     }
 
     @Override
-    public void deleteGroup(String name) {
+    public void updateGroup(Group group) {
 
     }
+
+    @Override
+    public void deleteGroup(short id) {
+
+    }
+
+
 
     @Override
     public boolean isGroupExistId(short id) {

@@ -13,9 +13,9 @@ public interface IDepartmentService {
 
     public void createDepartment(Department department);
 
-    public void updateDepartment(short id, String newName);
+    public void updateDepartment1(short id, String newName);
 
-    public void updateDepartment(Department department);
+    public void updateDepartment2(Department department);
 
     public void deleteDepartment(short id);
 

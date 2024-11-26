@@ -5,6 +5,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 public interface IAddressService {
+
     public Page<Address> getAllAddresss(Pageable pageable);
 
     public Address getAddressByID(short id);
@@ -13,9 +14,9 @@ public interface IAddressService {
 
     public void createAddress(Address address);
 
-    public void updateAddress(short id, String newName);
+    public void updateAddress1(short id, String newName);
 
-    public void updateAddress(Address address);
+    public void updateAddress2(Address address);
 
     public void deleteAddress(short id);
 

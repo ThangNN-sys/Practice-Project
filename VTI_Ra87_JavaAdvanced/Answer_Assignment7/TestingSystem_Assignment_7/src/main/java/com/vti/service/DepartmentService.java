@@ -38,13 +38,13 @@ public class DepartmentService implements IDepartmentService {
     }
 
     @Override
-    public void updateDepartment(short id, String newName) {
+    public void updateDepartment1(short id, String newName) {
         Department department = new Department(id, newName);
         departmentRepository.save(department);
     }
 
     @Override
-    public void updateDepartment(Department department) {
+    public void updateDepartment2(Department department) {
         departmentRepository.save(department);
     }
 
