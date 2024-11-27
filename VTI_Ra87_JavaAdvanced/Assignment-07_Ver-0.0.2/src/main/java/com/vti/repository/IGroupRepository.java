@@ -1,6 +1,7 @@
 package com.vti.repository;
 
 import com.vti.entity.Group;
+import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -25,6 +26,7 @@ public interface IGroupRepository extends JpaRepository<Group, Short> {
     Group findGroupByName(@Param("nameParam") String name);
 
     @Modifying
+    @Transactional
     @Query("UPDATE Group g SET g.name = :nameParam WHERE g.id = :idParam")
     void updateGroup1(@Param("idParam") short id, @Param("nameParam") String name);
 

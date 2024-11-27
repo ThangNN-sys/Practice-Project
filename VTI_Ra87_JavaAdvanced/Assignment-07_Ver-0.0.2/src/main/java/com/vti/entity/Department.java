@@ -28,7 +28,17 @@ public class Department implements Serializable {
     @Column(name = "DepartmentName", length = 30, nullable = false, unique = true)
     private String name; // maps to NVARCHAR(30) NOT NULL UNIQUE KEY
 
+//    @OneToMany(mappedBy = "Department")
+//    @JsonIgnoreProperties("Department")
+//    private List<Account> accountList
+
     public Department() {
+    }
+
+    public Department(short id, short totalMember, String name) {
+        this.id = id;
+        this.totalMember = totalMember;
+        this.name = name;
     }
 
     public short getId() {

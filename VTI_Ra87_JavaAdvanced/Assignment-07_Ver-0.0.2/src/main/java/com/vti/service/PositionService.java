@@ -42,7 +42,7 @@ public class PositionService implements IPositionService {
     // get by name with @Query
     @Override
     public Position getPositionByName(PositionName name) {
-        return null;
+        return repository.findPositionByName(name);
     }
 
     // create new

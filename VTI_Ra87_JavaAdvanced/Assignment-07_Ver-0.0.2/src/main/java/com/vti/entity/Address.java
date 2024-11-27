@@ -1,9 +1,11 @@
 package com.vti.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * Class quản lý các Annotation
@@ -24,6 +26,10 @@ public class Address implements Serializable {
 
     @Column(name = "AddressName", length = 100, nullable = false, unique = true)
     private String name; // maps to VARCHAR(100) NOT NULL UNIQUE KEY
+
+    @OneToMany(mappedBy = "Address")
+    @JsonIgnoreProperties("Address")
+    private List<DetailDepartment> detailDepartments;
 
     public Address() {
     }
