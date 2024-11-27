@@ -1,6 +1,7 @@
 package com.vti.service;
 
 import com.vti.entity.TypeQuestion;
+import com.vti.entity.enumerate.TypeQuestionName;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -14,11 +15,11 @@ public interface ITypeQuestionService {
 
     TypeQuestion getTypeById(short id);
 
-    TypeQuestion getTypeByName(String name);
+    TypeQuestion getTypeByName(TypeQuestionName name);
 
     void createType(TypeQuestion typeQuestion);
 
-    void updateType1(short id, String newName);
+    void updateType1(short id, TypeQuestionName newName);
 
     void updateType2(TypeQuestion typeQuestion);
 
@@ -26,6 +27,6 @@ public interface ITypeQuestionService {
 
     boolean isTypeExistId(short id);
 
-    boolean isTypeExistName(String name);
+    boolean isTypeExistName(TypeQuestionName name);
 
 }

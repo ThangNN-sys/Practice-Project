@@ -3,9 +3,9 @@ package com.vti.entity.enumerate;
 public enum PositionName {
     DEV("Dev"), TEST("Test"), ScrumMaster("ScrumMaster"), PM("PM");
 
-    private String value;
+    private final String value;
 
-    private PositionName(String value) {
+    PositionName(String value) {
         this.value = value;
     }
 

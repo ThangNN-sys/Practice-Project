@@ -3,9 +3,9 @@ package com.vti.entity.enumerate;
 public enum TypeQuestionName {
     Esay("0"), MultipleChoice("1");
 
-    private String value;
+    private final String value;
 
-    private TypeQuestionName(String value) {
+    TypeQuestionName(String value) {
         this.value = value;
     }
 

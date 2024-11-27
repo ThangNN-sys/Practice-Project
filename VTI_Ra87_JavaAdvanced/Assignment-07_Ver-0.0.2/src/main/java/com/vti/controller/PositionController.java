@@ -8,8 +8,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
 @RequestMapping(value = "api/v1/positions")
 public class PositionController {
@@ -23,10 +21,10 @@ public class PositionController {
     private IPositionService service;
 
     // get all list
-    @GetMapping()
-    public List<Position> getListPositions() {
-        return service.getListPositions();
-    }
+//    @GetMapping()
+//    public List<Position> getListPositions() {
+//        return service.getListPositions();
+//    }
 
     // get all paging
     @GetMapping()

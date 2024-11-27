@@ -7,8 +7,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
 @RequestMapping(value = "api/v1/departments")
 public class DepartmentController {
@@ -21,11 +19,11 @@ public class DepartmentController {
     @Autowired
     private IDepartmentService service;
 
-    // get all list
-    @GetMapping()
-    public List<Department> getListDepartments() {
-        return service.getListDepartments();
-    }
+    // get all list - can't run same time with get all paging
+//    @GetMapping()
+//    public List<Department> getListDepartments() {
+//        return service.getListDepartments();
+//    }
 
     // get all paging
     @GetMapping()
@@ -59,8 +57,8 @@ public class DepartmentController {
     }
 
     // update by object
-    @PutMapping(value = "/u2/{id}")
-    public void updateDepartment2(@PathVariable(name = "id") short id, @RequestBody Department update2) {
+    @PutMapping(value = "/u2")
+    public void updateDepartment2(@RequestBody Department update2) {
         service.updateDepartment2(update2);
     }
 

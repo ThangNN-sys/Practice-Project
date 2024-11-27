@@ -3,9 +3,9 @@ package com.vti.entity.enumerate;
 public enum SalaryName {
     DEV("600"), TEST("700"), ScrumMaster("1500"), PM("2000");
 
-    private String value;
+    private final String value;
 
-    private SalaryName(String value) {
+    SalaryName(String value) {
         this.value = value;
     }
 

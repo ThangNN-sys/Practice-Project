@@ -1,6 +1,7 @@
 package com.vti.repository;
 
 import com.vti.entity.Address;
+import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -25,6 +26,7 @@ public interface IAddressRepository extends JpaRepository<Address, Short> {
     Address findAddressByName(@Param("nameParam") String name);
 
     @Modifying
+    @Transactional
     @Query("UPDATE Address a SET a.name = :nameParam WHERE a.id = :idParam")
     void updateAddress1(@Param("idParam") short id, @Param("nameParam") String name);
 

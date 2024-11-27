@@ -7,8 +7,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
 @RequestMapping(value = "api/v1/groups")
 public class GroupController {
@@ -22,10 +20,10 @@ public class GroupController {
     private IGroupService service;
 
     // get all list
-    @GetMapping()
-    public List<Group> getListGroups() {
-        return service.getListGroups();
-    }
+//    @GetMapping()
+//    public List<Group> getListGroups() {
+//        return service.getListGroups();
+//    }
 
     // get all paging
     @GetMapping()

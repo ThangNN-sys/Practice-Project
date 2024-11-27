@@ -7,8 +7,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
 @RequestMapping(value = "api/v1/addresses")
 public class AddressController {
@@ -22,10 +20,10 @@ public class AddressController {
     private IAddressService service;
 
     // get all list
-    @GetMapping()
-    public List<Address> getListAddress() {
-        return service.getListAddresses();
-    }
+//    @GetMapping()
+//    public List<Address> getListAddress() {
+//        return service.getListAddresses();
+//    }
     // get all paging
     @GetMapping()
     public Page<Address> getAllAddresses(Pageable pageable) {
@@ -58,8 +56,8 @@ public class AddressController {
     }
 
     // update by object
-    @PutMapping(value = "/u2/{id}")
-    public void updateAddress2(@PathVariable(name = "id") short id, @RequestBody Address address) {
+    @PutMapping(value = "/u2")
+    public void updateAddress2(@RequestBody Address address) {
         service.updateAddress2(address);
     }
 

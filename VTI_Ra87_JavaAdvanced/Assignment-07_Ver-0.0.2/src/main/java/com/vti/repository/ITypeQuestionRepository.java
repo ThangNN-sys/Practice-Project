@@ -1,6 +1,7 @@
 package com.vti.repository;
 
 import com.vti.entity.TypeQuestion;
+import com.vti.entity.enumerate.TypeQuestionName;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -22,10 +23,10 @@ public interface ITypeQuestionRepository extends JpaRepository<TypeQuestion, Sho
     TypeQuestion findTypeQuestionById(@Param("idParam") short id);
 
     @Query("SELECT t FROM TypeQuestion t WHERE t.name = :nameParam")
-    TypeQuestion findTypeQuestionByName(@Param("nameParam") String name);
+    TypeQuestion findTypeQuestionByName(@Param("nameParam") TypeQuestionName name);
 
     @Modifying
     @Query("UPDATE TypeQuestion t SET t.name = :nameParam WHERE t.id = :idParam")
-    void updateTypeQuestion1(@Param("idParam") short id, @Param("nameParam") String name);
+    void updateTypeQuestion1(@Param("idParam") short id, @Param("nameParam") TypeQuestionName name);
 
 }
