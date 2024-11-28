@@ -52,8 +52,8 @@ public class GroupController {
     // update name find by id
     @PutMapping(value = "/u1/{id}")
     public void updateGroup1(@PathVariable(name = "id") short id, @RequestBody Group update1) {
-        update1.setId(id);
-        service.updateGroup1(id, update1.getName());
+        update1.setGroupId(id);
+        service.updateGroup1(id, update1.getGroupName());
     }
 
     // update by object

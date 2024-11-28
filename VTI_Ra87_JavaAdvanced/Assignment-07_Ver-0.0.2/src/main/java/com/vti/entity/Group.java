@@ -6,6 +6,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Class quản lý các Annotation
@@ -22,49 +23,49 @@ public class Group implements Serializable {
     @Column(name = "GroupID")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private short id; // maps to TINYINT UNSIGNED AUTO_INCREMENT PRIMARY KEY
+    private short groupId; // maps to TINYINT UNSIGNED AUTO_INCREMENT PRIMARY KEY
 
     @Column(name = "GroupName", length = 50, nullable = false, unique = true)
-    private String name; // maps to NVARCHAR(50) NOT NULL UNIQUE KEY
+    private String groupName; // maps to NVARCHAR(50) NOT NULL UNIQUE KEY
 
-	@ManyToOne
-	@JoinColumn(name = "CreatorID", referencedColumnName = "AccountID", updatable = false)
-	private Account creator; // maps to TINYINT UNSIGNED NOT NULL cannot update
+    @ManyToOne
+    @JoinColumn(name = "CreatorID", referencedColumnName = "AccountID", updatable = false)
+    private Account creator; // maps to TINYINT UNSIGNED NOT NULL cannot update
 
     @Column(name = "CreateDate", updatable = false)
     @Temporal(TemporalType.TIMESTAMP)
     @CreationTimestamp
     private Date createDate; // maps to DATETIME DEFAULT
 
-//	@OneToMany(mappedBy = "group")
-//	private List<GroupAccount> groupAccounts;
+	@OneToMany(mappedBy = "group")
+	private List<GroupAccount> groupAccounts;
 
     public Group() {
     }
 
-    public short getId() {
-        return id;
+    public short getGroupId() {
+        return groupId;
     }
 
-    public void setId(short id) {
-        this.id = id;
+    public void setGroupId(short groupId) {
+        this.groupId = groupId;
     }
 
-    public String getName() {
-        return name;
+    public String getGroupName() {
+        return groupName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setGroupName(String groupName) {
+        this.groupName = groupName;
     }
 
-//	public Account getCreator() {
-//		return creator;
-//	}
-//
-//	public void setCreator(Account creator) {
-//		this.creator = creator;
-//	}
+    public Account getCreator() {
+        return creator;
+    }
+
+    public void setCreator(Account creator) {
+        this.creator = creator;
+    }
 
     public Date getCreateDate() {
         return createDate;
@@ -74,24 +75,22 @@ public class Group implements Serializable {
         this.createDate = createDate;
     }
 
-//	public List<GroupAccount> getGroupAccounts() {
-//		return groupAccounts;
-//	}
-//
-//	public void setGroupAccounts(List<GroupAccount> accounts) {
-//		this.groupAccounts = accounts;
-//	}
+    public List<GroupAccount> getGroupAccounts() {
+        return groupAccounts;
+    }
 
-//	@Override
-//	public String toString() {
-//
-//		for (GroupAccount groupAccount : groupAccounts) {
-//			System.out.println(groupAccount.getAccount().getFullName());
-//			System.out.println(groupAccount.getJoinDate());
-//		}
-//
-//		return "Group [id=" + groupId + ", name=" + groupName + ", creator=" + creator.getFullName() + ", createDate="
-//				+ createDate + "]";
-//	}
+    public void setGroupAccounts(List<GroupAccount> groupAccounts) {
+        this.groupAccounts = groupAccounts;
+    }
 
+    @Override
+    public String toString() {
+        return "Group{" +
+                "groupId=" + groupId +
+                ", groupName='" + groupName + '\'' +
+                ", creator=" + creator +
+                ", createDate=" + createDate +
+                ", groupAccounts=" + groupAccounts +
+                '}';
+    }
 }

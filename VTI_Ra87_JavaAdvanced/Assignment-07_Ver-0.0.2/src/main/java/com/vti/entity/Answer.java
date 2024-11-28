@@ -33,9 +33,6 @@ public class Answer implements Serializable {
     public Answer() {
     }
 
-    public Answer(short answerId, String content, Question question, boolean isCorrect) {
-    }
-
     public short getAnswerId() {
         return answerId;
     }

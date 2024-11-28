@@ -14,7 +14,7 @@ public class Manager implements Serializable {
 
     @Id
     @Column(name = "AccountID", nullable = false)
-    private short accountID; // TINYINT UNSIGNED
+    private short accountId; // TINYINT UNSIGNED
 
     @Column(name = "ManagementNumberOfYear", nullable = false)
     private short managementNumberOfYear; // TINYINT UNSIGNED
@@ -23,12 +23,12 @@ public class Manager implements Serializable {
     @JoinColumn(name = "AccountID", referencedColumnName = "AccountID", nullable = false)
     private Account account;
 
-    public short getAccountID() {
-        return accountID;
+    public short getAccountId() {
+        return accountId;
     }
 
-    public void setAccountID(short accountID) {
-        this.accountID = accountID;
+    public void setAccountId(short accountID) {
+        this.accountId = accountID;
     }
 
     public short getManagementNumberOfYear() {
@@ -50,7 +50,7 @@ public class Manager implements Serializable {
     @Override
     public String toString() {
         return "Manager{" +
-                "accountID=" + accountID +
+                "accountID=" + accountId +
                 ", managementNumberOfYear=" + managementNumberOfYear +
                 ", account=" + account +
                 '}';

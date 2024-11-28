@@ -65,14 +65,16 @@ public class AccountService implements IAccountService {
     // delete by id
     @Override
     public void deleteAccount(short id) {
-repository.deleteById(id);
+        repository.deleteById(id);
     }
 
+    // exists by id
     @Override
     public boolean isAccountExistId(short id) {
         return repository.existsById(id);
     }
 
+    // exists by username
     @Override
     public boolean isAccountExistUsername(String userName) {
         Account account = repository.findAccountByUsername(userName);
@@ -85,29 +87,6 @@ repository.deleteById(id);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // exists by id
-
-
-    // exists by name
 
 
 }
