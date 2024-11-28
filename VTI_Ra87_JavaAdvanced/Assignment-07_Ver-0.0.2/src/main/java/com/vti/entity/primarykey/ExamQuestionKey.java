@@ -11,27 +11,27 @@ public class ExamQuestionKey implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Column(name = "ExamID")
-    private short examID;
+    private short examId;
 
     @Column(name = "QuestionID")
-    private short questionID;
+    private short questionId;
 
     public ExamQuestionKey() {
     }
 
-    public short getExamID() {
-        return examID;
+    public short getExamId() {
+        return examId;
     }
 
-    public void setExamID(short examID) {
-        this.examID = examID;
+    public void setExamId(short examId) {
+        this.examId = examId;
     }
 
-    public short getQuestionID() {
-        return questionID;
+    public short getQuestionId() {
+        return questionId;
     }
 
-    public void setQuestionID(short questionID) {
-        this.questionID = questionID;
+    public void setQuestionId(short questionId) {
+        this.questionId = questionId;
     }
 }

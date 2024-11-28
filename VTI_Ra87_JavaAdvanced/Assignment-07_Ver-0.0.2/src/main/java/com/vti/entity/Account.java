@@ -19,7 +19,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "`Account`")
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "AccountId")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "accountId")
 @Inheritance(strategy = InheritanceType.JOINED)
 
 public class Account implements Serializable {
@@ -47,7 +47,7 @@ public class Account implements Serializable {
     @Formula(" concat(LastName, ' ', FirstName) ")
     private String fullName;
 
-    @OneToOne(mappedBy = "Account") // 1 Account to 1 Employee, Employee is owning side
+    @OneToOne(mappedBy = "account") // 1 Account to 1 Employee, Employee is owning side
     private Employee employee;
 
     @ManyToOne // multiple Accounts to 1 Department
@@ -73,8 +73,8 @@ public class Account implements Serializable {
     @JsonIgnoreProperties("creator")
     private List<Question> questions;
 
-    @OneToMany(mappedBy = "createdAcc") // 1 Account to multiple Group, Group is owning side
-    @JsonIgnoreProperties("createdAcc")
+    @OneToMany(mappedBy = "creator") // 1 Account to multiple Group, Group is owning side
+    @JsonIgnoreProperties("creator")
     private List<Group> createdGroups;
 
     @Column(name = "CreateDate", updatable = false)
@@ -84,14 +84,6 @@ public class Account implements Serializable {
 
     public Account() {
 
-    }
-
-    public List<Group> getCreatedGroups() {
-        return createdGroups;
-    }
-
-    public void setCreatedGroups(List<Group> createdGroups) {
-        this.createdGroups = createdGroups;
     }
 
     public short getAccountId() {
@@ -178,8 +170,24 @@ public class Account implements Serializable {
         return groupAccounts;
     }
 
-    public void setGroupAccounts(List<GroupAccount> groupAccountList) {
-        this.groupAccounts = groupAccountList;
+    public void setGroupAccounts(List<GroupAccount> groupAccounts) {
+        this.groupAccounts = groupAccounts;
+    }
+
+    public List<Question> getQuestions() {
+        return questions;
+    }
+
+    public void setQuestions(List<Question> questions) {
+        this.questions = questions;
+    }
+
+    public List<Group> getCreatedGroups() {
+        return createdGroups;
+    }
+
+    public void setCreatedGroups(List<Group> createdGroups) {
+        this.createdGroups = createdGroups;
     }
 
     public Date getCreateDate() {
@@ -193,8 +201,7 @@ public class Account implements Serializable {
     @Override
     public String toString() {
         return "Account{" +
-                "createdGroups=" + createdGroups +
-                ", accountId=" + accountId +
+                "accountId=" + accountId +
                 ", email='" + email + '\'' +
                 ", username='" + username + '\'' +
                 ", firstName='" + firstName + '\'' +
@@ -204,7 +211,9 @@ public class Account implements Serializable {
                 ", department=" + department +
                 ", position=" + position +
                 ", salary=" + salary +
-                ", groupAccountList=" + groupAccounts +
+                ", groupAccounts=" + groupAccounts +
+                ", questions=" + questions +
+                ", createdGroups=" + createdGroups +
                 ", createDate=" + createDate +
                 '}';
     }

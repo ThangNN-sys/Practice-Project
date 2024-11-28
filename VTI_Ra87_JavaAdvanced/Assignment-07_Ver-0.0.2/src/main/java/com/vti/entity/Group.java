@@ -27,9 +27,9 @@ public class Group implements Serializable {
     @Column(name = "GroupName", length = 50, nullable = false, unique = true)
     private String name; // maps to NVARCHAR(50) NOT NULL UNIQUE KEY
 
-//	@ManyToOne
-//	@JoinColumn(name = "CreatorID", referencedColumnName = "AccountID", updatable = false)
-//	private Account creator; // maps to TINYINT UNSIGNED NOT NULL cannot update
+	@ManyToOne
+	@JoinColumn(name = "CreatorID", referencedColumnName = "AccountID", updatable = false)
+	private Account creator; // maps to TINYINT UNSIGNED NOT NULL cannot update
 
     @Column(name = "CreateDate", updatable = false)
     @Temporal(TemporalType.TIMESTAMP)

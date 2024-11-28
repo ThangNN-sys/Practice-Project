@@ -14,7 +14,7 @@ public class Employee implements Serializable {
 
     @Id
     @Column(name = "AccountID", nullable = false)
-    private short accountID; // TINYINT UNSIGNED
+    private short accountId; // TINYINT UNSIGNED
 
     @Column(name = "WorkingNumberOfYear", nullable = false)
     private short workingNumberOfYear; // TINYINT UNSIGNED
@@ -23,12 +23,12 @@ public class Employee implements Serializable {
     @JoinColumn(name = "AccountID", referencedColumnName = "AccountID", nullable = false)
     private Account account;
 
-    public short getAccountID() {
-        return accountID;
+    public short getAccountId() {
+        return accountId;
     }
 
-    public void setAccountID(short accountID) {
-        this.accountID = accountID;
+    public void setAccountId(short accountID) {
+        this.accountId = accountID;
     }
 
     public short getWorkingNumberOfYear() {

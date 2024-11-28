@@ -35,7 +35,7 @@ public class DetailDepartmentService implements IDetailDepartmentService {
     // get by id with @Query
     @Override
     public DetailDepartment getDetailDepartmentById(short id) {
-        return repository.findDetailDepartmentById(id);
+        return repository.findByDepartmentId(id);
     }
 
     // create new

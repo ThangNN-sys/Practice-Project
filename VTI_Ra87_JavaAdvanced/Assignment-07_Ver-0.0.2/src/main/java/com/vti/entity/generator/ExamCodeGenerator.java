@@ -6,6 +6,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.engine.spi.SharedSessionContractImplementor;
 import org.hibernate.id.IdentifierGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
@@ -15,7 +16,7 @@ public class ExamCodeGenerator implements IdentifierGenerator {
     private final IExamRepository examRepository;
 
     @Autowired
-    public ExamCodeGenerator(IExamRepository repository) {
+    public ExamCodeGenerator(@Lazy IExamRepository repository) {
         this.examRepository = repository;
     }
 

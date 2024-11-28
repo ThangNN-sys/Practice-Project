@@ -22,12 +22,12 @@ public class ExamQuestion implements Serializable {
     private ExamQuestionKey id;
 
     @ManyToOne
-    @MapsId("ExamID")
+    @MapsId("examId")
     @JoinColumn(name = "ExamID")
     private Exam exam;
 
     @ManyToOne
-    @MapsId("QuestionID")
+    @MapsId("questionId")
     @JoinColumn(name = "QuestionID")
     private Question question;
 
