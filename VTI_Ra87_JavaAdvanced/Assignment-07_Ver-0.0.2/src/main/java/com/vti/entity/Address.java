@@ -21,49 +21,49 @@ public class Address implements Serializable {
 
     @Column(name = "AddressID")
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private short id; // maps to TINYINT UNSIGNED AUTO_INCREMENT PRIMARY KEY
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // AUTO_INCREMENT PRIMARY KEY
+    private short addressId; // TINYINT UNSIGNED
 
     @Column(name = "AddressName", length = 100, nullable = false, unique = true)
-    private String name; // maps to VARCHAR(100) NOT NULL UNIQUE KEY
+    private String addressName; // VARCHAR(100) NOT NULL UNIQUE KEY
 
-    @OneToMany(mappedBy = "Address")
-    @JsonIgnoreProperties("Address")
+    @OneToMany(mappedBy = "address") // 1 Address to multiple DetailDepartment, DetailDepartment is owning side
+    @JsonIgnoreProperties("address")
     private List<DetailDepartment> detailDepartments;
 
     public Address() {
     }
 
     public Address(short id, String name) {
-        this.id = id;
-        this.name = name;
+        this.addressId = id;
+        this.addressName = name;
     }
 
-    public Address(String name) {
-        this.name = name;
+    public Address(String addressName) {
+        this.addressName = addressName;
     }
 
-    public short getId() {
-        return id;
+    public short getAddressId() {
+        return addressId;
     }
 
-    public void setId(short id) {
-        this.id = id;
+    public void setAddressId(short id) {
+        this.addressId = id;
     }
 
-    public String getName() {
-        return name;
+    public String getAddressName() {
+        return addressName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setAddressName(String name) {
+        this.addressName = name;
     }
 
     @Override
     public String toString() {
         return "Address{" +
-                "addressId=" + id +
-                ", addressName='" + name + '\'' +
+                "addressId=" + addressId +
+                ", addressName='" + addressName + '\'' +
                 '}';
     }
 }

@@ -1,9 +1,11 @@
 package com.vti.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * Class quản lý các Annotation
@@ -12,6 +14,8 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "Department")
+@Inheritance(strategy = InheritanceType.JOINED)
+
 public class Department implements Serializable {
 
     @Serial
@@ -19,34 +23,34 @@ public class Department implements Serializable {
 
     @Column(name = "DepartmentID")
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private short id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // AUTO_INCREMENT PRIMARY KEY
+    private short departmentId; // TINYINT UNSIGNED
 
     @Column(name = "TotalMember")
-    private short totalMember; // maps to TINYINT UNSIGNED
+    private short totalMember; // TINYINT UNSIGNED
 
     @Column(name = "DepartmentName", length = 30, nullable = false, unique = true)
-    private String name; // maps to NVARCHAR(30) NOT NULL UNIQUE KEY
+    private String departmentName; // NVARCHAR(30) NOT NULL UNIQUE KEY
 
-//    @OneToMany(mappedBy = "Department")
-//    @JsonIgnoreProperties("Department")
-//    private List<Account> accountList
+    @OneToMany(mappedBy = "department") // 1 Department to multiple Account, Account is owning side
+    @JsonIgnoreProperties("department")
+    private List<Account> accounts;
 
     public Department() {
     }
 
-    public Department(short id, short totalMember, String name) {
-        this.id = id;
+    public Department(short departmentId, short totalMember, String departmentName) {
+        this.departmentId = departmentId;
         this.totalMember = totalMember;
-        this.name = name;
+        this.departmentName = departmentName;
     }
 
-    public short getId() {
-        return id;
+    public short getDepartmentId() {
+        return departmentId;
     }
 
-    public void setId(short id) {
-        this.id = id;
+    public void setDepartmentId(short id) {
+        this.departmentId = id;
     }
 
     public short getTotalMember() {
@@ -57,20 +61,20 @@ public class Department implements Serializable {
         this.totalMember = totalMember;
     }
 
-    public String getName() {
-        return name;
+    public String getDepartmentName() {
+        return departmentName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDepartmentName(String name) {
+        this.departmentName = name;
     }
 
     @Override
     public String toString() {
         return "Department{" +
-                "id=" + id +
+                "id=" + departmentId +
                 ", totalMember=" + totalMember +
-                ", name='" + name + '\'' +
+                ", name='" + departmentName + '\'' +
                 '}';
     }
 }

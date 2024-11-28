@@ -53,8 +53,8 @@ public class TypeQuestionController {
     // update name find by id
     @PutMapping(value = "/{id}")
     public void updateType1(@PathVariable(name = "id") short id, @RequestBody TypeQuestion update1) {
-        update1.setId(id);
-        service.updateType1(id, update1.getName());
+        update1.setTypeId(id);
+        service.updateType1(id, update1.getTypeName());
     }
 
     // update by object

@@ -64,7 +64,7 @@ public class GroupController {
 
     // delete by id
     @DeleteMapping(value = "/{id}")
-    public void deleteGroup(@PathVariable(name = "id") short id){
+    public void deleteGroup(@PathVariable(name = "id") short id) {
         service.deleteGroup(id);
     }
 

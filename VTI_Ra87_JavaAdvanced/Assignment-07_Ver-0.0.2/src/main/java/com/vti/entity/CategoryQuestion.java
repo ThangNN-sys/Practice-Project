@@ -1,9 +1,11 @@
 package com.vti.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * Class quản lý các Annotation
@@ -20,11 +22,15 @@ public class CategoryQuestion implements Serializable {
 
     @Column(name = "CategoryID")
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private short categoryId; // maps to TINYINT UNSIGNED AUTO_INCREMENT PRIMARY KEY
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // AUTO_INCREMENT PRIMARY KEY
+    private short categoryId; // TINYINT UNSIGNED
 
     @Column(name = "CategoryName", length = 50, nullable = false, unique = true)
-    private String categoryName; // maps to VARCHAR(50) NOT NULL UNIQUE KEY
+    private String categoryName; // VARCHAR(50) NOT NULL UNIQUE KEY
+
+    @OneToMany(mappedBy = "category") // 1 CategoryQuestion to multiple Question, Question is owning side
+    @JsonManagedReference("category")
+    private List<Question> questions;
 
     public CategoryQuestion() {
     }

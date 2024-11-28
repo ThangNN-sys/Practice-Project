@@ -27,47 +27,55 @@ public class Account implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    @OneToMany(mappedBy = "createdAcc")
-    @JsonIgnoreProperties("createdAcc")
-    List<Group> createdGroups;
-
     @Column(name = "AccountID")
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private short accountId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // AUTO_INCREMENT PRIMARY KEY
+    private short accountId; // TINYINT UNSIGNED
 
     @Column(name = "Email", length = 50, nullable = false, unique = true, updatable = false)
-    private String email;
+    private String email; // VARCHAR(50) NOT NULL UNIQUE KEY, -- Cannot update this field
 
     @Column(name = "Username", length = 50, nullable = false, unique = true, updatable = false)
-    private String username;
+    private String username; // VARCHAR(50) NOT NULL UNIQUE KEY, -- Cannot update this field
 
-    @Column(name = "FirstName", length = 50, nullable = false, updatable = false)
-    private String firstName;
+    @Column(name = "FirstName", length = 50, nullable = false)
+    private String firstName; // NVARCHAR(50) NOT NULL
 
-    @Column(name = "LastName", length = 50, nullable = false, updatable = false)
-    private String lastName;
+    @Column(name = "LastName", length = 50, nullable = false)
+    private String lastName; // NVARCHAR(50) NOT NULL
 
     @Formula(" concat(LastName, ' ', FirstName) ")
     private String fullName;
 
-    @ManyToOne(cascade = CascadeType.REMOVE)
+    @OneToOne(mappedBy = "Account") // 1 Account to 1 Employee, Employee is owning side
+    private Employee employee;
+
+    @ManyToOne // multiple Accounts to 1 Department
     @JoinColumn(name = "DepartmentID", referencedColumnName = "DepartmentID")
-    @JsonIgnoreProperties("accounts")
+    @JsonIgnoreProperties("accounts") // Avoid infinite loops, ignore accounts field in Department if exists
     private Department department;
 
-    @ManyToOne
+    @ManyToOne // multiple Accounts to 1 Position
     @JoinColumn(name = "PositionID", referencedColumnName = "PositionID")
     @JsonIgnoreProperties("accounts")
     private Position position;
-    @ManyToOne
+
+    @ManyToOne // multiple Accounts to 1 Salary
     @JoinColumn(name = "SalaryID", referencedColumnName = "SalaryID")
     @JsonIgnoreProperties("accounts")
     private Salary salary;
 
-    @OneToMany(mappedBy = "account")
+    @OneToMany(mappedBy = "account") // 1 Account to multiple GroupAccount, GroupAccount is owning side
     @JsonIgnoreProperties("account")
-    private List<GroupAccount> groupAccountList;
+    private List<GroupAccount> groupAccounts;
+
+    @OneToMany(mappedBy = "creator") // 1 Account to multiple Question, Question is owning side
+    @JsonIgnoreProperties("creator")
+    private List<Question> questions;
+
+    @OneToMany(mappedBy = "createdAcc") // 1 Account to multiple Group, Group is owning side
+    @JsonIgnoreProperties("createdAcc")
+    private List<Group> createdGroups;
 
     @Column(name = "CreateDate", updatable = false)
     @Temporal(TemporalType.TIMESTAMP)
@@ -134,6 +142,14 @@ public class Account implements Serializable {
         this.fullName = fullName;
     }
 
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
+
     public Department getDepartment() {
         return department;
     }
@@ -158,12 +174,12 @@ public class Account implements Serializable {
         this.salary = salary;
     }
 
-    public List<GroupAccount> getGroupAccountList() {
-        return groupAccountList;
+    public List<GroupAccount> getGroupAccounts() {
+        return groupAccounts;
     }
 
-    public void setGroupAccountList(List<GroupAccount> groupAccountList) {
-        this.groupAccountList = groupAccountList;
+    public void setGroupAccounts(List<GroupAccount> groupAccountList) {
+        this.groupAccounts = groupAccountList;
     }
 
     public Date getCreateDate() {
@@ -184,10 +200,11 @@ public class Account implements Serializable {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", fullName='" + fullName + '\'' +
+                ", employee=" + employee +
                 ", department=" + department +
                 ", position=" + position +
                 ", salary=" + salary +
-                ", groupAccountList=" + groupAccountList +
+                ", groupAccountList=" + groupAccounts +
                 ", createDate=" + createDate +
                 '}';
     }

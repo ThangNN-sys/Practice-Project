@@ -19,14 +19,14 @@ public interface ITypeQuestionRepository extends JpaRepository<TypeQuestion, Sho
     @Query("SELECT t FROM TypeQuestion t")
     List<TypeQuestion> findAll();
 
-    @Query("SELECT t FROM TypeQuestion t WHERE t.id = :idParam")
+    @Query("SELECT t FROM TypeQuestion t WHERE t.typeId = :idParam")
     TypeQuestion findTypeQuestionById(@Param("idParam") short id);
 
-    @Query("SELECT t FROM TypeQuestion t WHERE t.name = :nameParam")
+    @Query("SELECT t FROM TypeQuestion t WHERE t.typeName = :nameParam")
     TypeQuestion findTypeQuestionByName(@Param("nameParam") TypeQuestionName name);
 
     @Modifying
-    @Query("UPDATE TypeQuestion t SET t.name = :nameParam WHERE t.id = :idParam")
+    @Query("UPDATE TypeQuestion t SET t.typeName = :nameParam WHERE t.typeId = :idParam")
     void updateTypeQuestion1(@Param("idParam") short id, @Param("nameParam") TypeQuestionName name);
 
 }

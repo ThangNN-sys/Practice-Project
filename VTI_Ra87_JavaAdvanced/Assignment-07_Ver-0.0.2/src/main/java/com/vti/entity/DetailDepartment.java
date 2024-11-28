@@ -19,24 +19,16 @@ public class DetailDepartment extends Department implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    @Column(name = "EmulationPoint")
-    private String emulationPoint;
-
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "AddressID", referencedColumnName = "AddressID")
-    @JsonIgnoreProperties("detailDepartment")
+    @JsonIgnoreProperties("detailDepartments")
     private Address address;
+
+    @Column(name = "EmulationPoint")
+    private short emulationPoint; // TINYINT UNSIGNED
 
     public DetailDepartment() {
 
-    }
-
-    public String getEmulationPoint() {
-        return emulationPoint;
-    }
-
-    public void setEmulationPoint(String emulationPoint) {
-        this.emulationPoint = emulationPoint;
     }
 
     public Address getAddress() {
@@ -47,11 +39,19 @@ public class DetailDepartment extends Department implements Serializable {
         this.address = address;
     }
 
+    public short getEmulationPoint() {
+        return emulationPoint;
+    }
+
+    public void setEmulationPoint(short emulationPoint) {
+        this.emulationPoint = emulationPoint;
+    }
+
     @Override
     public String toString() {
         return "DetailDepartment{" +
-                "emulationPoint='" + emulationPoint + '\'' +
-                ", address=" + address +
+                "address=" + address +
+                ", emulationPoint=" + emulationPoint +
                 '}';
     }
 }

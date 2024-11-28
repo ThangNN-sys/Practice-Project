@@ -1,6 +1,7 @@
 package com.vti.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.vti.entity.primarykey.GroupAccountKey;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -23,14 +24,14 @@ public class GroupAccount implements Serializable {
     private GroupAccountKey groupAccountKey;
 
     @ManyToOne
-    @MapsId("GroupID")
-    @JoinColumn(name = "GroupID")
+    @MapsId("groupId")
+    @JoinColumn(name = "groupId")
     @JsonIgnoreProperties("groupAccounts")
     private Group group;
 
     @ManyToOne
-    @MapsId("AccountID")
-    @JoinColumn(name = "AccountID")
+    @MapsId("accountId")
+    @JoinColumn(name = "accountId")
     @JsonIgnoreProperties("groupAccounts")
     private Account account;
 
