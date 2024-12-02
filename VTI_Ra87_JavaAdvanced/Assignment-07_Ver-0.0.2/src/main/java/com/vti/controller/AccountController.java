@@ -52,7 +52,7 @@ public class AccountController {
     // update name find by id
     @PutMapping(value = "/u1/{id}")
     public void updateAccount1(@PathVariable(name = "id") short id, @RequestBody Account account) {
-        account.setAccountId(id);
+        account.setId(id);
         service.updateAccount1(id, account.getFirstName(), account.getLastName());
     }
 

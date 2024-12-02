@@ -23,10 +23,10 @@ public class Group implements Serializable {
     @Column(name = "GroupID")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private short groupId; // maps to TINYINT UNSIGNED AUTO_INCREMENT PRIMARY KEY
+    private short id; // maps to TINYINT UNSIGNED AUTO_INCREMENT PRIMARY KEY
 
     @Column(name = "GroupName", length = 50, nullable = false, unique = true)
-    private String groupName; // maps to NVARCHAR(50) NOT NULL UNIQUE KEY
+    private String name; // maps to NVARCHAR(50) NOT NULL UNIQUE KEY
 
     @ManyToOne
     @JoinColumn(name = "CreatorID", referencedColumnName = "AccountID", updatable = false)
@@ -43,20 +43,20 @@ public class Group implements Serializable {
     public Group() {
     }
 
-    public short getGroupId() {
-        return groupId;
+    public short getId() {
+        return id;
     }
 
-    public void setGroupId(short groupId) {
-        this.groupId = groupId;
+    public void setId(short groupId) {
+        this.id = groupId;
     }
 
-    public String getGroupName() {
-        return groupName;
+    public String getName() {
+        return name;
     }
 
-    public void setGroupName(String groupName) {
-        this.groupName = groupName;
+    public void setName(String groupName) {
+        this.name = groupName;
     }
 
     public Account getCreator() {
@@ -86,8 +86,8 @@ public class Group implements Serializable {
     @Override
     public String toString() {
         return "Group{" +
-                "groupId=" + groupId +
-                ", groupName='" + groupName + '\'' +
+                "groupId=" + id +
+                ", groupName='" + name + '\'' +
                 ", creator=" + creator +
                 ", createDate=" + createDate +
                 ", groupAccounts=" + groupAccounts +

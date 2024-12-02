@@ -19,15 +19,15 @@ public interface IDepartmentRepository extends JpaRepository<Department, Short> 
     @Query("SELECT d FROM Department d")
     List<Department> findAll();
 
-    @Query("SELECT d FROM Department d WHERE d.departmentId = :idParam")
+    @Query("SELECT d FROM Department d WHERE d.id = :idParam")
     Department findDepartmentById(@Param("idParam") short id);
 
-    @Query("SELECT d FROM Department d WHERE d.departmentName = :nameParam")
+    @Query("SELECT d FROM Department d WHERE d.name = :nameParam")
     Department findDepartmentByName(@Param("nameParam") String name);
 
     @Modifying
     @Transactional
-    @Query("UPDATE Department d SET d.departmentName = :nameParam WHERE d.departmentId = :idParam")
+    @Query("UPDATE Department d SET d.name = :nameParam WHERE d.id = :idParam")
     void updateDepartment1(@Param("idParam") short id, @Param("nameParam") String name);
 
 }

@@ -17,7 +17,7 @@ public class Answer implements Serializable {
     @Column(name = "Answers")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // AUTO_INCREMENT PRIMARY KEY
-    private short answerId; //TINYINT UNSIGNED
+    private short id; //TINYINT UNSIGNED
 
     @Column(name = "Content", length = 100, nullable = false)
     private String content; // NVARCHAR(100) NOT NULL
@@ -33,12 +33,12 @@ public class Answer implements Serializable {
     public Answer() {
     }
 
-    public short getAnswerId() {
-        return answerId;
+    public short getId() {
+        return id;
     }
 
-    public void setAnswerId(short answerId) {
-        this.answerId = answerId;
+    public void setId(short answerId) {
+        this.id = answerId;
     }
 
     public String getContent() {
@@ -68,7 +68,7 @@ public class Answer implements Serializable {
     @Override
     public String toString() {
         return "Answer{" +
-                "answerId=" + answerId +
+                "answerId=" + id +
                 ", content='" + content + '\'' +
                 ", question=" + question +
                 ", isCorrect=" + isCorrect +

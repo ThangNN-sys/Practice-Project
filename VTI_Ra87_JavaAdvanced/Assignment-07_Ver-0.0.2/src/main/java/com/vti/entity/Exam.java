@@ -25,17 +25,17 @@ public class Exam implements Serializable {
             name = "exam-code-generator",
             strategy = "com.vti.entity.generator.ExamCodeGenerator"
     )
-    private short examId;
+    private short id;
 
     @Column(name = "Duration", nullable = false)
     private int duration;
 
-    public short getExamId() {
-        return examId;
+    public short getId() {
+        return id;
     }
 
-    public void setExamId(short examId) {
-        this.examId = examId;
+    public void setId(short examId) {
+        this.id = examId;
     }
 
     public int getDuration() {

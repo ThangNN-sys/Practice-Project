@@ -23,10 +23,10 @@ public class CategoryQuestion implements Serializable {
     @Column(name = "CategoryID")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // AUTO_INCREMENT PRIMARY KEY
-    private short categoryId; // TINYINT UNSIGNED
+    private short id; // TINYINT UNSIGNED
 
     @Column(name = "CategoryName", length = 50, nullable = false, unique = true)
-    private String categoryName; // VARCHAR(50) NOT NULL UNIQUE KEY
+    private String name; // VARCHAR(50) NOT NULL UNIQUE KEY
 
     @OneToMany(mappedBy = "category") // 1 CategoryQuestion to multiple Question, Question is owning side
     @JsonManagedReference("category")
@@ -35,27 +35,27 @@ public class CategoryQuestion implements Serializable {
     public CategoryQuestion() {
     }
 
-    public short getCategoryId() {
-        return categoryId;
+    public short getId() {
+        return id;
     }
 
-    public void setCategoryId(short id) {
-        this.categoryId = id;
+    public void setId(short id) {
+        this.id = id;
     }
 
-    public String getCategoryName() {
-        return categoryName;
+    public String getName() {
+        return name;
     }
 
-    public void setCategoryName(String name) {
-        this.categoryName = name;
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
     public String toString() {
         return "CategoryQuestion{" +
-                "categoryId=" + categoryId +
-                ", categoryName='" + categoryName + '\'' +
+                "categoryId=" + id +
+                ", categoryName='" + name + '\'' +
                 '}';
     }
 }

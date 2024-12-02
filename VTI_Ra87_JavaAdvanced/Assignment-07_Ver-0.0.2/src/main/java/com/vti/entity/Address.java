@@ -22,10 +22,10 @@ public class Address implements Serializable {
     @Column(name = "AddressID")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // AUTO_INCREMENT PRIMARY KEY
-    private short addressId; // TINYINT UNSIGNED
+    private short id; // TINYINT UNSIGNED
 
     @Column(name = "AddressName", length = 100, nullable = false, unique = true)
-    private String addressName; // VARCHAR(100) NOT NULL UNIQUE KEY
+    private String name; // VARCHAR(100) NOT NULL UNIQUE KEY
 
     @OneToMany(mappedBy = "address") // 1 Address to multiple DetailDepartment, DetailDepartment is owning side
     @JsonIgnoreProperties("address")
@@ -35,35 +35,35 @@ public class Address implements Serializable {
     }
 
     public Address(short id, String name) {
-        this.addressId = id;
-        this.addressName = name;
+        this.id = id;
+        this.name = name;
     }
 
-    public Address(String addressName) {
-        this.addressName = addressName;
+    public Address(String name) {
+        this.name = name;
     }
 
-    public short getAddressId() {
-        return addressId;
+    public short getId() {
+        return id;
     }
 
-    public void setAddressId(short id) {
-        this.addressId = id;
+    public void setId(short id) {
+        this.id = id;
     }
 
-    public String getAddressName() {
-        return addressName;
+    public String getName() {
+        return name;
     }
 
-    public void setAddressName(String name) {
-        this.addressName = name;
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
     public String toString() {
         return "Address{" +
-                "addressId=" + addressId +
-                ", addressName='" + addressName + '\'' +
+                "addressId=" + id +
+                ", addressName='" + name + '\'' +
                 '}';
     }
 }

@@ -51,8 +51,8 @@ public class AddressController {
     // update name find by id
     @PutMapping(value = "/u1/{id}")
     public void updateAddress1(@PathVariable(name = "id") short id, @RequestBody Address address) {
-        address.setAddressId(id);
-        service.updateAddress1(id, address.getAddressName());
+        address.setId(id);
+        service.updateAddress1(id, address.getName());
     }
 
     // update by object

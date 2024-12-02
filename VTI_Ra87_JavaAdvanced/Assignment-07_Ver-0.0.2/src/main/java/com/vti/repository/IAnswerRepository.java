@@ -21,7 +21,7 @@ public interface IAnswerRepository extends JpaRepository<Answer, Short> {
     @Query("SELECT a FROM Answer a")
     List<Answer> findAll();
 
-    @Query("SELECT a FROM Answer a WHERE a.answerId = :idParam")
+    @Query("SELECT a FROM Answer a WHERE a.id = :idParam")
     Answer findAnswerById(@Param("idParam") short id);
 
     @Query("SELECT a FROM Answer a WHERE a.question = :questionParam")
@@ -29,6 +29,6 @@ public interface IAnswerRepository extends JpaRepository<Answer, Short> {
 
     @Modifying
     @Transactional
-    @Query("UPDATE Answer a SET a.content = :contentParam, a.question = :questionParam, a.isCorrect = :isCorrectParam WHERE a.answerId = :idParam")
+    @Query("UPDATE Answer a SET a.content = :contentParam, a.question = :questionParam, a.isCorrect = :isCorrectParam WHERE a.id = :idParam")
     void updateAnswer1(@Param("idParam") short id, @Param("contentParam") String content, @Param("questionParam") Question question, @Param("isCorrectParam") boolean isCorrect);
 }

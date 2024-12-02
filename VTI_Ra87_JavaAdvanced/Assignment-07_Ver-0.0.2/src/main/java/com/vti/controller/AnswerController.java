@@ -53,7 +53,7 @@ public class AnswerController {
     // update find by id
     @PutMapping(value = "/u1/{id}")
     public void updateAnswer1(@PathVariable(name = "id") short id, @RequestBody Answer answer) {
-        answer.setAnswerId(id);
+        answer.setId(id);
         service.updateAnswer1(id, answer.getContent(), answer.getQuestion(), answer.isCorrect());
     }
 

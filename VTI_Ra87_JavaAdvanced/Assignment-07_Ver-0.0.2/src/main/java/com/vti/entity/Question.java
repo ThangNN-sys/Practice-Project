@@ -21,7 +21,7 @@ public class Question implements Serializable {
     @Column(name = "QuestionID")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private short questionID;
+    private short id;
 
     @Column(name = "Content", length = 100, nullable = false)
     private String content;
@@ -50,12 +50,12 @@ public class Question implements Serializable {
     @CreationTimestamp
     private Date createDate;
 
-    public short getQuestionID() {
-        return questionID;
+    public short getId() {
+        return id;
     }
 
-    public void setQuestionID(short questionID) {
-        this.questionID = questionID;
+    public void setId(short questionID) {
+        this.id = questionID;
     }
 
     public String getContent() {
@@ -101,7 +101,7 @@ public class Question implements Serializable {
     @Override
     public String toString() {
         return "Question{" +
-                "questionID=" + questionID +
+                "questionID=" + id +
                 ", content='" + content + '\'' +
                 ", category=" + category +
                 ", type=" + type +

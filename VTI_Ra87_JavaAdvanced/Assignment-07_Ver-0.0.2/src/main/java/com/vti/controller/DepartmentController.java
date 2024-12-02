@@ -52,8 +52,8 @@ public class DepartmentController {
     // update name find by id
     @PutMapping(value = "/u1/{id}")
     public void updateDepartment1(@PathVariable(name = "id") short id, @RequestBody Department update1) {
-        update1.setDepartmentId(id);
-        service.updateDepartment1(id, update1.getDepartmentName());
+        update1.setId(id);
+        service.updateDepartment1(id, update1.getName());
     }
 
     // update by object

@@ -24,13 +24,13 @@ public class Department implements Serializable {
     @Column(name = "DepartmentID")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // AUTO_INCREMENT PRIMARY KEY
-    private short departmentId; // TINYINT UNSIGNED
+    private short id; // TINYINT UNSIGNED
 
     @Column(name = "TotalMember")
     private short totalMember; // TINYINT UNSIGNED
 
     @Column(name = "DepartmentName", length = 30, nullable = false, unique = true)
-    private String departmentName; // NVARCHAR(30) NOT NULL UNIQUE KEY
+    private String name; // NVARCHAR(30) NOT NULL UNIQUE KEY
 
     @OneToMany(mappedBy = "department") // 1 Department to multiple Account, Account is owning side
     @JsonIgnoreProperties("department")
@@ -39,18 +39,18 @@ public class Department implements Serializable {
     public Department() {
     }
 
-    public Department(short departmentId, short totalMember, String departmentName) {
-        this.departmentId = departmentId;
+    public Department(short id, short totalMember, String name) {
+        this.id = id;
         this.totalMember = totalMember;
-        this.departmentName = departmentName;
+        this.name = name;
     }
 
-    public short getDepartmentId() {
-        return departmentId;
+    public short getId() {
+        return id;
     }
 
-    public void setDepartmentId(short id) {
-        this.departmentId = id;
+    public void setId(short id) {
+        this.id = id;
     }
 
     public short getTotalMember() {
@@ -61,20 +61,20 @@ public class Department implements Serializable {
         this.totalMember = totalMember;
     }
 
-    public String getDepartmentName() {
-        return departmentName;
+    public String getName() {
+        return name;
     }
 
-    public void setDepartmentName(String name) {
-        this.departmentName = name;
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
     public String toString() {
         return "Department{" +
-                "id=" + departmentId +
+                "id=" + id +
                 ", totalMember=" + totalMember +
-                ", name='" + departmentName + '\'' +
+                ", name='" + name + '\'' +
                 '}';
     }
 }

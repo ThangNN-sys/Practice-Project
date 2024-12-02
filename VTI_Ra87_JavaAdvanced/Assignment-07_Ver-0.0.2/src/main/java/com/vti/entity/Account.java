@@ -30,7 +30,7 @@ public class Account implements Serializable {
     @Column(name = "AccountID")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // AUTO_INCREMENT PRIMARY KEY
-    private short accountId; // TINYINT UNSIGNED
+    private short id; // TINYINT UNSIGNED
 
     @Column(name = "Email", length = 50, nullable = false, unique = true, updatable = false)
     private String email; // VARCHAR(50) NOT NULL UNIQUE KEY, -- Cannot update this field
@@ -86,12 +86,12 @@ public class Account implements Serializable {
 
     }
 
-    public short getAccountId() {
-        return accountId;
+    public short getId() {
+        return id;
     }
 
-    public void setAccountId(short accountId) {
-        this.accountId = accountId;
+    public void setId(short accountId) {
+        this.id = accountId;
     }
 
     public String getEmail() {
@@ -201,7 +201,7 @@ public class Account implements Serializable {
     @Override
     public String toString() {
         return "Account{" +
-                "accountId=" + accountId +
+                "accountId=" + id +
                 ", email='" + email + '\'' +
                 ", username='" + username + '\'' +
                 ", firstName='" + firstName + '\'' +

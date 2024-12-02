@@ -14,7 +14,7 @@ public interface IAccountRepository extends JpaRepository<Account, Short> {
     @Query("SELECT a FROM Account a")
     List<Account> findAll();
 
-    @Query("SELECT a FROM Account a WHERE a.accountId = :idParam")
+    @Query("SELECT a FROM Account a WHERE a.id = :idParam")
     Account findAccountById(@Param("idParam") short id);
 
     @Query("SELECT a FROM Account a WHERE a.username = :nameParam")
@@ -22,7 +22,7 @@ public interface IAccountRepository extends JpaRepository<Account, Short> {
 
     @Modifying
     @Transactional
-    @Query("UPDATE Account a SET a.firstName = :firstNameParam, a.lastName = :lastNameParam WHERE a.accountId = :idParam")
+    @Query("UPDATE Account a SET a.firstName = :firstNameParam, a.lastName = :lastNameParam WHERE a.id = :idParam")
     void updateAccount1(@Param("idParam") short id, @Param("firstNameParam") String firstName, @Param("lastNameParam") String lastName);
 
 }
