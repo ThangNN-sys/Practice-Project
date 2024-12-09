@@ -47,25 +47,25 @@ public class CategoryQuestionService implements ICategoryQuestionService {
     // create new
     @Override
     public void createCategoryQuestion(CategoryQuestion categoryQuestion) {
-repository.save(categoryQuestion);
+        repository.save(categoryQuestion);
     }
 
     // update name find by id
     @Override
     public void updateCategoryQuestion1(short id, String newName) {
-repository.updateCategoryQuestion1(id, newName);
+        repository.updateCategoryQuestion1(id, newName);
     }
 
     // update by object
     @Override
     public void updateCategoryQuestion2(CategoryQuestion categoryQuestion) {
-repository.save(categoryQuestion);
+        repository.save(categoryQuestion);
     }
 
     // delete by id
     @Override
     public void deleteCategoryQuestion(short id) {
-repository.deleteById(id);
+        repository.deleteById(id);
     }
 
     // exists by id
@@ -81,25 +81,6 @@ repository.deleteById(id);
         return categoryQuestion != null;
         // return repository.findCategoryQuestionByName(name) != null; // cách viết ngắn gọn
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }

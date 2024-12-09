@@ -24,6 +24,7 @@ public class AddressController {
 //    public List<Address> getListAddress() {
 //        return service.getListAddresses();
 //    }
+
     // get all paging
     @GetMapping()
     public Page<Address> getAllAddresses(Pageable pageable) {

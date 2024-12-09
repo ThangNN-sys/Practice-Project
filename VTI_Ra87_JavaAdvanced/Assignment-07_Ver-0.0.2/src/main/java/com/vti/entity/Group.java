@@ -37,8 +37,8 @@ public class Group implements Serializable {
     @CreationTimestamp
     private Date createDate; // maps to DATETIME DEFAULT
 
-	@OneToMany(mappedBy = "group")
-	private List<GroupAccount> groupAccounts;
+    @OneToMany(mappedBy = "group")
+    private List<GroupAccount> groupAccounts;
 
     public Group() {
     }

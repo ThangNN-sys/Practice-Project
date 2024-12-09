@@ -9,7 +9,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(value = "api/v1/type questions")
+@RequestMapping(value = "api/v1/type-questions")
 public class TypeQuestionController {
     /**
      * Presentation Layer

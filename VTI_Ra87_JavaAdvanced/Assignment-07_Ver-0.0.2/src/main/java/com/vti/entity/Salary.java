@@ -29,8 +29,8 @@ public class Salary implements Serializable {
     @Convert(converter = SalaryNameConvert.class)
     private SalaryName name; // maps to ENUM('600','700','1500','2000') NOT NULL UNIQUE KEY
 
-	@OneToMany(mappedBy = "salary")
-	private List<Account> accounts;
+    @OneToMany(mappedBy = "salary")
+    private List<Account> accounts;
 
     public Salary() {
     }
@@ -51,13 +51,13 @@ public class Salary implements Serializable {
         this.name = name;
     }
 
-	public List<Account> getAccounts() {
-		return accounts;
-	}
+    public List<Account> getAccounts() {
+        return accounts;
+    }
 
-	public void setAccounts(List<Account> accounts) {
-		this.accounts = accounts;
-	}
+    public void setAccounts(List<Account> accounts) {
+        this.accounts = accounts;
+    }
 
     @Override
     public String toString() {

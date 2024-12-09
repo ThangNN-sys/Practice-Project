@@ -21,7 +21,7 @@ public class GroupAccount implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @EmbeddedId
-    private GroupAccountKey groupAccountKey;
+    private GroupAccountKey id;
 
     @ManyToOne
     @MapsId("groupId")
@@ -40,12 +40,12 @@ public class GroupAccount implements Serializable {
     @CreationTimestamp
     private Date joinDate;
 
-    public GroupAccountKey getGroupAccountKey() {
-        return groupAccountKey;
+    public GroupAccountKey getId() {
+        return id;
     }
 
-    public void setGroupAccountKey(GroupAccountKey groupAccountKey) {
-        this.groupAccountKey = groupAccountKey;
+    public void setId(GroupAccountKey groupAccountKey) {
+        this.id = groupAccountKey;
     }
 
     public Group getGroup() {
@@ -75,7 +75,7 @@ public class GroupAccount implements Serializable {
     @Override
     public String toString() {
         return "GroupAccount{" +
-                "groupAccountKey=" + groupAccountKey +
+                "groupAccountKey=" + id +
                 ", group=" + group +
                 ", account=" + account +
                 ", joinDate=" + joinDate +

@@ -53,7 +53,7 @@ public class EmployeeService implements IEmployeeService {
     // update name find by id
     @Override
     public void updateEmployee1(short id, short newYear) {
-        repository.updateEmployee1(id,newYear);
+        repository.updateEmployee1(id, newYear);
     }
 
     // update by object
@@ -65,7 +65,7 @@ public class EmployeeService implements IEmployeeService {
     // delete by id
     @Override
     public void deleteEmployee(short id) {
-       repository.deleteById(id);
+        repository.deleteById(id);
     }
 
     // exists by id
