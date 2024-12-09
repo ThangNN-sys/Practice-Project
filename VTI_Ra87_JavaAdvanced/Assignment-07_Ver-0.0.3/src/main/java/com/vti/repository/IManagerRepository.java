@@ -29,6 +29,6 @@ public interface IManagerRepository extends JpaRepository<Manager, Short> {
     @Modifying
     @Transactional
     @Query("UPDATE Manager v SET v.managementNumberOfYear = :yearParam WHERE v.id = :idParam")
-    void updateManager1(@Param("idParam") short id, @Param("nameParam") short year);
+    void updateManager1(@Param("idParam") short id, @Param("yearParam") short year);
 
 }
