@@ -31,6 +31,9 @@ public class AccountController {
         return service.getAllAccounts(pageable);
     }
 
+    // convert entities --> dtos
+
+
     // get by id
     @GetMapping(value = "/{id}")
     public Account getAccountById(@PathVariable(name = "id") short id) {

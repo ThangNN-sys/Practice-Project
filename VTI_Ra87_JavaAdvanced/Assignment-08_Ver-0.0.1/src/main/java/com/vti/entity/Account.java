@@ -19,10 +19,10 @@ import java.util.List;
  * Khai báo các ánh xạ tới bảng Account của DB
  */
 
-@Data
-@NoArgsConstructor
 @Entity
 @Table(name = "`Account`")
+@Data
+@NoArgsConstructor
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "accountId")
 @Inheritance(strategy = InheritanceType.JOINED)
 

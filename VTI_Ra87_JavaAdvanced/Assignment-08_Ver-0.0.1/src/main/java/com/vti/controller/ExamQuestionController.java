@@ -63,7 +63,7 @@ public class ExamQuestionController {
     public void updateExamQuestion1(@PathVariable(name = "id") ExamQuestionKey id, @RequestBody ExamQuestion update1) {
         update1.setId(id);
         service.updateExamQuestion1(id, update1.getExam(),
-                                    update1.getQuestion());
+                update1.getQuestion());
     }
 
     // update by object
