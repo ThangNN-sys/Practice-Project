@@ -11,9 +11,9 @@ import java.util.List;
 
 public interface IGroupAccountService {
 
-    List<GroupAccount> getListGroupAccounts();
+    List<GroupAccount> getAllGroupAccounts();
 
-    Page<GroupAccount> getAllGroupAccounts(Pageable pageable);
+    Page<GroupAccount> getAllGroupAccountsPaging(Pageable pageable);
 
     GroupAccount getGroupAccountById(GroupAccountKey id);
 
@@ -29,10 +29,10 @@ public interface IGroupAccountService {
 
     void deleteGroupAccount(GroupAccountKey id);
 
-    boolean isGroupAccountExistId(GroupAccountKey id);
+    boolean isGroupAccountExistsId(GroupAccountKey id);
 
-    boolean isGroupAccountExistGroup(Group group);
+    boolean isGroupAccountExistsGroup(Group group);
 
-    boolean isGroupAccountExistAccount(Account account);
+    boolean isGroupAccountExistsAccount(Account account);
 
 }

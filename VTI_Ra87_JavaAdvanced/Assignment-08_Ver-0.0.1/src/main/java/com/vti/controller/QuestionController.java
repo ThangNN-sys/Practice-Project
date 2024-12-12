@@ -29,7 +29,7 @@ public class QuestionController {
     // get all paging
     @GetMapping()
     public Page<Question> getAllQuestions(Pageable pageable) {
-        return service.getAllQuestions(pageable);
+        return service.getAllQuestionsPaging(pageable);
     }
 
     // get by id
@@ -72,13 +72,13 @@ public class QuestionController {
     // exists by id
     @GetMapping(value = "/exists-id/{id}")
     public boolean isQuestionExistId(@PathVariable(name = "id") short id) {
-        return service.isQuestionExistId(id);
+        return service.isQuestionExistsId(id);
     }
 
     // exists by category
     @GetMapping(value = "/exists-category/{category}")
     public boolean isQuestionExistCategory(@PathVariable(name = "category") CategoryQuestion category) {
-        return service.isQuestionExistCategory(category);
+        return service.isQuestionExistsCategory(category);
     }
 
 }

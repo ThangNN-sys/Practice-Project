@@ -11,18 +11,18 @@ import java.util.List;
 
 public interface IAccountRepository extends JpaRepository<Account, Short> {
 
-    @Query("SELECT a FROM Account a")
+    @Query("SELECT v FROM Account v")
     List<Account> findAll();
 
-    @Query("SELECT a FROM Account a WHERE a.id = :idParam")
+    @Query("SELECT v FROM Account v WHERE v.id = :idParam")
     Account findAccountById(@Param("idParam") short id);
 
-    @Query("SELECT a FROM Account a WHERE a.username = :nameParam")
+    @Query("SELECT v FROM Account v WHERE v.username = :nameParam")
     Account findAccountByUsername(@Param("nameParam") String name);
 
     @Modifying
     @Transactional
-    @Query("UPDATE Account a SET a.firstName = :firstNameParam, a.lastName = :lastNameParam WHERE a.id = :idParam")
+    @Query("UPDATE Account v SET v.firstName = :firstNameParam, v.lastName = :lastNameParam WHERE v.id = :idParam")
     void updateAccount1(@Param("idParam") short id, @Param("firstNameParam") String firstName, @Param("lastNameParam") String lastName);
 
 }

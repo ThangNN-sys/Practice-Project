@@ -31,7 +31,7 @@ public class ExamQuestionController {
     // get all paging
     @GetMapping()
     public Page<ExamQuestion> getAllExamQuestions(Pageable pageable) {
-        return service.getAllExamQuestions(pageable);
+        return service.getAllExamQuestionsPaging(pageable);
     }
 
     // get by id
@@ -87,13 +87,13 @@ public class ExamQuestionController {
     // exists by exam
     @GetMapping(value = "/exists-exam/{exam}")
     public boolean isExamQuestionExistExam(@PathVariable(name = "exam") Exam exam) {
-        return service.isExamQuestionExistExam(exam);
+        return service.isExamQuestionExistsExam(exam);
     }
 
     // exists by question
     @GetMapping(value = "/exists-question/{question}")
     public boolean isExamQuestionExistQuestion(@PathVariable(name = "question") Question question) {
-        return service.isExamQuestionExistQuestion(question);
+        return service.isExamQuestionExistsQuestion(question);
     }
 
 }

@@ -29,7 +29,7 @@ public class AnswerController {
     // get all paging
     @GetMapping()
     public Page<Answer> getAllAnswers(Pageable pageable) {
-        return service.getAllAnswers(pageable);
+        return service.getAllAnswersPaging(pageable);
     }
 
     // get by id
@@ -72,13 +72,13 @@ public class AnswerController {
     // exists by id
     @GetMapping(value = "/exists-id/{id}")
     public boolean isAnswerExistId(@PathVariable(name = "id") short id) {
-        return service.isAnswerExistId(id);
+        return service.isAnswerExistsId(id);
     }
 
     // exists by question
     @GetMapping(value = "/exists-question/{question}")
     public boolean isAnswerExistQuestion(@PathVariable(name = "question") Question question) {
-        return service.isAnswerExistQuestion(question);
+        return service.isAnswerExistsQuestion(question);
     }
 
 }

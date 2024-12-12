@@ -1,10 +1,11 @@
 package com.vti.controller;
 
+import com.vti.dto.AccountDTO;
 import com.vti.entity.Account;
 import com.vti.service.IAccountService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -16,8 +17,11 @@ public class AccountController {
      * Đối tượng: Account
      */
 
-    @Autowired
-    private IAccountService service;
+    private final IAccountService service;
+
+    public AccountController(IAccountService service) {
+        this.service = service;
+    }
 
     // get all list
 //    @GetMapping()
@@ -27,12 +31,10 @@ public class AccountController {
 
     // get all paging
     @GetMapping()
-    public Page<Account> getAllAccounts(Pageable pageable) {
-        return service.getAllAccounts(pageable);
+    public ResponseEntity<Page<AccountDTO>> getAllAccounts(Pageable pageable) {
+        Page<AccountDTO> accounts = service.getAllAccountsPaging(pageable);
+        return ResponseEntity.ok(accounts);
     }
-
-    // convert entities --> dtos
-
 
     // get by id
     @GetMapping(value = "/{id}")
@@ -74,13 +76,13 @@ public class AccountController {
     // exists by id
     @GetMapping(value = "/exists-id/{id}")
     public boolean isAccountExistId(@PathVariable(name = "id") short id) {
-        return service.isAccountExistId(id);
+        return service.isAccountExistsId(id);
     }
 
     // exists by username
     @GetMapping(value = "/exists-username/{name}")
     public boolean isAccountExistUsername(@PathVariable(name = "name") String name) {
-        return service.isAccountExistUsername(name);
+        return service.isAccountExistsUsername(name);
     }
 
 }

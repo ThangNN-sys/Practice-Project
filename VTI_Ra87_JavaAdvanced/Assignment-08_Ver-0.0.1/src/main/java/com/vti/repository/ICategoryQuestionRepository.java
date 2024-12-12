@@ -16,18 +16,18 @@ public interface ICategoryQuestionRepository extends JpaRepository<CategoryQuest
      * Đối tượng: CategoryQuestion
      */
 
-    @Query("SELECT c FROM CategoryQuestion c")
+    @Query("SELECT v FROM CategoryQuestion v")
     List<CategoryQuestion> findAll();
 
-    @Query("SELECT c FROM CategoryQuestion c WHERE c.id = :idParam")
+    @Query("SELECT v FROM CategoryQuestion v WHERE v.id = :idParam")
     CategoryQuestion findCategoryQuestionById(@Param("idParam") short id);
 
-    @Query("SELECT c FROM CategoryQuestion c WHERE c.name = :nameParam")
+    @Query("SELECT v FROM CategoryQuestion v WHERE v.name = :nameParam")
     CategoryQuestion findCategoryQuestionByName(@Param("nameParam") String name);
 
     @Modifying
     @Transactional
-    @Query("UPDATE CategoryQuestion c SET c.name = :nameParam WHERE c.id = :idParam")
+    @Query("UPDATE CategoryQuestion v SET v.name = :nameParam WHERE v.id = :idParam")
     void updateCategoryQuestion1(@Param("idParam") short id, @Param("nameParam") String name);
 
 }

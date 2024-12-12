@@ -28,7 +28,7 @@ public class EmployeeController {
     // get all paging
     @GetMapping()
     public Page<Employee> getAllEmployees(Pageable pageable) {
-        return service.getAllEmployees(pageable);
+        return service.getAllEmployeesPaging(pageable);
     }
 
     // get by id
@@ -71,13 +71,13 @@ public class EmployeeController {
     // exists by id
     @GetMapping(value = "/exists-id/{id}")
     public boolean isEmployeeExistId(@PathVariable(name = "id") short id) {
-        return service.isEmployeeExistId(id);
+        return service.isEmployeeExistsId(id);
     }
 
     // exists by year
     @GetMapping(value = "/exists-year/{name}")
     public boolean isEmployeeExistYear(@PathVariable(name = "name") short year) {
-        return service.isEmployeeExistYear(year);
+        return service.isEmployeeExistsYear(year);
     }
 
 }

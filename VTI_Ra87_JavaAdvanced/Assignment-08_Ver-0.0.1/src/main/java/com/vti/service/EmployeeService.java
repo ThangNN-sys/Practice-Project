@@ -22,13 +22,13 @@ public class EmployeeService implements IEmployeeService {
 
     // get all
     @Override
-    public List<Employee> getListEmployees() {
+    public List<Employee> getAllEmployeesPaging() {
         return repository.findAll();
     }
 
     // get all paging
     @Override
-    public Page<Employee> getAllEmployees(Pageable pageable) {
+    public Page<Employee> getAllEmployeesPaging(Pageable pageable) {
         return repository.findAll(pageable);
     }
 
@@ -70,13 +70,13 @@ public class EmployeeService implements IEmployeeService {
 
     // exists by id
     @Override
-    public boolean isEmployeeExistId(short id) {
+    public boolean isEmployeeExistsId(short id) {
         return repository.existsById(id);
     }
 
     // exists by name
     @Override
-    public boolean isEmployeeExistYear(short year) {
+    public boolean isEmployeeExistsYear(short year) {
         Employee employee = repository.findEmployeeByYear(year);
         return employee != null;
         // return repository.isEmployeeExistYear(year) != null; // cách viết ngắn gọn

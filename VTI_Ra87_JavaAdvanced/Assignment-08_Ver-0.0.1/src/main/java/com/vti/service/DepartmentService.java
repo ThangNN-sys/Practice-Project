@@ -1,7 +1,9 @@
 package com.vti.service;
 
+import com.vti.dto.DepartmentDTO;
 import com.vti.entity.Department;
 import com.vti.repository.IDepartmentRepository;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -20,16 +22,24 @@ public class DepartmentService implements IDepartmentService {
     @Autowired
     private IDepartmentRepository repository;
 
+    @Autowired
+    private ModelMapper modelMapper;
+
+    public DepartmentService(IDepartmentRepository repository) {
+        this.repository = repository;
+    }
+
     // get all
     @Override
-    public List<Department> getListDepartments() {
+    public List<Department> getAllDepartments() {
         return repository.findAll();
     }
 
     // get all paging
     @Override
-    public Page<Department> getPageDepartments(Pageable pageable) {
-        return repository.findAll(pageable);
+    public Page<DepartmentDTO> getAllDepartmentsPaging(Pageable pageable) {
+        Page<Department> departments = repository.findAll(pageable);
+        return departments.map(department -> modelMapper.map(department, DepartmentDTO.class));
     }
 
     // get by id with @Query
@@ -70,13 +80,13 @@ public class DepartmentService implements IDepartmentService {
 
     // exists by id
     @Override
-    public boolean isDepartmentExistId(short id) {
+    public boolean isDepartmentExistsId(short id) {
         return repository.existsById(id);
     }
 
     // exists by name
     @Override
-    public boolean isDepartmentExistName(String name) {
+    public boolean isDepartmentExistsName(String name) {
         Department department = repository.findDepartmentByName(name);
         return department != null;
         // return repository.findDepartmentByName(name) != null; // cách viết ngắn gọn

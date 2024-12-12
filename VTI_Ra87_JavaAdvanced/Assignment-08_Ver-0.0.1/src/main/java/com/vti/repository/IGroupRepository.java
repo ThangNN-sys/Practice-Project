@@ -16,18 +16,18 @@ public interface IGroupRepository extends JpaRepository<Group, Short> {
      * Đối tượng: Group
      */
 
-    @Query("SELECT g FROM Group g")
+    @Query("SELECT v FROM Group v")
     List<Group> findAll();
 
-    @Query("SELECT g FROM Group g WHERE g.id = :idParam")
+    @Query("SELECT v FROM Group v WHERE v.id = :idParam")
     Group findGroupById(@Param("idParam") short id);
 
-    @Query("SELECT g FROM Group g WHERE g.name = :nameParam")
+    @Query("SELECT v FROM Group v WHERE v.name = :nameParam")
     Group findGroupByName(@Param("nameParam") String name);
 
     @Modifying
     @Transactional
-    @Query("UPDATE Group g SET g.name = :nameParam WHERE g.id = :idParam")
+    @Query("UPDATE Group v SET v.name = :nameParam WHERE v.id = :idParam")
     void updateGroup1(@Param("idParam") short id, @Param("nameParam") String name);
 
 }

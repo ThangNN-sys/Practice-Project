@@ -11,9 +11,9 @@ import java.util.List;
 
 public interface IExamQuestionService {
 
-    List<ExamQuestion> getListExamQuestions();
+    List<ExamQuestion> getAllExamQuestions();
 
-    Page<ExamQuestion> getAllExamQuestions(Pageable pageable);
+    Page<ExamQuestion> getAllExamQuestionsPaging(Pageable pageable);
 
     ExamQuestion getExamQuestionById(ExamQuestionKey id);
 
@@ -31,8 +31,8 @@ public interface IExamQuestionService {
 
     boolean isExamQuestionExistId(ExamQuestionKey id);
 
-    boolean isExamQuestionExistExam(Exam exam);
+    boolean isExamQuestionExistsExam(Exam exam);
 
-    boolean isExamQuestionExistQuestion(Question question);
+    boolean isExamQuestionExistsQuestion(Question question);
 
 }

@@ -13,7 +13,7 @@ import org.springframework.data.repository.query.Param;
 
 public interface IDetailDepartmentRepository extends JpaRepository<DetailDepartment, Short> {
 
-    @Query("SELECT d FROM DetailDepartment d WHERE d.id = :departmentId")
+    @Query("SELECT v FROM DetailDepartment v WHERE v.id = :departmentId")
     DetailDepartment findByDepartmentId(@Param("departmentId") short departmentId);
 
 }

@@ -22,13 +22,13 @@ public class GroupService implements IGroupService {
 
     // get all
     @Override
-    public List<Group> getListGroups() {
+    public List<Group> getAllGroupsPaging() {
         return repository.findAll();
     }
 
     // get all paging
     @Override
-    public Page<Group> getAllGroups(Pageable pageable) {
+    public Page<Group> getAllGroupsPaging(Pageable pageable) {
         return repository.findAll(pageable);
     }
 
@@ -70,13 +70,13 @@ public class GroupService implements IGroupService {
 
     // exists by id
     @Override
-    public boolean isGroupExistId(short id) {
+    public boolean isGroupExistsId(short id) {
         return repository.existsById(id);
     }
 
     // exists by name
     @Override
-    public boolean isGroupExistName(String name) {
+    public boolean isGroupExistsName(String name) {
         Group group = repository.findGroupByName(name);
         return group != null;
         // return repository.findGroupByName(name) != null; // cách viết ngắn gọn

@@ -16,17 +16,17 @@ public interface ISalaryRepository extends JpaRepository<Salary, Short> {
      * Đối tượng: Salary
      */
 
-    @Query("SELECT s FROM Salary s")
+    @Query("SELECT v FROM Salary v")
     List<Salary> findAll();
 
-    @Query("SELECT s FROM Salary s WHERE s.id = :idParam")
+    @Query("SELECT v FROM Salary v WHERE v.id = :idParam")
     Salary findSalaryById(@Param("idParam") short id);
 
-    @Query("SELECT s FROM Salary s WHERE s.name = :nameParam")
+    @Query("SELECT v FROM Salary v WHERE v.name = :nameParam")
     Salary findSalaryByName(@Param("nameParam") SalaryName name);
 
     @Modifying
-    @Query("UPDATE Salary s SET s.name = :nameParam WHERE s.id = :idParam")
+    @Query("UPDATE Salary v SET v.name = :nameParam WHERE v.id = :idParam")
     void updateSalary1(@Param("idParam") short id, @Param("nameParam") SalaryName name);
 
 }

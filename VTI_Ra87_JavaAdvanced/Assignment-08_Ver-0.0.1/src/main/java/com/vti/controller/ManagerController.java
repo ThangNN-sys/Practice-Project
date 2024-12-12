@@ -28,7 +28,7 @@ public class ManagerController {
     // get all paging
     @GetMapping()
     public Page<Manager> getAllManagers(Pageable pageable) {
-        return service.getAllManagers(pageable);
+        return service.getAllManagersPaging(pageable);
     }
 
     // get by id
@@ -71,13 +71,13 @@ public class ManagerController {
     // exists by id
     @GetMapping(value = "/exists-id/{id}")
     public boolean isManagerExistId(@PathVariable(name = "id") short id) {
-        return service.isManagerExistId(id);
+        return service.isManagerExistsId(id);
     }
 
     // exists by year
     @GetMapping(value = "/exists-year/{year}")
     public boolean isManagerExistYear(@PathVariable(name = "year") short year) {
-        return service.isManagerExistYear(year);
+        return service.isManagerExistsYear(year);
     }
 
 }

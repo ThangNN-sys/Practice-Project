@@ -28,7 +28,7 @@ public class GroupController {
     // get all paging
     @GetMapping()
     public Page<Group> getAllGroups(Pageable pageable) {
-        return service.getAllGroups(pageable);
+        return service.getAllGroupsPaging(pageable);
     }
 
     // get by id
@@ -71,13 +71,13 @@ public class GroupController {
     // exists by id
     @GetMapping(value = "/exists-id/{id}")
     public boolean isGroupExistId(@PathVariable(name = "id") short id) {
-        return service.isGroupExistId(id);
+        return service.isGroupExistsId(id);
     }
 
     // exists by name
     @GetMapping(value = "/exists-name/{name}")
     public boolean isGroupExistName(@PathVariable(name = "name") String name) {
-        return service.isGroupExistName(name);
+        return service.isGroupExistsName(name);
     }
 
 }

@@ -28,7 +28,7 @@ public class DetailDepartmentController {
     // get all paging
     @GetMapping()
     public Page<DetailDepartment> getAllDetailDepartments(Pageable pageable) {
-        return service.getAllDetailDepartments(pageable);
+        return service.getAllDetailDepartmentsPaging(pageable);
     }
 
     // get by id
@@ -58,7 +58,7 @@ public class DetailDepartmentController {
     // exists by id
     @GetMapping(value = "/exists-id/{id}")
     public boolean isDetailDepartmentExistId(@PathVariable(name = "id") short id) {
-        return service.isDetailDepartmentExistId(id);
+        return service.isDetailDepartmentExistsId(id);
     }
 
 

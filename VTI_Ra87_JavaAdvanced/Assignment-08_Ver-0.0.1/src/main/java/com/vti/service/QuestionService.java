@@ -23,13 +23,13 @@ public class QuestionService implements IQuestionService {
 
     // get all
     @Override
-    public List<Question> getListQuestions() {
+    public List<Question> getAllQuestions() {
         return repository.findAll();
     }
 
     // get all paging
     @Override
-    public Page<Question> getAllQuestions(Pageable pageable) {
+    public Page<Question> getAllQuestionsPaging(Pageable pageable) {
         return repository.findAll(pageable);
     }
 
@@ -72,13 +72,13 @@ public class QuestionService implements IQuestionService {
 
     // exists by id
     @Override
-    public boolean isQuestionExistId(short id) {
+    public boolean isQuestionExistsId(short id) {
         return repository.existsById(id);
     }
 
     // exists by category
     @Override
-    public boolean isQuestionExistCategory(CategoryQuestion category) {
+    public boolean isQuestionExistsCategory(CategoryQuestion category) {
         Question question = repository.findQuestionByCategory(category);
         return question != null;
         // return repository.findQuestionByCategory(categoryQuestion) != null; // cách viết ngắn gọn

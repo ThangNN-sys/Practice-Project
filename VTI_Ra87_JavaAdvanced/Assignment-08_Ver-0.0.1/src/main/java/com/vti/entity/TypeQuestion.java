@@ -1,6 +1,5 @@
 package com.vti.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.vti.entity.enumerate.TypeQuestionName;
 import com.vti.entity.enumerate.TypeQuestionNameConvert;
 import jakarta.persistence.*;
@@ -35,7 +34,6 @@ public class TypeQuestion implements Serializable {
     private TypeQuestionName name; // maps to ENUM('0','1') NOT NULL UNIQUE KEY
 
     @OneToMany(mappedBy = "type")
-    @JsonIgnoreProperties("type")
     private List<Question> questionList;
 
 }

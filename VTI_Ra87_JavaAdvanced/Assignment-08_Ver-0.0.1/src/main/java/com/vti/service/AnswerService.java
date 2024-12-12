@@ -23,13 +23,13 @@ public class AnswerService implements IAnswerService {
 
     // get all
     @Override
-    public List<Answer> getListAnswers() {
+    public List<Answer> getAllAnswers() {
         return repository.findAll();
     }
 
     // get all paging
     @Override
-    public Page<Answer> getAllAnswers(Pageable pageable) {
+    public Page<Answer> getAllAnswersPaging(Pageable pageable) {
         return repository.findAll(pageable);
     }
 
@@ -71,12 +71,12 @@ public class AnswerService implements IAnswerService {
 
     // exists by id
     @Override
-    public boolean isAnswerExistId(short id) {
+    public boolean isAnswerExistsId(short id) {
         return repository.existsById(id);
     }
 
     @Override
-    public boolean isAnswerExistQuestion(Question question) {
+    public boolean isAnswerExistsQuestion(Question question) {
         Answer answer = repository.findAnswerByQuestion(question);
         return answer != null;
         // return repository.findAnswerByQuestion(question) != null; // cách viết ngắn gọn

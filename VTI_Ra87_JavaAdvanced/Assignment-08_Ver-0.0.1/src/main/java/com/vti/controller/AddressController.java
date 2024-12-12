@@ -28,7 +28,7 @@ public class AddressController {
     // get all paging
     @GetMapping()
     public Page<Address> getAllAddresses(Pageable pageable) {
-        return service.getAllAddresses(pageable);
+        return service.getAllAddressesPaging(pageable);
     }
 
     // get by id
@@ -71,13 +71,13 @@ public class AddressController {
     // exists by id
     @GetMapping(value = "/exists-id/{id}")
     public boolean isAddressExistId(@PathVariable(name = "id") short id) {
-        return service.isAddressExistId(id);
+        return service.isAddressExistsId(id);
     }
 
     // exists by name
     @GetMapping(value = "/exists-name/{name}")
     public boolean isAddressExistName(@PathVariable(name = "name") String name) {
-        return service.isAddressExistName(name);
+        return service.isAddressExistsName(name);
     }
 
 }

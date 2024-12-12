@@ -8,9 +8,9 @@ import java.util.List;
 
 public interface ICategoryQuestionService {
 
-    List<CategoryQuestion> getListCategoryQuestions();
+    List<CategoryQuestion> getAllCategoryQuestions();
 
-    Page<CategoryQuestion> getAllCategoryQuestions(Pageable pageable);
+    Page<CategoryQuestion> getAllCategoryQuestionsPaging(Pageable pageable);
 
     CategoryQuestion getCategoryQuestionById(short id);
 
@@ -24,8 +24,8 @@ public interface ICategoryQuestionService {
 
     void deleteCategoryQuestion(short id);
 
-    boolean isCategoryQuestionExistId(short id);
+    boolean isCategoryQuestionExistsId(short id);
 
-    boolean isCategoryQuestionExistName(String name);
+    boolean isCategoryQuestionExistsName(String name);
 
 }

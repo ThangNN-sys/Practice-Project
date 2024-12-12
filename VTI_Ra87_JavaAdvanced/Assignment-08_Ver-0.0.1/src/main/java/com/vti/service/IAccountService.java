@@ -1,5 +1,6 @@
 package com.vti.service;
 
+import com.vti.dto.AccountDTO;
 import com.vti.entity.Account;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -8,9 +9,9 @@ import java.util.List;
 
 public interface IAccountService {
 
-    List<Account> getListAccounts();
+    List<Account> getAllAccounts();
 
-    Page<Account> getAllAccounts(Pageable pageable);
+    Page<AccountDTO> getAllAccountsPaging(Pageable pageable);
 
     Account getAccountById(short id);
 
@@ -24,8 +25,8 @@ public interface IAccountService {
 
     void deleteAccount(short id);
 
-    boolean isAccountExistId(short id);
+    boolean isAccountExistsId(short id);
 
-    boolean isAccountExistUsername(String userName);
+    boolean isAccountExistsUsername(String userName);
 
 }

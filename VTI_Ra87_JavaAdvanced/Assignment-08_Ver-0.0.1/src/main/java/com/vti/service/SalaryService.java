@@ -23,13 +23,13 @@ public class SalaryService implements ISalaryService {
 
     // get all
     @Override
-    public List<Salary> getListSalaries() {
+    public List<Salary> getAllSalaries() {
         return repository.findAll();
     }
 
     // get all paging
     @Override
-    public Page<Salary> getAllSalaries(Pageable pageable) {
+    public Page<Salary> getAllSalariesPaging(Pageable pageable) {
         return repository.findAll(pageable);
     }
 
@@ -71,14 +71,14 @@ public class SalaryService implements ISalaryService {
 
     // exists by id
     @Override
-    public boolean isSalaryExistId(short id) {
+    public boolean isSalaryExistsId(short id) {
 
         return repository.existsById(id);
     }
 
     // exists by name
     @Override
-    public boolean isSalaryExistName(SalaryName name) {
+    public boolean isSalaryExistsName(SalaryName name) {
         Salary salary = repository.findSalaryByName(name);
         return salary != null;
         // return repository.findSalaryByName(name) != null; // cách viết ngắn gọn

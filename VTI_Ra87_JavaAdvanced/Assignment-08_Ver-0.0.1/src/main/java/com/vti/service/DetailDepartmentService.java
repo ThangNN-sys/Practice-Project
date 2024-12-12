@@ -22,13 +22,13 @@ public class DetailDepartmentService implements IDetailDepartmentService {
 
     // get all
     @Override
-    public List<DetailDepartment> getListDetailDepartments() {
+    public List<DetailDepartment> getAllDetailDepartments() {
         return repository.findAll();
     }
 
     // get all paging
     @Override
-    public Page<DetailDepartment> getAllDetailDepartments(Pageable pageable) {
+    public Page<DetailDepartment> getAllDetailDepartmentsPaging(Pageable pageable) {
         return repository.findAll(pageable);
     }
 
@@ -58,7 +58,7 @@ public class DetailDepartmentService implements IDetailDepartmentService {
 
     // exists by id
     @Override
-    public boolean isDetailDepartmentExistId(short id) {
+    public boolean isDetailDepartmentExistsId(short id) {
         return repository.existsById(id);
     }
 

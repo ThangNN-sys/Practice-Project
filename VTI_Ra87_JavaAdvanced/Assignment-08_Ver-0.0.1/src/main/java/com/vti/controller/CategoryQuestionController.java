@@ -28,7 +28,7 @@ public class CategoryQuestionController {
     // get all paging
     @GetMapping()
     public Page<CategoryQuestion> getAllCategoryQuestions(Pageable pageable) {
-        return service.getAllCategoryQuestions(pageable);
+        return service.getAllCategoryQuestionsPaging(pageable);
     }
 
     // get by id
@@ -71,13 +71,13 @@ public class CategoryQuestionController {
     // exists by id
     @GetMapping(value = "/exists-id/{id}")
     public boolean isCategoryQuestionExistId(@PathVariable(name = "id") short id) {
-        return service.isCategoryQuestionExistId(id);
+        return service.isCategoryQuestionExistsId(id);
     }
 
     // exists by name
     @GetMapping(value = "/exists-name/{name}")
     public boolean isCategoryQuestionExistName(@PathVariable(name = "name") String name) {
-        return service.isCategoryQuestionExistName(name);
+        return service.isCategoryQuestionExistsName(name);
     }
 
 }

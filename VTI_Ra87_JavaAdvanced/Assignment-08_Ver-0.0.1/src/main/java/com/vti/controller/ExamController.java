@@ -27,7 +27,7 @@ public class ExamController {
     // get all paging
     @GetMapping()
     public Page<Exam> getAllExams(Pageable pageable) {
-        return service.getAllExams(pageable);
+        return service.getAllExamsPaging(pageable);
     }
 
     // get by id
@@ -70,13 +70,13 @@ public class ExamController {
     // exists by id
     @GetMapping(value = "/exists-id/{id}")
     public boolean isExamExistId(@PathVariable(name = "id") short id) {
-        return service.isExamExistId(id);
+        return service.isExamExistsId(id);
     }
 
     // exists by duration
     @GetMapping(value = "/exists-duration/{duration}")
     public boolean isExamExistDuration(@PathVariable(name = "duration") int duration) {
-        return service.isExamExistDuration(duration);
+        return service.isExamExistsDuration(duration);
     }
 
 }

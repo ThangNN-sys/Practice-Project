@@ -23,13 +23,13 @@ public class PositionService implements IPositionService {
 
     // get all
     @Override
-    public List<Position> getListPositions() {
+    public List<Position> getAllPositions() {
         return repository.findAll();
     }
 
     // get all paging
     @Override
-    public Page<Position> getAllPositions(Pageable pageable) {
+    public Page<Position> getAllPositionsPaging(Pageable pageable) {
         return repository.findAll(pageable);
     }
 
@@ -71,13 +71,13 @@ public class PositionService implements IPositionService {
 
     // exists by id
     @Override
-    public boolean isPositionExistId(short id) {
+    public boolean isPositionExistsId(short id) {
         return repository.existsById(id);
     }
 
     // exists by name
     @Override
-    public boolean isPositionExistName(PositionName name) {
+    public boolean isPositionExistsName(PositionName name) {
         Position position = repository.findPositionByName(name);
         return position != null;
         // return repository.findPositionByName(name) != null; // cách viết ngắn gọn

@@ -1,5 +1,6 @@
 package com.vti.dto;
 
+import com.vti.entity.enumerate.SalaryName;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -16,5 +17,9 @@ public class AccountDTO {
     private String lastName;
 
     private String departmentName;
+
+    private String positionName;
+
+    private SalaryName salaryName;
 
 }

@@ -22,13 +22,13 @@ public class ExamService implements IExamService {
 
     // get all
     @Override
-    public List<Exam> getListExams() {
+    public List<Exam> getAllExams() {
         return repository.findAll();
     }
 
     // get all paging
     @Override
-    public Page<Exam> getAllExams(Pageable pageable) {
+    public Page<Exam> getAllExamsPaging(Pageable pageable) {
         return repository.findAll(pageable);
     }
 
@@ -71,13 +71,13 @@ public class ExamService implements IExamService {
 
     // exists by id
     @Override
-    public boolean isExamExistId(short id) {
+    public boolean isExamExistsId(short id) {
         return repository.existsById(id);
     }
 
     // exists by duration
     @Override
-    public boolean isExamExistDuration(int duration) {
+    public boolean isExamExistsDuration(int duration) {
         Exam exam = repository.findExamByDuration(duration);
         return exam != null;
         // return repository.findExamByDuration(duration) != null; // cách viết ngắn gọn
