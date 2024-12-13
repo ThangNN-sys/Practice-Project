@@ -11,7 +11,8 @@ public interface IAccountService {
 
     List<Account> getAllAccounts();
 
-    Page<AccountDTO> getAllAccountsPaging(Pageable pageable);
+    // get all paging
+    Page<AccountDTO> getAllAccountsPaging(Pageable pageable, String nameSearch);
 
     Account getAccountById(short id);
 

@@ -2,14 +2,17 @@ package com.vti.repository;
 
 import com.vti.entity.Account;
 import jakarta.transaction.Transactional;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface IAccountRepository extends JpaRepository<Account, Short> {
+public interface IAccountRepository extends JpaRepository<Account, Short>, JpaSpecificationExecutor<Account> {
 
     @Query("SELECT v FROM Account v")
     List<Account> findAll();
@@ -19,6 +22,8 @@ public interface IAccountRepository extends JpaRepository<Account, Short> {
 
     @Query("SELECT v FROM Account v WHERE v.username = :nameParam")
     Account findAccountByUsername(@Param("nameParam") String name);
+
+    Page<Account> findByNameContainingIgnoreCase(Pageable pageable, String nameSearch);
 
     @Modifying
     @Transactional

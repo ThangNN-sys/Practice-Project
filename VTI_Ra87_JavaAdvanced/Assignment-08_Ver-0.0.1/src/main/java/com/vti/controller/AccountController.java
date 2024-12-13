@@ -29,10 +29,10 @@ public class AccountController {
 //        return service.getListAccount();
 //    }
 
-    // get all paging
+    // get all paging with nameSearch
     @GetMapping()
-    public ResponseEntity<Page<AccountDTO>> getAllAccounts(Pageable pageable) {
-        Page<AccountDTO> accounts = service.getAllAccountsPaging(pageable);
+    public ResponseEntity<Page<AccountDTO>> getAllAccounts(Pageable pageable, @RequestParam(value = "name-search") String nameSearch) {
+        Page<AccountDTO> accounts = service.getAllAccountsPaging(pageable, nameSearch);
         return ResponseEntity.ok(accounts);
     }
 

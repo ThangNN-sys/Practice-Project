@@ -38,9 +38,21 @@ public class AccountService implements IAccountService {
     }
 
     // get all paging
+//    @Override
+//    public Page<AccountDTO> getAllAccountsPaging(Pageable pageable) {
+//        Page<Account> accounts = repository.findAll(pageable);
+//        return accounts.map(account -> modelMapper.map(account, AccountDTO.class));
+//    }
+
+    // get all paging with nameSearch
     @Override
-    public Page<AccountDTO> getAllAccountsPaging(Pageable pageable) {
-        Page<Account> accounts = repository.findAll(pageable);
+    public Page<AccountDTO> getAllAccountsPaging(Pageable pageable, String nameSearch) {
+        Page<Account> accounts;
+        if (nameSearch != null && !nameSearch.isEmpty()) {
+            accounts = repository.findByNameContainingIgnoreCase(pageable, nameSearch);
+        } else {
+            accounts = repository.findAll(pageable);
+        }
         return accounts.map(account -> modelMapper.map(account, AccountDTO.class));
     }
 
