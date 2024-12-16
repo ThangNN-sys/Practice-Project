@@ -1,0 +1,86 @@
+<!DOCTYPE html> <!-- Định nghĩa tài liệu là HTML5 -->
+<html> <!-- Thẻ gốc chứa toàn bộ nội dung trang web -->
+
+<head>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Đảm bảo trang hiển thị tốt trên thiết bị di động (điều chỉnh kích thước viewport) -->
+    <link rel="stylesheet" href="../../css/login/loginform.css"> <!-- Liên kết đến file CSS để định nghĩa phong cách cho giao diện đăng nhập -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> <!-- Import thư viện jQuery để hỗ trợ thao tác DOM, xử lý sự kiện, và các tính năng khác -->
+
+</head>
+
+<body>
+
+    <div id="id01" class="modal"> <!-- Container chính, đóng vai trò là một hộp thoại (modal) cho form đăng nhập -->
+
+        <!-- Xây dựng form đăng nhập -->
+         <!-- class="modal-content animate": Áp dụng kiểu dáng và hiệu ứng động từ CSS -->
+          <!-- action="": Không có URL xử lý form, form này chỉ xử lý phía client (ở đây sử dụng JavaScript) -->
+        <form class="modal-content animate" action=""> 
+            
+            <div class="imgcontainer"> <!-- Chứa hình ảnh đại diện -->
+                <!-- src="../../asset/avatar.png": Đường dẫn đến file hình ảnh -->
+                 <!-- class="avatar": Gắn kiểu CSS để định nghĩa kích thước và vị trí -->
+                <img src="../../asset/avatar.png" alt="Avatar" class="avatar">
+            </div>
+
+            <div class="container"> 
+                
+                <!-- Input Username -->
+                <label for="uname"><b>Username</b></label> <!-- <label for="uname">: Gắn nhãn cho input uname-->
+                <!-- <input type="text" name="uname" id="username">:
+                    placeholder="Enter Username": Hiển thị văn bản gợi ý 
+                    onkeyup="$('#incorrect-mess').css('display', 'none')": Khi gõ phím, ẩn thông báo lỗi bằng cách dùng jQuery thay đổi thuộc tính CSS của #incorrect-mess -->
+                <input type="text" placeholder="Enter Username" name="uname" id="username" value="" 
+                    onkeyup="$('#incorrect-mess').css('display', 'none')" required>
+
+                <!-- Input Password -->
+                <label for="psw"><b>Password</b></label> <!-- <label for="psw">: Gắn nhãn cho input psw -->
+                <!-- <input type="password">: Input để nhập mật khẩu
+                    Thuộc tính type="password" làm cho nội dung nhập vào bị ẩn (hiển thị dấu chấm/bôi đen) -->
+                    <input type="password" placeholder="Enter Password" name="psw" id="password" value=""
+                    onkeyup="$('#incorrect-mess').css('display', 'none')" required>
+
+                <!-- Thông báo lỗi -->
+                 <!-- <div id="incorrect-mess">:
+                    Hiển thị thông báo lỗi khi đăng nhập thất bại
+                    CSS có thể kiểm soát việc hiển thị hoặc ẩn (display: none;) -->
+                <div id="incorrect-mess">Login Failed: Your username or password is incorrect</div>
+                
+                <!-- Nút "Login" -->
+                 <!-- <input type="button">:
+                  Nút bấm để thực hiện chức năng đăng nhập
+                  onclick="login()": Gọi hàm login() (được định nghĩa trong file JavaScript) -->
+                <input type="button" value="Login" onclick="login()" id="login-btn"></input>
+                
+                <!-- Checkbox "Remember me" -->
+                 <!-- <input type="checkbox">: Tùy chọn để ghi nhớ thông tin người dùng (username) -->
+                <label>
+                    <input type="checkbox" id="rememberMe" name="remember"> Remember me
+                </label>
+            </div>
+
+            <!-- Footer của form -->
+            <div class="container" style="background-color:#f1f1f1">
+                <!-- <button type="button" style='visibility:hidden'>: Nút "ẩn" (có thể để bố cục đồng đều) -->
+                <button type="button" style='visibility:hidden' class="cancelbtn"></button>
+                <!-- <span class="psw"><a href="#">Forgot password?</a></span>: Liên kết để người dùng lấy lại mật khẩu -->
+                <span class="psw"><a href="#">Forgot password?</a></span>
+            </div>
+        </form>
+    </div>
+
+    <!-- import script : Kết nối với các tệp JavaScript -->
+    <script src="../../js/login/login.js"></script> <!-- login.js: Chứa logic xử lý đăng nhập -->
+    <script src="../../js/utils/storage.js"></script> <!-- storage.js: Có thể quản lý việc lưu trữ dữ liệu (ví dụ: lưu username vào LocalStorage)-->
+
+</body>
+
+</html>
+
+<!-- Đây là một form đăng nhập được thiết kế bằng HTML/CSS/JavaScript.
+Các thành phần chính:
+Giao diện đẹp với avatar và hiệu ứng modal.
+Form nhập username và password, kèm tính năng ghi nhớ thông tin.
+Nút đăng nhập liên kết với hàm login() để xử lý logic.
+Tích hợp thông báo lỗi khi username/mật khẩu không chính xác. -->

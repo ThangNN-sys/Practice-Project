@@ -1,8 +1,8 @@
 -- Drop the database if it already exists
-DROP DATABASE IF EXISTS TestingSystemFE;
+DROP DATABASE IF EXISTS TestingSystem;
 -- Create database
-CREATE DATABASE IF NOT EXISTS TestingSystemFE;
-USE TestingSystemFE;
+CREATE DATABASE IF NOT EXISTS TestingSystem;
+USE TestingSystem;
 
 -- Create table Department
 DROP TABLE IF EXISTS 	`Department`;
