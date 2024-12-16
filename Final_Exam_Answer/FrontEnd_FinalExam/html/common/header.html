@@ -1,31 +1,72 @@
+<!-- Tạo một thanh điều hướng (navbar) chứa các thành phần như logo, thông tin người dùng, và các nút chức năng 
+ id="navbar" dùng để định danh cho toàn bộ thanh điều hướng, giúp lập trình viên dễ dàng thao tác bằng CSS hoặc JavaScript -->
 <div id="navbar">
-    <div class="vti-logo">
+    
+    <!-- thẻ div chứa logo của trang;
+     class="vti-logo" dùng để định kiểu dáng logo thông qua CSS -->
+    <div class="vti-logo"> 
+        
+        <!-- Thẻ liên kết (anchor) dẫn đến trang chủ 
+         onclick="viewHomepage()" gọi hàm viewHomepage() khi người dùng nhấn vào logo -->
         <a href="" onclick="viewHomepage()">
+            
+            <!-- Hiển thị hình ảnh logo từ đường dẫn ../asset/VTIlogo.png 
+             alt là văn bản thay thế hiển thị khi không tải được hình ảnh (trống trong trường hợp này) -->
             <img src="../asset/VTIlogo.png" alt="">
+        
         </a>
+    
     </div>
+    
+    <!-- Liên kết trống với href="#"; Thường là placeholder, có thể bổ sung chức năng cụ thể sau -->
     <a href="#">
+        
+        <!-- Hiển thị biểu tượng "ngôi nhà" từ Font Awesome (fa-house-chimney) 
+         onclick="viewHomepage()" gọi hàm chuyển về trang chủ -->
         <i class="fa-solid fa-house-chimney" onclick="viewHomepage()"></i>
+    
     </a>
+    
+    <!-- Khu vực hiển thị thông tin và chức năng liên quan đến người dùng (thông báo, tin nhắn, ngôn ngữ, tài khoản...)
+     class="user-info" dùng để định kiểu CSS -->
     <div class="user-info">
+        
+        <!-- Hiển thị biểu tượng chuông (fa-bell) để thông báo; Không có chức năng cụ thể, chỉ làm placeholder (liên kết trống) -->
         <a href="#">
             <i class="fa-solid fa-bell"></i>
         </a>
+        
+        <!-- Hiển thị biểu tượng phong bì (fa-envelope) để báo tin nhắn -->
         <a href="#">
             <i class="fa-regular fa-envelope"></i>
         </a>
+        
+        <!-- Hiển thị biểu tượng ngôn ngữ (fa-language), có thể liên quan đến chuyển đổi ngôn ngữ trang -->
         <a href="#">
             <i class="fa-solid fa-language"></i>
         </a>
+
+        <!-- Hiển thị họ tên đầy đủ của người dùng trong navbar
+         onclick="viewHomepage()" có thể liên kết họ tên với trang chủ (chưa rõ mục đích) -->
         <div class="full-name" onclick="viewHomepage()">
+            
+            <!-- Một liên kết trống bao bọc nội dung thông tin người dùng -->
             <a href="#">
-                <i class="fa-solid fa-circle-user"></i>
+                
+                <i class="fa-solid fa-circle-user"></i> <!-- Hiển thị biểu tượng người dùng (fa-circle-user) -->
+                
+                <!-- Hiển thị tên người dùng "Duy Nguyen"
+                style="font-size: 24px; font-style: italic;" định kiểu trực tiếp: chữ in nghiêng, cỡ chữ 24px
+                id="header-fullname" cho phép cập nhật động tên người dùng qua JavaScript -->
                 <span id="header-fullname" style="font-size: 24px; font-style: italic;">Duy Nguyen</span>
+            
             </a>
+        
         </div>
-        <div class="sign-out">
-            <a href="#" onclick="logout()">
-                <i class="fa fa-sign-out"></i>
+        
+        <div class="sign-out"> <!-- Khu vực chứa nút đăng xuất -->
+            <a href="#" onclick="logout()"> <!-- Liên kết trống với onclick="logout()" gọi hàm đăng xuất khi nhấn vào -->
+                <i class="fa fa-sign-out"></i> <!-- Hiển thị biểu tượng thoát (fa-sign-out) từ Font Awesome -->
             </a>
         </div>
     </div>

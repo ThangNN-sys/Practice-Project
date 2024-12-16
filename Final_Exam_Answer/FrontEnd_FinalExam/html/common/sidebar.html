@@ -1,14 +1,38 @@
-<div id="sidenav">
+<!-- thẻ div dùng để chứa các phần tử của thanh điều hướng (sidebar) 
+ id="sidenav" định danh duy nhất cho thẻ này trong trang, có thể được sử dụng để áp dụng CSS hoặc xử lý bằng JavaScript -->
+<div id="sidenav"> 
+    
+    <!-- Một thẻ liên kết (anchor) không dẫn đến URL cụ thể vì href="#" chỉ là placeholder.
+     id="sidenav-user" dùng để định danh phần tử này, hữu ích cho CSS hoặc JavaScript.
+     Nội dung bên trong thẻ hiển thị thông tin người dùng -->
     <a href="#" id="sidenav-user">
+        
+        <!-- thẻ i sử dụng thư viện Font Awesome để hiển thị biểu tượng hình tròn với hình đại diện người dùng (fa-circle-user) 
+         fa-solid là một lớp của Font Awesome chỉ định kiểu biểu tượng là solid (đặc) -->
         <i class="fa-solid fa-circle-user"></i>
+        
+        <!-- Thẻ span chứa nội dung tĩnh "Hello Duy!" 
+         id="sidebar-lastname" cho phép lập trình viên dễ dàng thay đổi hoặc cập nhật nội dung 
+         (ví dụ: thay đổi tên người dùng) thông qua JavaScript -->
         <span id="sidebar-lastname">Hello Duy!</span>
+    
     </a>
+    
+    <!-- Một thẻ liên kết (anchor) không dẫn đến URL cụ thể vì href="#" chỉ là placeholder. 
+     id="sidenav-account" dùng để định danh mục "Account" 
+     onclick="viewAccountPage()" liên kết hành động khi người dùng nhấn vào mục này. 
+     Hàm viewAccountPage() sẽ được gọi, có thể được định nghĩa trong file JavaScript bên ngoài hoặc trong cùng trang-->
     <a href="#" id="sidenav-account" onclick="viewAccountPage()">
-        <i class="fa-solid fa-user"></i>
-        <span>Account</span>
+        <i class="fa-solid fa-user"></i> <!-- Hiển thị biểu tượng người dùng bằng Font Awesome -->
+        <span>Account</span> <!-- Hiển thị chữ "Account" bên cạnh biểu tượng -->
     </a>
+
+    <!-- Một thẻ liên kết (anchor) không dẫn đến URL cụ thể vì href="#" chỉ là placeholder. 
+     id="sidenav-dept" định danh mục này 
+     onclick="viewDepartmentList()" kích hoạt hàm viewDepartmentList() khi người dùng nhấp vào, hiển thị danh sách phòng ban -->
     <a href="#" id="sidenav-dept" onclick="viewDepartmentList()">
-        <i class="fa-solid fa-users"></i>
-        <span>Department</span>
+        <i class="fa-solid fa-users"></i> <!-- Hiển thị biểu tượng nhóm người dùng từ Font Awesome -->
+        <span>Department</span> <!-- Hiển thị chữ "Department" bên cạnh biểu tượng -->
     </a>
+
 </div>
