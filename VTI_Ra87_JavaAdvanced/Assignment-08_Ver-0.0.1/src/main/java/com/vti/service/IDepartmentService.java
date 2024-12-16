@@ -1,5 +1,6 @@
 package com.vti.service;
 
+import com.vti.dto.DepartmentDTO;
 import com.vti.entity.Department;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -8,9 +9,9 @@ import java.util.List;
 
 public interface IDepartmentService {
 
-    List<Department> getListDepartments();
+    List<Department> getAllDepartments();
 
-    Page<Department> getPageDepartments(Pageable pageable);
+    Page<DepartmentDTO> getAllDepartmentsPaging(Pageable pageable);
 
     Department getDepartmentById(short id);
 
@@ -24,8 +25,8 @@ public interface IDepartmentService {
 
     void deleteDepartment(short id);
 
-    boolean isDepartmentExistId(short id);
+    boolean isDepartmentExistsId(short id);
 
-    boolean isDepartmentExistName(String name);
+    boolean isDepartmentExistsName(String name);
 
 }

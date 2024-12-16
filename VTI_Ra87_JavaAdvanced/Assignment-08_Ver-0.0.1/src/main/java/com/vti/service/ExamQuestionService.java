@@ -25,13 +25,13 @@ public class ExamQuestionService implements IExamQuestionService {
 
     // get all
     @Override
-    public List<ExamQuestion> getListExamQuestions() {
+    public List<ExamQuestion> getAllExamQuestions() {
         return repository.findAll();
     }
 
     // get all paging
     @Override
-    public Page<ExamQuestion> getAllExamQuestions(Pageable pageable) {
+    public Page<ExamQuestion> getAllExamQuestionsPaging(Pageable pageable) {
         return repository.findAll(pageable);
     }
 
@@ -86,7 +86,7 @@ public class ExamQuestionService implements IExamQuestionService {
 
     // exists by exam
     @Override
-    public boolean isExamQuestionExistExam(Exam exam) {
+    public boolean isExamQuestionExistsExam(Exam exam) {
         ExamQuestion examQuestion = repository.findExamQuestionByExam(exam);
         return examQuestion != null;
         // return repository.findExamQuestionByExam(exam) != null; // cách viết ngắn gọn
@@ -94,7 +94,7 @@ public class ExamQuestionService implements IExamQuestionService {
 
     // exists by question
     @Override
-    public boolean isExamQuestionExistQuestion(Question question) {
+    public boolean isExamQuestionExistsQuestion(Question question) {
         ExamQuestion examQuestion = repository.findExamQuestionByQuestion(
                 question);
         return examQuestion != null;

@@ -8,9 +8,9 @@ import java.util.List;
 
 public interface IAddressService {
 
-    List<Address> getListAddresses();
+    List<Address> getAllAddresses();
 
-    Page<Address> getAllAddresses(Pageable pageable);
+    Page<Address> getAllAddressesPaging(Pageable pageable);
 
     Address getAddressById(short id);
 
@@ -24,8 +24,8 @@ public interface IAddressService {
 
     void deleteAddress(short id);
 
-    boolean isAddressExistId(short id);
+    boolean isAddressExistsId(short id);
 
-    boolean isAddressExistName(String name);
+    boolean isAddressExistsName(String name);
 
 }

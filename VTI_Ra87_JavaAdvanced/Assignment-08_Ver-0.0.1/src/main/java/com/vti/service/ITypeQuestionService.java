@@ -9,9 +9,9 @@ import java.util.List;
 
 public interface ITypeQuestionService {
 
-    List<TypeQuestion> getListTypes();
+    List<TypeQuestion> getAllTypes();
 
-    Page<TypeQuestion> getAllTypes(Pageable pageable);
+    Page<TypeQuestion> getAllTypesPaging(Pageable pageable);
 
     TypeQuestion getTypeById(short id);
 
@@ -25,8 +25,8 @@ public interface ITypeQuestionService {
 
     void deleteType(short id);
 
-    boolean isTypeExistId(short id);
+    boolean isTypeExistsId(short id);
 
-    boolean isTypeExistName(TypeQuestionName name);
+    boolean isTypeExistsName(TypeQuestionName name);
 
 }

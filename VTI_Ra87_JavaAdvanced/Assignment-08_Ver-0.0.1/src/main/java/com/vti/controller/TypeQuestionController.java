@@ -29,7 +29,7 @@ public class TypeQuestionController {
     // get all paging
     @GetMapping()
     public Page<TypeQuestion> getAllTypes(Pageable pageable) {
-        return service.getAllTypes(pageable);
+        return service.getAllTypesPaging(pageable);
     }
 
     // get by id
@@ -72,13 +72,13 @@ public class TypeQuestionController {
     // exists by id
     @GetMapping(value = "/exists-id/{id}")
     public boolean isTypeExistId(@PathVariable(name = "id") short id) {
-        return service.isTypeExistId(id);
+        return service.isTypeExistsId(id);
     }
 
     // exists by name
     @GetMapping(value = "/exists-name/{name}")
     public boolean isTypeExistName(@PathVariable(name = "name") TypeQuestionName name) {
-        return service.isTypeExistName(name);
+        return service.isTypeExistsName(name);
     }
 
 }

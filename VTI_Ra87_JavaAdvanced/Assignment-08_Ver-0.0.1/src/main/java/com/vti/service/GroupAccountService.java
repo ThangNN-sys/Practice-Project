@@ -25,13 +25,13 @@ public class GroupAccountService implements IGroupAccountService {
 
     // get all
     @Override
-    public List<GroupAccount> getListGroupAccounts() {
+    public List<GroupAccount> getAllGroupAccounts() {
         return repository.findAll();
     }
 
     // get all paging
     @Override
-    public Page<GroupAccount> getAllGroupAccounts(Pageable pageable) {
+    public Page<GroupAccount> getAllGroupAccountsPaging(Pageable pageable) {
         return repository.findAll(pageable);
     }
 
@@ -81,13 +81,13 @@ public class GroupAccountService implements IGroupAccountService {
 
     // exists by id
     @Override
-    public boolean isGroupAccountExistId(GroupAccountKey id) {
+    public boolean isGroupAccountExistsId(GroupAccountKey id) {
         return repository.existsById(id);
     }
 
     // exists by group
     @Override
-    public boolean isGroupAccountExistGroup(Group group) {
+    public boolean isGroupAccountExistsGroup(Group group) {
         GroupAccount groupAccount = repository.findGroupAccountByGroup(group);
         return groupAccount != null;
         // return repository.findGroupAccountByGroup(group) != null; // cách viết ngắn gọn
@@ -95,7 +95,7 @@ public class GroupAccountService implements IGroupAccountService {
 
     // exists by account
     @Override
-    public boolean isGroupAccountExistAccount(Account account) {
+    public boolean isGroupAccountExistsAccount(Account account) {
         GroupAccount groupAccount = repository.findGroupAccountByAccount(account);
         return groupAccount != null;
         // return repository.findGroupAccountByAccount(account) != null; // cách viết ngắn gọn

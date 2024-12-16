@@ -8,9 +8,9 @@ import java.util.List;
 
 public interface IEmployeeService {
 
-    List<Employee> getListEmployees();
+    List<Employee> getAllEmployeesPaging();
 
-    Page<Employee> getAllEmployees(Pageable pageable);
+    Page<Employee> getAllEmployeesPaging(Pageable pageable);
 
     Employee getEmployeeByAccId(short id);
 
@@ -24,8 +24,8 @@ public interface IEmployeeService {
 
     void deleteEmployee(short id);
 
-    boolean isEmployeeExistId(short id);
+    boolean isEmployeeExistsId(short id);
 
-    boolean isEmployeeExistYear(short year);
+    boolean isEmployeeExistsYear(short year);
 
 }

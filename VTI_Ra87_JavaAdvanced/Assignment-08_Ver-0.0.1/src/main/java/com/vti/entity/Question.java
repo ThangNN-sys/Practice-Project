@@ -1,7 +1,5 @@
 package com.vti.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -37,21 +35,17 @@ public class Question implements Serializable {
 
     @ManyToOne // multiple questions to 1 category
     @JoinColumn(name = "CategoryID", referencedColumnName = "CategoryID", nullable = false)
-    @JsonIgnoreProperties("questions")
     private CategoryQuestion category;
 
     @ManyToOne // multiple questions to 1 type
     @JoinColumn(name = "TypeID", referencedColumnName = "TypeID", nullable = false)
-    @JsonIgnoreProperties("questions")
     private TypeQuestion type;
 
     @ManyToOne // multiple questions to 1 account
     @JoinColumn(name = "CreatorID", referencedColumnName = "AccountID", nullable = false)
-    @JsonIgnoreProperties("questions")
     private Account creator;
 
     @OneToMany(mappedBy = "question") // 1 Question to multiple Answers, Answer is owning side
-    @JsonManagedReference("answers")
     private List<Answer> answers;
 
     @Column(name = "CreateDate", updatable = false)

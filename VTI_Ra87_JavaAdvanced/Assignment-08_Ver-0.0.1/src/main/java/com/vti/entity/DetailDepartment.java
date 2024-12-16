@@ -1,6 +1,5 @@
 package com.vti.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -27,7 +26,6 @@ public class DetailDepartment extends Department implements Serializable {
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "AddressID", referencedColumnName = "AddressID")
-    @JsonIgnoreProperties("detailDepartments")
     private Address address;
 
     @Column(name = "EmulationPoint")

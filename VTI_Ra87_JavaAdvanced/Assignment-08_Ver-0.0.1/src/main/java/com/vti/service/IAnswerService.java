@@ -9,9 +9,9 @@ import java.util.List;
 
 public interface IAnswerService {
 
-    List<Answer> getListAnswers();
+    List<Answer> getAllAnswers();
 
-    Page<Answer> getAllAnswers(Pageable pageable);
+    Page<Answer> getAllAnswersPaging(Pageable pageable);
 
     Answer getAnswerById(short id);
 
@@ -25,8 +25,8 @@ public interface IAnswerService {
 
     void deleteAnswer(short id);
 
-    boolean isAnswerExistId(short id);
+    boolean isAnswerExistsId(short id);
 
-    boolean isAnswerExistQuestion(Question question);
+    boolean isAnswerExistsQuestion(Question question);
 
 }

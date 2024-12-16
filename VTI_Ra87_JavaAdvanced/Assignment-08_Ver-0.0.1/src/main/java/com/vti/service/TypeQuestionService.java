@@ -23,13 +23,13 @@ public class TypeQuestionService implements ITypeQuestionService {
 
     // get all
     @Override
-    public List<TypeQuestion> getListTypes() {
+    public List<TypeQuestion> getAllTypes() {
         return repository.findAll();
     }
 
     // get all paging
     @Override
-    public Page<TypeQuestion> getAllTypes(Pageable pageable) {
+    public Page<TypeQuestion> getAllTypesPaging(Pageable pageable) {
         return repository.findAll(pageable);
     }
 
@@ -71,13 +71,13 @@ public class TypeQuestionService implements ITypeQuestionService {
 
     // exists by id
     @Override
-    public boolean isTypeExistId(short id) {
+    public boolean isTypeExistsId(short id) {
         return repository.existsById(id);
     }
 
     // exists by name
     @Override
-    public boolean isTypeExistName(TypeQuestionName name) {
+    public boolean isTypeExistsName(TypeQuestionName name) {
         TypeQuestion typeQuestion = repository.findTypeQuestionByName(name);
         return typeQuestion != null;
         // return repository.findTypeQuestionByName(name) != null; // cách viết ngắn gọn

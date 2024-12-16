@@ -1,7 +1,6 @@
 package com.vti.entity;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -19,10 +18,10 @@ import java.util.List;
  * Khai báo các ánh xạ tới bảng Account của DB
  */
 
-@Data
-@NoArgsConstructor
 @Entity
 @Table(name = "`Account`")
+@Data
+@NoArgsConstructor
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "accountId")
 @Inheritance(strategy = InheritanceType.JOINED)
 
@@ -56,29 +55,23 @@ public class Account implements Serializable {
 
     @ManyToOne // multiple Accounts to 1 Department
     @JoinColumn(name = "DepartmentID", referencedColumnName = "DepartmentID")
-    @JsonIgnoreProperties("accounts") // Avoid infinite loops, ignore accounts field in Department if exists
     private Department department;
 
     @ManyToOne // multiple Accounts to 1 Position
     @JoinColumn(name = "PositionID", referencedColumnName = "PositionID")
-    @JsonIgnoreProperties("accounts")
     private Position position;
 
     @ManyToOne // multiple Accounts to 1 Salary
     @JoinColumn(name = "SalaryID", referencedColumnName = "SalaryID")
-    @JsonIgnoreProperties("accounts")
     private Salary salary;
 
     @OneToMany(mappedBy = "account") // 1 Account to multiple GroupAccount, GroupAccount is owning side
-    @JsonIgnoreProperties("account")
     private List<GroupAccount> groupAccounts;
 
     @OneToMany(mappedBy = "creator") // 1 Account to multiple Question, Question is owning side
-    @JsonIgnoreProperties("creator")
     private List<Question> questions;
 
     @OneToMany(mappedBy = "creator") // 1 Account to multiple Group, Group is owning side
-    @JsonIgnoreProperties("creator")
     private List<Group> createdGroups;
 
     @Column(name = "CreateDate", updatable = false)

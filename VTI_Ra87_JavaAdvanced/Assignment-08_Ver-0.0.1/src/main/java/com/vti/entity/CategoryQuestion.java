@@ -1,6 +1,5 @@
 package com.vti.entity;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -33,7 +32,6 @@ public class CategoryQuestion implements Serializable {
     private String name; // VARCHAR(50) NOT NULL UNIQUE KEY
 
     @OneToMany(mappedBy = "category") // 1 CategoryQuestion to multiple Question, Question is owning side
-    @JsonManagedReference("category")
     private List<Question> questions;
 
 }

@@ -9,9 +9,9 @@ import java.util.List;
 
 public interface IPositionService {
 
-    List<Position> getListPositions();
+    List<Position> getAllPositions();
 
-    Page<Position> getAllPositions(Pageable pageable);
+    Page<Position> getAllPositionsPaging(Pageable pageable);
 
     Position getPositionById(short id);
 
@@ -25,8 +25,8 @@ public interface IPositionService {
 
     void deletePosition(short id);
 
-    boolean isPositionExistId(short id);
+    boolean isPositionExistsId(short id);
 
-    boolean isPositionExistName(PositionName name);
+    boolean isPositionExistsName(PositionName name);
 
 }

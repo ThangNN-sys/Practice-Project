@@ -8,9 +8,9 @@ import java.util.List;
 
 public interface IGroupService {
 
-    List<Group> getListGroups();
+    List<Group> getAllGroupsPaging();
 
-    Page<Group> getAllGroups(Pageable pageable);
+    Page<Group> getAllGroupsPaging(Pageable pageable);
 
     Group getGroupById(short id);
 
@@ -24,8 +24,8 @@ public interface IGroupService {
 
     void deleteGroup(short id);
 
-    boolean isGroupExistId(short id);
+    boolean isGroupExistsId(short id);
 
-    boolean isGroupExistName(String name);
+    boolean isGroupExistsName(String name);
 
 }

@@ -16,17 +16,17 @@ public interface ITypeQuestionRepository extends JpaRepository<TypeQuestion, Sho
      * Đối tượng: TypeQuestion
      */
 
-    @Query("SELECT t FROM TypeQuestion t")
+    @Query("SELECT v FROM TypeQuestion v")
     List<TypeQuestion> findAll();
 
-    @Query("SELECT t FROM TypeQuestion t WHERE t.id = :idParam")
+    @Query("SELECT v FROM TypeQuestion v WHERE v.id = :idParam")
     TypeQuestion findTypeQuestionById(@Param("idParam") short id);
 
-    @Query("SELECT t FROM TypeQuestion t WHERE t.name = :nameParam")
+    @Query("SELECT v FROM TypeQuestion v WHERE v.name = :nameParam")
     TypeQuestion findTypeQuestionByName(@Param("nameParam") TypeQuestionName name);
 
     @Modifying
-    @Query("UPDATE TypeQuestion t SET t.name = :nameParam WHERE t.id = :idParam")
+    @Query("UPDATE TypeQuestion v SET v.name = :nameParam WHERE v.id = :idParam")
     void updateTypeQuestion1(@Param("idParam") short id, @Param("nameParam") TypeQuestionName name);
 
 }

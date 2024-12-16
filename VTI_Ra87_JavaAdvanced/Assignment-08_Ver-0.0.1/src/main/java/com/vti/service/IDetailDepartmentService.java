@@ -8,9 +8,9 @@ import java.util.List;
 
 public interface IDetailDepartmentService {
 
-    List<DetailDepartment> getListDetailDepartments();
+    List<DetailDepartment> getAllDetailDepartments();
 
-    Page<DetailDepartment> getAllDetailDepartments(Pageable pageable);
+    Page<DetailDepartment> getAllDetailDepartmentsPaging(Pageable pageable);
 
     DetailDepartment getDetailDepartmentById(short id);
 
@@ -20,6 +20,6 @@ public interface IDetailDepartmentService {
 
     void deleteDetailDepartment(short id);
 
-    boolean isDetailDepartmentExistId(short id);
+    boolean isDetailDepartmentExistsId(short id);
 
 }

@@ -22,13 +22,13 @@ public class AddressService implements IAddressService {
 
     // get all
     @Override
-    public List<Address> getListAddresses() {
+    public List<Address> getAllAddresses() {
         return repository.findAll();
     }
 
     // get all paging
     @Override
-    public Page<Address> getAllAddresses(Pageable pageable) {
+    public Page<Address> getAllAddressesPaging(Pageable pageable) {
         return repository.findAll(pageable);
     }
 
@@ -70,13 +70,13 @@ public class AddressService implements IAddressService {
 
     // exists by id
     @Override
-    public boolean isAddressExistId(short id) {
+    public boolean isAddressExistsId(short id) {
         return repository.existsById(id);
     }
 
     // exists by name
     @Override
-    public boolean isAddressExistName(String name) {
+    public boolean isAddressExistsName(String name) {
         Address address = repository.findAddressByName(name);
         return address != null;
         // return repository.findAddressByName(name) != null; // cách viết ngắn gọn

@@ -16,18 +16,18 @@ public interface IEmployeeRepository extends JpaRepository<Employee, Short> {
      * Đối tượng: Employee
      */
 
-    @Query("SELECT e FROM Employee e")
+    @Query("SELECT v FROM Employee v")
     List<Employee> findAll();
 
-    @Query("SELECT e FROM Employee e WHERE e.accountId = :idParam")
+    @Query("SELECT v FROM Employee v WHERE v.accountId = :idParam")
     Employee findEmployeeByAccId(@Param("idParam") short id);
 
-    @Query("SELECT e FROM Employee e WHERE e.workingNumberOfYear = :yearParam")
+    @Query("SELECT v FROM Employee v WHERE v.workingNumberOfYear = :yearParam")
     Employee findEmployeeByYear(@Param("yearParam") short year);
 
     @Modifying
     @Transactional
-    @Query("UPDATE Employee e SET e.workingNumberOfYear = :yearParam WHERE e.accountId = :idParam")
+    @Query("UPDATE Employee v SET v.workingNumberOfYear = :yearParam WHERE v.accountId = :idParam")
     void updateEmployee1(@Param("idParam") short id, @Param("yearParam") short year);
 
 }

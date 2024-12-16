@@ -29,7 +29,7 @@ public class SalaryController {
     // get all paging
     @GetMapping()
     public Page<Salary> getAllSalaries(Pageable pageable) {
-        return service.getAllSalaries(pageable);
+        return service.getAllSalariesPaging(pageable);
     }
 
     // get by id
@@ -72,13 +72,13 @@ public class SalaryController {
     // exists by id
     @GetMapping(value = "/exists-id/{id}")
     public boolean isSalaryExistId(@PathVariable(name = "id") short id) {
-        return service.isSalaryExistId(id);
+        return service.isSalaryExistsId(id);
     }
 
     // exists by name
     @GetMapping(value = "/exists-name/{name}")
     public boolean isSalaryExistName(@PathVariable(name = "name") SalaryName name) {
-        return service.isSalaryExistName(name);
+        return service.isSalaryExistsName(name);
     }
 
 }

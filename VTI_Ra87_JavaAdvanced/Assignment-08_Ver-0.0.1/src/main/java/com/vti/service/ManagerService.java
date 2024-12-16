@@ -22,13 +22,13 @@ public class ManagerService implements IManagerService {
 
     // get all
     @Override
-    public List<Manager> getListManagers() {
+    public List<Manager> getAllManagers() {
         return repository.findAll();
     }
 
     // get all paging
     @Override
-    public Page<Manager> getAllManagers(Pageable pageable) {
+    public Page<Manager> getAllManagersPaging(Pageable pageable) {
         return repository.findAll(pageable);
     }
 
@@ -71,13 +71,13 @@ public class ManagerService implements IManagerService {
 
     // exists by id
     @Override
-    public boolean isManagerExistId(short id) {
+    public boolean isManagerExistsId(short id) {
         return repository.existsById(id);
     }
 
     // exists by number of year
     @Override
-    public boolean isManagerExistYear(short year) {
+    public boolean isManagerExistsYear(short year) {
         Manager manager = repository.findManagerByYear(year);
         return manager != null;
         // return repository.findManagerByYear(year) != null; // cách viết ngắn gọn

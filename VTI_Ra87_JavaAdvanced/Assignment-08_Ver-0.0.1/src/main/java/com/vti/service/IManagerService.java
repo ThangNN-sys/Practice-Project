@@ -8,9 +8,9 @@ import java.util.List;
 
 public interface IManagerService {
 
-    List<Manager> getListManagers();
+    List<Manager> getAllManagers();
 
-    Page<Manager> getAllManagers(Pageable pageable);
+    Page<Manager> getAllManagersPaging(Pageable pageable);
 
     Manager getManagerById(short id);
 
@@ -24,8 +24,8 @@ public interface IManagerService {
 
     void deleteManager(short id);
 
-    boolean isManagerExistId(short id);
+    boolean isManagerExistsId(short id);
 
-    boolean isManagerExistYear(short year);
+    boolean isManagerExistsYear(short year);
 
 }

@@ -1,6 +1,5 @@
 package com.vti.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -37,7 +36,6 @@ public class Department implements Serializable {
     private String name; // NVARCHAR(30) NOT NULL UNIQUE KEY
 
     @OneToMany(mappedBy = "department") // 1 Department to multiple Account, Account is owning side
-    @JsonIgnoreProperties("department")
     private List<Account> accounts;
 
 }

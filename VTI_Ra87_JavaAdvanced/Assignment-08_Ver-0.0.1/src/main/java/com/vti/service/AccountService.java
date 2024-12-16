@@ -1,35 +1,59 @@
 package com.vti.service;
 
+import com.vti.dto.AccountDTO;
 import com.vti.entity.Account;
 import com.vti.repository.IAccountRepository;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
+@Transactional
 public class AccountService implements IAccountService {
     /**
      * Business Logic Layer
      * Xử lý logic nghiệp vụ, giao tiếp giữa tầng repository và controller
-     * Đối tượng: Address
+     * Đối tượng: Account
      */
 
     @Autowired
-    private IAccountRepository repository;
+    private final IAccountRepository repository;
+
+    @Autowired
+    private ModelMapper modelMapper;
+
+    public AccountService(IAccountRepository repository) {
+        this.repository = repository;
+    }
 
     // get all
     @Override
-    public List<Account> getListAccounts() {
+    public List<Account> getAllAccounts() {
         return repository.findAll();
     }
 
     // get all paging
+//    @Override
+//    public Page<AccountDTO> getAllAccountsPaging(Pageable pageable) {
+//        Page<Account> accounts = repository.findAll(pageable);
+//        return accounts.map(account -> modelMapper.map(account, AccountDTO.class));
+//    }
+
+    // get all paging with nameSearch
     @Override
-    public Page<Account> getAllAccounts(Pageable pageable) {
-        return repository.findAll(pageable);
+    public Page<AccountDTO> getAllAccountsPaging(Pageable pageable, String nameSearch) {
+        Page<Account> accounts;
+        if (nameSearch != null && !nameSearch.isEmpty()) {
+            accounts = repository.findByNameContainingIgnoreCase(pageable, nameSearch);
+        } else {
+            accounts = repository.findAll(pageable);
+        }
+        return accounts.map(account -> modelMapper.map(account, AccountDTO.class));
     }
 
     // get by id with @Query
@@ -70,13 +94,13 @@ public class AccountService implements IAccountService {
 
     // exists by id
     @Override
-    public boolean isAccountExistId(short id) {
+    public boolean isAccountExistsId(short id) {
         return repository.existsById(id);
     }
 
     // exists by username
     @Override
-    public boolean isAccountExistUsername(String userName) {
+    public boolean isAccountExistsUsername(String userName) {
         Account account = repository.findAccountByUsername(userName);
         return account != null;
         // return repository.findAccountByUsername(userName) != null; // cách viết ngắn gọn

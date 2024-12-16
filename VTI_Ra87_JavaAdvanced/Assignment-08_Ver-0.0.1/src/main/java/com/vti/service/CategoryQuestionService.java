@@ -22,13 +22,13 @@ public class CategoryQuestionService implements ICategoryQuestionService {
 
     // get all
     @Override
-    public List<CategoryQuestion> getListCategoryQuestions() {
+    public List<CategoryQuestion> getAllCategoryQuestions() {
         return repository.findAll();
     }
 
     // get all paging
     @Override
-    public Page<CategoryQuestion> getAllCategoryQuestions(Pageable pageable) {
+    public Page<CategoryQuestion> getAllCategoryQuestionsPaging(Pageable pageable) {
         return repository.findAll(pageable);
     }
 
@@ -70,13 +70,13 @@ public class CategoryQuestionService implements ICategoryQuestionService {
 
     // exists by id
     @Override
-    public boolean isCategoryQuestionExistId(short id) {
+    public boolean isCategoryQuestionExistsId(short id) {
         return repository.existsById(id);
     }
 
     // exists by name
     @Override
-    public boolean isCategoryQuestionExistName(String name) {
+    public boolean isCategoryQuestionExistsName(String name) {
         CategoryQuestion categoryQuestion = repository.findCategoryQuestionByName(name);
         return categoryQuestion != null;
         // return repository.findCategoryQuestionByName(name) != null; // cách viết ngắn gọn

@@ -8,9 +8,9 @@ import java.util.List;
 
 public interface IExamService {
 
-    List<Exam> getListExams();
+    List<Exam> getAllExams();
 
-    Page<Exam> getAllExams(Pageable pageable);
+    Page<Exam> getAllExamsPaging(Pageable pageable);
 
     Exam getExamById(short id);
 
@@ -24,8 +24,8 @@ public interface IExamService {
 
     void deleteExam(short id);
 
-    boolean isExamExistId(short id);
+    boolean isExamExistsId(short id);
 
-    boolean isExamExistDuration(int duration);
+    boolean isExamExistsDuration(int duration);
 
 }

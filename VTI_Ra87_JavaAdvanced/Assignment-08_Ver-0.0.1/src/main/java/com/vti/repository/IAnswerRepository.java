@@ -18,17 +18,17 @@ import java.util.List;
 
 public interface IAnswerRepository extends JpaRepository<Answer, Short> {
 
-    @Query("SELECT a FROM Answer a")
+    @Query("SELECT v FROM Answer v")
     List<Answer> findAll();
 
-    @Query("SELECT a FROM Answer a WHERE a.id = :idParam")
+    @Query("SELECT v FROM Answer v WHERE v.id = :idParam")
     Answer findAnswerById(@Param("idParam") short id);
 
-    @Query("SELECT a FROM Answer a WHERE a.question = :questionParam")
+    @Query("SELECT v FROM Answer v WHERE v.question = :questionParam")
     Answer findAnswerByQuestion(@Param("questionParam") Question question);
 
     @Modifying
     @Transactional
-    @Query("UPDATE Answer a SET a.content = :contentParam, a.question = :questionParam, a.isCorrect = :isCorrectParam WHERE a.id = :idParam")
+    @Query("UPDATE Answer v SET v.content = :contentParam, v.question = :questionParam, v.isCorrect = :isCorrectParam WHERE a.id = :idParam")
     void updateAnswer1(@Param("idParam") short id, @Param("contentParam") String content, @Param("questionParam") Question question, @Param("isCorrectParam") boolean isCorrect);
 }

@@ -1,10 +1,11 @@
 package com.vti.controller;
 
+import com.vti.dto.DepartmentDTO;
 import com.vti.entity.Department;
 import com.vti.service.IDepartmentService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -16,8 +17,11 @@ public class DepartmentController {
      * Đối tượng: Department
      */
 
-    @Autowired
-    private IDepartmentService service;
+    private final IDepartmentService service;
+
+    public DepartmentController(IDepartmentService service) {
+        this.service = service;
+    }
 
     // get all list - can't run same time with get all paging
 //    @GetMapping()
@@ -27,8 +31,9 @@ public class DepartmentController {
 
     // get all paging
     @GetMapping()
-    public Page<Department> getAllDepartments(Pageable pageable) {
-        return service.getPageDepartments(pageable);
+    public ResponseEntity<Page<DepartmentDTO>> getAllDepartments(Pageable pageable) {
+        Page<DepartmentDTO> departments = service.getAllDepartmentsPaging(pageable);
+        return ResponseEntity.ok(departments);
     }
 
     // get by id
@@ -71,13 +76,13 @@ public class DepartmentController {
     // exists by id
     @GetMapping(value = "/exists-id/{id}")
     public boolean isDepartmentExistId(@PathVariable(name = "id") short id) {
-        return service.isDepartmentExistId(id);
+        return service.isDepartmentExistsId(id);
     }
 
     // exists by name
     @GetMapping(value = "/exists-name/{name}")
     public boolean isDepartmentExistName(@PathVariable(name = "name") String name) {
-        return service.isDepartmentExistName(name);
+        return service.isDepartmentExistsName(name);
     }
 
 }

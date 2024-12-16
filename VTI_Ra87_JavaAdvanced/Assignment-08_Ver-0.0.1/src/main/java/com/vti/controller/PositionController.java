@@ -29,7 +29,7 @@ public class PositionController {
     // get all paging
     @GetMapping()
     public Page<Position> getAllPositions(Pageable pageable) {
-        return service.getAllPositions(pageable);
+        return service.getAllPositionsPaging(pageable);
     }
 
     // get by id
@@ -72,13 +72,13 @@ public class PositionController {
     // exists by id
     @GetMapping(value = "/exists-id/{id}")
     public boolean isPositionExistId(@PathVariable(name = "id") short id) {
-        return service.isPositionExistId(id);
+        return service.isPositionExistsId(id);
     }
 
     // exists by name
     @GetMapping(value = "/exists-name/{name}")
     public boolean isPositionExistName(@PathVariable(name = "name") PositionName name) {
-        return service.isPositionExistName(name);
+        return service.isPositionExistsName(name);
     }
 
 }

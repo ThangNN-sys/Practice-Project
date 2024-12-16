@@ -9,9 +9,9 @@ import java.util.List;
 
 public interface ISalaryService {
 
-    List<Salary> getListSalaries();
+    List<Salary> getAllSalaries();
 
-    Page<Salary> getAllSalaries(Pageable pageable);
+    Page<Salary> getAllSalariesPaging(Pageable pageable);
 
     Salary getSalaryById(short id);
 
@@ -25,8 +25,8 @@ public interface ISalaryService {
 
     void deleteSalary(short id);
 
-    boolean isSalaryExistId(short id);
+    boolean isSalaryExistsId(short id);
 
-    boolean isSalaryExistName(SalaryName name);
+    boolean isSalaryExistsName(SalaryName name);
 
 }

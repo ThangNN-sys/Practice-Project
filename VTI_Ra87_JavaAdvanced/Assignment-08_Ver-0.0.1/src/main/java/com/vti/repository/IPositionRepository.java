@@ -16,17 +16,17 @@ public interface IPositionRepository extends JpaRepository<Position, Short> {
      * Đối tượng: Position
      */
 
-    @Query("SELECT p FROM Position p")
+    @Query("SELECT v FROM Position v")
     List<Position> findAll();
 
-    @Query("SELECT p FROM Position p WHERE p.id = :idParam")
+    @Query("SELECT v FROM Position v WHERE v.id = :idParam")
     Position findPositionById(@Param("idParam") short id);
 
-    @Query("SELECT p FROM Position p WHERE p.name = :nameParam")
+    @Query("SELECT v FROM Position v WHERE v.name = :nameParam")
     Position findPositionByName(@Param("nameParam") PositionName name);
 
     @Modifying
-    @Query("UPDATE Position p SET p.name = :nameParam WHERE p.id = :idParam")
+    @Query("UPDATE Position v SET v.name = :nameParam WHERE v.id = :idParam")
     void updatePosition1(@Param("idParam") short id, @Param("nameParam") PositionName name);
 
 }
