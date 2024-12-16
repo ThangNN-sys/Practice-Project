@@ -1,8 +1,12 @@
-<div class="dlv-container">
-    <div class="dlv-heading">
+<div class="dlv-container"> <!-- Khối chính chứa tất cả nội dung của trang -->
+    
+    <div class="dlv-heading"> <!-- Hiển thị tiêu đề "DEPARTMENT LIST". Đây là nơi người dùng biết được mục đích của trang -->
         DEPARTMENT LIST
     </div>
-    <div class="filter-wrapper">
+    
+    <div class="filter-wrapper"> <!-- Khối chứa các tùy chọn lọc dữ liệu -->
+        
+        <!-- Bộ lọc ngày (min-date, max-date): Cho phép người dùng chọn khoảng thời gian để lọc danh sách phòng ban -->
         <div class="filter-item">
             <label for="min-date">Min Date </label>
             <input type="date" id="filter-min-date-select">
@@ -11,6 +15,8 @@
             <label for="min-date">Max Date </label>
             <input type="date" id="filter-max-date-select">
         </div>
+        
+        <!-- Bộ lọc loại (filter-type-select): Người dùng chọn loại phòng ban (PM, Scrum Master, Developer, Test) -->
         <div class="filter-item">
             <select name="" id="filter-type-select">
                 <option value="" selected>Type</option>
@@ -20,19 +26,31 @@
                 <option value="TEST">Test</option>
             </select>
         </div>
+        
+        <!-- Nút bấm có biểu tượng fa-filter: Kích hoạt hành động lọc dữ liệu thông qua hàm filterDepartment() -->
         <div class="filter-item">
             <a href="#" data-toggle="tooltip" title="Filter" onclick="filterDepartment()">
                 <i class="fa-solid fa-filter"></i>
             </a>
         </div>
     </div>
+    
     <div class="dlv-table">
+        
         <div class="table-wrapper department-accounts-table-wrapper">
+            
             <div class="function-bar">
-                <div class="search-bar">
+                
+                <!-- Thanh tìm kiếm cho phép người dùng nhập từ khóa để tìm kiếm phòng ban theo tên -->
+                <div class="search-bar"> 
                     <i class="fas fa-search search-icon"></i>
                     <input class="form-control" type="text" id="search-department-input" placeholder="Search by name..." data-toggle="tooltip">
                 </div>
+                
+                <!-- Các nút thao tác:
+                    fa-sync: Làm mới danh sách (refreshDepartmentList())
+                    fa-square-plus: Thêm phòng ban (showAddDepartmentModal())
+                    fa-trash-can: Xóa phòng ban (showDeleteMultipleDepartmentsModal()) -->
                 <div class="add-sync-del-btn">
                     <a href="#" data-toggle="tooltip" title="Refresh" onclick="refreshDepartmentList()">
                         <i class="fas fa-sync"></i>
@@ -44,22 +62,24 @@
                         <i class="fa-regular fa-trash-can"></i>
                     </a>
                 </div>
+
             </div>
-            <table class="table table-striped table-hover" id="mytable">
-                <thead>
+            
+            <table class="table table-striped table-hover" id="mytable"> <!-- Phần bảng hiển thị danh sách -->
+                <thead> <!-- thead: Hiển thị tiêu đề các cột (Name, Total Member, Type, Create Date, Actions) -->
                     <tr>
                         <th style="width: 45px;">
                         </th>
                         <th style="width: auto;" id="th-name">
-                            <a href="#" onclick="sortByName()">
+                            <a href="#" onclick="sortByName()"> <!-- gọi hàm sortByName() -->
                                 Name 
-                                <i class="fa-solid fa-sort"></i>
+                                <i class="fa-solid fa-sort"></i> <!-- sắp xếp theo biểu tượng -->
                                 <i class="fa-solid fa-sort-up"></i>
                                 <i class="fa-solid fa-sort-down"></i>
                             </a>
                         </th>
                         <th style="width: 18%;" id="th-totalMember">
-                            <a href="#" onclick="sortByTotalMember()">
+                            <a href="#" onclick="sortByTotalMember()"> <!-- gọi hàm sortByTotalMember() -->
                                 Total member 
                                 <i class="fa-solid fa-sort"></i>
                                 <i class="fa-solid fa-sort-up"></i>
@@ -70,7 +90,7 @@
                             Type
                         </th>
                         <th style="width: 18%;" id="th-createDate">
-                            <a href="#" onclick="sortByCreateDate()">
+                            <a href="#" onclick="sortByCreateDate()"> <!-- gọi hàm sortByCreateDate() -->
                                 Create Date
                                 <i class="fa-solid fa-sort"></i>
                                 <i class="fa-solid fa-sort-up"></i>
@@ -83,7 +103,7 @@
                         </th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody> <!-- tbody: Hiển thị danh sách các phòng ban. Dữ liệu thực tế sẽ được điền động thông qua JavaScript -->
 
                 </tbody>
 
@@ -92,11 +112,15 @@
             <input type="hidden" id="totalMember_order" value="asc">
             <input type="hidden" id="createDate_order" value="asc">
 
-            <div class="page-nav">
+            <div class="page-nav"> <!-- Phần phân trang -->
+                
+                <!-- Cung cấp nút chuyển trang "Previous" -->
                 <input type="button" value="Previous" id="department-previousPage-btn" onclick="getPreviousDepartmentPage()">
-                <div class="page-info" id="department-page-info">
-
+                
+                <div class="page-info" id="department-page-info"> <!-- page-info: Hiển thị số trang hiện tại (dữ liệu động) -->
                 </div>
+
+                <!-- Cung cấp nút chuyển trang "Next" -->
                 <input type="button" value="Next" id="department-nextPage-btn" onclick="getNextDepartmentPage()">
             </div>
         </div>
