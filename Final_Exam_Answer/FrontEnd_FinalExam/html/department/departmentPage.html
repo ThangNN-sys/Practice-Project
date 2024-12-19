@@ -127,11 +127,11 @@
     </div>
 
 
-    <!-- Add and Update Department modal HTML -->
+    <!-- Add and Update Department modal HTML / Modal thêm/sửa phòng ban -->
     <div class="modal fade" id="addAndUpdateDepartmentModal" role="dialog">
         <div class="modal-dialog">
             <!-- Modal content-->
-            <div class="modal-content">
+            <div class="modal-content"> <!-- Hiển thị biểu mẫu nhập thông tin phòng ban -->
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title" id="addAndUpdateDepartment-modal-title" style="text-align: center; font-size: 25px;">
@@ -158,13 +158,13 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-default save-btn" onclick="saveDepartment()">Save</button>
+                    <button type="button" class="btn btn-default save-btn" onclick="saveDepartment()">Save</button> <!-- Nút "Save" gọi hàm saveDepartment() để lưu thông tin -->
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Delete multiple departments modal HTML -->
+    <!-- Delete multiple departments modal HTML / Modal xoá nhiều phòng ban -->
     <div class="modal fade" id="deleteMultipleDepartmentsModal" role="dialog">
         <div class="modal-dialog">
             <!-- Modal content-->
@@ -178,13 +178,14 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <!-- Hiển thị hộp thoại xác nhận trước khi xóa -->
                     <button id="delete-multiple-departments-btn" type="button" class="btn btn-default delete-btn" onclick="deleteMultipleDepartments()">Delete</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Single Department delete modal HTML -->
+    <!-- Single Department delete modal HTML / Modal xoá từng phòng ban -->
     <div class="modal fade" id="deleteSingleDepartmentModal" role="dialog">
         <div class="modal-dialog">
             <!-- Modal content-->
@@ -206,7 +207,7 @@
         </div>
     </div>
 
-    <!-- Add Account to Department modal HTML -->
+    <!-- Add Account to Department modal HTML / Modal thêm tài khoản vào phòng ban -->
     <div class="modal fade" id="addAccountsToDepartmentModal" role="dialog">
         <div class="modal-dialog">
             <!-- Modal content-->

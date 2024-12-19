@@ -1,11 +1,14 @@
+/* Định dạng chung */
+
 * {
-    margin: 0;
+    margin: 0; /* Xóa margin và padding mặc định của tất cả các phần tử */
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; /* tính kích thước hộp bao gồm cả viền và đệm */
 }
 
 
-/* Custom Heading */
+/* Custom Heading - Tiêu đề tuỳ chỉnh
+Tạo định dạng cho tiêu đề (heading), bao gồm: khoảng cách (padding), kích thước chữ, và độ đậm */
 
 .dlv-container .dlv-heading {
     padding: 40px 20px;
@@ -13,21 +16,23 @@
     font-weight: bold;
 }
 
+/* Liên kết - Định dạng liên kết có màu đen và bỏ gạch chân */
+
 .dlv-container a {
     color: #000;
     text-decoration: none;
 }
 
 
-/* Custom Filter */
+/* Custom Filter - Bộ lọc tuỳ chỉnh */
 
 .dlv-container .filter-wrapper {
-    margin-bottom: 10px;
+    margin-bottom: 10px; /* để tạo khoảng cách */
     margin-left: 30px;
 }
 
 .dlv-container .filter-wrapper .filter-item {
-    display: inline-block;
+    display: inline-block; /* hiển thị các bộ lọc cạnh nhau */
     margin-right: 30px;
 }
 
@@ -40,7 +45,8 @@
 }
 
 
-/* Custom Function bar */
+/* Custom Function bar - Thanh chức năng
+Quy định vị trí, khoảng cách, và hiển thị các nút chức năng như tìm kiếm hoặc thêm dữ liệu */
 
 .dlv-container .table-wrapper {
     padding: 10px 30px;
@@ -80,7 +86,8 @@
 }
 
 
-/* Custom Department Table */
+/* Custom Department Table - Bảng tuỳ chỉnh
+Tạo bảng không có khoảng trống giữa các ô (cells), với đường viền và font chữ */
 
 .dlv-container table {
     border-collapse: collapse;
@@ -104,6 +111,7 @@
     border-bottom: 1px solid #ddd;
 }
 
+/* Tô sáng dòng khi di chuột - Thay đổi màu nền khi trỏ chuột vào từng dòng của bảng */
 .dlv-container tr:hover {
     background-color: #f1f1f1;
 }
@@ -130,7 +138,8 @@
 }
 
 
-/* Custom sort icon */
+/* Custom sort icon - Cột sắp xếp
+Định dạng biểu tượng sắp xếp (lên hoặc xuống) trong cột */
 
 .dlv-container th .fa-sort-up,
 .dlv-container th .fa-sort-down {
@@ -158,10 +167,10 @@
 }
 
 
-/* Custom paging info */
+/* Custom paging info - Phân trang */
 
 .dlv-container .table-wrapper .page-nav {
-    float: right;
+    float: right; /* Định dạng khu vực phân trang, căn chỉnh ở góc phải */
     margin-right: 10px;
 }
 
@@ -175,7 +184,8 @@
 }
 
 
-/* Custom checkbox */
+/* Custom checkbox - Checkbox tuỳ chỉnh
+Các checkbox được làm mờ khi chưa chọn và được tô màu khi được chọn */
 
 .dlv-container .department-checkbox,
 .dlv-container .department-accounts-checkbox {

@@ -1,38 +1,49 @@
+/* Thiết lập chung
+Thiết lập kiểu font mặc định cho toàn bộ trang là Arial, nếu không có thì sẽ dùng Helvetica, 
+và nếu vẫn không có, sẽ sử dụng font mặc định sans-serif */
+
 body {
     font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Kiểu dáng form đăng nhập
+Đặt chiều rộng của thành phần modal-content có thêm lớp animate là 500px */
 
 .modal-content.animate {
     width: 500px;
 }
 
+/* Thông báo lỗi  */
+
 #incorrect-mess {
-    padding: 5px 0px;
-    font-size: 14px;
-    color: red;
-    display: none;
+    padding: 5px 0px; /* Thêm khoảng cách trên dưới 5px */
+    font-size: 14px; /* Kích thước chữ là 14px */
+    color: red; /* Màu chữ đỏ */
+    display: none; /* Ẩn thông báo lỗi theo mặc định */
 }
+
+/* Nút đăng nhập */
 
 #login-btn {
-    background-color: #04AA6D;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
+    background-color: #04AA6D; /* Nền nút màu xanh lá cây đậm */
+    color: white; /* Chữ màu trắng */
+    padding: 14px 20px; /* Thêm khoảng cách trong nút */
+    margin: 8px 0; /* Khoảng cách trên dưới 8px */
+    border: none; /* Không có đường viền */
+    cursor: pointer; /* Con trỏ chuột chuyển thành hình bàn tay khi rê vào */
+    width: 100%; /* Nút chiếm toàn bộ chiều ngang */
 }
 
 
-/* Full-width input fields */
+/* Full-width input fields - Áp dụng cho các trường nhập liệu (text và password) */
 
 input[type=text],
 input[type=password] {
-    width: 100%;
-    padding: 12px 20px;
+    width: 100%; /* Chiếm toàn bộ chiều ngang container */
+    padding: 12px 20px; /* Thêm khoảng cách trong trường nhập liệu */
     margin: 8px 0;
     display: inline-block;
-    border: 1px solid #ccc;
+    border: 1px solid #ccc; /* Viền mỏng màu xám nhạt */
     box-sizing: border-box;
 }
 
@@ -49,22 +60,26 @@ button {
     width: 100%;
 }
 
+/* Hiệu ứng nút khi rê chuột */
+
 #login-btn:hover,
 button:hover {
-    opacity: 0.8;
+    opacity: 0.8; /* Giảm độ trong suốt của nút khi người dùng rê chuột vào */
 }
 
 
 /* Extra styles for the cancel button */
+/* Nút hủy */
 
 .cancelbtn {
-    width: auto;
+    width: auto; /* Chiều rộng tự động, không chiếm toàn bộ chiều ngang */
     padding: 10px 18px;
-    background-color: #f44336;
+    background-color: #f44336; /* Nền nút màu đỏ */
 }
 
 
 /* Center the image and position the close button */
+/* Hình đại diện và container ảnh */
 
 .imgcontainer {
     text-align: center;
@@ -72,8 +87,8 @@ button:hover {
     position: relative;
 }
 
-img.avatar {
-    width: 40%;
+img.avatar { /* Hình ảnh dạng hình tròn (bo góc 50%) và chiếm 40% chiều rộng của container */
+    width: 40%; 
     border-radius: 50%;
 }
 
@@ -88,12 +103,13 @@ span.psw {
 
 
 /* The Modal (background) */
+/* Vị trí và hiệu ứng Modal */
 
-.modal {
+.modal { /* Định nghĩa Modal (hộp thoại) */
     display: none;
-    /* Hidden by default */
+    /* Hidden by default - Ẩn Modal mặc định */
     position: fixed;
-    /* Stay in place */
+    /* Stay in place - Giữ Modal ở vị trí cố định trên màn hình */
     z-index: 1;
     /* Sit on top */
     left: 0;
@@ -107,7 +123,7 @@ span.psw {
     background-color: rgb(0, 0, 0);
     /* Fallback color */
     background-color: rgba(0, 0, 0, 0.4);
-    /* Black w/ opacity */
+    /* Black w/ opacity - Màu nền tối trong suốt */
     padding-top: 60px;
 }
 
@@ -142,7 +158,7 @@ span.psw {
 }
 
 
-/* Add Zoom Animation */
+/* Add Zoom Animation - Hiệu ứng phóng to: Thêm hiệu ứng zoom vào thành phần */
 
 .animate {
     -webkit-animation: animatezoom 0.6s;
@@ -169,13 +185,14 @@ span.psw {
 
 
 /* Change styles for span and cancel button on extra small screens */
+/* Responsive cho màn hình nhỏ: Điều chỉnh giao diện cho màn hình nhỏ hơn 300px */
 
 @media screen and (max-width: 300px) {
-    span.psw {
+    span.psw { /* Hiển thị dạng khối, không căn lề phải */
         display: block;
         float: none;
     }
-    .cancelbtn {
+    .cancelbtn { /* Chiếm toàn bộ chiều ngang */
         width: 100%;
     }
 }
