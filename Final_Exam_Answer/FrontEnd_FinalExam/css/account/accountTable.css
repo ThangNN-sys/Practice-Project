@@ -1,39 +1,57 @@
+/* Thiết lập chung cho toàn bộ phần tử */
 * {
     margin: 0;
     padding: 0;
+    /* Xóa bỏ khoảng cách mặc định */
     box-sizing: border-box;
+    /* Bao gồm padding và border trong tổng chiều rộng và chiều cao phần tử */
 }
 
+/* Định dạng bảng trong container */
 .alv-container table {
     border-collapse: collapse;
+    /* Loại bỏ khoảng cách giữa các đường viền của bảng */
     width: 100%;
+    /* Bảng chiếm toàn bộ chiều rộng container */
     border: 2px solid #000;
+    /* Đường viền bao quanh bảng */
     font-size: 16px;
+    /* Kích thước chữ trong bảng */
 }
 
+/* Định dạng cho ô tiêu đề và dữ liệu của bảng */
 .alv-container th,
 .alv-container td {
     text-align: left;
+    /* Canh trái nội dung */
     padding: 12px;
+    /* Khoảng cách giữa nội dung và viền */
     border-right: 1px solid #ccc;
+    /* Đường viền bên phải của mỗi ô */
 }
 
+/* Định dạng hàng trong bảng */
 .alv-container tr {
     border-bottom: 1px solid #ddd;
+    /* Đường viền bên dưới mỗi hàng */
 }
 
 .alv-container tr:hover {
     background-color: #f1f1f1;
+    /* Thay đổi màu nền khi người dùng di chuột qua */
 }
 
 .alv-container tr i {
     font-size: 18px;
 }
 
+/* Biểu tượng trong ô tiêu đề */
 .alv-container th .fa-sort-up,
 .alv-container th .fa-sort-down {
     font-size: 14px;
+    /* Kích thước biểu tượng */
     line-height: 20px;
+    /* Căn giữa biểu tượng theo chiều dọc */
 }
 
 .alv-container th .fa-solid.fa-sort {
@@ -41,10 +59,13 @@
     line-height: 20px;
 }
 
+/* Tiêu đề và vùng chứa bảng */
 .alv-container .alv-heading {
     padding: 40px 20px;
     font-size: 40px;
+    /* Kích thước chữ lớn cho tiêu đề */
     font-weight: bold;
+    /* Làm đậm tiêu đề */
 }
 
 .alv-container .alv-table {
@@ -56,13 +77,16 @@
     height: 100%;
 }
 
+/* Thanh lọc và bộ lọc */
 .alv-container .filter-wrapper {
     margin-bottom: 10px;
     margin-left: 30px;
+    /* Tạo khoảng cách giữa các bộ lọc */
 }
 
 .alv-container .filter-wrapper .filter-item {
     display: inline-block;
+    /* Cho phép các bộ lọc hiển thị ngang hàng */
 }
 
 .alv-container .filter-item #filter-role-select {
@@ -85,17 +109,23 @@
     text-decoration: none;
 }
 
+/* Thanh tìm kiếm */
 .alv-container #search-account-input {
     margin: 5px 0;
     width: 300px;
+    /* Chiều rộng hộp tìm kiếm */
     font-size: 16px;
     padding: 8px 20px 8px 40px;
+    /* Khoảng cách giữa nội dung và viền */
     border: 1px solid #ddd;
+    /* Viền màu xám nhạt */
     background-color: #fff;
 }
 
+/* Thanh chức năng */
 .alv-container .function-bar {
     position: relative;
+    /* Định vị thanh chức năng trong container */
     margin-bottom: 15px;
 }
 
@@ -105,6 +135,7 @@
 
 .alv-container .search-icon {
     position: absolute;
+    /* Vị trí biểu tượng tìm kiếm cố định trong thanh tìm kiếm */
     font-size: 15px;
     line-height: 44px;
     left: 18px;
@@ -117,10 +148,13 @@
     line-height: 45px;
 }
 
+/* Bảng dữ liệu */
 .alv-container #account-table th {
     padding: 3px 3px;
+    /* Tạo khoảng cách nhỏ hơn so với ô tiêu đề */
     font-size: 14px;
     border-bottom: 1px solid #000;
+    /* Đường viền dưới màu đen */
 }
 
 .alv-container #account-table th i {
@@ -159,7 +193,7 @@
 }
 
 
-/* Custom checkbox */
+/* Custom checkbox - Checkbox tùy chỉnh */
 
 .alv-container .account-checkbox {
     position: relative;
@@ -167,12 +201,14 @@
 
 .alv-container .account-checkbox input[type="checkbox"] {
     opacity: 0;
+    /* Ẩn checkbox mặc định */
     position: absolute;
     margin: 5px 0 0 3px;
     z-index: 9;
 }
 
 .alv-container .account-checkbox label:before {
+    /* label:before: Tạo ô vuông hiển thị thay thế checkbox gốc */
     width: 18px;
     height: 18px;
 }
@@ -189,7 +225,10 @@
     z-index: 2;
 }
 
+/* Hiệu ứng khi checkbox được chọn */
 .alv-container .account-checkbox input[type="checkbox"]:checked+label:after {
+    /* :checked+label:after: Hiển thị dấu tick khi checkbox được chọn */
+    /* transform: rotateZ(45deg): Xoay dấu tick để tạo hình chữ V */
     content: '';
     position: absolute;
     left: 6px;

@@ -1,40 +1,45 @@
 /* The snackbar - position it at the bottom and in the middle of the screen */
+/* Định nghĩa giao diện chính của Snackbar */
 
 #snackbar {
     visibility: hidden;
-    /* Hidden by default. Visible on click */
+    /* Hidden by default. Visible on click - Ẩn Snackbar mặc định */
     min-width: 250px;
-    /* Set a default minimum width */
+    /* Set a default minimum width - Đặt chiều rộng tối thiểu của Snackbar là 250px */
     margin-left: -125px;
-    /* Divide value of min-width by 2 */
+    /* Divide value of min-width by 2 - Canh giữa ngang bằng cách trừ một nửa chiều rộng (250px/2 = 125px) từ mép trái */
     background-color: #333;
-    /* Black background color */
+    /* Black background color - Màu nền đen (#333) */
     color: #fff;
-    /* White text color */
+    /* White text color - Màu chữ trắng (#fff) */
     text-align: center;
-    /* Centered text */
+    /* Centered text - Canh giữa nội dung văn bản */
     border-radius: 2px;
-    /* Rounded borders */
+    /* Rounded borders - Tạo viền góc bo tròn nhẹ */
     padding: 16px;
-    /* Padding */
+    /* Padding - Tạo khoảng cách bên trong (padding) là 16px */
     position: fixed;
-    /* Sit on top of the screen */
+    /* Sit on top of the screen - Vị trí cố định bất kể người dùng cuộn trang */
     z-index: 100;
-    /* Add a z-index if needed */
+    /* Add a z-index if needed - Đảm bảo Snackbar nằm trên các phần tử khác (ưu tiên hiển thị) */
     left: 50%;
-    /* Center the snackbar */
+    /* Center the snackbar - Canh giữa theo chiều ngang */
     bottom: 50px;
-    /* 30px from the bottom */
+    /* 30px from the bottom - Đặt vị trí cách đáy màn hình 50px */
 }
 
 
 /* Show the snackbar when clicking on a button (class added with JavaScript) */
+/* Hiển thị Snackbar khi kích hoạt */
 
 #snackbar.show {
     visibility: visible;
-    /* Show the snackbar */
+    /* Show the snackbar - Hiển thị Snackbar */
     /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
     However, delay the fade out process for 2.5 seconds */
+    /* animation: Gồm hai hiệu ứng:
+    fadein 0.5s: Thời gian hiển thị mất 0.5 giây.
+    fadeout 0.5s 2.5s: Mất 0.5 giây để ẩn sau khi hiển thị trong 2.5 giây. */
     -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
     animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
@@ -42,12 +47,19 @@
 
 /* Animations to fade the snackbar in and out */
 
+/* Hiệu ứng fadein để hiển thị Snackbar */
 @-webkit-keyframes fadein {
     from {
+        /* from:
+        bottom: 0: Bắt đầu ở vị trí đáy màn hình.
+        opacity: 0: Hoàn toàn trong suốt. */
         bottom: 0;
         opacity: 0;
     }
     to {
+        /* to:
+        bottom: 50px: Di chuyển lên 50px từ đáy.
+        opacity: 1: Hiển thị hoàn toàn (độ mờ = 1) */
         bottom: 50px;
         opacity: 1;
     }
@@ -55,7 +67,7 @@
 
 @keyframes fadein {
     from {
-        bottom: 0;
+    bottom: 0;
         opacity: 0;
     }
     to {
@@ -64,12 +76,19 @@
     }
 }
 
+/* Hiệu ứng fadeout để ẩn Snackbar */
 @-webkit-keyframes fadeout {
     from {
+        /* from:
+        bottom: 50px: Bắt đầu từ vị trí 50px từ đáy.
+        opacity: 1: Hiển thị hoàn toàn. */
         bottom: 50px;
         opacity: 1;
     }
     to {
+        /* to:
+        bottom: 0: Di chuyển xuống đáy.
+        opacity: 0: Hoàn toàn trong suốt. */
         bottom: 0;
         opacity: 0;
     }

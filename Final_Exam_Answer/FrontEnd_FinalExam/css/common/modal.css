@@ -1,21 +1,26 @@
-/* Add padding to containers */
-
+/* Add padding to containers - Thiết lập padding cho container */
 .modal-container {
-    padding: 16px;
-    background-color: white;
+    padding: 16px; /* Tạo khoảng cách bên trong container là 16px */
+    background-color: white; /* Đặt nền của container là màu trắng */
 }
 
+/* Kiểm soát trạng thái của các trường select không hợp lệ */
 #addAndUpdateAcccountModal select:invalid {
-    color: gray;
+    color: gray; /* select:invalid: Áp dụng kiểu màu xám cho các trường select khi chúng không hợp lệ */
 }
 
+/* Điều chỉnh thanh điều hướng trong addAccountsToDepartmentModal */
 #addAccountsToDepartmentModal .page-nav {
-    float: unset;
-    margin-left: 302px;
+    float: unset; /* Hủy bỏ ảnh hưởng của thuộc tính float trước đó */
+    margin-left: 302px; /* Tạo khoảng cách từ cạnh trái là 302px */
 }
 
 
-/* Custom Add and Update Account Modal */
+/* Custom Add and Update Account Modal - Tuỳ chỉnh giao diện Add and Update Account Modal */
+
+/* Kích thước và căn chỉnh các trường nhập liệu:
+width: Định nghĩa độ rộng cụ thể cho các trường nhập liệu
+margin-right: Thêm khoảng cách giữa các trường */
 
 #addAndUpdateAcccountModal .modal-body {
     padding: 15px 45px;
@@ -41,9 +46,10 @@
     padding-left: 41px;
 }
 
+/* Giao diện của nhãn và menu thả */
 #addAndUpdateAcccountModal #modal-role-select {
-    margin-left: 15px;
-    display: inline-block;
+    margin-left: 15px; /* width và margin-left: Đảm bảo căn chỉnh hợp lý */
+    display: inline-block; /* Để các phần tử nằm ngang và giữ kích thước của chúng */
     width: 413px;
 }
 
@@ -67,10 +73,10 @@
 }
 
 
-/* Custom Add and Update Department Modal */
+/* Custom Add and Update Department Modal - Tùy chỉnh modal Add and Update Department */
 
 #addAndUpdateDepartmentModal .modal-body {
-    padding: 15px 45px;
+    padding: 15px 45px; /* Thêm khoảng cách bên trong giữa các thành phần của modal */
 }
 
 #addAndUpdateAcccountModal .input-item {
@@ -115,27 +121,30 @@
 }
 
 
-/* Full-width input fields */
+/* Full-width input fields - Kiểu dáng chung cho các trường nhập liệu */
 
+/* Kích thước trường nhập liệu */
 input[type="text"],
 input[type="password"] {
-    width: 100%;
+    width: 100%; /* Kéo dãn trường nhập liệu chiếm toàn bộ chiều rộng container */
     padding: 15px;
     margin: 5px 0 0px 0;
     display: inline-block;
     border: none;
-    background: #f1f1f1;
+    background: #f1f1f1; /* Đặt nền mặc định màu xám nhạt */
 }
 
+/* Trạng thái khi người dùng nhập */
 input[type="text"]:focus,
-input[type="password"]:focus {
+input[type="password"]:focus { /* :focus: Đổi màu nền trường nhập liệu khi được chọn */
     background-color: #ddd;
     outline: none;
 }
 
+/* Hiển thị lỗi */
 .modal .input-errMess {
-    color: red;
-    display: none;
+    color: red; /* Hiển thị thông báo lỗi với màu đỏ */
+    display: none; /* Ẩn thông báo lỗi mặc định */
     margin-top: 5px;
     margin-left: 94px;
     margin-right: 20px;
@@ -147,9 +156,10 @@ input[type="password"]:focus {
     margin-left: 64px;
 }
 
+/* Chi tiết modal */
 #detailModal #detail-name {
-    text-align: center;
-    font-weight: bolder;
+    text-align: center; /* Canh giữa tên */
+    font-weight: bolder; /* Làm nổi bật chữ */
     font-size: 30px;
 }
 
@@ -168,6 +178,8 @@ input[type="password"]:focus {
     font-size: 15px;
 }
 
+/* Nút xoá trong Delete Modal
+Màu sắc: Nút xoá có màu nền đỏ và chữ trắng */
 #deleteModal #delete-btn {
     color: red;
 }

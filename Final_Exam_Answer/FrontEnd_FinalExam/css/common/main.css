@@ -1,40 +1,50 @@
+/*
+ Global Styles: *: Áp dụng cho tất cả các phần tử trên trang web
+*/
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+    padding: 0; /* Xóa khoảng cách bên trong của tất cả phần tử */
+    margin: 0; /* Xóa khoảng cách bên ngoài của tất cả phần tử */
+    box-sizing: border-box; /* box-sizing: border-box;: Thay đổi cách tính kích thước của hộp phần tử. 
+    Kích thước phần tử bao gồm cả padding và border, giúp dễ kiểm soát kích thước hơn */
 }
 
+/* #department-select: Áp dụng cho phần tử có ID là department-select
+:invalid: Trạng thái của phần tử khi không hợp lệ (theo quy tắc HTML form validation) */
 #department-select:invalid {
-    color: gray;
+    color: gray; /* Đặt màu chữ của phần tử này thành màu xám khi ở trạng thái không hợp lệ */
 }
 
 .main {
-    position: absolute;
-    width: calc(100% - 140px);
-    min-height: calc(100% - 100px);
-    top: 60px;
+    position: absolute; /* Định vị phần tử .main so với khung chứa gần nhất có vị trí */
+    width: calc(100% - 140px); /* Chiều rộng phần tử bằng 100% chiều rộng trang trừ đi 140px (để chừa không gian, ví dụ sidebar) */
+    min-height: calc(100% - 100px); /* Chiều cao tối thiểu bằng 100% chiều cao trang trừ đi 100px */
+    top: 60px; /* top: 60px; left: 140px;: Đặt phần tử cách cạnh trên 60px và cạnh trái 140px */
     left: 140px;
-    margin-bottom: 40px;
-    background-color: #eee;
-    padding-bottom: 40px;
-    border-left: 2px solid rgb(118, 116, 116);
+    margin-bottom: 40px; /* Thêm khoảng cách 40px bên dưới phần tử */
+    background-color: #eee; /* Đặt màu nền là xám nhạt (#eee) */
+    padding-bottom: 40px; /* Thêm khoảng cách 40px bên trong phía dưới */
+    border-left: 2px solid rgb(118, 116, 116); /* Tạo đường viền bên trái dày 2px, màu xám đậm */
 }
 
-.main a:hover {
-    color: rgb(254, 97, 0);
+/* Hover Effect for Links */
+.main a:hover { /* Áp dụng hiệu ứng khi rê chuột qua các liên kết (<a>) trong .main */
+    color: rgb(254, 97, 0); /* Màu chữ chuyển thành cam sáng (#fe6100) */
 }
 
+/* .home-content: Phần tử con của .main để chứa nội dung chính trên trang chủ */
 .main .home-content {
-    text-align: center;
-    padding-top: 150px;
+    text-align: center; /* Căn giữa nội dung theo chiều ngang */
+    padding-top: 150px; /* Thêm khoảng cách 150px phía trên phần tử */
 }
 
+/* #line-1: Phần tử con của .home-content có ID là line-1 */
 .home-content #line-1 {
-    font-size: 80px;
+    font-size: 80px; /* Đặt kích thước phông chữ là 80px (rất lớn) */
 }
 
-.home-content #line-2 {
-    font-size: 50px;
-    padding-top: 25px;
-    padding-bottom: 250px;
+/* #line-2: Phần tử con của .home-content có ID là line-2 */
+.home-content #line-2 { 
+    font-size: 50px; /* Đặt kích thước phông chữ là 50px */
+    padding-top: 25px; /* Thêm khoảng cách 25px bên trên phần tử */
+    padding-bottom: 250px; /* Thêm khoảng cách 250px bên dưới phần tử, tạo không gian lớn */
 }
