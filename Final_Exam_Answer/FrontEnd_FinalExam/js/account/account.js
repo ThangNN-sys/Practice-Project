@@ -1,14 +1,23 @@
+// Hiển thị trang quản lý tài khoản
 function viewAccountPage() {
+    
     $(".main").load("./account/accountPage.html", function() {
+    // $(".main").load(): Tải nội dung từ file accountPage.html vào phần tử HTML có class main
         setupSearchEvent();
+        // Thiết lập sự kiện tìm kiếm
         setupFilter();
+        // Cấu hình bộ lọc tài khoản
         buildAccountTable();
+        // Xây dựng bảng danh sách tài khoản
     });
 }
 
+// Hàm Xây dựng bảng tài khoản
 function buildAccountTable() {
     $('#account-table tbody').empty();
+    // Xóa nội dung hiện có trong bảng
     getListAccounts();
+    // Gọi API để lấy danh sách tài khoản và hiển thị vào bảng
 }
 
 var accounts = [];
@@ -21,8 +30,11 @@ var size = 5;
 var sortField = "id";
 var isAsc = false;
 
-// get List
+// Hàm Lấy danh sách tài khoản từ API
+
 function getListAccounts() {
+    
+    // Xây dựng URL: URL chứa thông tin phân trang, sắp xếp, tìm kiếm và bộ lọc
     var url = "http://localhost:8080/api/v1/accounts";
 
     // paging
@@ -49,16 +61,21 @@ function getListAccounts() {
     }
 
     // call API from server
+    // $.ajax: Gửi yêu cầu GET đến API để lấy danh sách tài khoản.
+    
     $.ajax({
         url: url,
         type: 'GET',
         contentType: "application/json",
         dataType: 'json', // datatype return
         beforeSend: function(xhr) {
+        // beforeSend: Thêm thông tin xác thực.
             xhr.setRequestHeader("Authorization", "Basic " + btoa(storage.getItem("USERNAME") + ":" + storage.getItem("PASSWORD")));
         },
         success: function(data, textStatus, xhr) {
             // success
+            // Lưu danh sách tài khoản.
+            // Hiển thị danh sách tài khoản, phân trang, và sắp xếp.
             accounts = data.content;
             fillAccountToTable();
             fillAccountPaging(data.numberOfElements, data.totalPages);
@@ -73,6 +90,11 @@ function getListAccounts() {
 
 }
 
+// Hiển thị danh sách tài khoản trong bảng
+// forEach: Lặp qua danh sách tài khoản và thêm từng dòng vào bảng.
+// Chức năng:
+//      Hiển thị thông tin tài khoản.
+//      Thêm nút chỉnh sửa và xóa tài khoản.
 function fillAccountToTable() {
     accounts.forEach(function(item, index) {
         $('#account-table tbody').append(
@@ -97,7 +119,9 @@ function fillAccountToTable() {
     });
 }
 
-// paging
+// paging - Phân trang
+// Nút phân trang: Vô hiệu hóa nút "Trước" và "Tiếp" nếu đang ở đầu hoặc cuối danh sách.
+// Hiển thị thông tin: Số lượng bản ghi, trang hiện tại và tổng số trang.
 function fillAccountPaging(currentSize, totalPages) {
     // prev
     if (currentPage > 1) {
@@ -130,7 +154,8 @@ function changeAccountPage(page) {
     buildAccountTable();
 }
 
-// Sorting
+// Sorting - Sắp xếp
+// Sắp xếp cột: Thay đổi biểu tượng sắp xếp (tăng dần/giảm dần) dựa trên trường được chọn
 function fillAccountSorting() {
     var sortTypeClazz = isAsc ? "fa-sort-up" : "fa-sort-down";
     var defaultSortType = "fa-sort";
@@ -176,7 +201,9 @@ function changeAccountSort(field) {
     buildAccountTable();
 }
 
-// search
+// search - Tìm kiếm 
+
+// Tìm kiếm: Nhấn Enter để cập nhật bảng dựa trên từ khóa tìm kiếm.
 
 function setupSearchEvent() {
     $("#search-account-input").on("keyup", function(event) {
@@ -187,7 +214,10 @@ function setupSearchEvent() {
     });
 }
 
-// filter
+// filter - Lọc
+
+// Lọc: Cập nhật bảng dựa trên các tiêu chí đã chọn.
+
 function filterAccount() {
     buildAccountTable();
 }
@@ -371,6 +401,10 @@ var error_message_name = "First name and last name must be from 6 to 50 characte
 var error_message_role = "You must choose role!";
 var error_message_department = "You must choose department!";
 
+// Thêm tài khoản
+// Kiểm tra trùng lặp: Kiểm tra tài khoản đã tồn tại trước khi thêm.
+// Gửi yêu cầu POST: Thêm tài khoản nếu không bị trùng lặp.
+
 function addAccount() {
     var username = document.getElementById("modal-username").value;
     var firstName = document.getElementById("modal-first-name").value;
@@ -538,6 +572,9 @@ function showDeleteSingleAccountModal(accountId, fullName) {
     document.getElementById('delete-single-account-btn').onclick = function() { deleteSingleAccount(accountId) };
 }
 
+// Xóa tài khoản
+// Gửi yêu cầu DELETE: Xóa tài khoản theo ID.
+// Cập nhật bảng: Làm mới danh sách tài khoản sau khi xóa.
 function deleteSingleAccount(accountId) {
     $.ajax({
         url: 'http://localhost:8080/api/v1/accounts/' + accountId,
