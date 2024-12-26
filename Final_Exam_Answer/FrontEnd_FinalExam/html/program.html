@@ -1,73 +1,70 @@
-<!DOCTYPE html> <!-- khai báo DOCTYPE-->
-<html lang="en"> <!-- ngôn ngữ tiếng Anh -->
+<!DOCTYPE html>
+<!-- khai báo DOCTYPE-->
+<html lang="en">
+    <!-- ngôn ngữ tiếng Anh -->
 
-<head> <!-- Chứa metadata và các liên kết đến tài nguyên cần thiết như CSS và JavaScript -->
-    <meta charset="UTF-8"> <!-- Định nghĩa bộ mã ký tự là UTF-8 -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- Đảm bảo tương thích với IE -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Giúp hiển thị phù hợp trên các thiết bị di động -->
-    <title>Testing System</title>
+    <head>
+        <!-- Thẻ head: Chứa metadata và các liên kết đến tài nguyên cần thiết như CSS và JavaScript -->
+        <meta charset="UTF-8" />
+        <!-- Định nghĩa bộ mã ký tự là UTF-8 -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <!-- Đảm bảo tương thích với IE -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- Giúp hiển thị phù hợp trên các thiết bị di động -->
+        <title>Testing System</title>
 
-    <!-- import JQuery : Import thư viện jQuery, một công cụ phổ biến để thao tác DOM -->
-     <!-- Thao tác DOM dễ dàng, hỗ trợ AJAX và hiệu ứng động -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!-- import JQuery : Import thư viện jQuery, một công cụ phổ biến để thao tác DOM -->
+        <!-- Thao tác DOM dễ dàng, hỗ trợ AJAX và hiệu ứng động -->
 
-    <!-- import bootstrap : Sử dụng Bootstrap để tạo giao diện responsive và phong cách UI -->
-     <!-- Tạo giao diện hiện đại và responsive -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> <!-- Import bộ biểu tượng từ Font Awesome -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <!-- import bootstrap : Sử dụng Bootstrap để tạo giao diện responsive và phong cách UI -->
+        <!-- Tạo giao diện hiện đại và responsive -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+        <!-- Import bộ biểu tượng từ Font Awesome -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-    <!-- import Select2 : Sử dụng thư viện Select2 để cải thiện dropdowns -->
-     <!-- Cải thiện dropdowns với các tính năng tìm kiếm, gợi ý -->
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+        <!-- import Select2 : Sử dụng thư viện Select2 để cải thiện dropdowns -->
+        <!-- Cải thiện dropdowns với các tính năng tìm kiếm, gợi ý -->
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
 
-    <!-- link css : Các file CSS tùy chỉnh cho từng thành phần như header, sidebar, main,... -->
-    <link rel="stylesheet" href="../css/common/header.css">
-    <link rel="stylesheet" href="../css/common/sidebar.css">
-    <link rel="stylesheet" href="../css/common/main.css">
-    <link rel="stylesheet" href="../css/common/footer.css">
-    <link rel="stylesheet" href="../css/account/accountTable.css">
-    <link rel="stylesheet" href="../css/department/departmentTable.css">
-    <link rel="stylesheet" href="../css/common/modal.css">
-    <link rel="stylesheet" href="../css/common/notification.css">
+        <!-- link css : Các file CSS tùy chỉnh cho từng thành phần như header, sidebar, main,... -->
+        <link rel="stylesheet" href="../css/common/header.css" />
+        <link rel="stylesheet" href="../css/common/sidebar.css" />
+        <link rel="stylesheet" href="../css/common/main.css" />
+        <link rel="stylesheet" href="../css/common/footer.css" />
+        <link rel="stylesheet" href="../css/account/accountTable.css" />
+        <link rel="stylesheet" href="../css/department/departmentTable.css" />
+        <link rel="stylesheet" href="../css/common/modal.css" />
+        <link rel="stylesheet" href="../css/common/notification.css" />
+    </head>
 
-</head>
+    <body>
+        <!-- Xây dựng giao diện chính, gồm các thành phần: header, sidebar, main, footer, và thông báo (noti) -->
+        <div class="wrapper">
+            <!-- Xây dựng bố cục chính với các khối header, sidebar, main, và footer. Nội dung bên trong hiện để trống và sẽ được thêm sau -->
+            <div class="header"></div>
 
-<body> <!-- Xây dựng giao diện chính, gồm các thành phần: header, sidebar, main, footer, và thông báo (noti) -->
-    <div class="wrapper"> <!-- Xây dựng bố cục chính với các khối header, sidebar, main, và footer. Nội dung bên trong hiện để trống và sẽ được thêm sau -->
-        <div class="header">
+            <div class="sidebar"></div>
 
-        </div>
+            <div class="main"></div>
 
-        <div class="sidebar">
+            <div class="footer"></div>
 
-        </div>
-
-        <div class="main">
-
-        </div>
-
-        <div class="footer">
-
-        </div>
-
-        <div class="noti"> <!-- Được sử dụng để hiển thị thông báo theo kiểu snackbar -->
-            <div id="snackbar">
-
+            <div class="noti">
+                <!-- Được sử dụng để hiển thị thông báo theo kiểu snackbar -->
+                <div id="snackbar"></div>
             </div>
         </div>
-    </div>
 
-    <!-- import js : Tích hợp các file JS để xử lý logic phía client -->
-    <script src="../js/program.js"></script>
-    <script src="../js/home/home.js"></script>
-    <script src="../js/account/account.js"></script>
-    <script src="../js/utils/storage.js"></script>
-
-</body>
-
+        <!-- import js : Tích hợp các file JS để xử lý logic phía client -->
+        <script src="../js/program.js"></script>
+        <script src="../js/home/home.js"></script>
+        <script src="../js/account/account.js"></script>
+        <script src="../js/utils/storage.js"></script>
+    </body>
 </html>
