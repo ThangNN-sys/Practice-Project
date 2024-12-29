@@ -1,0 +1,33 @@
+/*
+ Global Styles: *: Áp dụng cho tất cả các phần tử trên trang web
+*/
+* {
+    padding: 0; /* Xóa khoảng cách bên trong của tất cả phần tử */
+    margin: 0; /* Xóa khoảng cách bên ngoài của tất cả phần tử */
+    box-sizing: border-box; /* box-sizing: border-box;: Thay đổi cách tính kích thước của hộp phần tử. 
+    Kích thước phần tử bao gồm cả padding và border, giúp dễ kiểm soát kích thước hơn */
+}
+
+/* .footer (Định nghĩa cho phần tử có class là footer) */
+.footer {
+    position: fixed; /* Định vị phần tử cố định so với cửa sổ trình duyệt, không di chuyển khi cuộn trang */
+    left: 0; /* left: 0; bottom: 0; right: 0;: Giúp phần tử nằm ở đáy trang và kéo dài toàn bộ chiều ngang */
+    bottom: 0;
+    right: 0;
+    background-color: #aaa; /* Đặt màu nền là màu xám (#aaa) */
+    line-height: 40px; /* Đặt khoảng cách giữa các dòng trong .footer là 40px, giúp căn giữa văn bản theo chiều dọc */
+    text-align: center; /* Căn giữa nội dung bên trong theo chiều ngang */
+    border-top: 2px solid rgb(118, 116, 116); /* Tạo đường viền phía trên dày 2px, màu xám đậm */
+    z-index: 4; /* Đặt thứ tự xếp chồng, đảm bảo .footer nằm trên các phần tử khác có z-index thấp hơn */
+}
+
+/* .footer a (Định nghĩa cho thẻ <a> bên trong .footer) */
+.footer a {
+    text-decoration: none; /* Loại bỏ gạch chân mặc định của liên kết */
+    color: #000; /* Đặt màu chữ của liên kết là màu đen (#000) */
+}
+
+/* .footer a:hover (Hiệu ứng khi rê chuột qua liên kết) */
+.footer a:hover {
+    color: rgb(254, 97, 0); /* Khi rê chuột lên liên kết, màu chữ chuyển thành cam (#fe6100) */
+}

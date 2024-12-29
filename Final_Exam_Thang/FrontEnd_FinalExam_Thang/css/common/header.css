@@ -1,0 +1,82 @@
+/*
+ Global Styles: *: Áp dụng cho tất cả các phần tử trên trang web
+*/
+* {
+    padding: 0; /* Xóa khoảng cách bên trong của tất cả phần tử */
+    margin: 0; /* Xóa khoảng cách bên ngoài của tất cả phần tử */
+    box-sizing: border-box; /* box-sizing: border-box;: Thay đổi cách tính kích thước của hộp phần tử. 
+    Kích thước phần tử bao gồm cả padding và border, giúp dễ kiểm soát kích thước hơn */
+}
+
+/* .header (Định nghĩa cho phần tử có class header) */
+.header {
+    position: fixed; /* Gắn vị trí cố định so với cửa sổ trình duyệt */
+    left: 0; /* left: 0; top: 0; right: 0;: Giúp header phủ kín chiều ngang ở trên cùng của trang */
+    top: 0;
+    right: 0;
+    background-color: #fff; /* Đặt màu nền trắng (#fff) */
+    border-bottom: 2px solid rgb(118, 116, 116); /* Tạo đường viền dưới dày 2px, màu xám đậm */
+    z-index: 1; /* Đảm bảo phần tử header nằm trên các phần tử khác có z-index nhỏ hơn */
+}
+
+/* #navbar */
+.header #navbar {
+    height: 100%; /* Đặt chiều cao tối đa tương đương với header */
+    position: relative; /* Cho phép định vị các phần tử con bên trong dựa trên khung cha */
+}
+
+/* .vti-logo */
+#navbar .vti-logo {
+    display: inline-block; /* Cho phép hiển thị cạnh các phần tử khác mà vẫn có thể kiểm soát kích thước */
+    height: 60px; /* height: 60px; width: 142px;: Đặt chiều cao 60px và chiều rộng 142px */
+    width: 142px;
+    line-height: 60px; /* Căn giữa nội dung theo chiều dọc bằng cách khớp dòng với chiều cao */
+    text-align: center; /* Căn giữa nội dung theo chiều ngang */
+    border-right: 2px solid rgb(118, 116, 116); /* Tạo đường viền bên phải dày 2px, màu xám đậm */
+}
+
+/* img */
+#navbar img {
+    height: 40px; /* Đặt chiều cao hình ảnh là 40px, chiều rộng tự động co theo tỷ lệ */
+}
+
+/* .user-info */
+#navbar .user-info {
+    display: inline-block; /* Cho phép đặt cạnh các phần tử khác */
+    position: absolute; /* Định vị so với khung cha #navbar */
+    right: 0; /* Canh phải hoàn toàn */
+}
+
+/* Liên kết (a) */
+#navbar a {
+    text-decoration: none; /* Loại bỏ gạch chân mặc định của liên kết */
+    color: #000; /* Đặt màu chữ liên kết là màu đen (#000) */
+}
+
+/* i (Biểu tượng) */
+#navbar i {
+    display: inline-block; /* Biểu tượng nằm cạnh các phần tử khác */
+    font-size: 28px; /* Đặt kích thước chữ hoặc biểu tượng là 28px */
+    line-height: 60px; /* Căn chỉnh theo chiều dọc khớp với chiều cao .header */
+    padding: 0px 10px; /* Thêm khoảng cách ngang 10px mỗi bên */
+}
+
+/* .full-name và .sign-out */
+#navbar .full-name,
+#navbar .sign-out {
+    display: inline-block; /* Giữ hai phần tử hiển thị cạnh nhau */
+}
+
+/* .fa-house-chimney */
+#navbar .fa-house-chimney {
+    font-size: 34px; /* Đặt kích thước chữ hoặc biểu tượng lớn hơn */
+    line-height: 60px; /* Đảm bảo căn giữa theo chiều dọc */
+    position: absolute; /* position: absolute; top: 0;: Định vị chính xác biểu tượng ở vị trí trên cùng của khung cha */
+    top: 0;
+}
+
+/* Hover Effect */
+#navbar a:hover,
+#navbar .menu-icon:hover {
+    color: rgb(254, 97, 0); /* Khi rê chuột qua liên kết hoặc biểu tượng menu-icon, màu chuyển thành cam sáng */
+}

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Department Page</title>
+
+        <!-- Importing Frameworks -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+        <style>
+            body {
+                font-family: 'Roboto', sans-serif;
+                background-color: #f8f9fa;
+                margin: 0;
+                padding: 0;
+            }
+
+            .container {
+                margin-top: 20px;
+            }
+
+            .table-wrapper {
+                background: white;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .table thead {
+                background: #343a40;
+                color: white;
+            }
+
+            .btn-primary {
+                background-color: #007bff;
+                border: none;
+                transition: all 0.3s;
+            }
+
+            .btn-primary:hover {
+                background-color: #0056b3;
+            }
+
+            .btn-danger {
+                background-color: #dc3545;
+                border: none;
+                transition: all 0.3s;
+            }
+
+            .btn-danger:hover {
+                background-color: #bd2130;
+            }
+
+            .filter-wrapper {
+                display: flex;
+                gap: 10px;
+                margin-bottom: 20px;
+            }
+
+            .filter-item select {
+                padding: 5px;
+                border-radius: 5px;
+                border: 1px solid #ced4da;
+            }
+
+            .search-bar {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .page-nav {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 20px;
+            }
+
+            .page-nav input {
+                margin: 0 10px;
+                padding: 5px 15px;
+                border: 1px solid #ced4da;
+                border-radius: 5px;
+                background-color: #f8f9fa;
+                cursor: pointer;
+            }
+
+            .page-nav input:hover {
+                background-color: #e2e6ea;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1 class="text-center mb-4">Department List</h1>
+            
+            <!-- Filter Section -->
+            <div class="filter-wrapper">
+                <input type="date" id="filter-min-date-select" class="form-control filter-item">
+                <input type="date" id="filter-max-date-select" class="form-control filter-item">
+                <select class="form-select filter-item" id="filter-type-select">
+                    <option value="" selected>Type</option>
+                    <option value="PM">PM</option>
+                    <option value="SCRUM_MASTER">Scrum Master</option>
+                    <option value="DEV">Developer</option>
+                    <option value="TEST">Test</option>
+                </select>
+                <button class="btn btn-primary filter-item" onclick="filterDepartment()">
+                    <i class="fa-solid fa-filter"></i> Filter
+                </button>
+            </div>
+
+            <!-- Search Section -->
+            <div class="search-bar mb-3">
+                <input type="text" class="form-control" id="search-department-input" placeholder="Search by name...">
+                <button class="btn btn-primary" onclick="searchDepartment()">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+
+            <!-- Table Section -->
+            <div class="table-wrapper">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th><input type="checkbox" id="checkbox-all"></th>
+                            <th>Name</th>
+                            <th>Total Member</th>
+                            <th>Type</th>
+                            <th>Create Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Dynamic rows will be appended here -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Pagination -->
+            <div class="page-nav">
+                <input type="button" value="Previous" id="department-previousPage-btn" onclick="getPreviousDepartmentPage()">
+                <div class="page-info" id="department-page-info">1 / 10</div>
+                <input type="button" value="Next" id="department-nextPage-btn" onclick="getNextDepartmentPage()">
+            </div>
+        </div>
+
+        <!-- Scripts -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

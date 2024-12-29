@@ -1,0 +1,81 @@
+/* Global Styles: *: Áp dụng cho tất cả các phần tử trên trang web */
+* {
+    padding: 0;
+    margin: 0;
+    /* Xóa bỏ khoảng cách mặc định của tất cả các phần tử HTML */
+    box-sizing: border-box;
+    /* Thay đổi cách tính kích thước của hộp phần tử. Kích thước phần tử bao gồm cả padding và border, giúp dễ kiểm soát kích thước hơn */
+}
+
+/* Định nghĩa chung cho thanh Sidebar */
+.sidebar {
+    width: 140px;
+    /* Đặt chiều rộng cố định cho thanh sidebar là 140px */
+}
+
+ /* Thiết lập chiều cao cho Sidebar */
+.sidebar #sidenav {
+    height: 100%;
+    /* Đảm bảo Sidebar kéo dài toàn bộ chiều cao của màn hình */
+}
+
+/* Kiểu dáng cho các liên kết trong Sidebar */
+#sidenav a {
+    display: inline-block;
+    /* Hiển thị các liên kết dưới dạng khối ngang nhưng vẫn có thể điều chỉnh kích thước */
+    position: fixed;
+    /* Định vị các liên kết cố định, bất kể người dùng cuộn trang */
+    left: 0;
+    /* Căn chỉnh toàn bộ các liên kết sát lề trái màn hình */
+    width: 140px;
+    /* Đảm bảo các liên kết có chiều rộng bằng chiều rộng Sidebar */
+    padding: 10px 0px;
+    /* Tạo khoảng cách dọc giữa văn bản và biên */
+    font-size: 15px;
+    /* Kích thước chữ là 15px */
+    text-decoration: none;
+    /* Loại bỏ gạch chân mặc định của liên kết */
+    color: #000;
+    /* Màu chữ mặc định là đen */
+    border-bottom: 2px solid rgb(118, 116, 116);
+    /* Tạo viền dưới màu xám nhạt để phân tách các liên kết */
+}
+
+/* Vị trí cho từng liên kết cụ thể */
+/* top: Định nghĩa khoảng cách từ đỉnh màn hình xuống từng liên kết. Mỗi liên kết có vị trí cách nhau 52px */
+
+#sidenav #sidenav-user {
+    top: 60px;
+}
+
+#sidenav #sidenav-account {
+    top: 112px;
+}
+
+#sidenav #sidenav-dept {
+    top: 164px;
+}
+
+/* Kiểu dáng cho biểu tượng trong liên kết */
+#sidenav a i {
+    font-size: 30px;
+    /* Tăng kích thước biểu tượng lên 30px */
+    padding-left: 5px;
+    /* Tạo khoảng cách bên trái biểu tượng để căn chỉnh hài hòa với văn bản */
+}
+
+/* Định vị và căn chỉnh nhãn liên kết */
+#sidenav span {
+    position: absolute;
+    /* Nhãn liên kết được định vị dựa vào phần tử cha */
+    line-height: 31px;
+    /* Tạo khoảng cách dọc giúp nhãn canh giữa với biểu tượng */
+    left: 55px;
+    /* Đẩy nhãn sang phải 55px, giúp căn chỉnh với biểu tượng */
+}
+
+/* Hiệu ứng hover cho liên kết */
+#sidenav a:hover {
+    color: rgb(254, 97, 0);
+    /* Khi người dùng di chuột lên liên kết, màu chữ chuyển sang cam sáng, tạo hiệu ứng nổi bật */
+}

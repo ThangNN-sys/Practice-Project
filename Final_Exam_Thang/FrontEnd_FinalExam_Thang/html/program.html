@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testing System</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: #fff;
+            border-bottom: 2px solid rgb(118, 116, 116);
+            z-index: 1;
+        }
+
+        .footer {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #aaa;
+            line-height: 40px;
+            text-align: center;
+            border-top: 2px solid rgb(118, 116, 116);
+            z-index: 4;
+        }
+
+        .sidebar {
+            width: 140px;
+            position: fixed;
+            top: 60px;
+            bottom: 0;
+            border-right: 2px solid rgb(118, 116, 116);
+        }
+
+        .main {
+            margin-left: 140px;
+            margin-top: 60px;
+            padding: 16px;
+            background-color: #eee;
+            min-height: calc(100vh - 100px);
+        }
+
+        #snackbar {
+            visibility: hidden;
+            min-width: 250px;
+            margin-left: -125px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 2px;
+            padding: 16px;
+            position: fixed;
+            z-index: 100;
+            left: 50%;
+            bottom: 50px;
+        }
+
+        #snackbar.show {
+            visibility: visible;
+            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+
+        @keyframes fadein {
+            from {
+                bottom: 0;
+                opacity: 0;
+            }
+
+            to {
+                bottom: 50px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeout {
+            from {
+                bottom: 50px;
+                opacity: 1;
+            }
+
+            to {
+                bottom: 0;
+                opacity: 0;
+            }
+        }
+    </style>
+
+    <script>
+        const storage = {
+            saveRememberMe(isRememberMe) {
+                localStorage.setItem("IS_REMEMBER_ME", isRememberMe);
+            },
+            getRememberMe() {
+                const rememberMeStr = localStorage.getItem("IS_REMEMBER_ME");
+                return rememberMeStr == null ? true : JSON.parse(rememberMeStr.toLowerCase());
+            },
+            setItem(key, value) {
+                if (this.getRememberMe()) {
+                    localStorage.setItem(key, value);
+                } else {
+                    sessionStorage.setItem(key, value);
+                }
+            },
+            getItem(key) {
+                return this.getRememberMe() ? localStorage.getItem(key) : sessionStorage.getItem(key);
+            },
+            removeItem(key) {
+                this.getRememberMe() ? localStorage.removeItem(key) : sessionStorage.removeItem(key);
+            }
+        };
+
+        function isLogin() {
+            return storage.getItem("ID") !== null;
+        }
+
+        function logout() {
+            ["ID", "FULL_NAME", "FIRST_NAME", "LAST_NAME", "ROLE", "USERNAME", "PASSWORD"].forEach(key => storage.removeItem(key));
+            window.location.replace("/html/login/loginform.html");
+        }
+
+        function showSnackbar(message) {
+            const snackbar = document.getElementById("snackbar");
+            snackbar.textContent = message;
+            snackbar.className = "show";
+            setTimeout(() => snackbar.className = snackbar.className.replace("show", ""), 3000);
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            if (!isLogin()) {
+                window.location.replace("/html/login/loginform.html");
+                return;
+            }
+
+            document.querySelector(".header").textContent = storage.getItem("FULL_NAME");
+            document.querySelector(".main").textContent = `Welcome, ${storage.getItem("LAST_NAME")}`;
+        });
+
+        function viewHomepage() {
+            document.querySelector(".main").textContent = "Home Page Content Loaded";
+        }
+
+        function viewAccountPage() {
+            document.querySelector(".main").textContent = "Account Page Content Loaded";
+        }
+    </script>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Header Content</h1>
+    </div>
+
+    <div class="sidebar">
+        <nav>
+            <ul>
+                <li><a href="#" onclick="viewHomepage()">Home</a></li>
+                <li><a href="#" onclick="viewAccountPage()">Accounts</a></li>
+                <li><a href="#" onclick="logout()">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="main">
+        <h2>Main Content Area</h2>
+    </div>
+
+    <div class="footer">
+        <p>Footer Content</p>
+    </div>
+
+    <div id="snackbar">Some text here</div>
+</body>
+
+</html>

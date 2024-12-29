@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .modal {
+            display: block;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto 15% auto;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        .modal-content.animate {
+            width: 500px;
+            animation: animatezoom 0.6s;
+        }
+
+        @keyframes animatezoom {
+            from {
+                transform: scale(0)
+            }
+
+            to {
+                transform: scale(1)
+            }
+        }
+
+        .imgcontainer {
+            text-align: center;
+            margin: 24px 0 12px 0;
+            position: relative;
+        }
+
+        img.avatar {
+            width: 40%;
+            border-radius: 50%;
+        }
+
+        .container {
+            padding: 16px;
+        }
+
+        input[type=text],
+        input[type=password] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        #login-btn {
+            background-color: #04AA6D;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        #login-btn:hover {
+            opacity: 0.8;
+        }
+
+        #incorrect-mess {
+            padding: 5px 0px;
+            font-size: 14px;
+            color: red;
+            display: none;
+        }
+
+        @media screen and (max-width: 300px) {
+            span.psw {
+                display: block;
+                float: none;
+            }
+        }
+    </style>
+    <script>
+        var storage = {
+            saveRememberMe(isRememberMe) {
+                localStorage.setItem("IS_REMEMBER_ME", isRememberMe);
+            },
+            getRememberMe() {
+                var rememberMeStr = localStorage.getItem("IS_REMEMBER_ME");
+                return rememberMeStr == null ? true : JSON.parse(rememberMeStr.toLowerCase());
+            },
+            setItem(key, value) {
+                if (this.getRememberMe()) {
+                    localStorage.setItem(key, value);
+                } else {
+                    sessionStorage.setItem(key, value);
+                }
+            },
+            getItem(key) {
+                return this.getRememberMe() ? localStorage.getItem(key) : sessionStorage.getItem(key);
+            },
+            removeItem(key) {
+                return this.getRememberMe() ? localStorage.removeItem(key) : sessionStorage.removeItem(key);
+            }
+        };
+
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("id01").style.display = 'block';
+            setupEnterLoginEvent();
+            setDefaultRememberme();
+        });
+
+        function setupEnterLoginEvent() {
+            document.getElementById("username").addEventListener("keyup", function (event) {
+                if (event.key === "Enter") login();
+            });
+            document.getElementById("password").addEventListener("keyup", function (event) {
+                if (event.key === "Enter") login();
+            });
+        }
+
+        function setDefaultRememberme() {
+            document.getElementById("rememberMe").checked = storage.getRememberMe();
+        }
+
+        function login() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            if (!isValidUsername(username) || !isValidPassword(password)) return;
+
+            if (username.length < 6 || username.length > 50 || password.length < 6 || password.length > 50) {
+                showLoginFailMessage();
+                return;
+            }
+
+            callLoginAPI(username, password);
+        }
+
+        function callLoginAPI(username, password) {
+            fetch('http://localhost:8080/api/v1/auth/login', {
+                method: 'GET',
+                headers: {
+                    'Authorization': 'Basic ' + btoa(username + ":" + password)
+                }
+            }).then(response => {
+                if (!response.ok) {
+                    if (response.status === 401) showLoginFailMessage();
+                    return;
+                }
+                return response.json();
+            }).then(data => {
+                if (data) {
+                    storage.saveRememberMe(document.getElementById("rememberMe").checked);
+                    storage.setItem("ID", data.id);
+                    storage.setItem("FULL_NAME", data.fullName);
+                    window.location.replace("http://127.0.0.1:5500/html/program.html");
+                }
+            }).catch(console.error);
+        }
+
+        function isValidUsername(username) {
+            if (!username) {
+                showFieldErrorMessage("incorrect-mess", "username", "Please input username!");
+                return false;
+            }
+            hideFieldErrorMessage("incorrect-mess", "username");
+            return true;
+        }
+
+        function isValidPassword(password) {
+            if (!password) {
+                showFieldErrorMessage("incorrect-mess", "password", "Please input password!");
+                return false;
+            }
+            hideFieldErrorMessage("incorrect-mess", "password");
+            return true;
+        }
+
+        function showLoginFailMessage() {
+            showFieldErrorMessage("incorrect-mess", "username", "Login failed!");
+        }
+
+        function showFieldErrorMessage(messageId, inputId, message) {
+            document.getElementById(messageId).innerHTML = message;
+            document.getElementById(messageId).style.display = "block";
+            document.getElementById(inputId).style.border = "1px solid red";
+        }
+
+        function hideFieldErrorMessage(messageId, inputId) {
+            document.getElementById(messageId).style.display = "none";
+            document.getElementById(inputId).style.border = "1px solid #ccc";
+        }
+    </script>
+</head>
+
+<body>
+    <div id="id01" class="modal">
+        <form class="modal-content animate" action="">
+            <div class="imgcontainer">
+                <img src="../../asset/avatar.png" alt="Avatar" class="avatar">
+            </div>
+            <div class="container">
+                <label for="uname"><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" id="username" required>
+
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" id="password" required>
+
+                <div id="incorrect-mess">Login Failed: Your username or password is incorrect</div>
+
+                <input type="button" id="login-btn" value="Login" onclick="login()">
+
+                <label>
+                    <input type="checkbox" id="rememberMe"> Remember me
+                </label>
+            </div>
+
+            <div class="container" style="background-color:#f1f1f1">
+                <span class="psw"><a href="#">Forgot password?</a></span>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

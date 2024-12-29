@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sidebar</title>
+
+        <!-- Importing Frameworks -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+        <style>
+            #sidenav {
+                width: 250px;
+                background-color: #343a40;
+                height: 100vh;
+                position: fixed;
+                top: 0;
+                left: 0;
+                padding-top: 20px;
+                color: white;
+            }
+
+            #sidenav a {
+                display: flex;
+                align-items: center;
+                color: white;
+                text-decoration: none;
+                padding: 10px 20px;
+                margin: 5px 0;
+                border-radius: 5px;
+                transition: background-color 0.3s, color 0.3s;
+            }
+
+            #sidenav a:hover {
+                background-color: #495057;
+                color: #f8f9fa;
+            }
+
+            #sidenav i {
+                margin-right: 10px;
+            }
+
+            #sidenav #sidenav-user {
+                font-size: 18px;
+                margin-bottom: 20px;
+                text-align: center;
+            }
+
+            #sidenav-user span {
+                display: block;
+                font-weight: bold;
+                margin-top: 5px;
+            }
+
+            @media (max-width: 768px) {
+                #sidenav {
+                    width: 100%;
+                    height: auto;
+                    position: relative;
+                }
+
+                #sidenav a {
+                    justify-content: center;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div id="sidenav">
+            <a href="#" id="sidenav-user">
+                <i class="fa-solid fa-circle-user"></i>
+                <span id="sidebar-lastname">Hello Duy!</span>
+            </a>
+            <a href="#" id="sidenav-account" onclick="viewAccountPage()">
+                <i class="fa-solid fa-user"></i>
+                <span>Account</span>
+            </a>
+            <a href="#" id="sidenav-dept" onclick="viewDepartmentList()">
+                <i class="fa-solid fa-users"></i>
+                <span>Department</span>
+            </a>
+        </div>
+
+        <!-- Scripts -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

@@ -3,9 +3,12 @@
 
 <head>
     
-    <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Đảm bảo trang hiển thị tốt trên thiết bị di động (điều chỉnh kích thước viewport) -->
-    <link rel="stylesheet" href="../../css/login/loginform.css"> <!-- Liên kết đến file CSS để định nghĩa phong cách cho giao diện đăng nhập -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> <!-- Import thư viện jQuery để hỗ trợ thao tác DOM, xử lý sự kiện, và các tính năng khác -->
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <!-- Đảm bảo trang hiển thị tốt trên thiết bị di động (điều chỉnh kích thước viewport) -->
+    <link rel="stylesheet" href="../../css/login/loginform.css"> 
+    <!-- Liên kết đến file CSS để định nghĩa phong cách cho giao diện đăng nhập -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> 
+    <!-- Import thư viện jQuery để hỗ trợ thao tác DOM, xử lý sự kiện, và các tính năng khác -->
 
 </head>
 
@@ -14,58 +17,69 @@
     <div id="id01" class="modal"> <!-- Container chính, đóng vai trò là một hộp thoại (modal) cho form đăng nhập -->
 
         <!-- Xây dựng form đăng nhập -->
-         <!-- class="modal-content animate": Áp dụng kiểu dáng và hiệu ứng động từ CSS -->
-          <!-- action="": Không có URL xử lý form, form này chỉ xử lý phía client (ở đây sử dụng JavaScript) -->
-        <form class="modal-content animate" action=""> 
+         
+        <form class="modal-content animate" action="">
+        <!-- class="modal-content animate": Áp dụng kiểu dáng và hiệu ứng động từ CSS -->
+          <!-- action="": Không có URL xử lý form, form này chỉ xử lý phía client (ở đây sử dụng JavaScript) --> 
+
             
             <div class="imgcontainer"> <!-- Chứa hình ảnh đại diện -->
+                <img src="../../asset/avatar.png" alt="Avatar" class="avatar">
                 <!-- src="../../asset/avatar.png": Đường dẫn đến file hình ảnh -->
                  <!-- class="avatar": Gắn kiểu CSS để định nghĩa kích thước và vị trí -->
-                <img src="../../asset/avatar.png" alt="Avatar" class="avatar">
             </div>
 
             <div class="container"> 
                 
                 <!-- Input Username -->
-                <label for="uname"><b>Username</b></label> <!-- <label for="uname">: Gắn nhãn cho input uname-->
-                <!-- <input type="text" name="uname" id="username">:
-                    placeholder="Enter Username": Hiển thị văn bản gợi ý 
-                    onkeyup="$('#incorrect-mess').css('display', 'none')": Khi gõ phím, ẩn thông báo lỗi bằng cách dùng jQuery thay đổi thuộc tính CSS của #incorrect-mess -->
+                <label for="uname"><b>Username</b></label> <!-- Gắn nhãn cho input uname là Username -->
+                
                 <input type="text" placeholder="Enter Username" name="uname" id="username" value="" 
                     onkeyup="$('#incorrect-mess').css('display', 'none')" required>
+                <!-- <input type="text" name="uname" id="username">:
+                    placeholder="Enter Username": Hiển thị văn bản gợi ý 
+                    onkeyup="$('#incorrect-mess').css('display', 'none')": Khi gõ phím, ẩn thông báo lỗi bằng cách 
+                    dùng jQuery thay đổi thuộc tính CSS của #incorrect-mess -->
 
                 <!-- Input Password -->
-                <label for="psw"><b>Password</b></label> <!-- <label for="psw">: Gắn nhãn cho input psw -->
+                <label for="psw"><b>Password</b></label> <!-- Gắn nhãn cho input psw là Passwword -->
+                
+                <input type="password" placeholder="Enter Password" name="psw" id="password" value=""
+                    onkeyup="$('#incorrect-mess').css('display', 'none')" required>
                 <!-- <input type="password">: Input để nhập mật khẩu
                     Thuộc tính type="password" làm cho nội dung nhập vào bị ẩn (hiển thị dấu chấm/bôi đen) -->
-                    <input type="password" placeholder="Enter Password" name="psw" id="password" value=""
-                    onkeyup="$('#incorrect-mess').css('display', 'none')" required>
 
                 <!-- Thông báo lỗi -->
-                 <!-- <div id="incorrect-mess">:
+                <div id="incorrect-mess">Login Failed: Your username or password is incorrect</div>
+                <!-- <div id="incorrect-mess">:
                     Hiển thị thông báo lỗi khi đăng nhập thất bại
                     CSS có thể kiểm soát việc hiển thị hoặc ẩn (display: none;) -->
-                <div id="incorrect-mess">Login Failed: Your username or password is incorrect</div>
                 
                 <!-- Nút "Login" -->
-                 <!-- <input type="button">:
+                <input type="button" value="Login" onclick="login()" id="login-btn"></input>
+                <!-- <input type="button">:
                   Nút bấm để thực hiện chức năng đăng nhập
                   onclick="login()": Gọi hàm login() (được định nghĩa trong file JavaScript) -->
-                <input type="button" value="Login" onclick="login()" id="login-btn"></input>
                 
                 <!-- Checkbox "Remember me" -->
-                 <!-- <input type="checkbox">: Tùy chọn để ghi nhớ thông tin người dùng (username) -->
                 <label>
                     <input type="checkbox" id="rememberMe" name="remember"> Remember me
+                    <!-- <input type="checkbox">: Tùy chọn để ghi nhớ thông tin người dùng (username) -->
                 </label>
+
             </div>
 
             <!-- Footer của form -->
             <div class="container" style="background-color:#f1f1f1">
-                <!-- <button type="button" style='visibility:hidden'>: Nút "ẩn" (có thể để bố cục đồng đều) -->
+                
                 <button type="button" style='visibility:hidden' class="cancelbtn"></button>
-                <!-- <span class="psw"><a href="#">Forgot password?</a></span>: Liên kết để người dùng lấy lại mật khẩu -->
+                <!-- <button type="button" style='visibility:hidden'>: Nút "ẩn" (có thể để bố cục đồng đều) -->
+
+
+                    
+                
                 <span class="psw"><a href="#">Forgot password?</a></span>
+                <!-- <span class="psw"><a href="#">Forgot password?</a></span>: Liên kết để người dùng lấy lại mật khẩu -->
             </div>
         </form>
     </div>
