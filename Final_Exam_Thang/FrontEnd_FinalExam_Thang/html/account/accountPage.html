@@ -1,138 +1,281 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Account Page</title>
+<div class="alv-container"> <!-- phần tử bao bọc (container) toàn bộ giao diện trang danh sách tài khoản -->
+    <div class="alv-heading"> <!-- tiêu đề hiển thị tên của trang là "ACCOUNT LIST" -->
+        ACCOUNT LIST
+    </div>
 
-        <!-- Importing Frameworks -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-        <style>
-            body {
-                font-family: 'Roboto', sans-serif;
-                background-color: #f8f9fa;
-                margin: 0;
-                padding: 0;
-            }
-
-            .container {
-                margin-top: 20px;
-            }
-
-            .table-wrapper {
-                background: white;
-                padding: 20px;
-                border-radius: 8px;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            }
-
-            .table thead {
-                background: #343a40;
-                color: white;
-            }
-
-            .btn-primary {
-                background-color: #007bff;
-                border: none;
-                transition: all 0.3s;
-            }
-
-            .btn-primary:hover {
-                background-color: #0056b3;
-            }
-
-            .btn-danger {
-                background-color: #dc3545;
-                border: none;
-                transition: all 0.3s;
-            }
-
-            .btn-danger:hover {
-                background-color: #bd2130;
-            }
-
-            .filter-wrapper {
-                display: flex;
-                gap: 10px;
-                margin-bottom: 20px;
-            }
-
-            .filter-item select {
-                padding: 5px;
-                border-radius: 5px;
-                border: 1px solid #ced4da;
-            }
-
-            .search-bar {
-                display: flex;
-                align-items: center;
-                gap: 10px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <h1 class="text-center mb-4">Account List</h1>
-            
-            <!-- Filter Section -->
-            <div class="filter-wrapper">
-                <select class="form-select filter-item" id="filter-role-select">
-                    <option value="">All Roles</option>
-                    <option value="Admin">Admin</option>
-                    <option value="Employee">Employee</option>
-                    <option value="Manager">Manager</option>
-                </select>
-                <select class="form-select filter-item" id="filter-department-select">
-                    <option value="">All Departments</option>
-                    <option value="Alpha">Alpha</option>
-                    <option value="Beta">Beta</option>
-                    <option value="Theta">Theta</option>
-                    <option value="Omega">Omega</option>
-                </select>
-                <button class="btn btn-primary filter-item" onclick="filterAccount()">
-                    <i class="fa-solid fa-filter"></i> Filter
-                </button>
-            </div>
-
-            <!-- Search Section -->
-            <div class="search-bar mb-3">
-                <input type="text" class="form-control" id="search-account-input" placeholder="Search by name...">
-                <button class="btn btn-primary" onclick="searchAccount()">
-                    <i class="fas fa-search"></i>
-                </button>
-            </div>
-
-            <!-- Table Section -->
-            <div class="table-wrapper">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th><input type="checkbox" id="checkbox-all"></th>
-                            <th>Username</th>
-                            <th>Full Name</th>
-                            <th>Role</th>
-                            <th>Department</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Dynamic rows will be appended here -->
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- Pagination -->
-            <nav aria-label="Page navigation example" class="mt-3">
-                <ul class="pagination justify-content-center">
-                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                </ul>
-            </nav>
+    <!-- Bộ lọc - Filter -->
+    <!-- Bộ lọc được sử dụng để người dùng tìm kiếm tài khoản dựa trên vai trò (role) hoặc phòng ban (department) -->
+     <!-- Tùy chọn (select) cho phép người dùng chọn vai trò hoặc phòng ban -->
+    <!-- Khi người dùng chọn vai trò hoặc phòng ban, hàm filterAccount() sẽ gọi đến -->
+    <div class="filter-wrapper">
+        
+        <!-- Dropdown cho phép người dùng chọn vai trò để lọc -->
+        <div class="filter-item">            
+            <select id="filter-role-select" style="width:200px;" class="operator"> 
+                <!-- Các tùy chọn (options) -->
+                <option value=""></option> <!-- Default value -->
+                <option value="All Roles">All Roles</option>
+                <option value="ADMIN">Admin</option>
+                <option value="EMPLOYEE">Employee</option>
+                <option value="MANAGER">Manager</option>
+            </select>
         </div>
+        
+        <!-- Dropdown cho phép người dùng chọn phòng ban để lọc -->
+        <div class="filter-item">
+            <select id="filter-department-select" style="width:200px;" class="operator">
+                <!-- Các tùy chọn (options) -->
+                <option value="">All Departments</option> <!-- Default value -->
+                <option value="alpha">alpha</option> 
+                <option value="beta">beta</option>
+                <option value="theta">theta</option>
+                <option value="omega">omega</option>
+            </select>
+        </div>
+        
+        <!-- Nút lọc (filter) -->
+        <div class="filter-item">
+            <a href="#" data-toggle="tooltip" title="Filter" onclick="filterAccount()">
+                <i class="fa-solid fa-filter"></i>
+            </a>
+        </div>
+    </div>
 
-        <!-- Scripts -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    </body>
-</html>
+    <!-- Bảng danh sách tài khoản - Account List -->
+    <div class="alv-table">
+
+        <div class="table-wrapper">
+            
+            <!-- Phần nút điều khiển (Function Bar) -->
+            <div class="function-bar">
+
+                <!-- Search -->
+                <div class="search-bar">
+                    <i class="fas fa-search search-icon"></i>
+                    <input class="form-control" type="text" id="search-account-input" placeholder="Search by name..." data-toggle="tooltip">
+                </div>
+
+                <div class="add-sync-del-btn">
+                    <!-- Nút làm mới (refresh) danh sách tài khoản -->
+                    <a href="#" data-toggle="tooltip" title="Refresh" onclick="refreshAccountTable()">
+                        <i class="fas fa-sync"></i>
+                    </a>
+                    <!-- Nút thêm tài khoản (showAddAccountModal) -->
+                    <a href="#" data-toggle="tooltip" title="Add" onclick="openAddAccountModal()">
+                        <i class="fa-solid fa-square-plus"></i>
+                    </a>
+                    <!-- Nút xóa nhiều tài khoản (showDeleteMultipleAccountsModal) -->
+                    <a href="#" data-toggle="tooltip" title="Delete" onclick="showDeleteMultipleAccountsModal()">
+                        <i class="fa-regular fa-trash-can"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Phần dữ liệu (Data Rows) -->
+            <table class="table table-striped table-hover" id="account-table">
+                <thead>
+                    <tr>
+                        <!-- Checkbox cho phép người dùng chọn tài khoản -->
+                        <!-- Khi nhấn, gọi hàm onChangeAccountCheckboxAll() để thực hiện logic chọn/bỏ chọn tất cả -->
+                        <th style="width: 45px;">
+                            <span class="account-checkbox">
+                                <input type="checkbox" id="checkbox-all" name="checkbox-all"
+                                    onclick="onChangeAccountCheckboxAll()">
+                                <label></label>
+                            </span>
+                        </th>
+                        
+                        <!-- Hiển thị tên đăng nhập của tài khoản, hỗ trợ sắp xếp theo tên đăng nhập khi nhấn vào tiêu đề cột -->
+                        <th style="width: auto;" id="th-username">
+                            <a href="#" onclick="changeAccountSort('username')">
+                                Username
+                                <i id="username-sort" class="fa-solid fa-sort"></i>
+                            </a>
+                        </th>
+
+                        <!-- Hiển thị họ và tên của tài khoản, hỗ trợ sắp xếp theo họ và tên khi nhấn vào tiêu đề cột -->
+                        <th style="width: 25%;" id="th-full-name">
+                            <a href="#" onclick="changeAccountSort('fullName')">
+                                Full Name
+                                <i id="fullname-sort" class="fa-solid fa-sort"></i>
+                            </a>
+                        </th>
+
+                        <!-- Hiển thị vai trò của tài khoản (Admin, Employee, Manager) -->
+                        <th style="width: 15%;">
+                            Role
+                        </th>
+                        
+                        <!-- Hiển thị tên phòng ban và hỗ trợ sắp xếp -->
+                        <th style="width: 20%;" id="th-department">
+                            <a href="#" onclick="changeAccountSort('departmentName')">
+                                Department
+                                <i id="departmentName-sort" class="fa-solid fa-sort"></i>
+                            </a>
+                        </th>
+                        
+                        <!-- Cột này dự kiến chứa các nút hành động như chỉnh sửa, xóa tài khoản (hiện chưa có nút cụ thể trong file này) -->
+                        <th style="width: 120px;">
+                            Actions
+                            </a>
+                        </th>
+
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+
+            </table>
+            
+            <!-- Phân trang (Pagination) -->
+            <div class="page-nav">
+                <!-- Nút chuyển đến trang trước -->
+                <input type="button" value="Previous" id="account-previousPage-btn" onclick="prevAccountPage()">
+                <!-- Hiển thị số trang hiện tại -->
+                <div class="page-info" id="account-page-info">
+                    <!-- 10 records 1 of 10 -->
+                </div>
+                <!-- Nút chuyển đến trang sau -->
+                <input type="button" value="Next" id="account-nextPage-btn" onclick="nextAccountPage()">
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal thêm hoặc cập nhật tài khoản -->
+
+    <!-- Modal xác nhận xóa nhiều tài khoản -->
+    <div class="modal fade" id="addAndUpdateAcccountModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <!-- Header -->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title" id="addAndUpdateAccount-modal-title" style="text-align: center; font-size: 25px;">
+                        Title
+                    </h4>
+                </div>
+                <!-- Body -->
+                <div class="modal-body">
+                    <input type="hidden" id="account-id" name="id" value="">
+                    
+                    <!-- Trường nhập liệu Username -->
+                    <div class="input-item">
+                        <label for="username" style="margin-left: 4px;"><b>Username:</b></label>
+                        <input class="form-control" type="text" placeholder="Username" name="username" id="modal-username">
+                        <div id="modal-input-errMess-username" class="input-errMess"></div>
+                    </div>
+
+                    <!-- Trường nhập liệu First Name và Last Name -->
+                    <div class="input-item">
+                        <label for="first-name"><b>First Name:</b></label>
+                        <input class="form-control" type="text" placeholder="First Name" name="first-name" id="modal-first-name">
+
+                        <label for="last-name"><b>Last Name:</b></label>
+                        <input class="form-control" type="text" placeholder="Last Name" name="last-name" id="modal-last-name">
+
+                        <div id="modal-input-errMess-name" class="input-errMess"></div>
+                    </div>
+
+                    <!-- Dropdown cho phép người dùng chọn vai trò để lọc -->
+                    <div class="input-item" id="input-item-role">
+                        <label for="role" id="role-label"><b>Role:</b></label>
+                        <select class="form-control" name="role" id="modal-role-select">
+                            <!-- Các tùy chọn (options) -->
+                            <option value=""></option> <!-- Default value-->
+                            <option value="ADMIN">Admin</option>
+                            <option value="EMPLOYEE">Employee</option>
+                            <option value="MANAGER">Manager</option>
+                         </select>
+                        <div id="modal-input-errMess-role" class="input-errMess"></div>
+                    </div>
+
+                    <!-- Dropdown cho phép người dùng chọn phòng ban để lọc -->
+                    <div class="input-item" id="input-item-departmentName">
+                        <label id="department-lable" for="department"><b>Department:</b></label>
+                        <select class="form-control" name="department" id="modal-department-select">
+                            <!-- Các tùy chọn (options) -->
+                            <option value="">- Pick a department -</option>
+                            <option value="alpha">alpha</option> 
+                            <option value="beta">beta</option>
+                            <option value="theta">theta</option>
+                            <option value="omega">omega</option>
+                        </select>
+                        <div id="modal-input-errMess-department" class="input-errMess"></div>
+                    </div>
+
+                </div>
+                
+                <!-- Footer -->
+                <div class="modal-footer">
+                    <!-- Nút Close -->
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <!-- Nút Save -->
+                    <button type="button" class="btn btn-default save-btn" onclick="saveAccount()">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal xóa 1 tài khoản -->
+    <div class="modal fade" id="deleteSingleAccountModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <!-- Header -->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title" style="text-align: center; font-size: 24px;">Delete Account</i>
+                    </h4>
+                </div>
+                <input type="hidden" id="delete-single-account-id" name="id" value="">
+                
+                <!-- Body -->
+                <div class="modal-body" id="delete-single-account-confirm-mess">
+
+                </div>
+                
+                <!-- Footer -->
+                <div class="modal-footer">
+                    <!-- Nút Close -->
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <!-- Nút Delete -->
+                    <button id="delete-single-account-btn" type="button" class="btn btn-default delete-btn">
+                        Delete
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal xóa nhiều tài khoản -->
+    <div class="modal fade" id="deleteMultipleAccountsModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+
+                <!-- Header -->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title" style="text-align: center; font-size: 24px;">Delete Account</i>
+                    </h4>
+                </div>
+
+                <!-- Body -->
+                <div class="modal-body" id="delete-accounts-confirm-mess">
+
+                </div>
+                
+                <!-- Footer -->
+                <div class="modal-footer">
+                    <!-- Nút Close -->
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <!-- Nút Delete -->
+                    <button id="delete-multiple-accounts-btn" type="button" class="btn btn-default delete-btn">
+                        Delete
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>

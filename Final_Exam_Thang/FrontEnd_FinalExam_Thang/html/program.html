@@ -8,6 +8,7 @@
     <title>Testing System</title>
 
     <style>
+        /* Include all CSS files here */
         * {
             margin: 0;
             padding: 0;
@@ -96,9 +97,13 @@
                 opacity: 0;
             }
         }
+        /* Additional CSS from other files included below */
+        /* Add your additional CSS here */
     </style>
-
+<link rel="stylesheet" href="../css/account/accountTable.css" />
+<link rel="stylesheet" href="../css/department/departmentTable.css" />
     <script>
+        /* Include all JavaScript logic */
         const storage = {
             saveRememberMe(isRememberMe) {
                 localStorage.setItem("IS_REMEMBER_ME", isRememberMe);
@@ -149,12 +154,48 @@
         });
 
         function viewHomepage() {
-            document.querySelector(".main").textContent = "Home Page Content Loaded";
+            fetch('./home/homePage.html')
+                .then(response => response.text())
+                .then(html => {
+                    document.querySelector(".main").innerHTML = html;
+                    updateHomepageGreeting();
+                })
+                .catch(error => {
+                    console.error('Error loading homepage:', error);
+                    document.querySelector(".main").textContent = "Error loading Home Page";
+                });
         }
 
-        function viewAccountPage() {
-            document.querySelector(".main").textContent = "Account Page Content Loaded";
+        function updateHomepageGreeting() {
+            const fullName = storage.getItem("FULL_NAME");
+            const greetingElement = document.getElementById("line-2");
+            if (greetingElement) {
+                greetingElement.textContent = `HELLO ${fullName}!!!`;
+            }
         }
+
+
+        function viewAccountPage() {
+            fetch('./account/accountPage.html')
+                .then(response => response.text())
+                .then(html => {
+                    document.querySelector(".main").innerHTML = html;
+                    initializeAccountPage();
+                })
+                .catch(error => {
+                    console.error('Error loading account page:', error);
+                    document.querySelector(".main").textContent = "Error loading Account Page";
+                });
+        }
+
+        function initializeAccountPage() {
+            // Thực hiện các tác vụ khởi tạo cần thiết cho trang Account
+            // Ví dụ: tải dữ liệu tài khoản, thiết lập các sự kiện, v.v.
+            console.log("Account page initialized");
+            // Gọi các hàm khởi tạo khác nếu cần
+            // Ví dụ: buildAccountTable();
+        }
+
     </script>
 </head>
 
